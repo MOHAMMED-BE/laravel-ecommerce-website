@@ -4,6 +4,6 @@
     </x-slot>
 
     <div class="py-12">
-        Dash
+        Dashboard
     </div>
 </x-app-layout>
