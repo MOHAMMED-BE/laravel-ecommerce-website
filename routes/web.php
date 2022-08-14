@@ -44,9 +44,12 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/admin/dashboard', function () {
-        return view('dashboard');
+        return view('admin.index');
     })->name('dashboard');
 });
+
+Route::get('/admin/logout',[AdminController::class,'destroy'])->name('admin.logout');
+
 
 
 // Route::middleware(['auth:sanctum,web','verified'])->get('/dashboard',function() {
