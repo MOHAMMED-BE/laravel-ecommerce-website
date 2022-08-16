@@ -26,19 +26,19 @@
   border-color: #cccccc !important;
   color: #475f7b; }
 
-.btn-outline.btn-default {
+/* .btn-outline.btn-default {
   color: #475f7b;
   background-color: transparent;
   border-color: #cccccc !important; }
   .btn-outline.btn-default:hover, .btn-outline.btn-default:active, .btn-outline.btn-default.active {
     background-color: #e6e6e6 !important;
     border-color: #cccccc !important;
-    color: #475f7b; }
-
+    color: #475f7b; } */
+/* 
 .show > .btn-outline.btn-default.dropdown-toggle {
   background-color: #e6e6e6 !important;
   border-color: #cccccc !important;
-  color: #475f7b; }
+  color: #475f7b; } */
 
 .btn-flat.btn-default {
   color: #475f7b;
@@ -50,7 +50,7 @@
     color: #475f7b; }
 
 /*---Secondary Button---*/
-.btn-secondary {
+/* .btn-secondary {
   background-color: #a8b9cd;
   border-color: #a8b9cd;
   color: #ffffff !important; }
@@ -109,7 +109,7 @@
   border-color: #5a789b;
   color: #ffffff; }
 
-/*---Dark Button---*/
+---Dark Button---
 .btn-dark {
   background-color: #475f7b;
   border-color: #475f7b;
@@ -155,7 +155,7 @@
     border-color: #d8e0e9 !important;
     color: #ffffff; }
 
-/*---Light Button---*/
+---Light Button---
 .btn-light {
   background-color: #d5dfea;
   border-color: #d9d9d9;
@@ -199,7 +199,7 @@
   .btn-flat.btn-light:hover, .btn-flat.btn-light:active, .btn-flat.btn-light.active {
     background-color: #d5dfea !important;
     border-color: #475f7b !important;
-    color: #475f7b; }
+    color: #475f7b; } */
 
 /*---Background---*/
 .bg-secondary {
@@ -504,7 +504,7 @@ Theme Primary Color
   .sidebar-mini.sidebar-collapse .sidebar-menu > li.active.menu-open {
     background-color: rgba(15, 94, 247, 0.2);
     color: #0f5ef7; } }
-/*---Primary Button---*/
+/* ---Primary Button---
 .theme-primary .btn-link {
   color: #0F5EF7; }
 .theme-primary .btn-primary {
@@ -546,14 +546,14 @@ Theme Primary Color
   .theme-primary .btn-flat.btn-primary:hover, .theme-primary .btn-flat.btn-primary:active, .theme-primary .btn-flat.btn-primary.active {
     background-color: #074acc !important;
     border-color: #074acc !important;
-    color: #ffffff; }
+    color: #ffffff; } */
 
 /*---info Button---*/
-.theme-primary .btn-info {
+/* .theme-primary .btn-info {
   background-color: #7a15f7;
   border-color: #7a15f7;
-  color: #ffffff; }
-  .theme-primary .btn-info:hover, .theme-primary .btn-info:active, .theme-primary .btn-info:focus, .theme-primary .btn-info.active {
+  color: #ffffff; } */
+  /* .theme-primary .btn-info:hover, .theme-primary .btn-info:active, .theme-primary .btn-info:focus, .theme-primary .btn-info.active {
     background-color: #6207d2 !important;
     border-color: #6207d2 !important;
     color: #ffffff; }
@@ -588,10 +588,10 @@ Theme Primary Color
   .theme-primary .btn-flat.btn-info:hover, .theme-primary .btn-flat.btn-info:active, .theme-primary .btn-flat.btn-info.active {
     background-color: #6207d2 !important;
     border-color: #6207d2 !important;
-    color: #ffffff; }
+    color: #ffffff; } */
 
 /*---Success Button---*/
-.theme-primary .btn-success {
+/* .theme-primary .btn-success {
   background-color: #00BC8B;
   border-color: #00BC8B;
   color: #ffffff; }
@@ -630,10 +630,10 @@ Theme Primary Color
   .theme-primary .btn-flat.btn-success:hover, .theme-primary .btn-flat.btn-success:active, .theme-primary .btn-flat.btn-success.active {
     background-color: #008965 !important;
     border-color: #008965 !important;
-    color: #ffffff; }
+    color: #ffffff; } */
 
 /*---Danger Button---*/
-.theme-primary .btn-danger {
+/* .theme-primary .btn-danger {
   background-color: #EF3737;
   border-color: #EF3737;
   color: #ffffff; }
@@ -672,10 +672,10 @@ Theme Primary Color
   .theme-primary .btn-flat.btn-danger:hover, .theme-primary .btn-flat.btn-danger:active, .theme-primary .btn-flat.btn-danger.active {
     background-color: #e11212 !important;
     border-color: #e11212 !important;
-    color: #ffffff; }
+    color: #ffffff; } */
 
 /*---Warning Button---*/
-.theme-primary .btn-warning {
+/* .theme-primary .btn-warning {
   background-color: #FFB800;
   border-color: #FFB800;
   color: #ffffff; }
@@ -714,7 +714,7 @@ Theme Primary Color
   .theme-primary .btn-flat.btn-warning:hover, .theme-primary .btn-flat.btn-warning:active, .theme-primary .btn-flat.btn-warning.active {
     background-color: #cc9300 !important;
     border-color: #cc9300 !important;
-    color: #ffffff; }
+    color: #ffffff; } */
 
 /*---callout---*/
 .theme-primary .callout.callout-primary {

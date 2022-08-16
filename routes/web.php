@@ -20,13 +20,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group([
-    'prefix'=>'admin',
-    'middleware'=>['admin:admin']],
-    function(){
-        Route::get('/login',[AdminController::class,'loginForm']);
-        Route::post('/login',[AdminController::class,'store'])->name('admin.login');
-    });
+Route::group(
+    [
+        'prefix' => 'admin',
+        'middleware' => ['admin:admin']
+    ],
+    function () {
+        Route::get('/login', [AdminController::class, 'loginForm']);
+        Route::post('/login', [AdminController::class, 'store'])->name('admin.login');
+    }
+);
 
 
 Route::middleware([
@@ -49,9 +52,13 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/admin/logout',[AdminController::class,'destroy'])->name('admin.logout');
+Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
 
-Route::get('/admin/profile',[AdminProfileController::class,'AdminProfile'])->name('admin.profile');
+Route::get('/admin/profile', [AdminProfileController::class, 'AdminProfile'])->name('admin.profile');
+
+Route::get('/admin/profile/edit', [AdminProfileController::class, 'AdminProfileEdit'])->name('admin.profile.edit');
+
+Route::post('/admin/profile/store', [AdminProfileController::class, 'AdminProfileStore'])->name('admin.profile.store');
 
 
 

@@ -8,14 +8,14 @@
         <div class="row">
             <div class="box box-widget widget-user">
                 <!-- Add the bg color to the header using any of the bg-* classes -->
-                <div class="widget-user-header"> <!--  bg-black -->
-                <!-- <img src="{{asset('backend/images/gallery/full/10.jpg')}}" alt=""> -->
+                <div class="widget-user-header">
+                    <!--  bg-black -->
                     <h3 class="widget-user-username">Admin Name : {{$adminData->name}}</h3>
-                    <a href="" style="float: right;" class="btn btn-success mb-5">Edit Profile</a>
+                    <a href="{{ route('admin.profile.edit')}}" style="float: right;" class="btn btn-success mb-5">Edit Profile</a>
                     <h6 class="widget-user-desc">Admin Email : {{$adminData->email}}</h6>
                 </div>
                 <div class="widget-user-image">
-                    <img class="rounded-circle" src="{{ (!empty($adminData->profile_photo_path)) ? url('upload/admin-images/.$adminData->profile_photo_path') : url('upload/no_image.jpg')}}" alt="User Avatar">
+                    <img class="rounded-circle" src="{{ (!empty($adminData->profile_photo_path))? url('upload/admin-images/'.$adminData->profile_photo_path) : url('upload/no_image.jpg')}}" alt="User Avatar">
                 </div>
                 <div class="box-footer">
                     <div class="row">
