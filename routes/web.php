@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Frontend\IndexController;
 
 
 /*
@@ -16,9 +17,6 @@ use App\Http\Controllers\Backend\AdminProfileController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::group(
     [
@@ -31,16 +29,7 @@ Route::group(
     }
 );
 
-
-Route::middleware([
-    'auth:sanctum,web',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+// Admin Routes
 
 Route::middleware([
     'auth:sanctum,admin',
@@ -63,6 +52,30 @@ Route::post('/admin/profile/store', [AdminProfileController::class, 'AdminProfil
 Route::get('/admin/change/password', [AdminProfileController::class, 'AdminChangePassword'])->name('admin.change.password');
 
 Route::post('/update/change/password', [AdminProfileController::class, 'AdminUpdateChangePassword'])->name('update.change.password');
+
+
+// User Routes
+
+
+Route::middleware([
+    'auth:sanctum,web',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
+
+
+Route::get('/', [IndexController::class, 'index']);
+
+// Route::get('/sign-in', [IndexController::class, 'signin']);
+
+
+
+
+
 
 
 // Route::middleware(['auth:sanctum,web','verified'])->get('/dashboard',function() {
