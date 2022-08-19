@@ -70,6 +70,10 @@ Route::middleware([
 
 Route::get('/', [IndexController::class, 'index']);
 
+Route::get('/user/logout', [IndexController::class, 'UserLogout'])->name('user.logout');
+
+Route::get('/user/profile', [IndexController::class, 'UserProfile'])->name('user.profile');
+
 // Route::get('/sign-in', [IndexController::class, 'signin']);
 
 

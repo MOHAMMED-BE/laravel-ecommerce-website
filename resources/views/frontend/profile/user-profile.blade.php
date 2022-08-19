@@ -9,7 +9,7 @@
                 <img src="{{ (!empty($editData->profile_photo_path)) ? url('upload/admin-images/'.$editData->profile_photo_path) : url('upload/no_image.jpg')}}" alt="User Avatar" style="width:100px ;height:100px;box-shadow: 0 .5rem 1rem rgba(255,255,255,.25)!important; border-radius:50%;" class="card-img-top">
                 <ul class="list-group list-group-flush">
                     <a href="{{url('/')}}" class="btn btn-primary btn-sm btn-block">Home</a>
-                    <a href="{{route('user.profile')}}" class="btn btn-primary btn-sm btn-block">Profile Update</a>
+                    <a href="{{url('user.profile')}}" class="btn btn-primary btn-sm btn-block">Profile Update</a>
                     <a href="{{route('user.logout')}}" class="btn btn-primary btn-sm btn-block">Change Password</a>
                     <a href="{{route('user.logout')}}" class="btn btn-danger btn-sm btn-block">Logout</a>
                 </ul>
@@ -25,8 +25,32 @@
                         <span class="text-danger">
                             Hi..... <strong>{{Auth::user()->name}}</strong>
                         </span>
-                        Welcome
+                        Update Your Profile
                     </h3>
+
+                    <div class="card-body">
+                        <form class="register-form outer-top-xs" role="form" method="POST" action="">
+                            @csrf
+                            <div class="form-group">
+                                <label class="info-title" for="name">Name <span></span></label>
+                                <input type="text" class="form-control text-input" id="name" value="{{$user->name}}" name="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="info-title" for="email">Email Address <span></span></label>
+                                <input type="email" class="form-control text-input" id="email" value="{{$user->email}}" name="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="info-title" for="phone">Phone <span></span></label>
+                                <input type="text" class="form-control text-input" id="phone" value="{{$user->phone}}" name="email">
+                            </div>
+
+                        </form>
+                    </div>
+
+
+
                 </div>
 
             </div>
