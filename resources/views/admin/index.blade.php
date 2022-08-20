@@ -86,7 +86,7 @@
                                                 <div class="flex-shrink-0 mr-20">
                                                     <div class="bg-img h-50 w-50 ">
                                                         <!-- style="background-image: url(/ecommerce-website/public/backend//images/gallery/creative/img-2.jpg)" -->
-                                                        <img class="img rounded-4" src="{{asset('backend/images/gallery/creative/img-1.jpg')}}" alt="" style="width: 4rem !important;height: 3.5rem !important;">
+                                                        <img class="img rounded-4" src="{{asset('backend/images/gallery/creative/img-1.jpg')}}" alt="" style="width: 7rem !important;height: 3.5rem !important;">
                                                     </div>
                                                 </div>
 
@@ -134,7 +134,7 @@
                                                 <div class="flex-shrink-0 mr-20">
                                                     <div class="bg-img h-50 w-50 ">
                                                         <!-- style="background-image: url(/ecommerce-website/public/backend//images/gallery/creative/img-2.jpg)" -->
-                                                        <img class="img rounded-4" src="{{asset('backend/images/gallery/creative/img-2.jpg')}}" alt="" style="width: 4rem !important;height: 3.5rem !important;">
+                                                        <img class="img rounded-4" src="{{asset('backend/images/gallery/creative/img-2.jpg')}}" alt="" style="width: 7rem !important;height: 3.5rem !important;">
                                                     </div>
                                                 </div>
 
@@ -182,7 +182,7 @@
                                                 <div class="flex-shrink-0 mr-20">
                                                     <div class="bg-img h-50 w-50 ">
                                                         <!-- style="background-image: url(/ecommerce-website/public/backend//images/gallery/creative/img-2.jpg)" -->
-                                                        <img class="img rounded-4" src="{{asset('backend/images/gallery/creative/img-3.jpg')}}" alt="" style="width: 4rem !important;height: 3.5rem !important;">
+                                                        <img class="img rounded-4" src="{{asset('backend/images/gallery/creative/img-3.jpg')}}" alt="" style="width: 7rem !important;height: 3.5rem !important;">
                                                     </div>
                                                 </div>
 
@@ -230,7 +230,7 @@
                                                 <div class="flex-shrink-0 mr-20">
                                                     <div class="bg-img h-50 w-50 ">
                                                         <!-- style="background-image: url(/ecommerce-website/public/backend//images/gallery/creative/img-2.jpg)" -->
-                                                        <img class="img rounded-4" src="{{asset('backend/images/gallery/creative/img-4.jpg')}}" alt="" style="width: 4rem !important;height: 3.5rem !important;">
+                                                        <img class="img rounded-4" src="{{asset('backend/images/gallery/creative/img-4.jpg')}}" alt="" style="width: 7rem !important;height: 3.5rem !important;">
                                                     </div>
                                                 </div>
 
@@ -278,7 +278,7 @@
                                                 <div class="flex-shrink-0 mr-20">
                                                     <div class="bg-img h-50 w-50 ">
                                                         <!-- style="background-image: url(/ecommerce-website/public/backend//images/gallery/creative/img-2.jpg)" -->
-                                                        <img class="img rounded-4" src="{{asset('backend/images/gallery/creative/img-5.jpg')}}" alt="" style="width: 4rem !important;height: 3.5rem !important;">
+                                                        <img class="img rounded-4" src="{{asset('backend/images/gallery/creative/img-5.jpg')}}" alt="" style="width: 7rem !important;height: 3.5rem !important;">
                                                     </div>
                                                 </div>
 
