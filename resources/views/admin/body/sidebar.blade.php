@@ -35,27 +35,25 @@ $route = Route::current()->getName();
         <a href="#">
           <i data-feather="message-circle"></i>
           <span>Brands</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-right pull-right"></i>
+          <span style="margin-left: 7rem;" > <!-- class="pull-right-container" -->
+            <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
           <li class="{{ ($route == 'all.brand')? 'active':''}}"><a href="{{route('all.brand')}}"><i class="ti-more"></i>All Brand</a></li>
-          <li><a href="calendar.html"><i class="ti-more"></i>Calendar</a></li>
         </ul>
       </li>
 
-      <li class="treeview">
+      <li class="treeview {{ ($prefix == '/catagory')? 'active':''}}">
         <a href="#">
-          <i data-feather="mail"></i> <span>Mailbox</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-right pull-right"></i>
+          <i data-feather="mail"></i> <span>Category</span>
+          <span style="margin-left: 7rem;" > <!-- class="pull-right-container" -->
+            <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="mailbox_inbox.html"><i class="ti-more"></i>Inbox</a></li>
-          <li><a href="mailbox_compose.html"><i class="ti-more"></i>Compose</a></li>
-          <li><a href="mailbox_read_mail.html"><i class="ti-more"></i>Read</a></li>
+          <li class="{{ ($prefix == '/allcatagory')? 'active':''}}"><a href="{{route('all.catagory')}}"><i class="ti-more"></i>All Catagory</a></li>
+          <li class="{{ ($prefix == '/subcatagory')? 'active':''}}"><a href="{{route('all.subcatagory')}}"><i class="ti-more"></i>All Sub Catagory</a></li>
         </ul>
       </li>
 
@@ -63,8 +61,8 @@ $route = Route::current()->getName();
         <a href="#">
           <i data-feather="file"></i>
           <span>Pages</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-right pull-right"></i>
+          <span style="margin-left: 7rem;" > <!-- class="pull-right-container" -->
+            <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
@@ -82,8 +80,8 @@ $route = Route::current()->getName();
         <a href="#">
           <i data-feather="grid"></i>
           <span>Components</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-right pull-right"></i>
+          <span style="margin-left: 7rem;" > <!-- class="pull-right-container" -->
+            <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
@@ -97,8 +95,8 @@ $route = Route::current()->getName();
         <a href="#">
           <i data-feather="credit-card"></i>
           <span>Cards</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-right pull-right"></i>
+          <span style="margin-left: 7rem;" > <!-- class="pull-right-container" -->
+            <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">

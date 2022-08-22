@@ -25,35 +25,10 @@
 
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"></script>
 
-
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script type="text/javascript">
-    $(function() {
-      $(document).on('click', '#delete', function(e) {
-        e.preventDefault();
-        var link = $(this).attr("href");
-        Swal.fire({
-          title: 'Are you sure?',
-          text: "You won't be able to revert this!",
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            window.location.href = link
-            Swal.fire(
-              'Deleted!',
-              'Brand has been deleted.',
-              'success'
-            )
-          }
-        })
-      });
-    });
-  </script>
+  <!-- <link rel="stylesheet" type="text/css" href="{{ asset('../assets/icons/fontawesome-free-6.1.1-web/css/fontawesome.min.css')}}"> -->
 
 </head>
 
@@ -85,7 +60,8 @@
 
   <!-- Vendor JS -->
   <script src="{{ asset('backend/js/vendors.min.js')}}"></script>
-  <script src="{{ asset('../assets/icons/feather-icons/feather.min.js')}}"></script>
+  <!-- <script src="{{ asset('../assets/icons/feather-icons/feather.min.js')}}"></script> -->
+  <!-- <script src="{{ asset('../assets/icons/fontawesome-free-6.1.1-web/js/fontawesome.min.js')}}"></script> -->
   <script src="{{ asset('../assets/vendor_components/easypiechart/dist/jquery.easypiechart.js')}}"></script>
   <script src="{{ asset('../assets/vendor_components/apexcharts-bundle/irregular-data-series.js')}}"></script>
   <script src="{{ asset('../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js')}}"></script>
@@ -119,9 +95,9 @@
     }
     @endif
   </script>
-  <!-- 
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script type="text/javascript">
     $(function() {
       $(document).on('click', '#delete', function(e) {
@@ -137,16 +113,18 @@
           confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
           if (result.isConfirmed) {
+            window.location.href = link
             Swal.fire(
               'Deleted!',
-              'Your file has been deleted.',
+              'Brand has been deleted.',
               'success'
             )
           }
         })
       });
     });
-  </script> -->
+  </script>
+  
   <!-- <script>
  $(document).ready(function() {
  @if(Session::has('message'))

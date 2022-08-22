@@ -59,7 +59,7 @@
                             <form method="post" action="{{ route('brand.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <h5>Brnad Name English <span class="text-danger">*</span></h5>
+                                    <h5>Brand Name English <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="text" value="" name="brand_name_en" class="form-control">
                                         @error('brand_name_en')
@@ -69,7 +69,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>Brnad Name Arab <span class="text-danger">*</span></h5>
+                                    <h5>Brand Name Arab <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="text" value="" name="brand_name_ar" class="form-control">
                                         @error('brand_name_ar')
@@ -79,7 +79,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>Brnad Image <span class="text-danger">*</span></h5>
+                                    <h5>Brand Image <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="file" value="" name="brand_image" class="form-control">
                                         @error('brand_image')
