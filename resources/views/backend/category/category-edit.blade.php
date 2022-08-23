@@ -6,45 +6,45 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <!-- Edit catagory -->
+            <!-- Edit category -->
 
             <div class="col-12">
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Add catagory</h3>
+                        <h3 class="box-title">Add category</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="table-responsive">
-                            <form method="post" action="{{ route('catagory.update',$catagory->id) }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('category.update',$category->id) }}" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" value="{{$catagory->id}}" name="id">
+                                <input type="hidden" value="{{$category->id}}" name="id">
 
                                 <div class="form-group">
-                                    <h5>catagory Icon <span class="text-danger">*</span></h5>
+                                    <h5>category Icon <span class="text-danger">*</span></h5>
                                     <div class="controls">
-                                        <input type="text" value="{{$catagory->catagory_icon}}" name="catagory_icon" class="form-control">
-                                        @error('catagory_icon')
+                                        <input type="text" value="{{$category->category_icon}}" name="category_icon" class="form-control">
+                                        @error('category_icon')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <h5>catagory Name English <span class="text-danger">*</span></h5>
+                                    <h5>category Name English <span class="text-danger">*</span></h5>
                                     <div class="controls">
-                                        <input type="text" value="{{$catagory->catagory_name_en}}" name="catagory_name_en" class="form-control">
-                                        @error('catagory_name_en')
+                                        <input type="text" value="{{$category->category_name_en}}" name="category_name_en" class="form-control">
+                                        @error('category_name_en')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>catagory Name Arab <span class="text-danger">*</span></h5>
+                                    <h5>category Name Arab <span class="text-danger">*</span></h5>
                                     <div class="controls">
-                                        <input type="text" value="{{$catagory->catagory_name_ar}}" name="catagory_name_ar" class="form-control">
-                                        @error('catagory_name_ar')
+                                        <input type="text" value="{{$category->category_name_ar}}" name="category_name_ar" class="form-control">
+                                        @error('category_name_ar')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>

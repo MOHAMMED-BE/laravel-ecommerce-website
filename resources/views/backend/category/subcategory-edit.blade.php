@@ -6,52 +6,52 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <!-- Edit catagory -->
+            <!-- Edit category -->
 
             <div class="col-12">
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Add catagory</h3>
+                        <h3 class="box-title">Add category</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="table-responsive">
-                            <form method="post" action="{{ route('subcatagory.update') }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('subcategory.update') }}" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" value="{{$subcatagory->id}}" name="id">
+                                <input type="hidden" value="{{$subcategory->id}}" name="id">
 
                                 <div class="form-group">
-                                    <h5>Catagory Select <span class="text-danger">*</span></h5>
+                                    <h5>Category Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
-                                        <select name="catagory_id" class="form-control" aria-invalid="false">
-                                            <option value="" selected="" disabled>Select Your Catagory</option>
-                                            @foreach($catagory as $item)
-                                            <option value="{{$item->id}}" {{$item->id == $subcatagory->catagory_id ? 'selected':''}} ">{{$item->catagory_name_en}}</option>
+                                        <select name="category_id" class="form-control" aria-invalid="false">
+                                            <option value="" selected="" disabled>Select Your Category</option>
+                                            @foreach($category as $item)
+                                            <option value="{{$item->id}}" {{$item->id == $subcategory->category_id ? 'selected':''}} ">{{$item->category_name_en}}</option>
                                             @endforeach
 
                                         </select>
-                                        @error('catagory_id')
+                                        @error('category_id')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>SubCatagory English <span class="text-danger">*</span></h5>
+                                    <h5>SubCategory English <span class="text-danger">*</span></h5>
                                     <div class="controls">
-                                        <input type="text" value="{{$subcatagory->subcatagory_name_en}}" name="subcatagory_name_en" class="form-control">
-                                        @error('subcatagory_name_en')
+                                        <input type="text" value="{{$subcategory->subcategory_name_en}}" name="subcategory_name_en" class="form-control">
+                                        @error('subcategory_name_en')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>SubCatagory Arab <span class="text-danger">*</span></h5>
+                                    <h5>SubCategory Arab <span class="text-danger">*</span></h5>
                                     <div class="controls">
-                                        <input type="text" value="{{$subcatagory->subcatagory_name_ar}}" name="subcatagory_name_ar" class="form-control">
-                                        @error('subcatagory_name_ar')
+                                        <input type="text" value="{{$subcategory->subcategory_name_ar}}" name="subcategory_name_ar" class="form-control">
+                                        @error('subcategory_name_ar')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
