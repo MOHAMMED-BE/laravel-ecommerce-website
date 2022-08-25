@@ -20,15 +20,21 @@
   <link rel="stylesheet" href="{{ asset('backend/css/skin_color.css')}}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"> -->
-
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 
   <!-- <link rel="stylesheet" type="text/css" href="{{ asset('../assets/icons/fontawesome-free-6.1.1-web/css/fontawesome.min.css')}}"> -->
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0- 
+     alpha/css/bootstrap.css" rel="stylesheet">
+
+
 
 </head>
 
@@ -50,8 +56,6 @@
 
     @include('admin.body.footer')
 
-
-    <!-- Add the sidebar's background. This div must be placed immediately after the control sidebar -->
     <div class="control-sidebar-bg"></div>
 
   </div>
@@ -69,9 +73,9 @@
   <!-- Sunny Admin App -->
   <script src="{{ asset('backend/js/template.js')}}"></script>
   <script src="{{ asset('backend/js/pages/dashboard.js')}}"></script>
-  <script src="https://cdn.jsdelivr.net/bootstrap.tagsinput/0.8.0/bootstrap-tagsinput.min.js"></script>
   <script src="{{ asset('../assets/vendor_components/datatable/datatables.min.js')}}"></script>
   <script src="{{ asset('backend/js/pages/data-table.js')}}"></script>
+
 
   <script>
     @if(Session::has('message'))
@@ -97,7 +101,7 @@
   </script>
 
 
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script type="text/javascript">
     $(function() {
       $(document).on('click', '#delete', function(e) {
@@ -124,7 +128,35 @@
       });
     });
   </script>
-  
+
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('select[name="category_id"]').on('change', function() {
+        var category_id = $(this).val();
+        if (category_id) {
+          $.ajax({
+            url: "{{ url('/category/subcategory/ajax') }}/" + category_id,
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+              var optionText = 'Premium';
+              var optionValue = 'premium';
+              var d = $('select[name="subcategory_id"]').empty();
+              $.each(data, function(key, value) {
+                $('select[name="subcategory_id"]').append('<option value="' + value.id + '">' + value.subcategory_name_en + '</option>');
+
+              });
+            },
+          });
+        } else {
+          alert('danger');
+        }
+      });
+
+    });
+  </script>
+
   <!-- <script>
  $(document).ready(function() {
  @if(Session::has('message'))

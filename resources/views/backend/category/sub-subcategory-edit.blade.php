@@ -12,45 +12,58 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Update SubCategory</h3>
+                        <h3 class="box-title">Update Sub-SubCategory</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="table-responsive">
-                            <form method="post" action="{{ route('subcategory.update') }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('subsubcategory.update') }}" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" value="{{$subcategory->id}}" name="id">
+
+                                <input type="hidden" value="{{$subsubcategory->id}}" name="id">
 
                                 <div class="form-group">
                                     <h5>Category Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
-                                        <select name="category_id" class="form-control" aria-invalid="false">
-                                            <option value="" selected="" disabled>Select Your Category</option>
+                                        <select name="category_id" id="categoryselect" class="form-control" aria-invalid="false">
+                                            <option value="" selected disabled>Select Your Category</option>
                                             @foreach($category as $item)
-                                            <option value="{{$item->id}}" {{$item->id == $subcategory->category_id ? 'selected':''}} ">{{$item->category_name_en}}</option>
+                                            <option value="{{$item->id}}">{{$item->category_name_en}}</option>
                                             @endforeach
 
                                         </select>
                                         @error('category_id')
-                                        <span class=" text-danger">{{$message}}</span>
-                                                @enderror
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <h5>SubCategory English <span class="text-danger">*</span></h5>
-                                    <div class="controls">
-                                        <input type="text" value="{{$subcategory->subcategory_name_en}}" name="subcategory_name_en" class="form-control">
-                                        @error('subcategory_name_en')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>SubCategory Arab <span class="text-danger">*</span></h5>
+                                    <h5>Sub Category Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
-                                        <input type="text" value="{{$subcategory->subcategory_name_ar}}" name="subcategory_name_ar" class="form-control">
+                                        <select name="subcategory_id" id="subcategoryselect" class="form-control" aria-invalid="false">
+
+                                        </select>
+                                        @error('subcategory_id')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5>Sub-SubCategory English <span class="text-danger">*</span></h5>
+                                    <div class="controls">
+                                        <input type="text" value="{{$subsubcategory->subsubcategory_name_en}}" name="subsubcategory_name_en" class="form-control">
+                                        @error('subsubcategory_name_en')
+                                        <span class="text-danger">{{$message}}</span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <h5>Sub-SubCategory Arab <span class="text-danger">*</span></h5>
+                                    <div class="controls">
+                                        <input type="text" value="{{$subsubcategory->subsubcategory_name_ar}}" name="subsubcategory_name_ar" class="form-control">
                                         @error('subcategory_name_ar')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
@@ -76,7 +89,6 @@
 
 </div>
 <!-- /.content-wrapper -->
-
 
 
 @endsection
