@@ -20,9 +20,9 @@ $user = DB::table('users')->where('id',Auth::user()->id)->first();
                 <div class="card">
                     <h3 class="text-center">
                         <span class="text-danger">
-                            Hii..... <strong>{{Auth::user()->name}}</strong>
+                            Hi..... <strong>{{Auth::user()->name}}</strong>
                         </span>
-                        Update Your Profile
+                        Update Password
                     </h3>
                     <div class="card-body">
                         <form class="register-form outer-top-xs" role="form" method="POST" action="{{ route('user.update.change.password') }}">

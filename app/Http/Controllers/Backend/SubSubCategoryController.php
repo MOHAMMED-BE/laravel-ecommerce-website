@@ -62,9 +62,9 @@ class SubSubCategoryController extends Controller
 
     public function SubSubCategoryEdit($id)
     {
-        $subcategory = SubCategory::latest()->get();
-        $subsubcategory = SubSubCategory::findOrFail($id);
         $category = Category::orderBy('category_name_en', 'asc')->get();
+        $subcategory = SubCategory::orderBy('subcategory_name_en', 'asc')->get();
+        $subsubcategory = SubSubCategory::findOrFail($id);
 
         return view('backend.category.sub-subcategory-edit', compact('subcategory','subsubcategory', 'category'));
     } // end SubcategoryEdite

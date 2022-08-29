@@ -10,7 +10,7 @@
   <link rel="icon" href="{{ asset('backend/images/favicon.ico')}}">
   <!-- <link rel="icon" href="../../../public/{{ asset('')}}backend/images/favicon.ico"> -->
 
-  <title>Easy Ecommerce Admin - Dashboard</title>
+  <title>BMS Ecommerce Admin - Dashboard</title>
 
   <!-- Vendors Style-->
   <link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css')}}">
@@ -31,8 +31,7 @@
 
   <!-- <link rel="stylesheet" type="text/css" href="{{ asset('../assets/icons/fontawesome-free-6.1.1-web/css/fontawesome.min.css')}}"> -->
 
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0- 
-     alpha/css/bootstrap.css" rel="stylesheet">
+  <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet"> -->
 
 
 
@@ -70,11 +69,16 @@
   <script src="{{ asset('../assets/vendor_components/apexcharts-bundle/irregular-data-series.js')}}"></script>
   <script src="{{ asset('../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js')}}"></script>
 
+  <script src="{{ asset('../assets/vendor_components/ckeditor/ckeditor.js')}}"></script>
+	<script src="{{ asset('../assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js')}}"></script>
+	<script src="{{ asset('backend/js/pages/editor.js')}}"></script>
+
   <!-- Sunny Admin App -->
   <script src="{{ asset('backend/js/template.js')}}"></script>
   <script src="{{ asset('backend/js/pages/dashboard.js')}}"></script>
   <script src="{{ asset('../assets/vendor_components/datatable/datatables.min.js')}}"></script>
   <script src="{{ asset('backend/js/pages/data-table.js')}}"></script>
+	<!-- <script src="{{ asset('../assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js')}}"></script> -->
 
 
   <script>
@@ -131,6 +135,7 @@
 
 
   <script type="text/javascript">
+// get category
     $(document).ready(function() {
       $('select[name="category_id"]').on('change', function() {
         var category_id = $(this).val();
@@ -145,7 +150,53 @@
               var d = $('select[name="subcategory_id"]').empty();
               $.each(data, function(key, value) {
                 $('select[name="subcategory_id"]').append('<option value="' + value.id + '">' + value.subcategory_name_en + '</option>');
+              });
+            },
+          });
+        } else {
+          alert('danger');
+        }
+      });
+// get subcategory
+      $('select[name="subcategory_id"]').on('change', function() {
+        var subcategory_id = $(this).val();
+        if (subcategory_id) {
+          $.ajax({
+            url: "{{ url('/product/subsubcategory/ajax') }}/" + subcategory_id,
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+              var optionText = 'Premium';
+              var optionValue = 'premium';
+              var d = $('select[name="subsubcategory_id"]').empty();
+              $.each(data, function(key, value) {
+                $('select[name="subsubcategory_id"]').append('<option value="' + value.id + '">' + value.subsubcategory_name_en + '</option>');
+              });
+            },
+          });
+        } else {
+          alert('danger');
+        }
+      });
 
+    });
+  </script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+      $('select[name="subcategory_id"]').on('change', function() {
+        var category_id = $(this).val();
+        if (category_id) {
+          $.ajax({
+            url: "{{ url('/category/subsubcategory/ajax') }}/" + category_id,
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+              var optionText = 'Premium';
+              var optionValue = 'premium';
+              var d = $('select[name="subsubcategory_id"]').empty();
+              $.each(data, function(key, value) {
+                $('select[name="subsubcategory_id"]').append('<option value="' + value.id + '">' + value.subsubcategory_name_en + '</option>');
               });
             },
           });
