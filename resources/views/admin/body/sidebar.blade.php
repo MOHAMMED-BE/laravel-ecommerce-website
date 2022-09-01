@@ -72,6 +72,19 @@ $route = Route::current()->getName();
         </ul>
       </li>
 
+      <li class="treeview {{ ($prefix == '/slider')? 'active':''}}">
+        <a href="#">
+          <i data-feather="file"></i>
+          <span>Slider</span>
+          <span style="float: right;" > <!-- class="pull-right-container" -->
+            <i class="fa-solid fa-angle-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ ($route == 'menage-slider')? 'active':''}}"><a href="{{route('menage-slider')}}"><i class="ti-more"></i>Menage Slider</a></li>
+        </ul>
+      </li>
+
       <!-- <li class="header nav-small-cap">User Interface</li> -->
 
       <!-- <li class="treeview">
