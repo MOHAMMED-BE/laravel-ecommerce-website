@@ -125,16 +125,25 @@ Route::get('/sub/sub/edit/{id}', [SubSubCategoryController::class, 'SubSubCatego
 Route::post('/sub/sub/update', [SubSubCategoryController::class, 'SubSubCategoryUpdate'])->name('subsubcategory.update');
 Route::get('/sub/sub/delete/{id}', [SubSubCategoryController::class, 'SubSubCategoryDelete'])->name('subsubcategory.delete');
 
-
 });
-
 
     
 // Admin Products All Routes
 
 Route::prefix('product')->group(function(){
-    Route::get('/add', [ProductController::class, 'AddProduct'])->name('add-product');
     Route::get('/subsubcategory/ajax/{subcategory_id}', [ProductController::class, 'GetSubSubCategory']);
+    Route::get('/add', [ProductController::class, 'AddProduct'])->name('add-product');
+    Route::post('/store', [ProductController::class, 'ProductStore'])->name('product-store');
+    Route::get('/menage', [ProductController::class, 'MenageProduct'])->name('menage-product');
+    Route::get('/edit/{id}', [ProductController::class, 'ProductEdit'])->name('product-edit');
+    Route::get('/delete/{id}', [ProductController::class, 'ProductDelete'])->name('product-delete');
+    Route::post('/update', [ProductController::class, 'ProductUpdate'])->name('product-update');
+    Route::post('images/update', [ProductController::class, 'MultiImagesUpdate'])->name('product-update-images');
+    Route::post('thumbnail/update', [ProductController::class, 'ThumbnailUpdate'])->name('product-update-thumbnail');
+    Route::get('images/delete/{id}', [ProductController::class, 'MultiImagesDelete'])->name('product-multiimg-delete');
+    Route::get('/inactive/{id}', [ProductController::class, 'InactiveProduct'])->name('product-inactive');
+    Route::get('/active/{id}', [ProductController::class, 'ActiveProduct'])->name('product-active');
+    Route::get('/details/{id}', [ProductController::class, 'ProductDetails'])->name('product-details');
 
 });
 

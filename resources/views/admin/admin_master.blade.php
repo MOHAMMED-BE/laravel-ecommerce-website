@@ -78,6 +78,9 @@
   <script src="{{ asset('backend/js/pages/dashboard.js')}}"></script>
   <script src="{{ asset('../assets/vendor_components/datatable/datatables.min.js')}}"></script>
   <script src="{{ asset('backend/js/pages/data-table.js')}}"></script>
+  <!-- <script src="{{ asset('backend/js/scripts.js')}}"></script> -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 	<!-- <script src="{{ asset('../assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js')}}"></script> -->
 
 
@@ -105,7 +108,6 @@
   </script>
 
 
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script type="text/javascript">
     $(function() {
       $(document).on('click', '#delete', function(e) {
@@ -145,8 +147,7 @@
             type: "GET",
             dataType: "json",
             success: function(data) {
-              var optionText = 'Premium';
-              var optionValue = 'premium';
+              $('select[name="subsubcategory_id"]').html('');
               var d = $('select[name="subcategory_id"]').empty();
               $.each(data, function(key, value) {
                 $('select[name="subcategory_id"]').append('<option value="' + value.id + '">' + value.subcategory_name_en + '</option>');
@@ -166,8 +167,7 @@
             type: "GET",
             dataType: "json",
             success: function(data) {
-              var optionText = 'Premium';
-              var optionValue = 'premium';
+              
               var d = $('select[name="subsubcategory_id"]').empty();
               $.each(data, function(key, value) {
                 $('select[name="subsubcategory_id"]').append('<option value="' + value.id + '">' + value.subsubcategory_name_en + '</option>');
@@ -192,8 +192,6 @@
             type: "GET",
             dataType: "json",
             success: function(data) {
-              var optionText = 'Premium';
-              var optionValue = 'premium';
               var d = $('select[name="subsubcategory_id"]').empty();
               $.each(data, function(key, value) {
                 $('select[name="subsubcategory_id"]').append('<option value="' + value.id + '">' + value.subsubcategory_name_en + '</option>');

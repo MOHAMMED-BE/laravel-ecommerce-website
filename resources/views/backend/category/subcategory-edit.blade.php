@@ -27,7 +27,7 @@
                                         <select name="category_id" class="form-control" aria-invalid="false">
                                             <option value="" selected="" disabled>Select Your Category</option>
                                             @foreach($category as $item)
-                                            <option value="{{$item->id}}" {{$item->id == $subcategory->category_id ? 'selected':''}} ">{{$item->category_name_en}}</option>
+                                            <option value="{{$item->id}}" {{$item->id == $subcategory->category_id ? 'selected':''}} >{{$item->category_name_en}}</option>
                                             @endforeach
 
                                         </select>

@@ -17,7 +17,8 @@
             <div class="box-body">
                 <div class="row">
                     <div class="col">
-                        <form novalidate>
+                        <form method="post" action="{{ route('product-store') }}" enctype="multipart/form-data">
+                            @csrf
                             <div class="row">
                                 <div class="col-12">
 
@@ -28,7 +29,7 @@
                                             <div class="form-group">
                                                 <h5>Brand Select <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <select name="brand_id" class="form-control" aria-invalid="false">
+                                                    <select name="brand_id" class="form-control" required aria-invalid="false">
                                                         <option value="" selected="" disabled>Select Your Brand</option>
                                                         @foreach($brand as $item)
                                                         <option value="{{$item->id}}">{{$item->brand_name_en}}</option>
@@ -45,7 +46,7 @@
                                             <div class="form-group">
                                                 <h5>Category Select <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <select name="category_id" class="form-control" aria-invalid="false">
+                                                    <select name="category_id" class="form-control" required aria-invalid="false">
                                                         <option value="" selected="" disabled>Select Your Category</option>
                                                         @foreach($category as $item)
                                                         <option value="{{$item->id}}">{{$item->category_name_en}}</option>
@@ -62,7 +63,7 @@
                                             <div class="form-group">
                                                 <h5>Sub Category Select <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <select name="subcategory_id" class="form-control" aria-invalid="false">
+                                                    <select name="subcategory_id" class="form-control" required aria-invalid="false">
                                                         <option value="" selected="" disabled>Select SubCategory</option>
 
                                                     </select>
@@ -82,7 +83,7 @@
                                             <div class="form-group">
                                                 <h5>Sub-SubCategory Select <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <select name="subsubcategory_id" class="form-control" aria-invalid="false">
+                                                    <select name="subsubcategory_id" class="form-control" required aria-invalid="false">
                                                         <option value="" selected="" disabled>Select Sub-SubCategory</option>
 
                                                     </select>
@@ -96,7 +97,7 @@
                                             <div class="form-group">
                                                 <h5>Product Name En <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="product_name_en" class="form-control">
+                                                    <input type="text" name="product_name_en" class="form-control" required>
                                                 </div>
                                                 @error('product_name_en')
                                                 <span class="text-danger">{{$message}}</span>
@@ -107,7 +108,7 @@
                                             <div class="form-group">
                                                 <h5>Product Name Ar <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="product_name_ar" class="form-control">
+                                                    <input type="text" name="product_name_ar" class="form-control" required>
                                                 </div>
                                                 @error('product_name_ar')
                                                 <span class="text-danger">{{$message}}</span>
@@ -124,7 +125,7 @@
                                             <div class="form-group">
                                                 <h5>Product Code <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="product_code" class="form-control">
+                                                    <input type="text" name="product_code" class="form-control" required>
                                                 </div>
                                                 @error('product_code')
                                                 <span class="text-danger">{{$message}}</span>
@@ -135,7 +136,7 @@
                                             <div class="form-group">
                                                 <h5>Product Quantity <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="product_quantity" class="form-control">
+                                                    <input type="text" name="product_quantity" class="form-control" required>
                                                 </div>
                                                 @error('product_quantity')
                                                 <span class="text-danger">{{$message}}</span>
@@ -145,7 +146,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Tags En <span class="text-danger">*</span></h5>
-                                                <input type="text" value="Lorem" name="product_tags_en" data-role="tagsinput" placeholder="add tags" />
+                                                <input type="text" value="Lorem" name="product_tags_en" required data-role="tagsinput" placeholder="add tags" />
                                                 @error('product_tags_en')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -160,7 +161,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Tags Ar <span class="text-danger">*</span></h5>
-                                                <input type="text" value="Lorem" name="product_tags_ar" data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
+                                                <input type="text" value="Lorem" name="product_tags_ar" required data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
                                                 @error('product_tags_ar')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -169,7 +170,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Size En <span class="text-danger">*</span></h5>
-                                                <input type="text" value="Lorem" name="product_size_en" data-role="tagsinput" placeholder="add tags" />
+                                                <input type="text" value="Lorem" name="product_size_en" required data-role="tagsinput" placeholder="add tags" />
                                                 @error('product_size_en')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -178,7 +179,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Size Ar <span class="text-danger">*</span></h5>
-                                                <input type="text" value="Lorem" name="product_size_ar" data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
+                                                <input type="text" value="Lorem" name="product_size_ar" required data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
                                                 @error('product_size_ar')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -193,7 +194,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Color En <span class="text-danger">*</span></h5>
-                                                <input type="text" value="Lorem" name="product_color_en" data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
+                                                <input type="text" value="Lorem" name="product_color_en" required data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
                                                 @error('product_color_en')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -202,7 +203,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Color Ar <span class="text-danger">*</span></h5>
-                                                <input type="text" value="Lorem" name="product_color_ar" data-role="tagsinput" placeholder="add tags" />
+                                                <input type="text" value="Lorem" name="product_color_ar" required data-role="tagsinput" placeholder="add tags" />
                                                 @error('product_color_ar')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -212,7 +213,7 @@
                                             <div class="form-group">
                                                 <h5>Product Selling Price <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="selling_price" class="form-control">
+                                                    <input type="text" name="selling_price" class="form-control" required>
                                                 </div>
                                                 @error('selling_price')
                                                 <span class="text-danger">{{$message}}</span>
@@ -229,7 +230,7 @@
                                             <div class="form-group">
                                                 <h5>Product Discount Price <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="text" name="discount_price" class="form-control">
+                                                    <input type="text" name="discount_price" class="form-control" required>
                                                 </div>
                                                 @error('discount_price')
                                                 <span class="text-danger">{{$message}}</span>
@@ -240,22 +241,25 @@
                                             <div class="form-group">
                                                 <h5>Product Thumbnail <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="file" name="multi_img[]" class="form-control">
+                                                    <input type="file" name="product_thumbnail" class="form-control" required onChange="mainThumbnailUrl(this)">
                                                 </div>
                                                 @error('product_thumbnail')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
+                                                <img src="" alt="" id="mainThumbnail">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Mutiple Images <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <input type="file" name="discount_price" class="form-control">
+                                                    <input type="file" name="multi_img[]" id="multiImg" class="form-control" required multiple="">
                                                 </div>
-                                                @error('discount_price')
+                                                @error('multi_img')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
+                                                <div class="row" id="preview_img">
+                                                </div>
                                             </div>
 
                                         </div>
@@ -295,11 +299,8 @@
                                             <div class="form-group">
                                                 <h5>English Long Description <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <form>
-                                                        <textarea id="editor1" name="short_desc_en" rows="10" cols="80">
-												            This is my textarea to be replaced with CKEditor.
-						                                </textarea>
-                                                    </form>
+                                                    <textarea id="editor1" name="long_desc_en" rows="10" cols="80">
+						                            </textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -307,11 +308,8 @@
                                             <div class="form-group">
                                                 <h5>Arabic Long Description <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <form>
-                                                        <textarea id="editor2" name="short_desc_ar" rows="10" cols="80">
-												            This is my textarea to be replaced with CKEditor.
-						                                </textarea>
-                                                    </form>
+                                                    <textarea id="editor2" name="long_desc_ar" rows="10" cols="80">
+						                            </textarea>
                                                 </div>
                                             </div>
                                         </div>
@@ -373,6 +371,49 @@
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<script type="text/javascript">
+    function mainThumbnailUrl(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader()
+            reader.onload = function(e) {
+                $('#mainThumbnail').attr('src', e.target.result).width(80).height(80);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+<!-- ---------------------------Show Multi Image JavaScript Code ------------------------ -->
+
+<script>
+    $(document).ready(function() {
+        $('#multiImg').on('change', function() { //on file input change
+            if (window.File && window.FileReader && window.FileList && window.Blob) //check File API supported browser
+            {
+                var data = $(this)[0].files; //this file data
+
+                $.each(data, function(index, file) { //loop though each file
+                    if (/(\.|\/)(gif|jpe?g|png)$/i.test(file.type)) { //check supported file type
+                        var fRead = new FileReader(); //new filereader
+                        fRead.onload = (function(file) { //trigger function on successful read
+                            return function(e) {
+                                var img = $('<img/>').addClass('thumb').attr('src', e.target.result).width(80).height(80); //create image element 
+                                $('#preview_img').append(img); //append image to output element
+                            };
+                        })(file);
+                        fRead.readAsDataURL(file); //URL representing the file's data.
+                    }
+                });
+
+            } else {
+                alert("Your browser doesn't support File API!"); //if File API is absent
+            }
+        });
+    });
+</script>
+
+<!-- ================================= End Show Multi Image JavaScript Code. ==================== -->
 
 
 @endsection
