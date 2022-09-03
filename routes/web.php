@@ -12,6 +12,8 @@ use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
+use App\Http\Controllers\Frontend\LanguageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,14 +39,13 @@ Route::group(
 
 // Admin Routes
 
-Route::middleware([
-    'auth:sanctum,admin',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
+Route::middleware(['auth:admin'])->group(function(){
+
+
+Route::middleware([ 'auth:sanctum,admin', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/admin/dashboard', function () {
         return view('admin.index');
-    })->name('dashboard');
+    })->name('dashboard')->middleware(['auth:admin']);
 });
 
 Route::get('/admin/logout', [AdminController::class, 'destroy'])->name('admin.logout');
@@ -59,6 +60,7 @@ Route::get('/admin/change/password', [AdminProfileController::class, 'AdminChang
 
 Route::post('/update/change/password', [AdminProfileController::class, 'AdminUpdateChangePassword'])->name('update.change.password');
 
+});
 
 // User Routes
 
@@ -83,7 +85,6 @@ Route::post('/user/profile/store', [IndexController::class, 'UserProfileStore'])
 Route::get('/user/change/password', [IndexController::class, 'UserChangePassword'])->name('user.change.password');
 
 Route::post('/user/change/password', [IndexController::class, 'UserUpdateChangePassword'])->name('user.update.change.password');
-
 
 
 
@@ -161,6 +162,12 @@ Route::prefix('slider')->group(function(){
     Route::get('/active/{id}', [SliderController::class, 'ActiveSlider'])->name('slider-active');
 
 });
+
+// Admin Frontend All Routes
+
+Route::get('/language/english', [LanguageController::class, 'English'])->name('english.language');
+Route::get('/language/arabic', [LanguageController::class, 'Arabic'])->name('arabic.language');
+
 
 
 

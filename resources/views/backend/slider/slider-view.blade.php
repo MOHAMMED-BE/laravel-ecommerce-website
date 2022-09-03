@@ -28,7 +28,7 @@
                                 <tbody>
                                     @foreach($sliders as $item)
                                     <tr>
-                                        <td class="d-flex justify-content-center"><img class="img rounded-4 center" src="{{asset($item->slider_img)}}" alt="" style="width: 4rem !important;height: 3.5rem !important;"></td>
+                                        <td class="d-flex justify-content-center"><img class="img rounded-3 center" src="{{asset($item->slider_img)}}" alt="" style="width: 7rem !important;height: 4rem !important;"></td>
                                         <td>
                                             @if($item->title == NULL)
                                             <span class="badge badge-pill badge-info">No Title</span>

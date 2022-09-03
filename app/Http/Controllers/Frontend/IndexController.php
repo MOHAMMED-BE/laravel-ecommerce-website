@@ -8,11 +8,18 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use App\Models\User;
+use App\Models\Slider;
+use App\Models\Category;
+use App\Models\Product;
 
 class IndexController extends Controller
 {
     public function Index(){
-        return view('frontend.index');
+        $categories = Category::orderBy('category_name_en','asc')->get();
+        $sliders = Slider::where('status',1)->orderBy('id','asc')->limit(3)->get();                            
+        $products = Product::where('status',1)->orderBy('id','asc')->limit(7)->get();     
+
+        return view('frontend.index',compact('sliders','categories','products'));
     }
 
     public function UserLogout(){
