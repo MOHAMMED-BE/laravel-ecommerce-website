@@ -168,6 +168,9 @@ Route::prefix('slider')->group(function(){
 Route::get('/language/english', [LanguageController::class, 'English'])->name('english.language');
 Route::get('/language/arabic', [LanguageController::class, 'Arabic'])->name('arabic.language');
 
+Route::get('product/details/{id}/{product_slug}', [IndexController::class, 'ProductDetails']);
+Route::get('product/tag/{tag}', [IndexController::class, 'TagWiseProduct']);
+
 
 
 

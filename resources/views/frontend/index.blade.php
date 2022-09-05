@@ -1,5 +1,10 @@
 @extends('frontend.main_master')
 @section('content')
+@section('title')
+BMS Store
+@endsection
+
+
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script> -->
 
@@ -10,70 +15,24 @@
             <div class="col-xs-12 col-sm-12 col-md-3 sidebar">
 
                 <!-- ================================== TOP NAVIGATION ================================== -->
-                <div class="side-menu animate-dropdown outer-bottom-xs">
-                    <div class="head"><i class="icon fa fa-align-justify fa-fw"></i> Categories</div>
-                    <nav class="yamm megamenu-horizontal">
-                        <ul class="nav">
-                            @foreach($categories as $category)
-                            <li class="dropdown menu-item">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon {{$category->category_icon}}" aria-hidden="true"></i>
-                                    @if(session()->get('language') == 'english') {{$category->category_name_en}} @else {{$category->category_name_ar}} @endif</a>
-                                <ul class="dropdown-menu mega-menu">
-                                    <li class="yamm-content">
-                                        <div class="row">
-
-                                            @php
-                                            $subcategories = App\Models\SubCategory::where('category_id',$category->id)->orderBy('subcategory_name_en','asc')->get();
-                                            @endphp
-
-                                            @foreach($subcategories as $subcategory)
-
-                                            <div class="col-sm-12 col-md-3">
-                                                <h2 class="title">@if(session()->get('language') == 'english') {{$subcategory->subcategory_name_en}} @else {{$subcategory->subcategory_name_ar}} @endif</h2>
-
-                                                @php
-                                                $subsubcategories = App\Models\SubsubCategory::where('subcategory_id',$subcategory->id)->orderBy('subsubcategory_name_en','asc')->get();
-                                                @endphp
-
-                                                @foreach($subsubcategories as $subsubcategory)
-
-                                                <ul class="links list-unstyled">
-                                                    <li><a href="#">@if(session()->get('language') == 'english') {{$subsubcategory->subsubcategory_name_en}} @else {{$subsubcategory->subsubcategory_name_ar}} @endif</a></li>
-                                                </ul>
-                                                @endforeach
-
-                                            </div>
-                                            <!-- /.col -->
-                                            @endforeach
-
-                                        </div>
-
-                                        <!-- /.row -->
-                                    </li>
-                                    <!-- /.yamm-content -->
-                                </ul>
-                                <!-- /.dropdown-menu -->
-                            </li>
-                            <!-- /.menu-item -->
-                            @endforeach
-                        </ul>
-                        <!-- /.nav -->
-                    </nav>
-                    <!-- /.megamenu-horizontal -->
-                </div>
-                <!-- /.side-menu -->
+                @include('frontend.common.vertical-menu')
                 <!-- ================================== TOP NAVIGATION : END ================================== -->
 
                 <!-- ============================================== HOT DEALS ============================================== -->
                 <div class="sidebar-widget hot-deals wow fadeInUp outer-bottom-xs">
                     <h3 class="section-title">hot deals</h3>
                     <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
+                        @foreach($hot_deals as $product)
+
                         <div class="item">
                             <div class="products">
                                 <div class="hot-deal-wrapper">
-                                    <div class="image"> <img src="{{asset('frontend/assets/images/hot-deals/p25.jpg')}}" alt=""> </div>
-                                    <div class="sale-offer-tag"><span>49%<br>
-                                            off</span></div>
+                                    <div class="image"> <img src="{{asset($product->product_thumbnail)}}" href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}" alt=""> </div>
+                                    @php
+                                    $amount = $product->selling_price - $product->discount_price;
+                                    $discount = ($amount/$product->selling_price) * 100;
+                                    @endphp
+                                    <div class="sale-offer-tag hot"><span>{{round($discount)}} % <br>off</span></div>
                                     <div class="timing-wrapper">
                                         <div class="box-wrapper">
                                             <div class="date box"> <span class="key">120</span> <span class="value">DAYS</span> </div>
@@ -92,9 +51,13 @@
                                 <!-- /.hot-deal-wrapper -->
 
                                 <div class="product-info text-left m-t-20">
-                                    <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
+                                    <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif </a></h3>
                                     <div class="rating rateit-small"></div>
-                                    <div class="product-price"> <span class="price"> $600.00 </span> <span class="price-before-discount">$800.00</span> </div>
+                                    @php
+                                    $old_price = $product->selling_price - $product->discount_price
+                                    @endphp
+                                    <div class="product-price"> <span class="price"> {{$old_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
+                                    <!-- /.product-price -->
                                     <!-- /.product-price -->
 
                                 </div>
@@ -112,94 +75,7 @@
                                 <!-- /.cart -->
                             </div>
                         </div>
-                        <div class="item">
-                            <div class="products">
-                                <div class="hot-deal-wrapper">
-                                    <div class="image"> <img src="{{asset('frontend/assets/images/hot-deals/p5.jpg')}}" alt=""> </div>
-                                    <div class="sale-offer-tag"><span>35%<br>
-                                            off</span></div>
-                                    <div class="timing-wrapper">
-                                        <div class="box-wrapper">
-                                            <div class="date box"> <span class="key">120</span> <span class="value">Days</span> </div>
-                                        </div>
-                                        <div class="box-wrapper">
-                                            <div class="hour box"> <span class="key">20</span> <span class="value">HRS</span> </div>
-                                        </div>
-                                        <div class="box-wrapper">
-                                            <div class="minutes box"> <span class="key">36</span> <span class="value">MINS</span> </div>
-                                        </div>
-                                        <div class="box-wrapper hidden-md">
-                                            <div class="seconds box"> <span class="key">60</span> <span class="value">SEC</span> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.hot-deal-wrapper -->
-
-                                <div class="product-info text-left m-t-20">
-                                    <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
-                                    <div class="rating rateit-small"></div>
-                                    <div class="product-price"> <span class="price"> $600.00 </span> <span class="price-before-discount">$800.00</span> </div>
-                                    <!-- /.product-price -->
-
-                                </div>
-                                <!-- /.product-info -->
-
-                                <div class="cart clearfix animate-effect">
-                                    <div class="action">
-                                        <div class="add-cart-button btn-group">
-                                            <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                            <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                                        </div>
-                                    </div>
-                                    <!-- /.action -->
-                                </div>
-                                <!-- /.cart -->
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="products">
-                                <div class="hot-deal-wrapper">
-                                    <div class="image"> <img src="{{asset('frontend/assets/images/hot-deals/p10.jpg')}}" alt=""> </div>
-                                    <div class="sale-offer-tag"><span>35%<br>
-                                            off</span></div>
-                                    <div class="timing-wrapper">
-                                        <div class="box-wrapper">
-                                            <div class="date box"> <span class="key">120</span> <span class="value">Days</span> </div>
-                                        </div>
-                                        <div class="box-wrapper">
-                                            <div class="hour box"> <span class="key">20</span> <span class="value">HRS</span> </div>
-                                        </div>
-                                        <div class="box-wrapper">
-                                            <div class="minutes box"> <span class="key">36</span> <span class="value">MINS</span> </div>
-                                        </div>
-                                        <div class="box-wrapper hidden-md">
-                                            <div class="seconds box"> <span class="key">60</span> <span class="value">SEC</span> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- /.hot-deal-wrapper -->
-
-                                <div class="product-info text-left m-t-20">
-                                    <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
-                                    <div class="rating rateit-small"></div>
-                                    <div class="product-price"> <span class="price"> $600.00 </span> <span class="price-before-discount">$800.00</span> </div>
-                                    <!-- /.product-price -->
-
-                                </div>
-                                <!-- /.product-info -->
-
-                                <div class="cart clearfix animate-effect">
-                                    <div class="action">
-                                        <div class="add-cart-button btn-group">
-                                            <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                            <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                                        </div>
-                                    </div>
-                                    <!-- /.action -->
-                                </div>
-                                <!-- /.cart -->
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <!-- /.sidebar-widget -->
                 </div>
@@ -211,18 +87,17 @@
                     <h3 class="section-title">Special Offer</h3>
                     <div class="sidebar-widget-body outer-top-xs">
                         <div class="owl-carousel sidebar-carousel special-offer custom-carousel owl-theme outer-top-xs">
-                            @php
-                            $products = App\Models\Product::where('special_offer',1)->orderBy('id','desc')->get();
-                            @endphp
-                            @forelse($products as $product)
+
                             <div class="item">
                                 <div class="products special-product">
+                                    @foreach($special_offers as $product)
+
                                     <div class="product">
                                         <div class="product-micro">
                                             <div class="row product-micro-row">
                                                 <div class="col col-xs-5">
                                                     <div class="product-image">
-                                                        <div class="image"> <a href="#"> <img src="{{asset($product->product_thumbnail)}}" alt=""> </a> </div>
+                                                        <div class="image"> <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}"> <img src="{{asset($product->product_thumbnail)}}" alt=""> </a> </div>
                                                         <!-- /.image -->
 
                                                     </div>
@@ -231,11 +106,10 @@
                                                 <!-- /.col -->
                                                 <div class="col col-xs-7">
                                                     <div class="product-info">
-                                                        <h3 class="name"><a href="#">{{$product->product_name_en}}</a></h3>
+                                                        <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                                         <div class="rating rateit-small"></div>
-                                                        <div class="product-price"> <span class="price"> {{$product->selling}} </span> </div>
+                                                        <div class="product-price"> <span class="price"> {{$product->selling_price}} </span> </div>
                                                         <!-- /.product-price -->
-
                                                     </div>
                                                 </div>
                                                 <!-- /.col -->
@@ -243,12 +117,12 @@
                                             <!-- /.product-micro-row -->
                                         </div>
                                         <!-- /.product-micro -->
-
                                     </div>
+                                    @endforeach
 
                                 </div>
                             </div>
-                            @endforeach
+
                         </div>
                     </div>
                     <!-- /.sidebar-widget-body -->
@@ -256,30 +130,26 @@
                 <!-- /.sidebar-widget -->
                 <!-- ============================================== SPECIAL OFFER : END ============================================== -->
                 <!-- ============================================== PRODUCT TAGS ============================================== -->
-                <div class="sidebar-widget product-tag wow fadeInUp">
-                    <h3 class="section-title">Product tags</h3>
-                    <div class="sidebar-widget-body outer-top-xs">
-                        <div class="tag-list"> <a class="item" title="Phone" href="category.html">Phone</a> <a class="item active" title="Vest" href="category.html">Vest</a> <a class="item" title="Smartphone" href="category.html">Smartphone</a> <a class="item" title="Furniture" href="category.html">Furniture</a> <a class="item" title="T-shirt" href="category.html">T-shirt</a> <a class="item" title="Sweatpants" href="category.html">Sweatpants</a> <a class="item" title="Sneaker" href="category.html">Sneaker</a> <a class="item" title="Toys" href="category.html">Toys</a> <a class="item" title="Rose" href="category.html">Rose</a> </div>
-                        <!-- /.tag-list -->
-                    </div>
-                    <!-- /.sidebar-widget-body -->
-                </div>
-                <!-- /.sidebar-widget -->
+                
+                    @include('frontend.common.product-tags')
+
                 <!-- ============================================== PRODUCT TAGS : END ============================================== -->
                 <!-- ============================================== SPECIAL DEALS ============================================== -->
 
-                <div class="sidebar-widget outer-bottom-small wow fadeInUp">
+                <div class="sidebar-widget outer-bottom-small wow fadeInUp" style="margin-top: 30px;">
                     <h3 class="section-title">Special Deals</h3>
                     <div class="sidebar-widget-body outer-top-xs">
                         <div class="owl-carousel sidebar-carousel special-offer custom-carousel owl-theme outer-top-xs">
                             <div class="item">
                                 <div class="products special-product">
+                                    @foreach($special_deals as $product)
+
                                     <div class="product">
                                         <div class="product-micro">
                                             <div class="row product-micro-row">
                                                 <div class="col col-xs-5">
                                                     <div class="product-image">
-                                                        <div class="image"> <a href="#"> <img src="{{asset('frontend/assets/images/products/p28.jpg')}}" alt=""> </a> </div>
+                                                        <div class="image"> <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}"> <img src="{{asset($product->product_thumbnail)}}" alt=""> </a> </div>
                                                         <!-- /.image -->
 
                                                     </div>
@@ -288,9 +158,9 @@
                                                 <!-- /.col -->
                                                 <div class="col col-xs-7">
                                                     <div class="product-info">
-                                                        <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                                                        <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                                         <div class="rating rateit-small"></div>
-                                                        <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                                                        <div class="product-price"> <span class="price"> {{$product->selling_price}} </span> </div>
                                                         <!-- /.product-price -->
 
                                                     </div>
@@ -302,243 +172,11 @@
                                         <!-- /.product-micro -->
 
                                     </div>
-                                    <div class="product">
-                                        <div class="product-micro">
-                                            <div class="row product-micro-row">
-                                                <div class="col col-xs-5">
-                                                    <div class="product-image">
-                                                        <div class="image"> <a href="#"> <img src="{{asset('frontend/assets/images/products/p15.jpg')}}" alt=""> </a> </div>
-                                                        <!-- /.image -->
+                                    @endforeach
 
-                                                    </div>
-                                                    <!-- /.product-image -->
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col col-xs-7">
-                                                    <div class="product-info">
-                                                        <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
-                                                        <div class="rating rateit-small"></div>
-                                                        <div class="product-price"> <span class="price"> $450.99 </span> </div>
-                                                        <!-- /.product-price -->
-
-                                                    </div>
-                                                </div>
-                                                <!-- /.col -->
-                                            </div>
-                                            <!-- /.product-micro-row -->
-                                        </div>
-                                        <!-- /.product-micro -->
-
-                                    </div>
-                                    <div class="product">
-                                        <div class="product-micro">
-                                            <div class="row product-micro-row">
-                                                <div class="col col-xs-5">
-                                                    <div class="product-image">
-                                                        <div class="image"> <a href="#"> <img src="{{asset('frontend/assets/images/products/p26.jpg')}}" alt="image"> </a> </div>
-                                                        <!-- /.image -->
-
-                                                    </div>
-                                                    <!-- /.product-image -->
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col col-xs-7">
-                                                    <div class="product-info">
-                                                        <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
-                                                        <div class="rating rateit-small"></div>
-                                                        <div class="product-price"> <span class="price"> $450.99 </span> </div>
-                                                        <!-- /.product-price -->
-
-                                                    </div>
-                                                </div>
-                                                <!-- /.col -->
-                                            </div>
-                                            <!-- /.product-micro-row -->
-                                        </div>
-                                        <!-- /.product-micro -->
-
-                                    </div>
                                 </div>
                             </div>
-                            <div class="item">
-                                <div class="products special-product">
-                                    <div class="product">
-                                        <div class="product-micro">
-                                            <div class="row product-micro-row">
-                                                <div class="col col-xs-5">
-                                                    <div class="product-image">
-                                                        <div class="image"> <a href="#"> <img src="{{asset('frontend/assets/images/products/p18.jpg')}}" alt=""> </a> </div>
-                                                        <!-- /.image -->
 
-                                                    </div>
-                                                    <!-- /.product-image -->
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col col-xs-7">
-                                                    <div class="product-info">
-                                                        <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
-                                                        <div class="rating rateit-small"></div>
-                                                        <div class="product-price"> <span class="price"> $450.99 </span> </div>
-                                                        <!-- /.product-price -->
-
-                                                    </div>
-                                                </div>
-                                                <!-- /.col -->
-                                            </div>
-                                            <!-- /.product-micro-row -->
-                                        </div>
-                                        <!-- /.product-micro -->
-
-                                    </div>
-                                    <div class="product">
-                                        <div class="product-micro">
-                                            <div class="row product-micro-row">
-                                                <div class="col col-xs-5">
-                                                    <div class="product-image">
-                                                        <div class="image"> <a href="#"> <img src="{{asset('frontend/assets/images/products/p17.jpg')}}" alt=""> </a> </div>
-                                                        <!-- /.image -->
-
-                                                    </div>
-                                                    <!-- /.product-image -->
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col col-xs-7">
-                                                    <div class="product-info">
-                                                        <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
-                                                        <div class="rating rateit-small"></div>
-                                                        <div class="product-price"> <span class="price"> $450.99 </span> </div>
-                                                        <!-- /.product-price -->
-
-                                                    </div>
-                                                </div>
-                                                <!-- /.col -->
-                                            </div>
-                                            <!-- /.product-micro-row -->
-                                        </div>
-                                        <!-- /.product-micro -->
-
-                                    </div>
-                                    <div class="product">
-                                        <div class="product-micro">
-                                            <div class="row product-micro-row">
-                                                <div class="col col-xs-5">
-                                                    <div class="product-image">
-                                                        <div class="image"> <a href="#"> <img src="{{asset('frontend/assets/images/products/p16.jpg')}}" alt=""> </a> </div>
-                                                        <!-- /.image -->
-
-                                                    </div>
-                                                    <!-- /.product-image -->
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col col-xs-7">
-                                                    <div class="product-info">
-                                                        <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
-                                                        <div class="rating rateit-small"></div>
-                                                        <div class="product-price"> <span class="price"> $450.99 </span> </div>
-                                                        <!-- /.product-price -->
-                                                    </div>
-                                                </div>
-                                                <!-- /.col -->
-                                            </div>
-                                            <!-- /.product-micro-row -->
-                                        </div>
-                                        <!-- /.product-micro -->
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="products special-product">
-                                    <div class="product">
-                                        <div class="product-micro">
-                                            <div class="row product-micro-row">
-                                                <div class="col col-xs-5">
-                                                    <div class="product-image">
-                                                        <div class="image"> <a href="#"> <img src="{{asset('frontend/assets/images/products/p15.jpg')}}" alt="images">
-                                                                <div class="zoom-overlay"></div>
-                                                            </a> </div>
-                                                        <!-- /.image -->
-
-                                                    </div>
-                                                    <!-- /.product-image -->
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col col-xs-7">
-                                                    <div class="product-info">
-                                                        <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
-                                                        <div class="rating rateit-small"></div>
-                                                        <div class="product-price"> <span class="price"> $450.99 </span> </div>
-                                                        <!-- /.product-price -->
-
-                                                    </div>
-                                                </div>
-                                                <!-- /.col -->
-                                            </div>
-                                            <!-- /.product-micro-row -->
-                                        </div>
-                                        <!-- /.product-micro -->
-
-                                    </div>
-                                    <div class="product">
-                                        <div class="product-micro">
-                                            <div class="row product-micro-row">
-                                                <div class="col col-xs-5">
-                                                    <div class="product-image">
-                                                        <div class="image"> <a href="#"> <img src="{{asset('frontend/assets/images/products/p14.jpg')}}" alt="">
-                                                                <div class="zoom-overlay"></div>
-                                                            </a> </div>
-                                                        <!-- /.image -->
-
-                                                    </div>
-                                                    <!-- /.product-image -->
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col col-xs-7">
-                                                    <div class="product-info">
-                                                        <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
-                                                        <div class="rating rateit-small"></div>
-                                                        <div class="product-price"> <span class="price"> $450.99 </span> </div>
-                                                        <!-- /.product-price -->
-
-                                                    </div>
-                                                </div>
-                                                <!-- /.col -->
-                                            </div>
-                                            <!-- /.product-micro-row -->
-                                        </div>
-                                        <!-- /.product-micro -->
-
-                                    </div>
-                                    <div class="product">
-                                        <div class="product-micro">
-                                            <div class="row product-micro-row">
-                                                <div class="col col-xs-5">
-                                                    <div class="product-image">
-                                                        <div class="image"> <a href="#"> <img src="{{asset('frontend/assets/images/products/p13.jpg')}}" alt="image"> </a> </div>
-                                                        <!-- /.image -->
-
-                                                    </div>
-                                                    <!-- /.product-image -->
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col col-xs-7">
-                                                    <div class="product-info">
-                                                        <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
-                                                        <div class="rating rateit-small"></div>
-                                                        <div class="product-price"> <span class="price"> $450.99 </span> </div>
-                                                        <!-- /.product-price -->
-
-                                                    </div>
-                                                </div>
-                                                <!-- /.col -->
-                                            </div>
-                                            <!-- /.product-micro-row -->
-                                        </div>
-                                        <!-- /.product-micro -->
-
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <!-- /.sidebar-widget-body -->
@@ -701,7 +339,7 @@
                                         <div class="products">
                                             <div class="product">
                                                 <div class="product-image">
-                                                    <div class="image"> <a href="detail.html"><img src="{{asset($product->product_thumbnail)}}" alt=""></a> </div>
+                                                    <div class="image"> <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}"><img src="{{asset($product->product_thumbnail)}}" alt=""></a> </div>
                                                     <!-- /.image -->
 
                                                     @php
@@ -717,7 +355,7 @@
                                                 <!-- /.product-image -->
 
                                                 <div class="product-info text-left">
-                                                    <h3 class="name"><a href="detail.html">{{$product->product_name_en}}</a></h3>
+                                                    <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                                     <div class="rating rateit-small"></div>
                                                     <div class="description"></div>
                                                     @php
@@ -775,9 +413,12 @@
                                         <div class="products">
                                             <div class="product">
                                                 <div class="product-image">
-                                                    <div class="image"> <a href="detail.html"><img src="{{asset($product->product_thumbnail)}}" alt=""></a> </div>
+                                                    <div class="image"> <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}"><img src="{{asset($product->product_thumbnail)}}" alt=""></a> </div>
                                                     <!-- /.image -->
-
+                                                    @php
+                                    $amount = $product->selling_price - $product->discount_price;
+                                    $discount = ($amount/$product->selling_price) * 100;
+                                    @endphp
                                                     @if($product->discount_price == NULL)
                                                     <div class="tag new"><span>new</span></div>
                                                     @else
@@ -787,7 +428,7 @@
                                                 <!-- /.product-image -->
 
                                                 <div class="product-info text-left">
-                                                    <h3 class="name"><a href="detail.html">{{$product->product_name_en}}</a></h3>
+                                                    <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                                     <div class="rating rateit-small"></div>
                                                     <div class="description"></div>
                                                     @php
@@ -873,15 +514,13 @@
                 <section class="section featured-product wow fadeInUp">
                     <h3 class="section-title">Featured products</h3>
                     <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
-                        @php
-                        $products = App\Models\Product::where('featured',1)->orderBy('id','desc')->get();
-                        @endphp
-                        @forelse($products as $product)
+
+                        @foreach($featureds as $product)
                         <div class="item item-carousel">
                             <div class="products">
                                 <div class="product">
                                     <div class="product-image">
-                                        <div class="image"> <a href="detail.html"><img src="{{asset($product->product_thumbnail)}}" alt=""></a> </div>
+                                        <div class="image"> <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}"><img src="{{asset($product->product_thumbnail)}}" alt=""></a> </div>
                                         <!-- /.image -->
 
                                         <div class="tag hot"><span>hot</span></div>
@@ -889,7 +528,7 @@
                                     <!-- /.product-image -->
 
                                     <div class="product-info text-left">
-                                        <h3 class="name"><a href="detail.html">{{$product->product_name_en}}</a></h3>
+                                        <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                         <div class="rating rateit-small"></div>
                                         <div class="description"></div>
                                         @php
@@ -1206,6 +845,125 @@
                 </div>
                 <!-- /.sidebar-widget -->
                 <!-- ============================================== BEST SELLER : END ============================================== -->
+
+                 <!-- ============================================== FEATURED PRODUCTS ============================================== -->
+                 <section class="section featured-product wow fadeInUp">
+                    <h3 class="section-title">{{$skip_category->category_name_en}}</h3>
+                    <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+
+                        @foreach($skip_product as $product)
+                        <div class="item item-carousel">
+                            <div class="products">
+                                <div class="product">
+                                    <div class="product-image">
+                                        <div class="image"> <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}"><img src="{{asset($product->product_thumbnail)}}" alt=""></a> </div>
+                                        <!-- /.image -->
+
+                                        <div class="tag hot"><span>hot</span></div>
+                                    </div>
+                                    <!-- /.product-image -->
+
+                                    <div class="product-info text-left">
+                                        <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
+                                        <div class="rating rateit-small"></div>
+                                        <div class="description"></div>
+                                        @php
+                                        $old_price = $product->selling_price - $product->discount_price
+                                        @endphp
+                                        <div class="product-price"> <span class="price"> {{$old_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
+                                        <!-- /.product-price -->
+
+                                    </div>
+                                    <!-- /.product-info -->
+                                    <div class="cart clearfix animate-effect">
+                                        <div class="action">
+                                            <ul class="list-unstyled">
+                                                <li class="add-cart-button btn-group">
+                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
+                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                </li>
+                                                <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
+                                                <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.action -->
+                                    </div>
+                                    <!-- /.cart -->
+                                </div>
+                                <!-- /.product -->
+
+                            </div>
+                            <!-- /.products -->
+                        </div>
+                        <!-- /.item -->
+                        @endforeach
+                    </div>
+                    <!-- /.home-owl-carousel -->
+                </section>
+                <!-- /.section -->
+                <!-- ============================================== FEATURED PRODUCTS : END ============================================== -->
+
+                
+                 <!-- ============================================== FEATURED PRODUCTS ============================================== -->
+                 <section class="section featured-product wow fadeInUp">
+                 @if(session()->get('language') == 'english') 
+                    <h3 class="section-title"> {{$skip_brand->brand_name_en}} Products</h3>
+                    @else
+                    <h3 class="section-title" style="float: right;"> منتجات {{$skip_brand->brand_name_ar}}   @endif</h3>
+                    <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
+
+                        @foreach($skip_product_brand as $product)
+                        <div class="item item-carousel">
+                            <div class="products">
+                                <div class="product">
+                                    <div class="product-image">
+                                        <div class="image"> <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}"><img src="{{asset($product->product_thumbnail)}}" alt=""></a> </div>
+                                        <!-- /.image -->
+
+                                        <div class="tag hot"><span>hot</span></div>
+                                    </div>
+                                    <!-- /.product-image -->
+
+                                    <div class="product-info text-left">
+                                        <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
+                                        <div class="rating rateit-small"></div>
+                                        <div class="description"></div>
+                                        @php
+                                        $old_price = $product->selling_price - $product->discount_price
+                                        @endphp
+                                        <div class="product-price"> <span class="price"> {{$old_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
+                                        <!-- /.product-price -->
+
+                                    </div>
+                                    <!-- /.product-info -->
+                                    <div class="cart clearfix animate-effect">
+                                        <div class="action">
+                                            <ul class="list-unstyled">
+                                                <li class="add-cart-button btn-group">
+                                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
+                                                    <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                                                </li>
+                                                <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
+                                                <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
+                                            </ul>
+                                        </div>
+                                        <!-- /.action -->
+                                    </div>
+                                    <!-- /.cart -->
+                                </div>
+                                <!-- /.product -->
+
+                            </div>
+                            <!-- /.products -->
+                        </div>
+                        <!-- /.item -->
+                        @endforeach
+                    </div>
+                    <!-- /.home-owl-carousel -->
+                </section>
+                <!-- /.section -->
+                <!-- ============================================== FEATURED PRODUCTS : END ============================================== -->
+
 
                 <!-- ============================================== BLOG SLIDER ============================================== -->
                 <section class="section latest-blog outer-bottom-vs wow fadeInUp">
@@ -1590,6 +1348,7 @@
         <!-- /.row -->
         <!-- ============================================== BRANDS CAROUSEL ============================================== -->
 
+               
         @include('frontend.body.brands')
 
         <!-- /.logo-slider -->
