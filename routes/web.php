@@ -170,6 +170,8 @@ Route::get('/language/arabic', [LanguageController::class, 'Arabic'])->name('ara
 
 Route::get('product/details/{id}/{product_slug}', [IndexController::class, 'ProductDetails']);
 Route::get('product/tag/{tag}', [IndexController::class, 'TagWiseProduct']);
+Route::get('subcategory/product/{subcat_id}/{subcategory_slug}', [IndexController::class, 'SubCategoryWiseProduct']);
+Route::get('subsubcategory/product/{subsubcat_id}/{subcategory_slug}/{subsubcategory_slug}', [IndexController::class, 'SubSubCategoryWiseProduct']);
 
 
 

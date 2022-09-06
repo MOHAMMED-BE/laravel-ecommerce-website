@@ -20,8 +20,8 @@ class IndexController extends Controller
         $categories = Category::orderBy('category_name_en','asc')->get();
         $sliders = Slider::where('status',1)->orderBy('id','asc')->limit(3)->get();                            
         $products  = Product::where('status',1)->orderBy('id','desc')->limit(7)->get();  
-        $products_tags_en  = Product::where('status',1)->groupBy('product_tags_en')->select('product_tags_en')->get();
-        $products_tags_ar  = Product::where('status',1)->groupBy('product_tags_ar')->select('product_tags_ar')->get();
+        // $products_tags_en  = Product::where('status',1)->groupBy('product_tags_en')->select('product_tags_en')->get();
+        // $products_tags_ar  = Product::where('status',1)->groupBy('product_tags_ar')->select('product_tags_ar')->get();
         $featureds = Product::where('featured',1)->orderBy('id','desc')->limit(5)->get();
         $hot_deals = Product::where('hot_deals',1)->where('discount_price','!=',NULL)->orderBy('id','desc')->limit(5)->get();
         // $hot_deals = Product::where('hot_deals',1)->orderBy('id','desc')->limit(5)->get();
@@ -36,7 +36,7 @@ class IndexController extends Controller
         // return $skip_category->id;
         // die();
 
-        return view('frontend.index',compact('sliders','categories','products','featureds','hot_deals','special_offers','special_deals','skip_category','skip_product','skip_brand','skip_product_brand','products_tags_en','products_tags_ar'));
+        return view('frontend.index',compact('sliders','categories','products','featureds','hot_deals','special_offers','special_deals','skip_category','skip_product','skip_brand','skip_product_brand'));
     }
 
     public function UserLogout(){
@@ -110,18 +110,49 @@ class IndexController extends Controller
     {
         $product = Product::findOrFail($id);
         $multi_img = MultiImg::where('product_id',$id)->get();  
+        $upsel_product = Product::where('category_id',$product->category_id)->get(); 
 
-        return view('frontend.product.product-details',compact('product','multi_img'));
+        $size_en = $product->product_size_en;
+        $product_size_en = explode(',',$size_en);
+
+        $size_ar = $product->product_size_ar;
+        $product_size_ar = explode(',',$size_ar);
+
+        $color_en = $product->product_color_en;
+        $product_color_en = explode(',',$color_en);
+
+        $color_ar = $product->product_color_ar;
+        $product_color_ar = explode(',',$color_ar);
+
+        return view('frontend.product.product-details',compact('product','multi_img','product_size_en','product_size_ar','product_color_en','product_color_ar','upsel_product'));
     } // end ProductDetails
 
     public function TagWiseProduct($tag)
     {
-        $products = Product::where('status',1)->where('product_tags_en',$tag)->where('product_tags_ar',$tag)->orderBy('id','desc')->get(); 
+        $products = Product::where('status',1)->where('product_tags_en',$tag)->orderBy('id','desc')->paginate(6); 
+        // $products = Product::where('status',1)->where('product_tags_en',$tag)->orderBy('id','desc')->get(); 
+        // $products = Product::where('status',1)->where('product_tags_en',$tag)->where('product_tags_ar',$tag)->orderBy('id','desc')->get(); 
         $categories = Category::orderBy('category_name_en','asc')->get();
         
         return view('frontend.tags.tags-view',compact('products','categories'));
         
     } // end TagWiseProduct
+
+    public function SubCategoryWiseProduct($subcat_id,$subcategory_slug)
+    {
+        $products = Product::where('status',1)->where('subcategory_id',$subcat_id)->orderBy('id','desc')->paginate(6); 
+        $categories = Category::orderBy('category_name_en','asc')->get();
+        
+        return view('frontend.product.subcategory-view',compact('products','categories'));
+    } // end SubCategoryProduct
+
+    public function SubSubCategoryWiseProduct($subsubcat_id,$subcategory_slug,$subsubcategory_slug)
+    {
+        $products = Product::where('status',1)->where('subsubcategory_id',$subsubcat_id)->orderBy('id','desc')->paginate(6); 
+        $categories = Category::orderBy('category_name_en','asc')->get();
+        
+        return view('frontend.product.sub-subcategory-view',compact('products','categories'));
+    } // end SubCategoryProduct
 
 }
 
