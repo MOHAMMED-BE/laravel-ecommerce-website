@@ -145,8 +145,8 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>Product Tags En <span class="text-danger">*</span></h5>
-                                                <input type="text" value="Lorem" name="product_tags_en" required data-role="tagsinput" placeholder="add tags" />
+                                                <h5>Product Tags En </h5>
+                                                <input type="text" value="Lorem" name="product_tags_en"  data-role="tagsinput" placeholder="add tags" />
                                                 @error('product_tags_en')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -160,8 +160,8 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>Product Tags Ar <span class="text-danger">*</span></h5>
-                                                <input type="text" value="Lorem" name="product_tags_ar" required data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
+                                                <h5>Product Tags Ar </h5>
+                                                <input type="text" value="Lorem" name="product_tags_ar"  data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
                                                 @error('product_tags_ar')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -169,8 +169,8 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>Product Size En <span class="text-danger">*</span></h5>
-                                                <input type="text" value="Lorem" name="product_size_en" required data-role="tagsinput" placeholder="add tags" />
+                                                <h5>Product Size En </h5>
+                                                <input type="text" value="Lorem" name="product_size_en"  data-role="tagsinput" placeholder="add tags" />
                                                 @error('product_size_en')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -178,8 +178,8 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>Product Size Ar <span class="text-danger">*</span></h5>
-                                                <input type="text" value="Lorem" name="product_size_ar" required data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
+                                                <h5>Product Size Ar </h5>
+                                                <input type="text" value="Lorem" name="product_size_ar"  data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
                                                 @error('product_size_ar')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -193,8 +193,8 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>Product Color En <span class="text-danger">*</span></h5>
-                                                <input type="text" value="Lorem" name="product_color_en" required data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
+                                                <h5>Product Color En </h5>
+                                                <input type="text" value="Lorem" name="product_color_en"  data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
                                                 @error('product_color_en')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -202,8 +202,8 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>Product Color Ar <span class="text-danger">*</span></h5>
-                                                <input type="text" value="Lorem" name="product_color_ar" required data-role="tagsinput" placeholder="add tags" />
+                                                <h5>Product Color Ar </h5>
+                                                <input type="text" value="Lorem" name="product_color_ar"  data-role="tagsinput" placeholder="add tags" />
                                                 @error('product_color_ar')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror

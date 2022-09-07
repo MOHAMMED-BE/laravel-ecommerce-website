@@ -110,7 +110,7 @@ class IndexController extends Controller
     {
         $product = Product::findOrFail($id);
         $multi_img = MultiImg::where('product_id',$id)->get();  
-        $upsel_product = Product::where('category_id',$product->category_id)->get(); 
+        $related_products = Product::where('category_id',$product->category_id)->where('id','!=',$id)->get(); 
 
         $size_en = $product->product_size_en;
         $product_size_en = explode(',',$size_en);
@@ -124,7 +124,7 @@ class IndexController extends Controller
         $color_ar = $product->product_color_ar;
         $product_color_ar = explode(',',$color_ar);
 
-        return view('frontend.product.product-details',compact('product','multi_img','product_size_en','product_size_ar','product_color_en','product_color_ar','upsel_product'));
+        return view('frontend.product.product-details',compact('product','multi_img','product_size_en','product_size_ar','product_color_en','product_color_ar','related_products'));
     } // end ProductDetails
 
     public function TagWiseProduct($tag)
@@ -153,6 +153,29 @@ class IndexController extends Controller
         
         return view('frontend.product.sub-subcategory-view',compact('products','categories'));
     } // end SubCategoryProduct
+
+    public function ProductViewAjax($id)
+    {
+        $product = Product::with('category','brand')->findOrFail($id);
+
+        $size_en = $product->product_size_en;
+        $product_size_en = explode(',',$size_en);
+
+        $size_ar = $product->product_size_ar;
+        $product_size_ar = explode(',',$size_ar);
+
+        $color_en = $product->product_color_en;
+        $product_color_en = explode(',',$color_en);
+
+        $color_ar = $product->product_color_ar;
+        $product_color_ar = explode(',',$color_ar);
+
+        return response()->json(array(
+            'product' => $product,
+            'product_size_en' => $product_size_en,
+            'product_color_en' => $product_color_en,
+        ));
+    } // end ProductViewAjax
 
 }
 

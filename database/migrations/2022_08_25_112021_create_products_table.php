@@ -25,12 +25,12 @@ return new class extends Migration
             $table->string('product_slug_ar');
             $table->string('product_code');
             $table->string('product_quantity');
-            $table->string('product_tags_en');
-            $table->string('product_tags_ar');
+            $table->string('product_tags_en')->nullable();
+            $table->string('product_tags_ar')->nullable();
             $table->string('product_size_en')->nullable();
             $table->string('product_size_ar')->nullable();
-            $table->string('product_color_en');
-            $table->string('product_color_ar');
+            $table->string('product_color_en')->nullable();
+            $table->string('product_color_ar')->nullable();
             $table->string('selling_price');
             $table->string('discount_price')->nullable();
             $table->string('short_desc_ar');

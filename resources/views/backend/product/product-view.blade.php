@@ -32,7 +32,7 @@
                                     <tr>
                                         <!-- <td><span><i class="fa-solid fa-id-card"></i></span></td> -->
                                         <td class="d-flex justify-content-center"><img class="img rounded-4 center" src="{{asset($item->product_thumbnail)}}" alt="" style="width: 4rem !important;height: 3.5rem !important;"></td>
-                                        <td>{{$item->product_name_en}}</td>
+                                        <td style="width: 33%;">{{$item->product_name_en}}</td>
                                         <td>{{$item->selling_price}}</td>
                                         <td>
                                             @if($item->discount_price == NULL)

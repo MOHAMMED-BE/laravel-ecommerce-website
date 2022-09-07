@@ -228,10 +228,8 @@ Tags
                                                     <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                                     <div class="rating rateit-small"></div>
                                                     <div class="description"></div>
-                                                    @php
-                                                    $old_price = $product->selling_price - $product->discount_price
-                                                    @endphp
-                                                    <div class="product-price"> <span class="price"> {{$old_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
+                                                    
+                                                    <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
                                                     <!-- /.product-price -->
 
                                                 </div>
@@ -285,9 +283,9 @@ Tags
                                                         <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                                         <div class="rating rateit-small"></div>
                                                         @php
-                                                        $old_price = $product->selling_price - $product->discount_price
+                                                        $product->discount_price = $product->selling_price - $product->discount_price
                                                         @endphp
-                                                        <div class="product-price"> <span class="price"> {{$old_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
+                                                        <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
                                                         <!-- /.product-price -->
                                                         <div class="description m-t-10">@if(session()->get('language') == 'english') {{$product->short_desc_an}} @else {{$product->short_desc_ar}} @endif</div>
                                                         <div class="cart clearfix animate-effect">
