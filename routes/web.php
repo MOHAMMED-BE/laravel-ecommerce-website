@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\LanguageController;
+use App\Http\Controllers\Frontend\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -173,6 +174,9 @@ Route::get('product/tag/{tag}', [IndexController::class, 'TagWiseProduct']);
 Route::get('subcategory/product/{subcat_id}/{subcategory_slug}', [IndexController::class, 'SubCategoryWiseProduct']);
 Route::get('subsubcategory/product/{subsubcat_id}/{subcategory_slug}/{subsubcategory_slug}', [IndexController::class, 'SubSubCategoryWiseProduct']);
 Route::get('/product/view/modal/{id}', [IndexController::class, 'ProductViewAjax']);
+Route::post('/cart/data/store/{id}', [CartController::class, 'AddToCart']);
+Route::get('/product/mini/cart', [CartController::class, 'AddMiniCart']);
+Route::get('/minicart/product-remove/{rowId}', [CartController::class, 'RemoveMiniCart']);
 
 
 

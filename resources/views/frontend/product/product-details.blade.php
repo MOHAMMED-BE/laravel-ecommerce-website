@@ -120,7 +120,7 @@
                             </div><!-- /.gallery-holder -->
                             <div class='col-sm-6 col-md-7 product-info-block'>
                                 <div class="product-info">
-                                    <h1 class="name">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</h1>
+                                    <h1 class="name" id="product-name">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</h1>
 
                                     <div class="rating-reviews m-t-20">
                                         <div class="row">
@@ -199,7 +199,7 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label class="info-title control-label">Size <span>*</span></label>
-                                                <select class="form-control">
+                                                <select class="form-control" id="size">
                                                     @if(session()->get('language') == 'english')
                                                     <option>--Select Size--</option>
                                                     @foreach($product_size_en as $size_en)
@@ -220,7 +220,7 @@
                                         <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label class="info-title control-label">Color <span>*</span></label>
-                                                <select class="form-control">
+                                                <select class="form-control" id="color">
                                                     @if(session()->get('language') == 'english')
                                                     <option>--Select Color--</option>
                                                     @foreach($product_color_en as $color_en)
@@ -252,16 +252,18 @@
                                                 <div class="cart-quantity">
                                                     <div class="quant-input">
                                                         <div class="arrows">
-                                                            <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc"></i></span></div>
-                                                            <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc"></i></span></div>
+                                                            <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc" style="top: 5px;"></i></span></div>
+                                                            <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc" style="top: -7px;"></i></span></div>
                                                         </div>
-                                                        <input type="text" value="1">
+                                                        <input type="number" id="quantity" value="1" min="1">
                                                     </div>
                                                 </div>
                                             </div>
 
+                                            <input type="hidden" id="product-id" value="{{$product->id}}" min="1">
+
                                             <div class="col-sm-7">
-                                                <a href="#" class="btn btn-primary"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</a>
+                                                <button  type="submit" class="btn btn-primary" onclick="AddToCart()"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
                                             </div>
 
 
@@ -406,7 +408,6 @@
                                                     <div class="form-group">
                                                         <label for="exampleInputTag">Add Your Tags: </label>
                                                         <input type="email" id="exampleInputTag" class="form-control txt">
-
 
                                                     </div>
 
