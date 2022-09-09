@@ -19,7 +19,7 @@ BMS Store
                 <!-- ================================== TOP NAVIGATION : END ================================== -->
 
                 <!-- ============================================== HOT DEALS ============================================== -->
-               
+
                 @include('frontend.common.hot-deals')
 
                 <!-- ============================================== HOT DEALS: END ============================================== -->
@@ -73,8 +73,8 @@ BMS Store
                 <!-- /.sidebar-widget -->
                 <!-- ============================================== SPECIAL OFFER : END ============================================== -->
                 <!-- ============================================== PRODUCT TAGS ============================================== -->
-                
-                    @include('frontend.common.product-tags')
+
+                @include('frontend.common.product-tags')
 
                 <!-- ============================================== PRODUCT TAGS : END ============================================== -->
                 <!-- ============================================== SPECIAL DEALS ============================================== -->
@@ -275,7 +275,7 @@ BMS Store
                                                     <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                                     <div class="rating rateit-small"></div>
                                                     <div class="description"></div>
-                                                    
+
                                                     @if($product->discount_price == NULL)
                                                     <div class="product-price"> <span class="price"> {{$product->selling_price}} $ </span> </div>
                                                     @else
@@ -291,7 +291,9 @@ BMS Store
                                                                 <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary icon" type="button" title="Add Cart" id="{{$product->id}}" onclick="productView(this.id)"> <i class="fa fa-shopping-cart"></i> </button>
                                                                 <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                                                             </li>
-                                                            <li class="lnk wishlist"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
+                                                            <li class="">
+                                                                <button class="btn btn-primary icon" type="button" title="Wishlist" id="{{$product->id}}" onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i> </button>
+                                                            </li>
                                                             <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
                                                         </ul>
                                                     </div>
@@ -331,9 +333,9 @@ BMS Store
                                                     <div class="image"> <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}"><img src="{{asset($product->product_thumbnail)}}" alt=""></a> </div>
                                                     <!-- /.image -->
                                                     @php
-                                    $amount = $product->selling_price - $product->discount_price;
-                                    $discount = ($amount/$product->selling_price) * 100;
-                                    @endphp
+                                                    $amount = $product->selling_price - $product->discount_price;
+                                                    $discount = ($amount/$product->selling_price) * 100;
+                                                    @endphp
                                                     @if($product->discount_price == NULL)
                                                     <div class="tag new"><span>new</span></div>
                                                     @else
@@ -346,7 +348,7 @@ BMS Store
                                                     <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                                     <div class="rating rateit-small"></div>
                                                     <div class="description"></div>
-                                                    
+
                                                     @if($product->discount_price == NULL)
                                                     <div class="product-price"> <span class="price"> {{$product->selling_price}} $ </span> </div>
                                                     @else
@@ -444,7 +446,7 @@ BMS Store
                                         <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                         <div class="rating rateit-small"></div>
                                         <div class="description"></div>
-                                        
+
                                         <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
                                         <!-- /.product-price -->
 
@@ -757,8 +759,8 @@ BMS Store
                 <!-- /.sidebar-widget -->
                 <!-- ============================================== BEST SELLER : END ============================================== -->
 
-                 <!-- ============================================== FEATURED PRODUCTS ============================================== -->
-                 <section class="section featured-product wow fadeInUp">
+                <!-- ============================================== FEATURED PRODUCTS ============================================== -->
+                <section class="section featured-product wow fadeInUp">
                     <h3 class="section-title">{{$skip_category->category_name_en}}</h3>
                     <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
 
@@ -778,7 +780,7 @@ BMS Store
                                         <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                         <div class="rating rateit-small"></div>
                                         <div class="description"></div>
-                                        
+
                                         <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
                                         <!-- /.product-price -->
 
@@ -812,13 +814,13 @@ BMS Store
                 <!-- /.section -->
                 <!-- ============================================== FEATURED PRODUCTS : END ============================================== -->
 
-                
-                 <!-- ============================================== FEATURED PRODUCTS ============================================== -->
-                 <section class="section featured-product wow fadeInUp">
-                 @if(session()->get('language') == 'english') 
+
+                <!-- ============================================== FEATURED PRODUCTS ============================================== -->
+                <section class="section featured-product wow fadeInUp">
+                    @if(session()->get('language') == 'english')
                     <h3 class="section-title"> {{$skip_brand->brand_name_en}} Products</h3>
                     @else
-                    <h3 class="section-title" style="float: right;"> منتجات {{$skip_brand->brand_name_ar}}   @endif</h3>
+                    <h3 class="section-title" style="float: right;"> منتجات {{$skip_brand->brand_name_ar}} @endif</h3>
                     <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
 
                         @foreach($skip_product_brand as $product)
@@ -837,7 +839,7 @@ BMS Store
                                         <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                         <div class="rating rateit-small"></div>
                                         <div class="description"></div>
-                                        
+
                                         <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
                                         <!-- /.product-price -->
 
@@ -1242,7 +1244,7 @@ BMS Store
                             <!-- /.products -->
                         </div>
                         <!-- /.item -->
-                        
+
                     </div>
                     <!-- /.home-owl-carousel -->
                 </section>
@@ -1255,7 +1257,7 @@ BMS Store
         </div>
         <!-- /.row -->
         <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-               
+
         @include('frontend.body.brands')
 
         <!-- /.logo-slider -->

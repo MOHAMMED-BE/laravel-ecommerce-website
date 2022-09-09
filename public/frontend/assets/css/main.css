@@ -1660,7 +1660,7 @@ header {
   font-size: 11px;
   text-align: center;
   line-height: 19px;
-  
+
 }
 
 .top-cart-row .dropdown-cart .dropdown-menu {
@@ -6957,7 +6957,10 @@ header {
 }
 
 .body-content .my-wishlist-page img {
-  width: 100%
+  /* width: 100%; */
+  width: 60px;
+  border-radius: 5px;
+  box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
 }
 
 .body-content .my-wishlist-page .my-wishlist table tbody tr:nth-child(even) {
