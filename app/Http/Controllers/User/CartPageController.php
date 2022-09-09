@@ -26,4 +26,28 @@ class CartPageController extends Controller
         ));
 
     } // end GetCartProduct
+
+    public function RemoveCart($rowId)
+    {
+        Cart::remove($rowId);
+       return response()->json(['success'=>'Product Removed Successfully From Your Cart']);
+
+    } // end RemoveCart
+
+    public function cartIncrement($rowId)
+    {
+        $row = Cart::get($rowId);
+        if($row->qty >= 1)
+        Cart::update($rowId, $row->qty + 1);
+       return response()->json(['increment']);
+
+    } // end cartIncrement
+
+    public function cartDecrement($rowId)
+    {
+        $row = Cart::get($rowId);
+        if($row->qty > 1)
+        Cart::update($rowId, $row->qty - 1);
+       return response()->json(['decrement']);
+    } // end cartDecrement
 }

@@ -12,7 +12,7 @@ function productView(id) {
         url: "/product/view/modal/" + id,
         type: "GET",
         dataType: "json",
-        success:function(data) {
+        success: function (data) {
             console.log(data)
             $('#product-name').text(data.product.product_name_en);
 
@@ -83,7 +83,7 @@ function AddToCart() {
 
         url: "/cart/data/store/" + id,
 
-        success:function(data) {
+        success: function (data) {
             miniCart()
             $('.close-modal').click();
 
@@ -125,7 +125,7 @@ function miniCart() {
         type: 'GET',
         dataType: 'json',
         url: '/product/mini/cart/',
-        success:function(response) {
+        success: function (response) {
             $('span[id="cart-quantity"]').text(response.cartQuantity)
             $('.cart-sub-total').text(response.cartTotal)
             var miniCart = ""
@@ -162,7 +162,7 @@ function miniCartRemove(rowId) {
         dataType: "json",
         url: "/minicart/product-remove/" + rowId,
 
-        success:function(data) {
+        success: function (data) {
             miniCart();
             const Toast = Swal.mixin({
                 toast: true,
@@ -195,7 +195,7 @@ function miniCartRemove(rowId) {
 
 
 
-// view wishlist 
+// view cart 
 
 function cart() {
     $.ajax({
@@ -216,25 +216,37 @@ function cart() {
                     </div>
                 </td>
                 <td class="col-md-2">
-                ${value.options.size == null ? 
-                    `<span></span>`:
-                     `<strong>size : ${value.options.size}</strong>` 
-                   
-                }
+                ${value.options.size == null ?
+                        `<span></span>` :
+                        `<strong>size : ${value.options.size}</strong>`
+
+                    }
                 
                 </td>
                 <td class="col-md-2">
-                ${value.options.color == null ? 
-                    `<span></span>`:
-                     `<strong>color : ${value.options.color}</strong>` 
-                   
+                ${value.options.color == null ?
+                        `<span></span>` :
+                        `<strong>color : ${value.options.color}</strong>`
+
+                    }
+                </td>
+                <td class="col-md-2" style=" display: flex; margin: 15px 0px 0px 0px; ">
+
+                ${value.qty > 1
+                    ? `<button type="submit" id="${value.rowId}" onclick="cartDecrement(this.id)" id="cartDecrement" class="btn btn-success btn-sm" style=" margin: 0 5px 0 0; ">-</button>`
+                    : `<button type="submit" id="${value.rowId}" onclick="cartDecrement(this.id)" id="cartDecrement" class="btn btn-success btn-sm" disabled style=" margin: 0 5px 0 0; ">-</button>`
                 }
+
+                
+                <input type="text" class="form-control" id="quantity" value="${value.qty}" min="1" max="100" disabled style=" width: 6rem; ">
+
+                ${value.qty < 100
+                    ? `<button type="submit" id="${value.rowId}" onclick="cartIncrement(this.id)" id="cartIncrement" class="btn btn-danger btn-sm" style=" margin: 0 0 0 4px; ">+</button>`
+                    : `<button type="submit" id="${value.rowId}" onclick="cartIncrement(this.id)" id="cartIncrement" disabled class="btn btn-danger btn-sm" style=" margin: 0 0 0 4px; ">+</button>`
+                 }
                 </td>
-                <td class="col-md-2">
-                <button type="submit" class="btn btn-success btn-sm">+</button>
-                <input type="text" class="form-control" id="quantity" value="${value.qty}" min="1" max="100" disabled="" style=" width: 6rem; ">
-                <button type="submit" class="btn btn-success btn-sm">-</button>
-                </td>
+
+               
 
                 <td class="col-md-2">
                 <strong>${value.subtotal}</strong>
@@ -247,7 +259,7 @@ function cart() {
                 
 
                 <td class="col-md-1 close-btn">
-                    <button type="submit" id="${value.id}" onclick="cartRemove(this.id)"  class=""><i class="fa fa-times"></i></button>
+                    <button type="submit" id="${value.rowId}" onclick="cartRemove(this.id)"  class=""><i class="fa fa-times"></i></button>
                 </td>
             </tr>
           `;
@@ -262,14 +274,15 @@ cart();
 
 
 // cartRemove start
-function cartRemove(id) {
+function cartRemove(rowId) {
     $.ajax({
         type: "GET",
         dataType: "json",
-        url: "/user/cart-remove/" + id,
+        url: "/user/cart-remove/" + rowId,
 
         success: function (data) {
             cart();
+            miniCart();
             const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -298,6 +311,40 @@ function cartRemove(id) {
 // cartRemove end
 
 
+
+
+
+// cartIncrement start
+function cartIncrement(rowId) {
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "/cart-increment/" + rowId,
+
+        success: function (data) {
+            cart();
+            miniCart();
+        }
+    })
+}
+// cartIncrement end
+
+
+
+// cartDecrement start
+function cartDecrement(rowId) {
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "/cart-decrement/" + rowId,
+
+        success: function (data) {
+            cart();
+            miniCart();
+        }
+    })
+}
+// cartDecrement end
 
 
 
