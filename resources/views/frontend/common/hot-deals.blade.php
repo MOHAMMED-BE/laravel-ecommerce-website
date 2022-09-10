@@ -35,9 +35,6 @@
                 <div class="product-info text-left m-t-20">
                     <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif </a></h3>
                     <div class="rating rateit-small"></div>
-                    @php
-                    $product->discount_price = $product->selling_price - $product->discount_price
-                    @endphp
                     <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
                     <!-- /.product-price -->
                     <!-- /.product-price -->
@@ -48,8 +45,8 @@
                 <div class="cart clearfix animate-effect">
                     <div class="action">
                         <div class="add-cart-button btn-group">
-                            <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                            <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                            <button class="btn btn-primary icon" type="button" data-toggle="modal" data-target="#exampleModal" id="{{$product->id}}" onclick="productView(this.id)"> <i class="fa fa-shopping-cart"></i> </button>
+                            <button class="btn btn-primary cart-btn" type="button" data-toggle="modal" data-target="#exampleModal" id="{{$product->id}}" onclick="productView(this.id)">Add to cart</button>
                         </div>
                     </div>
                     <!-- /.action -->

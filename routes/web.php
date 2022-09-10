@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\AdminProfileController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
@@ -207,17 +208,29 @@ Route::group(['prefix'=>'user','middleware'=>['user','auth'], 'namespace'=>'User
 });
 
 
-    // cart view 
-    Route::get('/mycart', [CartPageController::class, 'MyCart'])->name('mycart');
-    Route::get('/user/get-cart-product', [CartPageController::class, 'GetCartProduct']);
-    Route::get('/user/cart-remove/{rowId}', [CartPageController::class, 'RemoveCart']);
-    Route::get('/cart-increment/{rowId}', [CartPageController::class, 'cartIncrement']);
-    Route::get('/cart-decrement/{rowId}', [CartPageController::class, 'cartDecrement']);
+// cart view 
+Route::get('/mycart', [CartPageController::class, 'MyCart'])->name('mycart');
+Route::get('/user/get-cart-product', [CartPageController::class, 'GetCartProduct']);
+Route::get('/user/cart-remove/{rowId}', [CartPageController::class, 'RemoveCart']);
+Route::get('/cart-increment/{rowId}', [CartPageController::class, 'cartIncrement']);
+Route::get('/cart-decrement/{rowId}', [CartPageController::class, 'cartDecrement']);
 
 
 
 
 
+// Admin Coupon All Routes
+
+Route::prefix('coupon')->group(function(){
+    Route::get('/view', [CouponController::class, 'CouponView'])->name('menage-coupon');
+    Route::post('/store', [CouponController::class, 'CouponStore'])->name('coupon.store');
+    Route::get('/edit/{id}', [CouponController::class, 'CouponEdit'])->name('coupon.edit');
+    Route::get('/delete/{id}', [CouponController::class, 'CouponDelete'])->name('coupon.delete');
+    Route::post('/update', [CouponController::class, 'CouponUpdate'])->name('coupon.update');
+    Route::get('/inactive/{id}', [CouponController::class, 'InactiveCoupon'])->name('coupon-inactive');
+    Route::get('/active/{id}', [CouponController::class, 'ActiveCoupon'])->name('coupon-active');
+
+});
 
 
 
