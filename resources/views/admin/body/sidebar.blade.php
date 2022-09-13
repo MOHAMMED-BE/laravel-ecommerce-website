@@ -12,7 +12,7 @@ $route = Route::current()->getName();
     <div class="user-profile">
       <div class="ulogo">
         <a href="{{url('admin/dashboard')}}">
-          <!-- logo for regular state and mobile devices -->
+          <!-- logo for regular statee and mobile devices -->
           <div class="d-flex align-items-center justify-content-center">
             <!-- <img src="{{ asset('backend/images/logo-dark.png') }}" alt=""> -->
             <h3>BMS Dashboard</h3>
@@ -95,6 +95,22 @@ $route = Route::current()->getName();
         </a>
         <ul class="treeview-menu">
           <li class="{{ ($route == 'menage-coupon')? 'active':''}}"><a href="{{route('menage-coupon')}}"><i class="ti-more"></i>Menage Coupon</a></li>
+        </ul>
+      </li>
+
+      <li class="treeview {{ ($prefix == '/shipping')? 'active':''}}">
+        <a href="#">
+          <i data-feather="file"></i>
+          <span>Shipping Area</span>
+          <span style="float: right;" > <!-- class="pull-right-container" -->
+            <i class="fa-solid fa-angle-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ ($route == 'menage-division')? 'active':''}}"><a href="{{route('menage-division')}}"><i class="ti-more"></i>Ship Division</a></li>
+          <li class="{{ ($route == 'menage-district')? 'active':''}}"><a href="{{route('menage-district')}}"><i class="ti-more"></i>Ship District</a></li>
+          <li class="{{ ($route == 'menage-state')? 'active':''}}"><a href="{{route('menage-state')}}"><i class="ti-more"></i>Ship State</a></li>
+
         </ul>
       </li>
 
