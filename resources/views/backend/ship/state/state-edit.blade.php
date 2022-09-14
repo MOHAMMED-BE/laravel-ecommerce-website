@@ -27,13 +27,13 @@
                                         <select name="division_id" class="form-control" aria-invalid="false">
                                             <option value="" selected="" disabled>Select Your division</option>
                                             @foreach($division as $item)
-                                            <option value="{{$item->id}}" {{$item->id == $state->division_id ? 'selected':''}} >{{$item->division_name}}</option>
+                                            <option value="{{$item->id}}" {{$item->id == $state->division_id ? 'selected':''}}>{{$item->division_name}}</option>
                                             @endforeach
 
                                         </select>
                                         @error('division_id')
                                         <span class=" text-danger">{{$message}}</span>
-                                                @enderror
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -43,13 +43,13 @@
                                         <select name="district_id" class="form-control" aria-invalid="false">
                                             <option value="" selected="" disabled>Select Your district</option>
                                             @foreach($district as $item)
-                                            <option value="{{$item->id}}" {{$item->id == $state->district_id ? 'selected':''}} >{{$item->district_name}}</option>
+                                            <option value="{{$item->id}}" {{$item->id == $state->district_id ? 'selected':''}}>{{$item->district_name}}</option>
                                             @endforeach
 
                                         </select>
                                         @error('district_id')
                                         <span class=" text-danger">{{$message}}</span>
-                                                @enderror
+                                        @enderror
                                     </div>
                                 </div>
 

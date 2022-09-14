@@ -28,7 +28,7 @@
                                     <tr>
                                         <!-- <td><span><i class="fa-solid fa-id-card"></i></span></td> -->
 
-                                        
+
 
                                         <td>{{$item->district_name}}</td>
                                         <td>{{$item->division->division_name}}</td>

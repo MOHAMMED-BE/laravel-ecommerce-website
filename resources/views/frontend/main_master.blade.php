@@ -176,6 +176,148 @@
 
 
 
+  <!-- // ========================= applyCoupon Start -->
+  <script>
+    function applyCoupon() {
+      var coupon_name = $('#coupon_name').val();
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        data: {
+          coupon_name: coupon_name
+        },
+        url: "{{url('/coupon-apply')}}",
+
+        success: function(data) {
+          couponCalculation();
+          $('#coupon-field').hide();
+
+          // Start Message
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+          })
+
+          if ($.isEmptyObject(data.error)) {
+            Toast.fire({
+              type: 'success',
+              icon: 'success',
+              title: data.success
+            })
+          } else {
+            Toast.fire({
+              type: 'error',
+              icon: 'error',
+              title: data.error
+            })
+          }
+          // End Message
+        }
+      })
+
+    }
+    // <!-- // ========================= applyCoupon end -->
+
+    // <!-- // ========================= couponCalculation Start -->
+
+    function couponCalculation() {
+      $.ajax({
+        type: 'GET',
+        dataType: 'json',
+        url: "{{ url('/coupon-calculation') }}",
+        success: function(data) {
+          if (data.total) {
+            $('#coupon-cal-field').html(`
+              <tr>
+                <th>
+                    <div class="cart-sub-total">
+                        Subtotal<span class="inner-left-md">$${data.total}</span>
+                    </div>
+                    <div class="cart-sub-total">
+                        Grand total<span class="inner-left-md">$${data.total}</span>
+                    </div>
+                </th>
+              </tr>
+            `)
+          }// end if
+          else{
+            $('#coupon-cal-field ').html(`
+              <tr>
+                <th style="text-align:start;">
+                    <div class="cart-sub-total">
+                        Subtotal<span class="inner-left-md">$${data.subtotal}</span>
+                    </div>
+                    <div class="cart-sub-total">
+                        Coupon<span class="inner-left-md">${data.coupon_name} <button type="submit"><i class="fa fa-times" onclick="CouponRemove()"></i></button></span>
+                    </div>
+                    <div class="cart-sub-total">
+                        Discount Amount<span class="inner-left-md">$${data.discount_amount}</span>
+                    </div>
+                    <div class="cart-grand-total">
+                        Total Amount<span class="inner-left-md">$${data.total_amount}</span>
+                    </div>
+                </th>
+              </tr>
+            `)
+            
+          }// end else
+        }
+      })
+    }
+
+    couponCalculation();
+
+    // <!-- // ========================= couponCalculation end -->
+  </script>
+
+  <script>
+    
+    // <!-- // ========================= CouponRemove Start -->
+
+    function CouponRemove() {
+      $.ajax({
+        type: 'GET',
+        dataType: 'json',
+        url: "{{ url('/coupon-remove') }}",
+        success: function(data) {
+          couponCalculation();
+          $('#coupon-field').show();
+          $('#coupon_name').val('');
+          // Start Message
+          const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000
+          })
+
+          if ($.isEmptyObject(data.error)) {
+            Toast.fire({
+              type: 'success',
+              icon: 'success',
+              title: data.success
+            })
+          } else {
+            Toast.fire({
+              type: 'error',
+              icon: 'error',
+              title: data.error
+            })
+          }
+          // End Message
+          
+        }
+      })
+    }
+
+
+    // <!-- // ========================= CouponRemove end -->
+  </script>
+
+
+
 
 
 </body>

@@ -1,7 +1,7 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-wishlist
+Wishlist
 @endsection
 
 

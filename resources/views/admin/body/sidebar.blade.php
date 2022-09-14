@@ -35,7 +35,8 @@ $route = Route::current()->getName();
         <a href="#">
           <i data-feather="message-circle"></i>
           <span>Brands</span>
-          <span class="test" style="float: right;" > <!-- class="pull-right-container" -->
+          <span class="test" style="float: right;">
+            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -47,7 +48,8 @@ $route = Route::current()->getName();
       <li class="treeview {{ ($prefix == '/category')? 'active':''}}">
         <a href="#">
           <i data-feather="mail"></i> <span>Category</span>
-          <span style="float: right;" > <!-- class="pull-right-container" -->
+          <span style="float: right;">
+            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -62,7 +64,8 @@ $route = Route::current()->getName();
         <a href="#">
           <i data-feather="file"></i>
           <span>Products</span>
-          <span style="float: right;" > <!-- class="pull-right-container" -->
+          <span style="float: right;">
+            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -76,7 +79,8 @@ $route = Route::current()->getName();
         <a href="#">
           <i data-feather="file"></i>
           <span>Slider</span>
-          <span style="float: right;" > <!-- class="pull-right-container" -->
+          <span style="float: right;">
+            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -89,7 +93,8 @@ $route = Route::current()->getName();
         <a href="#">
           <i data-feather="file"></i>
           <span>Coupons</span>
-          <span style="float: right;" > <!-- class="pull-right-container" -->
+          <span style="float: right;">
+            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -102,7 +107,8 @@ $route = Route::current()->getName();
         <a href="#">
           <i data-feather="file"></i>
           <span>Shipping Area</span>
-          <span style="float: right;" > <!-- class="pull-right-container" -->
+          <span style="float: right;">
+            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>

@@ -245,7 +245,7 @@ class ShippingAreaController extends Controller
         $shipdistrict = ShipDistrict::where('division_id', $division_id)->orderBy('district_name', 'asc')->get();
 
         return json_encode($shipdistrict);
-    } // end GetDivision
+    } // end GetDistrict
 
     // =========================== ShipState End =========================== //
     

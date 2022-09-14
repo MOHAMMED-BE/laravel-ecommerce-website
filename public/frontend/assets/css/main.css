@@ -279,6 +279,7 @@ img[src="assets/images/blank.gif"] {
 
 .inner-left-md {
   padding-left: 60px;
+  float: right;
 }
 
 .inner-left-sm {
@@ -7194,10 +7195,18 @@ header {
 
 }
 
-.wow {
-  /* box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
-  border-radius: 5px; */
-  /* border-radius: 5px; */
-}
+/* .wow {
+  box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
+  border-radius: 5px; 
+   border-radius: 5px;
+} */
 
 /*5953*/
+
+/* .btn-remove{
+  background-color: #fff;
+    border: 1px solid #f10b0b;
+    box-shadow: 0 0.1rem 0.9rem 0 rgb(255 0 0 / 15%);
+    border-radius: 3px;
+    color: #000000;
+} */

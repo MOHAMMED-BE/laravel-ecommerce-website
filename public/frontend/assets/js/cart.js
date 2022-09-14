@@ -7,7 +7,7 @@ $.ajaxSetup({
 });
 
 function productView(id) {
-    // alert(id);
+    // ========================= alert(id);
     $.ajax({
         url: "/product/view/modal/" + id,
         type: "GET",
@@ -55,15 +55,15 @@ function productView(id) {
                 $('#color-group').hide();
 
         }
-        // end success
+        // ========================= end success
     })
-    // end ajax
+    // ========================= end ajax
 }
-// end ProductView
+// ========================= end ProductView
 
 
 
-// Start Add To Cart
+// ========================= Start Add To Cart
 function AddToCart() {
     var product_name = $('#product-name').text();
     var id = $('#product-id').val();
@@ -84,10 +84,11 @@ function AddToCart() {
         url: "/cart/data/store/" + id,
 
         success: function (data) {
-            miniCart()
+            miniCart();
+            couponCalculation();
             $('.close-modal').click();
 
-            // start message
+            // ========================= start message
 
             const Toast = Swal.mixin({
                 toast: true,
@@ -109,14 +110,14 @@ function AddToCart() {
                 })
             }
 
-            // end message
+            // ========================= end message
         }
 
 
     })
 }
 
-// End Add To Cart
+// ========================= End Add To Cart
 
 
 
@@ -155,7 +156,7 @@ function miniCart() {
 
 miniCart();
 
-// miniCartRemove start
+// ========================= miniCartRemove start
 function miniCartRemove(rowId) {
     $.ajax({
         type: "GET",
@@ -188,14 +189,14 @@ function miniCartRemove(rowId) {
 
     })
 }
-// miniCartRemove end
+// ========================= miniCartRemove end
 
 
 
 
 
 
-// view cart 
+// ========================= view cart 
 
 function cart() {
     $.ajax({
@@ -233,17 +234,17 @@ function cart() {
                 <td class="col-md-2" style=" display: flex; margin: 15px 0px 0px 0px; ">
 
                 ${value.qty > 1
-                    ? `<button type="submit" id="${value.rowId}" onclick="cartDecrement(this.id)" id="cartDecrement" class="btn btn-success btn-sm" style=" margin: 0 5px 0 0; ">-</button>`
-                    : `<button type="submit" id="${value.rowId}" onclick="cartDecrement(this.id)" id="cartDecrement" class="btn btn-success btn-sm" disabled style=" margin: 0 5px 0 0; ">-</button>`
-                }
+                        ? `<button type="submit" id="${value.rowId}" onclick="cartDecrement(this.id)" id="cartDecrement" class="btn btn-success btn-sm" style=" margin: 0 5px 0 0; ">-</button>`
+                        : `<button type="submit" id="${value.rowId}" onclick="cartDecrement(this.id)" id="cartDecrement" class="btn btn-success btn-sm" disabled style=" margin: 0 5px 0 0; ">-</button>`
+                    }
 
                 
                 <input type="text" class="form-control" id="quantity" value="${value.qty}" min="1" max="100" disabled style=" width: 6rem; ">
 
                 ${value.qty < 100
-                    ? `<button type="submit" id="${value.rowId}" onclick="cartIncrement(this.id)" id="cartIncrement" class="btn btn-danger btn-sm" style=" margin: 0 0 0 4px; ">+</button>`
-                    : `<button type="submit" id="${value.rowId}" onclick="cartIncrement(this.id)" id="cartIncrement" disabled class="btn btn-danger btn-sm" style=" margin: 0 0 0 4px; ">+</button>`
-                 }
+                        ? `<button type="submit" id="${value.rowId}" onclick="cartIncrement(this.id)" id="cartIncrement" class="btn btn-danger btn-sm" style=" margin: 0 0 0 4px; ">+</button>`
+                        : `<button type="submit" id="${value.rowId}" onclick="cartIncrement(this.id)" id="cartIncrement" disabled class="btn btn-danger btn-sm" style=" margin: 0 0 0 4px; ">+</button>`
+                    }
                 </td>
 
                
@@ -273,7 +274,7 @@ cart();
 
 
 
-// cartRemove start
+// ========================= cartRemove start
 function cartRemove(rowId) {
     $.ajax({
         type: "GET",
@@ -283,7 +284,10 @@ function cartRemove(rowId) {
         success: function (data) {
             cart();
             miniCart();
-            const Toast = Swal.mixin({
+            couponCalculation();
+          $('#coupon-field').show();
+          $('#coupon_name').val('');
+          const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-end',
                 showConfirmButton: false,
@@ -308,13 +312,13 @@ function cartRemove(rowId) {
 
     })
 }
-// cartRemove end
+// ========================= cartRemove end
 
 
 
 
 
-// cartIncrement start
+// ========================= cartIncrement start
 function cartIncrement(rowId) {
     $.ajax({
         type: "GET",
@@ -324,14 +328,15 @@ function cartIncrement(rowId) {
         success: function (data) {
             cart();
             miniCart();
+            couponCalculation();
         }
     })
 }
-// cartIncrement end
+// ========================= cartIncrement end
 
 
 
-// cartDecrement start
+// ========================= cartDecrement start
 function cartDecrement(rowId) {
     $.ajax({
         type: "GET",
@@ -341,10 +346,91 @@ function cartDecrement(rowId) {
         success: function (data) {
             cart();
             miniCart();
+            couponCalculation();
         }
     })
 }
-// cartDecrement end
+// ========================= cartDecrement end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // ========================= applyCoupon Start
+// function applyCoupon() {
+//     var coupon_name = $('#coupon_name').val();
+//     $.ajax({
+//         type: "POST",
+//         dataType: "json",
+//         data: { coupon_name:coupon_name },
+//         url: "{{url('/coupon-apply')}}",
+
+//         success: function (data) {
+
+//             // Start Message
+//             const Toast = Swal.mixin({
+//                 toast: true,
+//                 position: 'top-end',
+//                 showConfirmButton: false,
+//                 timer: 3000
+//             })
+
+//             if ($.isEmptyObject(data.error)) {
+//                 Toast.fire({
+//                     type: 'success',
+//                     icon: 'success',
+//                     title: data.success
+//                 })
+//             } else {
+//                 Toast.fire({
+//                     type: 'error',
+//                     icon: 'error',
+//                     title: data.error
+//                 })
+//             }
+//             // End Message
+//         }
+//     })
+
+// }
+// // ========================= applyCoupon end
+
 
 
 

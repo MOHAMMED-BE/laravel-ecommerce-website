@@ -70,8 +70,8 @@
   <script src="{{ asset('../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js')}}"></script>
 
   <script src="{{ asset('../assets/vendor_components/ckeditor/ckeditor.js')}}"></script>
-	<script src="{{ asset('../assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js')}}"></script>
-	<script src="{{ asset('backend/js/pages/editor.js')}}"></script>
+  <script src="{{ asset('../assets/vendor_plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.js')}}"></script>
+  <script src="{{ asset('backend/js/pages/editor.js')}}"></script>
 
   <!-- Sunny Admin App -->
   <script src="{{ asset('backend/js/template.js')}}"></script>
@@ -81,7 +81,7 @@
   <!-- <script src="{{ asset('backend/js/scripts.js')}}"></script> -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-	<!-- <script src="{{ asset('../assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js')}}"></script> -->
+  <!-- <script src="{{ asset('../assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js')}}"></script> -->
 
 
   <script>
@@ -137,7 +137,7 @@
 
 
   <script type="text/javascript">
-// get category
+    // get category
     $(document).ready(function() {
       $('select[name="category_id"]').on('change', function() {
         var category_id = $(this).val();
@@ -159,32 +159,32 @@
         }
       });
 
-      
-// <!-- // get district -->
-     $(document).ready(function() {
-      $('select[name="division_id"]').on('change', function() {
-        var division_id = $(this).val();
-        if (division_id) {
-          $.ajax({
-            url: "{{ url('/shipping/district/ajax') }}/" + division_id,
-            type: "GET",
-            dataType: "json",
-            success: function(data) {
-              var d = $('select[name="district_id"]').empty();
-              $.each(data, function(key, value) {
-                $('select[name="district_id"]').append('<option value="' + value.id + '">' + value.district_name + '</option>');
-              });
-            },
-          });
-        } else {
-          alert('danger');
-        }
+
+      // <!-- // get district -->
+      $(document).ready(function() {
+        $('select[name="division_id"]').on('change', function() {
+          var division_id = $(this).val();
+          if (division_id) {
+            $.ajax({
+              url: "{{ url('/shipping/district/ajax') }}/" + division_id,
+              type: "GET",
+              dataType: "json",
+              success: function(data) {
+                var d = $('select[name="district_id"]').empty();
+                $.each(data, function(key, value) {
+                  $('select[name="district_id"]').append('<option value="' + value.id + '">' + value.district_name + '</option>');
+                });
+              },
+            });
+          } else {
+            alert('danger');
+          }
+        });
+
       });
 
-    });
 
-
-// get subcategory
+      // get subcategory
       $('select[name="subcategory_id"]').on('change', function() {
         var subcategory_id = $(this).val();
         if (subcategory_id) {
@@ -193,7 +193,7 @@
             type: "GET",
             dataType: "json",
             success: function(data) {
-              
+
               var d = $('select[name="subsubcategory_id"]').empty();
               $.each(data, function(key, value) {
                 $('select[name="subsubcategory_id"]').append('<option value="' + value.id + '">' + value.subsubcategory_name_en + '</option>');
@@ -208,7 +208,7 @@
     });
   </script>
 
-<script type="text/javascript">
+  <script type="text/javascript">
     $(document).ready(function() {
       $('select[name="subcategory_id"]').on('change', function() {
         var category_id = $(this).val();

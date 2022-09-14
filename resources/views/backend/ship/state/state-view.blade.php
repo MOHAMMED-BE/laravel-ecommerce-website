@@ -81,7 +81,7 @@
                                     <h5>District Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <select name="district_id" id="districtselect" class="form-control" aria-invalid="false">
-                                           
+
 
                                         </select>
                                         @error('district_id')
@@ -122,4 +122,3 @@
 
 
 @endsection
-
