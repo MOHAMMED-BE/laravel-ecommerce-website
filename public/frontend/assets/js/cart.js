@@ -141,7 +141,7 @@ function miniCart() {
                     <h3 class="name"><a href="index.php?page-detail">${value.name}</a></h3>
                     <div class="price">$ ${value.price} * ${value.qty} </div>
                 </div>
-                <div class="col-xs-1 action"> <button type="submit" id="${value.rowId}" onclick="miniCartRemove(this.id)"><i class="fa fa-trash"></i></button> </div>
+                <div class="col-xs-1 action"> <button class="btn-remove" type="submit" id="${value.rowId}" onclick="miniCartRemove(this.id)"><i class="fa-solid fa-trash-can"></i></button> </div>
             </div>
         </div>
         <!-- /.cart-item -->
@@ -209,58 +209,46 @@ function cart() {
             $.each(response.carts, function (key, value) {
                 cart_row += `
                 <tr>
-                <td class="col-md-2"><img src="/${value.options.image}" alt="imga" style="width: 60px; border-radius: 5px; box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);"></td>
-                <td class="col-md-4">
+                <td class="cart-td col-md-2"><img src="/${value.options.image}" alt="imga" style="width: 60px; border-radius: 5px; box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);"></td>
+                <td class="cart-td col-md-4">
                     <div class="product-name"><a href="#">${value.name}</a></div>
                     <div class="price">
                     $${value.price}
                     </div>
                 </td>
-                <td class="col-md-2">
-                ${value.options.size == null ?
+                <td class="cart-td col-md-2">
+                    ${value.options.size == null ?
                         `<span></span>` :
                         `<strong>size : ${value.options.size}</strong>`
 
                     }
-                
                 </td>
-                <td class="col-md-2">
-                ${value.options.color == null ?
+                <td class="cart-td col-md-2">
+                    ${value.options.color == null ?
                         `<span></span>` :
                         `<strong>color : ${value.options.color}</strong>`
 
                     }
                 </td>
-                <td class="col-md-2" style=" display: flex; margin: 15px 0px 0px 0px; ">
-
-                ${value.qty > 1
+                <td class="cart-td col-md-2" style=" display: flex; margin: 15px 0px 0px 0px; ">
+                    ${value.qty > 1
                         ? `<button type="submit" id="${value.rowId}" onclick="cartDecrement(this.id)" id="cartDecrement" class="btn btn-success btn-sm" style=" margin: 0 5px 0 0; ">-</button>`
                         : `<button type="submit" id="${value.rowId}" onclick="cartDecrement(this.id)" id="cartDecrement" class="btn btn-success btn-sm" disabled style=" margin: 0 5px 0 0; ">-</button>`
                     }
+                    <input type="text" class="form-control" id="quantity" value="${value.qty}" min="1" max="100" disabled style=" width: 6rem; ">
 
-                
-                <input type="text" class="form-control" id="quantity" value="${value.qty}" min="1" max="100" disabled style=" width: 6rem; ">
-
-                ${value.qty < 100
-                        ? `<button type="submit" id="${value.rowId}" onclick="cartIncrement(this.id)" id="cartIncrement" class="btn btn-danger btn-sm" style=" margin: 0 0 0 4px; ">+</button>`
-                        : `<button type="submit" id="${value.rowId}" onclick="cartIncrement(this.id)" id="cartIncrement" disabled class="btn btn-danger btn-sm" style=" margin: 0 0 0 4px; ">+</button>`
+                    ${value.qty < 100
+                            ? `<button type="submit" id="${value.rowId}" onclick="cartIncrement(this.id)" id="cartIncrement" class="btn btn-danger btn-sm" style=" margin: 0 0 0 4px; ">+</button>`
+                            : `<button type="submit" id="${value.rowId}" onclick="cartIncrement(this.id)" id="cartIncrement" disabled class="btn btn-danger btn-sm" style=" margin: 0 0 0 4px; ">+</button>`
                     }
                 </td>
 
-               
-
-                <td class="col-md-2">
+                <td class="cart-td col-md-2">
                 <strong>${value.subtotal}</strong>
                 </td>
-
                 
-                <td class="col-md-2">
-                <span id="cart-sub-total"></span>
-                </td>
-                
-
-                <td class="col-md-1 close-btn">
-                    <button type="submit" id="${value.rowId}" onclick="cartRemove(this.id)"  class=""><i class="fa fa-times"></i></button>
+                <td class="cart-td col-md-1 close-btn">
+                    <button type="submit" class="btn-remove" id="${value.rowId}" onclick="cartRemove(this.id)"  class=""><i class="fa-solid fa-trash-can"></i></button>
                 </td>
             </tr>
           `;
@@ -285,9 +273,9 @@ function cartRemove(rowId) {
             cart();
             miniCart();
             couponCalculation();
-          $('#coupon-field').show();
-          $('#coupon_name').val('');
-          const Toast = Swal.mixin({
+            $('#coupon-field').show();
+            $('#coupon_name').val('');
+            const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-end',
                 showConfirmButton: false,

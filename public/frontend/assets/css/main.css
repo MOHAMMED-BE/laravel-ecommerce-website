@@ -6306,9 +6306,6 @@ header {
 }
 
 .checkout-box .panel-group .panel {
-  -webkit-border-radius: 0px !important;
-  -moz-border-radius: 0px !important;
-  border-radius: 0px !important;
   background-color: #fff;
   box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
   border-radius: 5px;
@@ -7203,10 +7200,20 @@ header {
 
 /*5953*/
 
-/* .btn-remove{
+.btn-remove{
   background-color: #fff;
-    border: 1px solid #f10b0b;
-    box-shadow: 0 0.1rem 0.9rem 0 rgb(255 0 0 / 15%);
-    border-radius: 3px;
-    color: #000000;
-} */
+  border: 1px solid #a53e3b;
+  box-shadow: 0 0.1rem 0.9rem 0 rgb(255 0 0 / 15%);
+  border-radius: 4px;
+  color: #d70a0a;
+}
+
+.cart-td:not(:nth-child(2)){
+  text-align: center;
+}
+
+.any-img{
+  border-radius: 6px;
+  box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
+  margin: 10px 0 5px 0;
+}

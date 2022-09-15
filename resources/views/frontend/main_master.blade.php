@@ -250,7 +250,7 @@
                         Subtotal<span class="inner-left-md">$${data.subtotal}</span>
                     </div>
                     <div class="cart-sub-total">
-                        Coupon<span class="inner-left-md">${data.coupon_name} <button type="submit"><i class="fa fa-times" onclick="CouponRemove()"></i></button></span>
+                        Coupon<span class="inner-left-md">${data.coupon_name} <button class="btn-remove" type="submit"><i class="fa-solid fa-trash-can" onclick="CouponRemove()"></i></button></span>
                     </div>
                     <div class="cart-sub-total">
                         Discount Amount<span class="inner-left-md">$${data.discount_amount}</span>
@@ -318,6 +318,31 @@
 
 
 
+<script>
+  // <!-- // get district -->
+  $(document).ready(function() {
+        $('select[name="division_id"]').on('change', function() {
+          var division_id = $(this).val();
+          if (division_id) {
+            $.ajax({
+              url: "{{ url('/shipping/district/ajax') }}/" + division_id,
+              type: "GET",
+              dataType: "json",
+              success: function(data) {
+                var d = $('select[name="district_id"]').empty();
+                $.each(data, function(key, value) {
+                  $('select[name="district_id"]').append('<option value="' + value.id + '">' + value.district_name + '</option>');
+                });
+              },
+            });
+          } else {
+            alert('danger');
+          }
+        });
+
+      });
+
+</script>
 
 
 </body>

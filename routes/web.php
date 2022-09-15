@@ -17,6 +17,8 @@ use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\User\CartPageController;
+use App\Http\Controllers\User\CheckoutController;
+use App\Http\Controllers\User\StripeController;
 use App\Http\Controllers\User\WishlistController;
 
 /*
@@ -204,6 +206,9 @@ Route::group(['prefix'=>'user','middleware'=>['user','auth'], 'namespace'=>'User
     Route::get('/get-wishlist-product', [WishlistController::class, 'GetWishlistProduct']);
     // remove product from wishlist
     Route::get('/wishlist-remove/{id}', [WishlistController::class, 'wishlistRemove']);
+    // stripe order
+    Route::post('/stripe/order', [StripeController::class, 'StripeOrder'])->name('stripe.order');
+
 
 
 });
@@ -275,11 +280,18 @@ Route::prefix('shipping')->group(function(){
 });
 
 
-// Admin Coupon Apply All Routes
+// Frontend Coupon Apply All Routes
 
 Route::post('/coupon-apply', [CartController::class, 'CouponApply']);
 Route::get('/coupon-calculation', [CartController::class, 'CouponCalculation']);
 Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
+
+// Frontend Checkout  All Routes
+
+Route::get('/checkout', [CartController::class, 'CheckoutCreate'])->name('checkout');
+Route::get('/district/ajax/{division_id}', [CheckoutController::class, 'GetDistrict']);
+Route::get('/state/ajax/{district_id}', [CheckoutController::class, 'GetState']);
+Route::post('/checkout/store', [CheckoutController::class, 'CheckoutStore'])->name('checkout.store');
 
 
 

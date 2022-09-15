@@ -7,6 +7,9 @@ use App\Models\Coupon;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Wishlist;
+use App\Models\ShipDistrict;
+use App\Models\ShipDivision;
+use App\Models\ShipState;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Auth;
 use Carbon\Carbon;
@@ -136,5 +139,42 @@ class CartController extends Controller
         return response()->json(['success'=>'Coupon Removed Successfully']);
 
     } // end CouponRemove
+
+    public function CheckoutCreate()
+    {
+        $division = ShipDivision::orderBy('division_name','asc')->get();
+        // $district = ShipDistrict::orderBy('district_name','asc')->get();
+        // $state = ShipState::orderBy('state_name','asc')->get();
+
+        if(Auth::check()){
+            if(Cart::total() > 0){
+                $carts = Cart::content();
+                $cartQuantity = Cart::count();
+                $cartTotal = Cart::total();
+
+                return view('frontend.checkout.checkout-view',compact('division','carts','cartQuantity','cartTotal'));
+            }
+            else{
+                $notification = array(
+                    'message' => 'Shopping At List One Product',
+                    'alert-type' => 'warning'
+                );
+        
+                return redirect()->to('/')->with($notification);
+            }
+
+        }
+        else{
+            
+
+            $notification = array(
+                'message' => 'You Must Be Login',
+                'alert-type' => 'warning'
+            );
+    
+            return redirect()->route('login')->with($notification);
+
+        }
+    } // end CheckoutCreate
     
 }
