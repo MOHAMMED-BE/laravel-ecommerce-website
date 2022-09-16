@@ -47,10 +47,10 @@ class CheckoutController extends Controller
             // return view('frontend.payment.stripe',compact('data','carts','cartQuantity','cartTotal'));
         }
         else if($request->payment_method == 'cart'){
-            return view('frontend.payment.cart',compact('data'));
+            return view('frontend.payment.cart',compact('data','cartTotal'));
         }
         else if($request->payment_method == 'cash'){
-            return view('frontend.payment.cash',compact('data'));
+            return view('frontend.payment.cash',compact('data','cartTotal'));
         }
 
     } // end CheckoutStore

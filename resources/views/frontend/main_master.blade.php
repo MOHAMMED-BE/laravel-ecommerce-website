@@ -190,7 +190,9 @@
 
         success: function(data) {
           couponCalculation();
-          $('#coupon-field').hide();
+          if(data.validity == true){
+            $('#coupon-field').hide();
+          }
 
           // Start Message
           const Toast = Swal.mixin({

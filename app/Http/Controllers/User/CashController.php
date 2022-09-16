@@ -3,20 +3,20 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Mail\OrderMail;
 use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Auth;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
-class StripeController extends Controller
+class CashController extends Controller
 {
-    public function StripeOrder(Request $request)
+    public function CashOrder(Request $request)
     {
 
         if(Session::has('coupon')){
@@ -25,19 +25,6 @@ class StripeController extends Controller
         else{
             $total_amount = round(Cart::total());
         }
-
-
-        \Stripe\Stripe::setApiKey('sk_test_51Lhz55LFmkTQvpPpcjeyYx5raONPv8jJLIaIjm5CkJJfafwIFebSnqOE4uQQgwOj5FtdmhMTmTOEPdH8znse8XTM00SMtyRo8L');
-        $token = $_POST['stripeToken'];
-
-        $charge = \Stripe\Charge::create([
-            'amount' => $total_amount * 100,
-            'currency' => 'usd',
-            'description' => 'Shopping House',
-            'source' => $token,
-            'metadata' => ['order_id' => uniqid()],
-        ]);
-
 
         $order_id = Order::insertGetId([
             'user_id' => Auth::id(),
@@ -50,13 +37,10 @@ class StripeController extends Controller
             'post_code' => $request->post_code,
             'notes' => $request->notes,
 
-            'payment_type' => 'Strip',
-            'payment_method' => 'Strip',
-            'payment_type' => $charge->payment_method,
-            'transaction_id' => $charge->balance_transaction,
-            'currency' => $charge->currency,
+            'payment_type' => 'Cash On Delivery',
+            'payment_method' => 'Cash On Delivery',
+            'currency' => 'usd',
             'amount' => $total_amount,
-            'order_number' => $charge->metadata->order_id,
             'invoice_no' => 'SH'.mt_rand(10000000,99999999),
             'order_date' => Carbon::now()->format('d F Y'),
             'order_month' => Carbon::now()->format('F'),
@@ -106,5 +90,5 @@ class StripeController extends Controller
         return redirect()->route('my.orders')->with($notification);
 
         // dd($charge);
-    } // end StripeOrder
+    } // end CashOrder
 }
