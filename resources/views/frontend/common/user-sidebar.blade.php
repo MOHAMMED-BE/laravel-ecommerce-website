@@ -3,8 +3,8 @@
     $user = App\Models\User::find($id);
 @endphp
 
-<div class="col-md-2 user-dash">
-    <img src="{{ (!empty($user->profile_photo_path)) ? url('upload/user-images/'.$user->profile_photo_path) : url('upload/no_image.jpg')}}" alt="User Avatar" style="width:100px ;height:100px;box-shadow: 0 .5rem 1rem rgba(255,255,255,.25)!important; border-radius:50%;" class="card-img-top">
+<div class="col-md-2 user-dash user-div">
+    <img src="{{ (!empty($user->profile_photo_path)) ? url('upload/user-images/'.$user->profile_photo_path) : url('upload/no_image.jpg')}}" alt="User Avatar" class="card-img-top user-sidebar-img">
     <ul class="list-group list-group-flush">
         <a href="{{route('dashboard')}}" class="btn btn-primary btn-sm btn-block">Home</a>
         <a href="{{route('user.profile')}}" class="btn btn-primary btn-sm btn-block">Profile Update</a>

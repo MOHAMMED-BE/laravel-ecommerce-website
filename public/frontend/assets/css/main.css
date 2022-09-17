@@ -7229,3 +7229,17 @@ header {
   border-radius: 3px;
   text-align: center;
 }
+
+.user-sidebar-img{
+  height: 100px;
+  box-shadow: 0 .5rem 1rem rgba(255,255,255,.25)!important;
+  border-radius: 50%;
+  margin: 0 0 10px 0;
+}
+
+.user-div{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}

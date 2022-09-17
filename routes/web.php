@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CouponController;
+use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
@@ -216,7 +217,8 @@ Route::group(['prefix'=>'user','middleware'=>['user','auth'], 'namespace'=>'User
     Route::get('/my/orders', [AllUserController::class, 'MyOrders'])->name('my.orders');
     // order details
     Route::get('/order-details/{order_id}', [AllUserController::class, 'OrdersDetails']);
-
+    // invoice download
+    Route::get('/invoice-download/{order_id}', [AllUserController::class, 'InvoiceDownload']);
 
 
 });
@@ -258,26 +260,18 @@ Route::prefix('shipping')->group(function(){
     Route::get('/division/inactive/{id}', [ShippingAreaController::class, 'InactiveDivision'])->name('division-inactive');
     Route::get('/division/active/{id}', [ShippingAreaController::class, 'ActiveDivision'])->name('division-active');
 
-});
-
-
 
 // Admin District All Routes
 
-Route::prefix('shipping')->group(function(){
     Route::get('/district/view', [ShippingAreaController::class, 'DistrictView'])->name('menage-district');
     Route::post('/district/store', [ShippingAreaController::class, 'DistrictStore'])->name('district.store');
     Route::get('/district/edit/{id}', [ShippingAreaController::class, 'DistrictEdit'])->name('district.edit');
     Route::get('/district/delete/{id}', [ShippingAreaController::class, 'DistrictDelete'])->name('district.delete');
     Route::post('/district/update', [ShippingAreaController::class, 'DistrictUpdate'])->name('district.update');
 
-});
-
-
 
 // Admin State All Routes
 
-Route::prefix('shipping')->group(function(){
     Route::get('/state/view', [ShippingAreaController::class, 'StateView'])->name('menage-state');
     Route::post('/state/store', [ShippingAreaController::class, 'StateStore'])->name('state.store');
     Route::get('/state/edit/{id}', [ShippingAreaController::class, 'StateEdit'])->name('state.edit');
@@ -302,7 +296,30 @@ Route::get('/state/ajax/{district_id}', [CheckoutController::class, 'GetState'])
 Route::post('/checkout/store', [CheckoutController::class, 'CheckoutStore'])->name('checkout.store');
 
 
+// Admin Orders All Routes
 
+Route::prefix('orders')->group(function(){
+    Route::get('/pending/orders', [OrderController::class, 'PendingOrders'])->name('pending-orders');
+    Route::get('/confirmed/orders', [OrderController::class, 'ConfirmedOrders'])->name('confirmed-orders');
+    Route::get('/proccessing/orders', [OrderController::class, 'ProccessingOrders'])->name('proccessing-orders');
+    Route::get('/picked/orders', [OrderController::class, 'PickedOrders'])->name('picked-orders');
+    Route::get('/shipped/orders', [OrderController::class, 'ShippedOrders'])->name('shipped-orders');
+    Route::get('/delivered/orders', [OrderController::class, 'DeliveredOrders'])->name('delivered-orders');
+    Route::get('/cancel/orders', [OrderController::class, 'CancelOrders'])->name('cancel-orders');
+
+    Route::get('/pending/order/details/{order_id}', [OrderController::class, 'PendingOrderDetails'])->name('pending.order.details');
+
+    // change Order Status
+
+    Route::get('/pending/confirm/{order_id}', [OrderController::class, 'PendingToConfirm'])->name('pending.confirm');
+    Route::get('/confirm/proccessing/{order_id}', [OrderController::class, 'ConfirmToProccessing'])->name('confirm.proccessing');
+    Route::get('/proccessing/picked/{order_id}', [OrderController::class, 'ProccessingToPicked'])->name('proccessing.picked');
+    Route::get('/picked/shipped/{order_id}', [OrderController::class, 'PickedToShipped'])->name('picked.shipped');
+    Route::get('/shipped/delivered/{order_id}', [OrderController::class, 'ShippedToDelivered'])->name('shipped.delivered');
+
+    Route::get('/invoice/download/{order_id}', [OrderController::class, 'InvoiceDownload'])->name('invoice.download');
+
+});
 
 
 

@@ -120,7 +120,26 @@ $route = Route::current()->getName();
         </ul>
       </li>
 
-      <!-- <li class="header nav-small-cap">User Interface</li> -->
+      <li class="header nav-small-cap">User Interface</li>
+
+      <li class="treeview {{ ($prefix == '/orders')? 'active':''}}">
+        <a href="#">
+          <i data-feather="file"></i>
+          <span>Orders</span>
+          <span style="float: right;">
+            <i class="fa-solid fa-angle-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ ($route == 'pending-orders')? 'active':''}}"><a href="{{route('pending-orders')}}"><i class="ti-more"></i>Pending Orders</a></li>
+          <li class="{{ ($route == 'confirmed-orders')? 'active':''}}"><a href="{{route('confirmed-orders')}}"><i class="ti-more"></i>Confirmed Orders</a></li>
+          <li class="{{ ($route == 'proccessing-orders')? 'active':''}}"><a href="{{route('proccessing-orders')}}"><i class="ti-more"></i>Proccessing Orders</a></li>
+          <li class="{{ ($route == 'picked-orders')? 'active':''}}"><a href="{{route('picked-orders')}}"><i class="ti-more"></i>Picked Orders</a></li>
+          <li class="{{ ($route == 'shipped-orders')? 'active':''}}"><a href="{{route('shipped-orders')}}"><i class="ti-more"></i>Shipped Orders</a></li>
+          <li class="{{ ($route == 'delivered-orders')? 'active':''}}"><a href="{{route('delivered-orders')}}"><i class="ti-more"></i>Delivered Orders</a></li>
+          <li class="{{ ($route == 'cancel-orders')? 'active':''}}"><a href="{{route('cancel-orders')}}"><i class="ti-more"></i>Cancel Orders</a></li>
+        </ul>
+      </li>
 
       <!-- <li class="treeview">
         <a href="#">
