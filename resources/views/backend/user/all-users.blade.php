@@ -7,7 +7,6 @@
     <section class="content">
         <div class="row">
             <div class="col-12">
-
                 <div class="box">
                     <div class="box-header with-border">
                         <h3 class="box-title">Total User <span class="badge badge-pill badge-info">{{count($users)}}</span></h3>
