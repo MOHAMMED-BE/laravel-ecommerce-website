@@ -6,13 +6,13 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <!-- Edit division -->
+            <!-- Edit Country -->
 
             <div class="col-12">
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Update division</h3>
+                        <h3 class="box-title">Update Country</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -22,7 +22,7 @@
                                 <input type="hidden" value="{{$division->id}}" name="id">
 
                                 <div class="form-group">
-                                    <h5>division Name <span class="text-danger">*</span></h5>
+                                    <h5>Country Name <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="text" value="{{$division->division_name}}" name="division_name" class="form-control">
                                         @error('division_name')

@@ -10,7 +10,7 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">district List</h3>
+                        <h3 class="box-title">Region List</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -18,8 +18,8 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>District Name</th>
-                                        <th>Division Name</th>
+                                        <th>Region Name</th>
+                                        <th>Country Name</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -47,13 +47,13 @@
                 <!-- /.box -->
             </div>
 
-            <!-- Add district -->
+            <!-- Add Region -->
 
             <div class="col-4">
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Add District</h3>
+                        <h3 class="box-title">Add Region</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -62,7 +62,7 @@
                                 @csrf
 
                                 <div class="form-group">
-                                    <h5>division Select <span class="text-danger">*</span></h5>
+                                    <h5>Country Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <select name="division_id" id="divisionselect" class="form-control" aria-invalid="false">
                                             <option value="" selected="" disabled>Select Your division</option>
@@ -78,7 +78,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>district Name <span class="text-danger">*</span></h5>
+                                    <h5>Region Name <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="text" value="" name="district_name" class="form-control">
                                         @error('district_name')

@@ -1,5 +1,5 @@
 @php
-$brands = App\Models\Brand::orderBy('id','desc')->get();
+$brands = App\Models\Brand::orderBy('id','desc')->where('brand_name_en','!=','OPPO')->get();
 @endphp
 <div id="brands-carousel" class="logo-slider wow fadeInUp">
     <div class="logo-slider-inner">

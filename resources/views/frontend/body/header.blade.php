@@ -55,7 +55,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                     <!-- ============================================================= LOGO ============================================================= -->
-                    <div class="logo"> <a href="{{url('/')}}"> <img src="{{asset('frontend/assets/images/logo.png')}}" alt="logo"> </a> </div>
+                    <div class="logo"> <a href="{{url('/')}}"> <img src="{{asset('frontend/assets/images/shop.png')}}" alt="logo" style=" width: 90px; height: 90px; margin: -23px 0 0 0; "> </a> </div>
                     <!-- /.logo -->
                     <!-- ============================================================= LOGO : END ============================================================= -->
                 </div>

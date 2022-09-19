@@ -13,6 +13,7 @@ use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\SubCategoryController;
 use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\ShippingAreaController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\LanguageController;
@@ -219,7 +220,12 @@ Route::group(['prefix'=>'user','middleware'=>['user','auth'], 'namespace'=>'User
     Route::get('/order-details/{order_id}', [AllUserController::class, 'OrdersDetails']);
     // invoice download
     Route::get('/invoice-download/{order_id}', [AllUserController::class, 'InvoiceDownload']);
-
+    // return order
+    Route::post('/return/order/{order_id}', [AllUserController::class, 'ReturnOrder'])->name('return.order');
+    // return order list
+    Route::get('/return/order/list', [AllUserController::class, 'ReturnOrderList'])->name('return.order.list');
+    // cancel order list
+    Route::get('/cancel/order', [AllUserController::class, 'CancelOrder'])->name('cancel.order');
 
 });
 
@@ -318,6 +324,25 @@ Route::prefix('orders')->group(function(){
     Route::get('/shipped/delivered/{order_id}', [OrderController::class, 'ShippedToDelivered'])->name('shipped.delivered');
 
     Route::get('/invoice/download/{order_id}', [OrderController::class, 'InvoiceDownload'])->name('invoice.download');
+
+});
+
+
+// Admin Reports All Routes
+
+Route::prefix('reports')->group(function(){
+    Route::get('/view', [ReportController::class, 'ReportView'])->name('all-reports');
+    Route::get('/search/by/date', [ReportController::class, 'ReportByDate'])->name('search.by.date');
+    Route::get('/search/by/month', [ReportController::class, 'ReportByMonth'])->name('search.by.month');
+    Route::get('/search/by/year', [ReportController::class, 'ReportByYear'])->name('search.by.year');
+
+});
+
+
+// Admin allusers All Routes
+
+Route::prefix('allusers')->group(function(){
+    Route::get('/view', [AdminProfileController::class, 'AllUsers'])->name('all-users');
 
 });
 

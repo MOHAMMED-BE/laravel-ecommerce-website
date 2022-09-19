@@ -10,7 +10,7 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">state List</h3>
+                        <h3 class="box-title">City List</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -18,9 +18,9 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>State Name</th>
-                                        <th>Division Name</th>
-                                        <th>District Name</th>
+                                        <th>City Name</th>
+                                        <th>Country Name</th>
+                                        <th>Region Name</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -47,13 +47,13 @@
                 <!-- /.box -->
             </div>
 
-            <!-- Add state -->
+            <!-- Add City -->
 
             <div class="col-4">
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Add state</h3>
+                        <h3 class="box-title">Add City</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -62,7 +62,7 @@
                                 @csrf
 
                                 <div class="form-group">
-                                    <h5>division Select <span class="text-danger">*</span></h5>
+                                    <h5>Country Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <select name="division_id" id="divisionselect" class="form-control" aria-invalid="false">
                                             <option value="" selected="" disabled>Select Your division</option>
@@ -78,7 +78,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>District Select <span class="text-danger">*</span></h5>
+                                    <h5>Region Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <select name="district_id" id="districtselect" class="form-control" aria-invalid="false">
 
@@ -91,7 +91,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>state Name <span class="text-danger">*</span></h5>
+                                    <h5>City Name <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="text" value="" name="state_name" class="form-control">
                                         @error('state_name')

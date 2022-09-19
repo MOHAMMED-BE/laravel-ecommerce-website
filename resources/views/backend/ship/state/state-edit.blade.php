@@ -6,13 +6,13 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <!-- Edit state -->
+            <!-- Edit City -->
 
             <div class="col-12">
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Update state</h3>
+                        <h3 class="box-title">Update City</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -22,7 +22,7 @@
                                 <input type="hidden" value="{{$state->id}}" name="id">
 
                                 <div class="form-group">
-                                    <h5>Division Select <span class="text-danger">*</span></h5>
+                                    <h5>Country Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <select name="division_id" class="form-control" aria-invalid="false">
                                             <option value="" selected="" disabled>Select Your division</option>
@@ -38,7 +38,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>District Select <span class="text-danger">*</span></h5>
+                                    <h5>Region Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <select name="district_id" class="form-control" aria-invalid="false">
                                             <option value="" selected="" disabled>Select Your district</option>
@@ -54,7 +54,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>state Name <span class="text-danger">*</span></h5>
+                                    <h5>City Name <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="text" value="{{$state->state_name}}" name="state_name" class="form-control">
                                         @error('state_name')

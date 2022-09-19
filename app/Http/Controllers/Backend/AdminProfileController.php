@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Auth;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
@@ -79,4 +80,13 @@ class AdminProfileController extends Controller
         }
 
     } // end AdminUpdateChangePassword
+
+
+    public function AllUsers()
+    {
+        $users = User::latest()->get();
+
+        return view('backend.user.all-users',compact('users'));
+
+    } // end AllUsers
 }

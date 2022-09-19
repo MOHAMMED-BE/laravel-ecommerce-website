@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\User;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Auth;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
-
+use Carbon\Carbon;
 
 class AllUserController extends Controller
 {
@@ -38,8 +39,37 @@ class AllUserController extends Controller
             'chroot' => public_path(),
         ]);
         return $pdf->download($order->invoice_no.'.pdf');
-
-        // return view('frontend.user.order.order-invoice',compact('order','orderItem'));
         
     } // end  InvoiceDownload
+
+    public function ReturnOrder($order_id,Request $request)
+    {
+        Order::findOrFail($order_id)->update([
+            'return_date' => Carbon::now()->format('d F Y'),
+            'return_reason' => $request->return_reason,
+        ]);
+
+        $notification = array(
+            'message' => 'Return Request Submited Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('my.orders')->with($notification);
+    } // end ReturnOrder
+
+    public function ReturnOrderList()
+    {
+        $orders = Order::where('user_id',Auth::id())->where('return_reason','!=',NULL)->orderBy('id','desc')->get();
+
+        return view('frontend.user.order.return-order-view',compact('orders'));
+
+    } // end ReturnOrderList
+
+    public function CancelOrder()
+    {
+        $orders = Order::where('user_id',Auth::id())->where('status','cancel')->orderBy('id','desc')->get();
+
+        return view('frontend.user.order.cancel-order-view',compact('orders'));
+
+    } // end CancelOrders
 }

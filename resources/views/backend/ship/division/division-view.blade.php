@@ -10,7 +10,7 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">division List</h3>
+                        <h3 class="box-title">Country List</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -18,7 +18,7 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>division Name</th>
+                                        <th>Country Name</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -42,13 +42,13 @@
                 <!-- /.box -->
             </div>
 
-            <!-- Add division -->
+            <!-- Add Country -->
 
             <div class="col-4">
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Add division</h3>
+                        <h3 class="box-title">Add Country</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -56,7 +56,7 @@
                             <form method="post" action="{{ route('division.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
-                                    <h5>division Name <span class="text-danger">*</span></h5>
+                                    <h5>Country Name <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="text" value="" name="division_name" class="form-control">
                                         @error('division_name')

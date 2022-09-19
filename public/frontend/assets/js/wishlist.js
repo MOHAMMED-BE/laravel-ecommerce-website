@@ -67,7 +67,7 @@ function wishlist() {
                     <button data-toggle="modal" data-target="#exampleModal" class="btn btn-primary icon" type="button" title="Add Cart" id="${value.product.id}" onclick="productView(this.id)" class="btn-upper btn btn-primary">Add to cart</button>
                 </td>
                 <td class="col-md-1 close-btn">
-                    <button type="submit" id="${value.id}" onclick="wishlistRemove(this.id)"  class=""><i class="fa fa-times"></i></button>
+                    <button type="submit" id="${value.id}" class="btn-remove" onclick="wishlistRemove(this.id)"  class=""><i class="fa-solid fa-trash-can"></i></button>
                 </td>
             </tr>
           `;

@@ -66,7 +66,7 @@ Checkout
                                             <div class="col-md-6 col-sm-6 already-registered-login">
                                                 <form class="register-form" role="form">
                                                     <div class="form-group">
-                                                        <h5><b>Division Select</b> <span class="text-danger">*</span></h5>
+                                                        <h5><b>Country Select</b> <span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <select name="division_id" id="divisionselect" class="form-control" aria-invalid="false">
                                                                 <option value="" selected="" disabled>Select Your division</option>
@@ -82,7 +82,7 @@ Checkout
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <h5><b>District Select</b> <span class="text-danger">*</span></h5>
+                                                        <h5><b>Region Select</b> <span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <select name="district_id" id="districtselect" class="form-control" aria-invalid="false">
                                                                 <option value="" selected="" disabled>Select Your District</option>
@@ -95,7 +95,7 @@ Checkout
                                                     </div>
 
                                                     <div class="form-group">
-                                                        <h5><b>State Select</b> <span class="text-danger">*</span></h5>
+                                                        <h5><b>City Select</b> <span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <select name="state_id" id="stateselect" class="form-control" aria-invalid="false">
                                                                 <option value="" selected="" disabled>Select Your State</option>

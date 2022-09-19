@@ -6,13 +6,13 @@
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <!-- Edit district -->
+            <!-- Edit Region -->
 
             <div class="col-12">
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Update district</h3>
+                        <h3 class="box-title">Update Region</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -22,7 +22,7 @@
                                 <input type="hidden" value="{{$district->id}}" name="id">
 
                                 <div class="form-group">
-                                    <h5>division Select <span class="text-danger">*</span></h5>
+                                    <h5>Country Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <select name="division_id" class="form-control" aria-invalid="false">
                                             <option value="" selected="" disabled>Select Your division</option>
@@ -38,7 +38,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>district Name <span class="text-danger">*</span></h5>
+                                    <h5>Region Name <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input type="text" value="{{$district->district_name}}" name="district_name" class="form-control">
                                         @error('district_name')

@@ -1,6 +1,12 @@
 @extends('admin.admin_master')
 @section('admin')
 
+<style>
+    .edit-img {
+        margin: 10px 0 0 0 !important;
+    }
+</style>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="container-full">
     <!-- Main content -->
@@ -161,7 +167,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <h5>Product Tags En </h5>
-                                                        <input type="text" value="{{$product->product_tags_en}}" name="product_tags_en"  data-role="tagsinput" placeholder="add tags" />
+                                                        <input type="text" value="{{$product->product_tags_en}}" name="product_tags_en" data-role="tagsinput" placeholder="add tags" />
                                                         @error('product_tags_en')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -172,7 +178,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <h5>Product Tags Ar </h5>
-                                                        <input type="text" value="{{$product->product_tags_ar}}" name="product_tags_ar"  data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
+                                                        <input type="text" value="{{$product->product_tags_ar}}" name="product_tags_ar" data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
                                                         @error('product_tags_ar')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -181,7 +187,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <h5>Product Size En </h5>
-                                                        <input type="text" value="{{$product->product_size_en}}" name="product_size_en"  data-role="tagsinput" placeholder="add tags" />
+                                                        <input type="text" value="{{$product->product_size_en}}" name="product_size_en" data-role="tagsinput" placeholder="add tags" />
                                                         @error('product_size_en')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -196,7 +202,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <h5>Product Size Ar </h5>
-                                                        <input type="text" value="{{$product->product_size_ar}}" name="product_size_ar"  data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
+                                                        <input type="text" value="{{$product->product_size_ar}}" name="product_size_ar" data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
                                                         @error('product_size_ar')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -206,7 +212,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <h5>Product Color En </h5>
-                                                        <input type="text" value="{{$product->product_color_en}}" name="product_color_en"  data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
+                                                        <input type="text" value="{{$product->product_color_en}}" name="product_color_en" data-role="tagsinput" placeholder="أضف كلمات مفتاحية" />
                                                         @error('product_color_en')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -215,7 +221,7 @@
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <h5>Product Color Ar </h5>
-                                                        <input type="text" value="{{$product->product_color_ar}}" name="product_color_ar"  data-role="tagsinput" placeholder="add tags" />
+                                                        <input type="text" value="{{$product->product_color_ar}}" name="product_color_ar" data-role="tagsinput" placeholder="add tags" />
                                                         @error('product_color_ar')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
@@ -382,7 +388,7 @@
                         <div class="row row-sm">
                             @foreach($multiImgs as $img)
                             <div class="col-md-3">
-                                <div class="card" style="width: 18rem;">
+                                <div class="card edit-img" style="width: 18rem;">
                                     <img src="{{ asset($img->photo_name)}}" class="card-img-top" style="height: 100%;width: 100%;">
                                     <div class="card-body">
                                         <h5 class="card-title">
@@ -399,7 +405,7 @@
                             @endforeach
                         </div>
                         <div class="text-xs-right">
-                            <input type="submit" class="btn btn-info" value="Update" />
+                            <input type="submit" class="btn btn-info" style=" margin: 0 0 0 10px; " value="Update" />
                         </div><br><br>
                     </form>
                 </div>
@@ -422,7 +428,7 @@
                         <input type="hidden" value="{{$product->product_thumbnail}}" name="old_img">
                         <div class="row row-sm">
                             <div class="col-md-3">
-                                <div class="card" style="width: 18rem;">
+                                <div class="card edit-img" style="width: 18rem;">
                                     <img src="{{ asset($product->product_thumbnail)}}" class="card-img-top" id="mainThumbnail" style="height: 100%;width: 100%;">
                                     <div class="card-body">
                                         <p class="card-text">
@@ -435,7 +441,7 @@
                             </div>
                         </div>
                         <div class="text-xs-right">
-                            <input type="submit" class="btn btn-info" value="Update" />
+                            <input type="submit" style=" margin: 0 0 0 10px; " class="btn btn-info" value="Update" />
                         </div><br><br>
                     </form>
                 </div>

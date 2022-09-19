@@ -113,14 +113,14 @@ $route = Route::current()->getName();
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="{{ ($route == 'menage-division')? 'active':''}}"><a href="{{route('menage-division')}}"><i class="ti-more"></i>Ship Division</a></li>
-          <li class="{{ ($route == 'menage-district')? 'active':''}}"><a href="{{route('menage-district')}}"><i class="ti-more"></i>Ship District</a></li>
-          <li class="{{ ($route == 'menage-state')? 'active':''}}"><a href="{{route('menage-state')}}"><i class="ti-more"></i>Ship State</a></li>
+          <li class="{{ ($route == 'menage-division')? 'active':''}}"><a href="{{route('menage-division')}}"><i class="ti-more"></i>Ship Country</a></li>
+          <li class="{{ ($route == 'menage-district')? 'active':''}}"><a href="{{route('menage-district')}}"><i class="ti-more"></i>Ship Region</a></li>
+          <li class="{{ ($route == 'menage-state')? 'active':''}}"><a href="{{route('menage-state')}}"><i class="ti-more"></i>Ship City</a></li>
 
         </ul>
       </li>
 
-      <li class="header nav-small-cap">User Interface</li>
+      <li class="header nav-small-cap">Menage Orders</li>
 
       <li class="treeview {{ ($prefix == '/orders')? 'active':''}}">
         <a href="#">
@@ -138,6 +138,33 @@ $route = Route::current()->getName();
           <li class="{{ ($route == 'shipped-orders')? 'active':''}}"><a href="{{route('shipped-orders')}}"><i class="ti-more"></i>Shipped Orders</a></li>
           <li class="{{ ($route == 'delivered-orders')? 'active':''}}"><a href="{{route('delivered-orders')}}"><i class="ti-more"></i>Delivered Orders</a></li>
           <li class="{{ ($route == 'cancel-orders')? 'active':''}}"><a href="{{route('cancel-orders')}}"><i class="ti-more"></i>Cancel Orders</a></li>
+        </ul>
+      </li>
+
+
+      <li class="treeview {{ ($prefix == '/reports')? 'active':''}}">
+        <a href="#">
+          <i data-feather="file"></i>
+          <span>All Reports</span>
+          <span style="float: right;">
+            <i class="fa-solid fa-angle-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ ($route == 'all-reports')? 'active':''}}"><a href="{{route('all-reports')}}"><i class="ti-more"></i>All reports</a></li>
+        </ul>
+      </li>
+
+      <li class="treeview {{ ($prefix == '/allusers')? 'active':''}}">
+        <a href="#">
+          <i data-feather="file"></i>
+          <span>All Users</span>
+          <span style="float: right;">
+            <i class="fa-solid fa-angle-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ ($route == 'all-users')? 'active':''}}"><a href="{{route('all-users')}}"><i class="ti-more"></i>All Users</a></li>
         </ul>
       </li>
 
