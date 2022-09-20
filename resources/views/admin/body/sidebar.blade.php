@@ -116,7 +116,6 @@ $route = Route::current()->getName();
           <li class="{{ ($route == 'menage-division')? 'active':''}}"><a href="{{route('menage-division')}}"><i class="ti-more"></i>Ship Country</a></li>
           <li class="{{ ($route == 'menage-district')? 'active':''}}"><a href="{{route('menage-district')}}"><i class="ti-more"></i>Ship Region</a></li>
           <li class="{{ ($route == 'menage-state')? 'active':''}}"><a href="{{route('menage-state')}}"><i class="ti-more"></i>Ship City</a></li>
-
         </ul>
       </li>
 
@@ -132,7 +131,22 @@ $route = Route::current()->getName();
         </a>
         <ul class="treeview-menu">
           <li class="{{ ($route == 'blog.category')? 'active':''}}"><a href="{{route('blog.category')}}"><i class="ti-more"></i>Blog Category</a></li>
+          <li class="{{ ($route == 'view.post')? 'active':''}}"><a href="{{route('view.post')}}"><i class="ti-more"></i>Blog Post List</a></li>
+          <li class="{{ ($route == 'add.post')? 'active':''}}"><a href="{{route('add.post')}}"><i class="ti-more"></i>Add Blog Post</a></li>
+        </ul>
+      </li>
 
+      <li class="treeview {{ ($prefix == '/setting')? 'active':''}}">
+        <a href="#">
+          <i data-feather="file"></i>
+          <span>Menage Setting</span>
+          <span style="float: right;">
+            <!-- class="pull-right-container" -->
+            <i class="fa-solid fa-angle-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ ($route == 'site.setting')? 'active':''}}"><a href="{{route('site.setting')}}"><i class="ti-more"></i>Site Setting</a></li>
         </ul>
       </li>
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog\BlogPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Hash;
@@ -33,10 +34,13 @@ class IndexController extends Controller
         $skip_product  = Product::where('status',1)->where('category_id',$skip_category->id)->orderBy('id','desc')->get(); 
         $skip_product_brand  = Product::where('status',1)->where('brand_id',$skip_brand->id)->orderBy('id','desc')->get(); 
 
+        $blogpost = BlogPost::latest()->get();
+
+
         // return $skip_category->id;
         // die();
 
-        return view('frontend.index',compact('sliders','categories','products','featureds','hot_deals','special_offers','special_deals','skip_category','skip_product','skip_brand','skip_product_brand'));
+        return view('frontend.index',compact('sliders','categories','products','featureds','hot_deals','special_offers','special_deals','skip_category','skip_product','skip_brand','skip_product_brand','blogpost'));
     }
 
     public function UserLogout(){

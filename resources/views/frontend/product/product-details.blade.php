@@ -263,7 +263,7 @@
                                             <input type="hidden" id="product-id" value="{{$product->id}}" min="1">
 
                                             <div class="col-sm-7">
-                                                <button  type="submit" class="btn btn-primary" onclick="AddToCart()"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
+                                                <button type="submit" class="btn btn-primary" onclick="AddToCart()"><i class="fa fa-shopping-cart inner-right-vs"></i> ADD TO CART</button>
                                             </div>
 
 
@@ -457,8 +457,12 @@
                                                 <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                                 <div class="rating rateit-small"></div>
                                                 <div class="description"></div>
+                                                @if($product->discount_price == NULL)
+                                                <div class="product-price"> <span class="price"> {{$product->selling_price}} $ </span> </div>
+                                                @else
                                                 <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
                                                 <!-- /.product-price -->
+                                                @endif
                                             </div><!-- /.product-info -->
                                             <div class="cart clearfix animate-effect">
                                                 <div class="action">

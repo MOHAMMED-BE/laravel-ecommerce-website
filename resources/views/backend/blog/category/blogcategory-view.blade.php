@@ -54,7 +54,7 @@
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="table-responsive">
-                            <form method="post" action="{{ route('category.store') }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('blogcategory.store') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
                                     <h5>Category Name English <span class="text-danger">*</span></h5>

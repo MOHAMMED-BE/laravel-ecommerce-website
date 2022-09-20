@@ -16,9 +16,11 @@ use App\Http\Controllers\Backend\SubSubCategoryController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\ReportController;
 use App\Http\Controllers\Backend\ShippingAreaController;
+use App\Http\Controllers\Backend\SiteSettingController;
 use App\Http\Controllers\Backend\SliderController;
 use App\Http\Controllers\Frontend\LanguageController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\HomeBlogController;
 use App\Http\Controllers\User\AllUserController;
 use App\Http\Controllers\User\CartPageController;
 use App\Http\Controllers\User\CashController;
@@ -352,11 +354,30 @@ Route::prefix('allusers')->group(function(){
 
 Route::prefix('blog')->group(function(){
     Route::get('/category', [BlogController::class, 'BlogCategory'])->name('blog.category');
+    Route::post('/store', [BlogController::class, 'BlogCategoryStore'])->name('blogcategory.store');
     Route::get('/edit/{id}', [BlogController::class, 'BlogCategoryEdit'])->name('blog.category.edit');
     Route::post('/update', [BlogController::class, 'BlogCategoryUpdate'])->name('blog.category.update');
     Route::get('/delete/{id}', [BlogController::class, 'BlogCategoryDelete'])->name('blog.category.delete');
+    Route::get('/view/post', [BlogController::class, 'BlogPostList'])->name('view.post');
+    Route::get('/add/post', [BlogController::class, 'AddBlogPost'])->name('add.post');
+    Route::post('/post/store', [BlogController::class, 'BlogPostStore'])->name('post.store');
+    Route::get('/post/edit/{id}', [BlogController::class, 'BlogPostEdit'])->name('post.edit');
+    Route::post('/post/update', [BlogController::class, 'BlogPostUpdate'])->name('post.update');
+    Route::get('/post/delete/{id}', [BlogController::class, 'BlogPostDelete'])->name('post.delete');
+    Route::post('post/image/update', [BlogController::class, 'BlogPostImageUpdate'])->name('blogpost.update.image');
 });
 
+// FrontEnd Blog Show Routes
+
+Route::get('/blog', [HomeBlogController::class, 'ShowBlog'])->name('home.blog');
+Route::get('/blog/details/{post_id}', [HomeBlogController::class, 'BlogDetails'])->name('blog.details');
+Route::get('/blog/category/post/{id}', [HomeBlogController::class, 'HomeBlogCategoryPost']);
+
+// admin All Site Setting Route
+
+Route::prefix('setting')->group(function(){
+    Route::get('/site', [SiteSettingController::class, 'SiteSetting'])->name('site.setting');
+});
 
 
 
