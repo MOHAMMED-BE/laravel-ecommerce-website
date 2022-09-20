@@ -5,6 +5,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Backend\CategoryController;
@@ -344,6 +345,16 @@ Route::prefix('reports')->group(function(){
 Route::prefix('allusers')->group(function(){
     Route::get('/view', [AdminProfileController::class, 'AllUsers'])->name('all-users');
 
+});
+
+
+// Admin Blog All Routes
+
+Route::prefix('blog')->group(function(){
+    Route::get('/category', [BlogController::class, 'BlogCategory'])->name('blog.category');
+    Route::get('/edit/{id}', [BlogController::class, 'BlogCategoryEdit'])->name('blog.category.edit');
+    Route::post('/update', [BlogController::class, 'BlogCategoryUpdate'])->name('blog.category.update');
+    Route::get('/delete/{id}', [BlogController::class, 'BlogCategoryDelete'])->name('blog.category.delete');
 });
 
 
