@@ -9,9 +9,7 @@
 
             <!-- ============================================== User Sidebar: END ============================================== -->
 
-            <div class="col-md-2">
-
-            </div>
+            <div class="col-md-2"></div>
 
             <div class="col-md-6">
                 <div class="card">

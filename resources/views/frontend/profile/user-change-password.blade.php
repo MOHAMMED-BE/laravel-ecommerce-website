@@ -12,6 +12,7 @@ $user = DB::table('users')->where('id',Auth::user()->id)->first();
             @include('frontend.common.user-sidebar')
 
             <!-- ============================================== User Sidebar: END ============================================== -->
+            <div class="col-md-2"></div>
             <div class="col-md-6">
                 <div class="card">
                     <h3 class="text-center">
