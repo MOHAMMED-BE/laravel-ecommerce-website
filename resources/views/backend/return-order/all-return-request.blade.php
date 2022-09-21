@@ -10,7 +10,7 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Confirmed Orders List</h3>
+                        <h3 class="box-title">Return Orders List</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -23,7 +23,7 @@
                                         <th>Amount</th>
                                         <th>Payment</th>
                                         <th>Status</th>
-                                        <th>Action</th>
+                                        <th>Return Status</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -33,10 +33,17 @@
                                         <td>{{$order->invoice_no}}</td>
                                         <td>${{$order->amount}}</td>
                                         <td>{{$order->payment_method}}</td>
-                                        <td><span class="badge badge-pill badge-success" style="background:#668cff;">{{$order->status}}</span></td>
-                                        <td class="text-center">
-                                            <a href="{{ route('pending.order.details',$order->id)}}" title="View Order Details" class="btn btn-primary"><i class="fa fa-eye"></i></a>
-                                            <a href="{{ route('invoice.download',$order->id)}}" target="_blank" title="download order invoice" class="btn btn-info"><i class="fa fa-download"></i></a>
+                                        <td>
+                                        @if($order->return_order == 0)
+                                        <span class="badge badge-pill badge-warning" style="background: #418DB9;"> No Return Request </span>
+                                        @elseif($order->return_order == 1)
+                                        <span class="badge badge-pill badge-warning" style="background: #7733ff;"> Pedding </span>
+                                        @elseif($order->return_order == 2)
+                                        <span class="badge badge-pill badge-warning" style="background: #008000;">Success </span>
+                                        @endif    
+                                        </td>
+                                        <td>
+                                        <span class="badge badge-pill badge-warning" style="background: #008000;">Return Success </span>
                                         </td>
                                     </tr>
                                     @endforeach

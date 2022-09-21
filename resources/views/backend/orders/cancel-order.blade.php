@@ -33,7 +33,7 @@
                                         <td>{{$order->invoice_no}}</td>
                                         <td>${{$order->amount}}</td>
                                         <td>{{$order->payment_method}}</td>
-                                        <td><span class="badge badge-pill badge-success">{{$order->status}}</span></td>
+                                        <td><span class="badge badge-pill badge-success" style="background:#ff0040;">{{$order->status}}</span></td>
                                         <td class="text-center">
                                             <a href="{{ route('cancel.order.details',$order->id)}}" title="View Order Details" class="btn btn-primary"><i class="fa fa-eye"></i></a>
                                         </td>

@@ -147,6 +147,22 @@ $route = Route::current()->getName();
         </a>
         <ul class="treeview-menu">
           <li class="{{ ($route == 'site.setting')? 'active':''}}"><a href="{{route('site.setting')}}"><i class="ti-more"></i>Site Setting</a></li>
+          <li class="{{ ($route == 'seo.setting')? 'active':''}}"><a href="{{route('seo.setting')}}"><i class="ti-more"></i>Seo Setting</a></li>
+        </ul>
+      </li>
+
+      <li class="treeview {{ ($prefix == '/return')? 'active':''}}">
+        <a href="#">
+          <i data-feather="file"></i>
+          <span>Rerurn Order</span>
+          <span style="float: right;">
+            <!-- class="pull-right-container" -->
+            <i class="fa-solid fa-angle-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ ($route == 'return.request')? 'active':''}}"><a href="{{route('return.request')}}"><i class="ti-more"></i>Return Request</a></li>
+          <li class="{{ ($route == 'all.request')? 'active':''}}"><a href="{{route('all.request')}}"><i class="ti-more"></i>All Request</a></li>
         </ul>
       </li>
 

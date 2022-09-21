@@ -187,7 +187,7 @@
             @if($order->status !== "delivered")
             @else
             @php
-                $order = App\Models\Order::where('return_reason','==',NULL)->first();
+                $order = App\Models\Order::where('id',$order->id)->where('return_reason','=',NULL)->first();
             @endphp
 
             @if($order)
