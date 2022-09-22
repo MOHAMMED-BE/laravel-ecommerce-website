@@ -7232,9 +7232,9 @@ header {
 
 .user-sidebar-img{
   height: 100px;
-  box-shadow: 0 .5rem 1rem rgba(255,255,255,.25)!important;
+  box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
   border-radius: 50%;
-  margin: 0 0 10px 0;
+  margin: 5px 0 10px 0;
 }
 
 .user-div{
@@ -7260,3 +7260,18 @@ header {
   border-radius: 7px;
   margin: 5px 0 3rem 0;
 }
+
+.review-user-img{
+  height: 50px;
+  box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
+  border-radius: 50%;
+  margin: 5px 0px 11px 5px;
+}
+
+.user-review{
+  border-radius: 6px;
+    box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 8%);
+    margin: 15px 0 15px 0;
+    padding: 17px 3px 30px 17px;
+}
+

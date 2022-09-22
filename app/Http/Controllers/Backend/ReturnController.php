@@ -22,7 +22,7 @@ class ReturnController extends Controller
         ]);
 
         $notification = array(
-            'message' => 'slider Inserted Successfully',
+            'message' => 'Return Request Approved Successfully',
             'alert-type' => 'success'
         );
 

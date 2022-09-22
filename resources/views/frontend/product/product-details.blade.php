@@ -271,7 +271,8 @@
                                     </div><!-- /.quantity-container -->
 
 
-
+                                    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                                    <div class="addthis_inline_share_toolbox"></div>
 
 
 
@@ -304,17 +305,29 @@
 
                                             <div class="product-reviews">
                                                 <h4 class="title">Customer Reviews</h4>
-
                                                 <div class="reviews">
-                                                    <div class="review">
-                                                        <div class="review-title"><span class="summary">We love this product</span><span class="date"><i class="fa fa-calendar"></i><span>1 days ago</span></span></div>
-                                                        <div class="text">"Lorem ipsum dolor sit amet, consectetur adipiscing elit.Aliquam suscipit."</div>
+                                                    @foreach($reviews as $review)
+                                                    <div class="user-review">
+                                                        <div class="row">
+                                                            <div class="col-md3" style=" margin: -15px 0px 0px 0px; ">
+                                                                <img src="{{ (!empty($review->user->profile_photo_path)) ? url('upload/user-images/'.$review->user->profile_photo_path) : url('upload/no_image.jpg')}}" class="review-user-img"> <b>{{$review->user->name}}</b>
+                                                            </div>
+                                                            <div class="col-md3">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="review-title">
+                                                            <span class="summary">{{$review->summary}}</span>
+                                                            <span class="date"><i class="fa fa-calendar"></i>
+                                                                <span>{{Carbon\Carbon::parse($review->created_at)->diffForHumans()}}</span>
+                                                            </span>
+                                                        </div>
+                                                        <div class="text">"{{$review->comment}}"</div>
                                                     </div>
+                                                    @endforeach
 
                                                 </div><!-- /.reviews -->
                                             </div><!-- /.product-reviews -->
-
-
 
                                             <div class="product-add-review">
                                                 <h4 class="title">Write your own review</h4>
@@ -323,25 +336,27 @@
                                                 </div><!-- /.review-table -->
 
                                                 <div class="review-form">
-                                                @guest
+                                                    @guest
 
-                                                <p><b>For Add Product Review. You Need To Login <a href="{{route('login')}}">Login Here</a></b></p>
+                                                    <p><b>For Add Product Review. You Need To Login <a href="{{route('login')}}">Login Here</a></b></p>
 
-                                                @else
+                                                    @else
                                                     <div class="form-container">
-                                                        <form role="form" class="cnt-form">
+                                                        <form role="form" class="cnt-form" method="post" action="{{route('review.store')}}">
+                                                            @csrf
+                                                            <input type="hidden" name="product_id" value="{{$product->id}}">
                                                             <div class="row">
                                                                 <div class="col-sm-6">
                                                                     <div class="form-group">
                                                                         <label for="exampleInputSummary">Summary <span class="astk">*</span></label>
-                                                                        <input type="text" class="form-control txt" id="exampleInputSummary" placeholder="">
+                                                                        <input type="text" name="summary" class="form-control txt" id="exampleInputSummary" required placeholder="">
                                                                     </div><!-- /.form-group -->
                                                                 </div>
 
                                                                 <div class="col-md-6">
                                                                     <div class="form-group">
                                                                         <label for="exampleInputReview">Review <span class="astk">*</span></label>
-                                                                        <textarea class="form-control txt txt-review" id="exampleInputReview" rows="4" placeholder=""></textarea>
+                                                                        <textarea class="form-control txt txt-review" name="comment" id="exampleInputReview" rows="4" required placeholder=""></textarea>
                                                                     </div><!-- /.form-group -->
                                                                 </div>
                                                             </div><!-- /.row -->
@@ -352,7 +367,7 @@
 
                                                         </form><!-- /.cnt-form -->
                                                     </div><!-- /.form-container -->
-                                                @endguest
+                                                    @endguest
                                                 </div><!-- /.review-form -->
 
                                             </div><!-- /.product-add-review -->

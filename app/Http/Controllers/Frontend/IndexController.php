@@ -14,6 +14,7 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\MultiImg;
 use App\Models\Brand;
+use App\Models\Review;
 
 class IndexController extends Controller
 {
@@ -115,6 +116,7 @@ class IndexController extends Controller
         $product = Product::findOrFail($id);
         $multi_img = MultiImg::where('product_id',$id)->get();  
         $related_products = Product::where('category_id',$product->category_id)->where('id','!=',$id)->get(); 
+        $reviews = Review::where('product_id',$product->id)->where('status',1)->get();
 
         $size_en = $product->product_size_en;
         $product_size_en = explode(',',$size_en);
@@ -128,7 +130,7 @@ class IndexController extends Controller
         $color_ar = $product->product_color_ar;
         $product_color_ar = explode(',',$color_ar);
 
-        return view('frontend.product.product-details',compact('product','multi_img','product_size_en','product_size_ar','product_color_en','product_color_ar','related_products'));
+        return view('frontend.product.product-details',compact('product','multi_img','product_size_en','product_size_ar','product_color_en','product_color_ar','related_products','reviews'));
     } // end ProductDetails
 
     public function TagWiseProduct($tag)

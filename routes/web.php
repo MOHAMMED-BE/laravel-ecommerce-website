@@ -395,7 +395,17 @@ Route::prefix('return')->group(function(){
 
 
 // Frontend Review route
-Route::get('/admin/request', [ReviewController::class, 'ReturnRequest'])->name('return.request');
+Route::post('/review/store', [ReviewController::class, 'ReviewStore'])->name('review.store');
+
+// Backend  Review all route
+
+Route::prefix('review')->group(function(){
+    Route::get('/pending', [ReviewController::class, 'PendingReview'])->name('pending.review');
+    Route::get('/publish', [ReviewController::class, 'PublishReview'])->name('publish.review');
+    Route::get('/approve/{id}', [ReviewController::class, 'ReviewApprove'])->name('review.approve');
+    Route::get('/delete/{id}', [ReviewController::class, 'ReviewDelete'])->name('review.delete');
+});
+
 
 
 

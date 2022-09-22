@@ -27,16 +27,10 @@ Blog Post
                         <span class="author">John Doe</span>
                         <span class="review">7 Comments</span>
                         <span class="date-time">{{Carbon\Carbon::parse($post->created_at)->diffForHumans()}}</span>
+                        <div class="addthis_inline_share_toolbox"></div>
                         <p>@if(session()->get('language') == 'english') {!! $post->post_details_en !!} @else {!! $post->post_details_ar !!} @endif</p>
 
-                        <div class="social-media">
-                            <span>share post:</span>
-                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href=""><i class="fa fa-rss"></i></a>
-                            <a href="" class="hidden-xs"><i class="fa-brands fa-pinterest"></i></a>
-                        </div>
+                        <div class="addthis_inline_share_toolbox"></div>
                     </div>
                     <div class="blog-write-comment outer-bottom-xs outer-top-xs">
                         <div class="row">

@@ -49,6 +49,9 @@
 
   <script src="https://js.stripe.com/v3/"></script>
 
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-632b76a864b62174"></script>
+
 </head>
 
 <body class="cnt-home">
