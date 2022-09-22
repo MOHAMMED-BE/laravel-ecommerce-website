@@ -5,10 +5,11 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Product;
 use Auth;
 use Carbon\Carbon;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
-
+use DB;
 
 class OrderController extends Controller
 {
@@ -23,7 +24,7 @@ class OrderController extends Controller
 
     public function PendingOrderDetails($order_id)
     {
-        $order = Order::with('division','district','state','user')->where('id',$order_id)->where('user_id',Auth::id())->first();
+        $order = Order::with('division','district','state','user')->where('id',$order_id)->first();
         $orderItem = OrderItem::with('product')->where('order_id',$order_id)->orderBy('id','desc')->get();
 
         return view('backend.orders.pending-order-details',compact('order','orderItem'));
@@ -157,6 +158,11 @@ class OrderController extends Controller
 
     public function ShippedToDelivered($order_id)
     {
+        $product = OrderItem::where('order_id',$order_id)->get();
+        foreach($product as $item){
+            Product::where('id',$item->product_id)->update(['product_quantity' => DB::raw('product_quantity-'.$item->qty)]);
+        }
+
         Order::findOrFail($order_id)->update([
             'status' => 'delivered',
             'delivered_date' => Carbon::now(),

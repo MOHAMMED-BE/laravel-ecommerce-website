@@ -297,4 +297,12 @@ class ProductController extends Controller
 
         return view('backend.product.product-details', compact('product', 'brand', 'category', 'subcategory', 'subsubcategory', 'multiImgs'));
     } // ProductDetails
+
+
+    public function ProductStock()
+    {
+        $products = Product::latest()->get();
+
+        return view('backend/product/product-stock', compact('products'));
+    } // end ProductStock
 }

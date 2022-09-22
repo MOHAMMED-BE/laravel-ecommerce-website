@@ -10,7 +10,7 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Product List <span class="badge badge-pill badge-info">{{count($product)}}</h3>
+                        <h3 class="box-title">Product Stock List <span class="badge badge-pill badge-info">{{count($products)}}</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -24,11 +24,10 @@
                                         <th>Discount</th>
                                         <th>product Quantity</th>
                                         <th>Status</th>
-                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($product as $item)
+                                    @foreach($products as $item)
                                     <tr>
                                         <!-- <td><span><i class="fa-solid fa-id-card"></i></span></td> -->
                                         <td class="d-flex justify-content-center"><img class="img rounded-4 center" src="{{asset($item->product_thumbnail)}}" alt="" style="width: 4rem !important;height: 3.5rem !important;"></td>
@@ -51,16 +50,6 @@
                                             <span class="badge badge-pill badge-success">Active</span>
                                             @else
                                             <span class="badge badge-pill badge-danger">InActive</span>
-                                            @endif
-                                        </td>
-                                        <td class="text-center">
-                                            <a href="{{ route('product-details',$item->id)}}" title="View Product Details" class="btn btn-primary"><i class="fa fa-eye"></i></a>
-                                            <a href="{{ route('product-edit',$item->id)}}" title="Edit Data" class="btn btn-info"><i class="fa fa-pencil"></i></a>
-                                            <a href="{{ route('product-delete',$item->id)}}" title="Delete Data" class="btn btn-danger" id="delete"><i class="fa fa-trash"></i></a>
-                                            @if($item->status == 1)
-                                            <a href="{{ route('product-inactive',$item->id)}}" title="Inactive Now" class="btn btn-warning"><i class="fa fa-arrow-down"></i></a>
-                                            @else
-                                            <a href="{{ route('product-active',$item->id)}}" title="Active Now" class="btn btn-success"><i class="fa fa-arrow-up"></i></a>
                                             @endif
                                         </td>
                                     </tr>

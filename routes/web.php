@@ -407,6 +407,11 @@ Route::prefix('review')->group(function(){
 });
 
 
+// Backend  Menage Stock route
+
+Route::prefix('stock')->group(function(){
+    Route::get('/product', [ProductController::class, 'ProductStock'])->name('product.stock');
+});
 
 
 

@@ -207,6 +207,19 @@ $route = Route::current()->getName();
       </li>
 
 
+      <li class="treeview {{ ($prefix == '/stock')? 'active':''}}">
+        <a href="#">
+          <i data-feather="file"></i>
+          <span>Menage Stock</span>
+          <span style="float: right;">
+            <i class="fa-solid fa-angle-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ ($route == 'product.stock')? 'active':''}}"><a href="{{route('product.stock')}}"><i class="ti-more"></i>Product Stock</a></li>
+        </ul>
+      </li>
+
       <li class="treeview {{ ($prefix == '/reports')? 'active':''}}">
         <a href="#">
           <i data-feather="file"></i>
@@ -219,6 +232,7 @@ $route = Route::current()->getName();
           <li class="{{ ($route == 'all-reports')? 'active':''}}"><a href="{{route('all-reports')}}"><i class="ti-more"></i>All reports</a></li>
         </ul>
       </li>
+
 
       <li class="treeview {{ ($prefix == '/allusers')? 'active':''}}">
         <a href="#">
