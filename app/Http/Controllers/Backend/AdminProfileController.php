@@ -6,28 +6,31 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\User;
-use Illuminate\Support\Facades\Session;
+// use Illuminate\Support\Facades\Session;
 use Auth;
-use Illuminate\Support\Facades\Auth as FacadesAuth;
+// use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Hash;
 
 class AdminProfileController extends Controller
 {
     public function AdminProfile()
     {
-        $adminData = Admin::find(1);
+        $id = Auth::user()->id;
+        $adminData = Admin::find($id);
         return view('admin.admin-profile-view', compact('adminData'));
     } // end AdminProfile
 
     public function AdminProfileEdit()
     {
-        $editData = Admin::find(1);
+        $id = Auth::user()->id;
+        $editData = Admin::find($id);
         return view('admin.admin-profile-edit', compact('editData'));
     } // end AdminProfileEdit
 
     public function AdminProfileStore(Request $request)
     {
-        $storeData = Admin::find(1);
+        $id = Auth::user()->id;
+        $storeData = Admin::find($id);
         $storeData->name = $request->name;
         $storeData->email = $request->email;
 
@@ -60,10 +63,9 @@ class AdminProfileController extends Controller
             'oldpassword' => 'required',
             'password' => 'required | confirmed',
         ]);
-
-        $hashPassword = Admin::find(1)->password;
+        $hashPassword = Auth::user()->password;
         if(Hash::check($request->oldpassword,$hashPassword)){
-            $admin = Admin::find(1);
+            $admin = Admin::find(Auth::id());
             $admin->password = Hash::make($request->password);
             $admin->save();
             Auth::logout();

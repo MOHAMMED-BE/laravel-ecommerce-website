@@ -46,7 +46,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <img id="show-profile-image" class="rounded-circle" src="{{ (!empty($editData->profile_photo_path)) ? url('upload/admin-images/'.$editData->profile_photo_path) : url('upload/no_image.jpg')}}" alt="User Avatar" style="width:100px ;height:100px;box-shadow: 0 .5rem 1rem rgba(255,255,255,.25)!important;">
+                                            <img id="show-profile-image" class="rounded-circle" src="{{ (!empty($editData->profile_photo_path)) ? url($editData->profile_photo_path) : url('upload/no_image.jpg')}}" alt="User Avatar" style="width:100px ;height:100px;box-shadow: 0 .5rem 1rem rgba(255,255,255,.25)!important;">
                                         </div>
                                     </div>
                                 </div>

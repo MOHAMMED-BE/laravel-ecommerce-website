@@ -5,6 +5,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\AdminProfileController;
+use App\Http\Controllers\Backend\AdminUserController;
 use App\Http\Controllers\Backend\BlogController;
 use App\Http\Controllers\Backend\BrandController;
 use App\Http\Controllers\Frontend\IndexController;
@@ -336,7 +337,7 @@ Route::prefix('orders')->group(function(){
 // Admin Reports All Routes
 
 Route::prefix('reports')->group(function(){
-    Route::get('/view', [ReportController::class, 'ReportView'])->name('all-reports');
+    Route::get('/view', [ReportController::class, 'ReportView'])->name('all.reports');
     Route::get('/search/by/date', [ReportController::class, 'ReportByDate'])->name('search.by.date');
     Route::get('/search/by/month', [ReportController::class, 'ReportByMonth'])->name('search.by.month');
     Route::get('/search/by/year', [ReportController::class, 'ReportByYear'])->name('search.by.year');
@@ -347,7 +348,7 @@ Route::prefix('reports')->group(function(){
 // Admin allusers All Routes
 
 Route::prefix('allusers')->group(function(){
-    Route::get('/view', [AdminProfileController::class, 'AllUsers'])->name('all-users');
+    Route::get('/view', [AdminProfileController::class, 'AllUsers'])->name('all.users');
 
 });
 
@@ -413,6 +414,17 @@ Route::prefix('stock')->group(function(){
     Route::get('/product', [ProductController::class, 'ProductStock'])->name('product.stock');
 });
 
+
+// Backend  Menage Stock route
+
+Route::prefix('adminuserrole')->group(function(){
+    Route::get('/all', [AdminUserController::class, 'AllAdminRole'])->name('all.admin.user');
+    Route::get('/add', [AdminUserController::class, 'AddAdminRole'])->name('add.admin');
+    Route::post('/store', [AdminUserController::class, 'StoreAdminUser'])->name('admin.user.store');
+    Route::get('/edit/{id}', [AdminUserController::class, 'EditAdminUser'])->name('admin.user.edit');
+    Route::get('/delete/{id}', [AdminUserController::class, 'DeleteAdminUser'])->name('admin.user.delete');
+    Route::post('/update', [AdminUserController::class, 'UpdateAdminUser'])->name('admin.user.update');
+});
 
 
 

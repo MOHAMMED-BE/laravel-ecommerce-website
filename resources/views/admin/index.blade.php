@@ -5,11 +5,11 @@
 $date = Carbon\Carbon::now()->format('d F Y');
 $today = App\Models\Order::where('order_date',$date)->sum('amount');
 
-$date = Carbon\Carbon::now()->format('F');
-$month = App\Models\Order::where('order_month',$date)->sum('amount');
+$this_month = Carbon\Carbon::now()->format('F');
+$this_year = Carbon\Carbon::now()->format('Y');
 
-$date = Carbon\Carbon::now()->format('F');
-$year = App\Models\Order::where('order_year',$date)->sum('amount');
+$month = App\Models\Order::where('order_month',$this_month)->where('order_year',$this_year)->sum('amount');
+$year = App\Models\Order::where('order_year',$this_year)->sum('amount');
 
 $pending = App\Models\Order::where('status','pending')->get();
 
