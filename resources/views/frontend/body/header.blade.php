@@ -71,24 +71,24 @@
                     <!-- ============================================================= SEARCH AREA ============================================================= -->
                     <div class="search-area" style="height: 46px;">
                     
-                        <form action="{{route('product.search')}}" method="post">
+                        <form action="{{route('product.search')}}" method="get">
                             @csrf
                             <div class="control-group">
                                 <ul class="categories-filter animate-dropdown">
                                     <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
                                         <ul class="dropdown-menu" role="menu">
                                         @php
-                                $categories = App\Models\Category::orderBy('category_name_en','asc')->get();
-                                @endphp
+                                            $categories = App\Models\Category::orderBy('category_name_en','asc')->get();
+                                        @endphp
 
-                                @foreach($categories as $category)
+                                        @foreach($categories as $category)
                                             <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- @if(session()->get('language') == 'english') {{$category->category_name_en}} @else {{$category->category_name_ar}} @endif</a></li>
                                         @endforeach
                                         </ul>
                                     </li>
                                 </ul>
                                 <input class="search-field" name="search" placeholder="Search here..." />
-                                <a class="search-button" href="#"></a>
+                                <button class="search-button" type="submit"></button>
                             </div>
                         </form>
                     </div>

@@ -467,7 +467,9 @@ BMS Store
                                                     <button class="btn btn-primary icon" type="button" data-toggle="modal" data-target="#exampleModal" id="{{$product->id}}" onclick="productView(this.id)"> <i class="fa fa-shopping-cart"></i> </button>
                                                     <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                                                 </li>
-                                                <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
+                                                <li class="">
+                                                    <button class="btn btn-primary icon" type="button" title="Wishlist" id="{{$product->id}}" onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i> </button>
+                                                </li>
                                                 <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
                                             </ul>
                                         </div>
@@ -767,7 +769,7 @@ BMS Store
                 <!-- /.sidebar-widget -->
                 <!-- ============================================== BEST SELLER : END ============================================== -->
 
-                <!-- ============================================== FEATURED PRODUCTS ============================================== -->
+                <!-- ============================================== Electronics PRODUCTS ============================================== -->
                 <section class="section featured-product wow fadeInUp">
                     <h3 class="section-title">{{$skip_category->category_name_en}}</h3>
                     <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
@@ -822,10 +824,10 @@ BMS Store
                     <!-- /.home-owl-carousel -->
                 </section>
                 <!-- /.section -->
-                <!-- ============================================== FEATURED PRODUCTS : END ============================================== -->
+                <!-- ============================================== Electronics PRODUCTS : END ============================================== -->
 
 
-                <!-- ============================================== FEATURED PRODUCTS ============================================== -->
+                <!-- ============================================== Apple PRODUCTS ============================================== -->
                 <section class="section featured-product wow fadeInUp">
                     @if(session()->get('language') == 'english')
                     <h3 class="section-title"> {{$skip_brand->brand_name_en}} Products</h3>
@@ -883,7 +885,7 @@ BMS Store
                     <!-- /.home-owl-carousel -->
                 </section>
                 <!-- /.section -->
-                <!-- ============================================== FEATURED PRODUCTS : END ============================================== -->
+                <!-- ============================================== Apple PRODUCTS : END ============================================== -->
 
 
                 <!-- ============================================== BLOG SLIDER ============================================== -->
@@ -891,7 +893,7 @@ BMS Store
                     <h3 class="section-title">latest form blog</h3>
                     <div class="blog-slider-container outer-top-xs">
                         <div class="owl-carousel blog-slider custom-carousel">
-                    @foreach($blogpost as $post)
+                            @foreach($blogpost as $post)
 
                             <div class="item">
                                 <div class="blog-post">
@@ -912,7 +914,7 @@ BMS Store
                                 <!-- /.blog-post -->
                             </div>
                             <!-- /.item -->
-                    @endforeach
+                            @endforeach
 
                         </div>
                         <!-- /.owl-carousel -->

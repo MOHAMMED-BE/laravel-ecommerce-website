@@ -58,8 +58,8 @@ function wishlist() {
                     <div class="product-name"><a href="#">${value.product.product_name_en}</a></div>
                     <div class="price">
                     ${value.product.discount_price == null
-                        ? `${value.product.selling_price}`
-                        : `${value.product.discount_price} <span>$${value.product.selling_price}</span>`
+                        ? `$ ${value.product.selling_price}`
+                        : `$ ${value.product.discount_price} <span>$ ${value.product.selling_price}</span>`
                     }
                     </div>
                 </td>
