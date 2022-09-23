@@ -47,7 +47,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"></script>
 
-  <script src="https://js.stripe.com/v3/"></script>
+  <!-- <script src="https://js.stripe.com/v3/"></script> -->
 
     <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-632b76a864b62174"></script>

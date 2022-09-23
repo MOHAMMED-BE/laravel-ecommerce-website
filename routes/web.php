@@ -232,7 +232,8 @@ Route::group(['prefix'=>'user','middleware'=>['user','auth'], 'namespace'=>'User
     Route::get('/return/order/list', [AllUserController::class, 'ReturnOrderList'])->name('return.order.list');
     // cancel order list
     Route::get('/cancel/order', [AllUserController::class, 'CancelOrder'])->name('cancel.order');
-
+    // tracking order
+    Route::post('/order/tracking', [AllUserController::class, 'OrderTracking'])->name('order.tracking');
 });
 
 
@@ -425,6 +426,15 @@ Route::prefix('adminuserrole')->group(function(){
     Route::get('/delete/{id}', [AdminUserController::class, 'DeleteAdminUser'])->name('admin.user.delete');
     Route::post('/update', [AdminUserController::class, 'UpdateAdminUser'])->name('admin.user.update');
 });
+
+
+// Product Search Route
+
+Route::post('/search', [IndexController::class, 'ProductSearch'])->name('product.search');
+
+
+
+
 
 
 

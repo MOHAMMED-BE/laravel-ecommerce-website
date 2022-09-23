@@ -14,6 +14,7 @@
                         <li><a href="{{route('wishlist')}}"><i class="icon fa fa-heart"></i>@if(session()->get('language') == 'english') Wishlist @else قائمة الرغبات @endif</a></li>
                         <li><a href="{{route('mycart')}}"><i class="icon fa fa-shopping-cart"></i>@if(session()->get('language') == 'english') My Cart @else عربة التسوق @endif</a></li>
                         <li><a href="{{route('checkout')}}"><i class="icon fa fa-check"></i>@if(session()->get('language') == 'english') Checkout @else الدفع @endif</a></li>
+                        <li><a href="" type="button"  data-toggle="modal" data-target="#trackingModal"><i class="icon fa fa-check"></i>@if(session()->get('language') == 'english') Order Tracking @else تتبع @endif</a></li>
                         @auth
                         <li><a href="{{route('dashboard')}}"><i class="icon fa fa-user"></i>@if(session()->get('language') == 'english') User Profile @else الحساب @endif</a></li>
                         @else
@@ -69,20 +70,24 @@
                     <!-- /.contact-row -->
                     <!-- ============================================================= SEARCH AREA ============================================================= -->
                     <div class="search-area" style="height: 46px;">
-                        <form>
+                    
+                        <form action="{{route('product.search')}}" method="post">
+                            @csrf
                             <div class="control-group">
                                 <ul class="categories-filter animate-dropdown">
                                     <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
                                         <ul class="dropdown-menu" role="menu">
-                                            <li class="menu-header">Computer</li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Clothing</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Electronics</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Shoes</a></li>
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- Watches</a></li>
+                                        @php
+                                $categories = App\Models\Category::orderBy('category_name_en','asc')->get();
+                                @endphp
+
+                                @foreach($categories as $category)
+                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- @if(session()->get('language') == 'english') {{$category->category_name_en}} @else {{$category->category_name_ar}} @endif</a></li>
+                                        @endforeach
                                         </ul>
                                     </li>
                                 </ul>
-                                <input class="search-field" placeholder="Search here..." />
+                                <input class="search-field" name="search" placeholder="Search here..." />
                                 <a class="search-button" href="#"></a>
                             </div>
                         </form>
@@ -224,5 +229,30 @@
     </div>
     <!-- /.header-nav -->
     <!-- ============================================== NAVBAR : END ============================================== -->
+
+
+    <!-- Modal -->
+<div class="modal fade" id="trackingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Track Your Order</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="{{route('order.tracking')}}" method="post">
+        @csrf
+      <div class="modal-body">
+        <label for="">Invoice Code</label>
+        <input type="text" name="invoice_code" id="" class="form-control" placeholder="Input Your Order Invoice Number">
+      </div>
+      <button type="submit" class="btn btn-danger" style="margin: 0 0 10px 16px;">Track Now</button>
+      </form>
+      
+    </div>
+  </div>
+</div>
+
 
 </header>

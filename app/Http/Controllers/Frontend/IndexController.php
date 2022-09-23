@@ -183,6 +183,18 @@ class IndexController extends Controller
         ));
     } // end ProductViewAjax
 
+    public function ProductSearch(Request $request)
+    {
+        $item = $request->search ;
+
+        $products = Product::where('product_name_en','LIKE',"%$item%")->get();
+        $categories = Category::orderBy('category_name_en','asc')->get();
+
+        return view('frontend.product.search',compact('products','categories'));
+
+
+    } // end ProductSearch
+
 }
 
 
