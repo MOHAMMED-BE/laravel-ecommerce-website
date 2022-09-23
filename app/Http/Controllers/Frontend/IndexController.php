@@ -15,6 +15,8 @@ use App\Models\Product;
 use App\Models\MultiImg;
 use App\Models\Brand;
 use App\Models\Review;
+use App\Models\SubCategory;
+use App\Models\SubSubCategory;
 
 class IndexController extends Controller
 {
@@ -148,16 +150,21 @@ class IndexController extends Controller
     {
         $products = Product::where('status',1)->where('subcategory_id',$subcat_id)->orderBy('id','desc')->paginate(6); 
         $categories = Category::orderBy('category_name_en','asc')->get();
+
+        $breadsubcat = SubCategory::with('getCategory')->where('id',$subcat_id)->get();
         
-        return view('frontend.product.subcategory-view',compact('products','categories'));
+        return view('frontend.product.subcategory-view',compact('products','categories','breadsubcat'));
     } // end SubCategoryProduct
 
     public function SubSubCategoryWiseProduct($subsubcat_id,$subcategory_slug,$subsubcategory_slug)
     {
         $products = Product::where('status',1)->where('subsubcategory_id',$subsubcat_id)->orderBy('id','desc')->paginate(6); 
         $categories = Category::orderBy('category_name_en','asc')->get();
+
+        $breadsubsubcat = SubSubCategory::with('getCategory','getSubCategory')->where('id',$subsubcat_id)->get();
+
         
-        return view('frontend.product.sub-subcategory-view',compact('products','categories'));
+        return view('frontend.product.sub-subcategory-view',compact('products','categories','breadsubsubcat'));
     } // end SubCategoryProduct
 
     public function ProductViewAjax($id)

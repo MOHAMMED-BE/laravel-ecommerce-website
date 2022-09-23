@@ -9,7 +9,10 @@ Tags
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
                 <li><a href="#">Home</a></li>
-                <li class='active'>Handbags</li>
+                @foreach($breadsubsubcat as $item)
+                <li class='active'> {{$item->getcategory->category_name_en}} / {{$item->getsubcategory->subcategory_name_en}} / {{$item->subsubcategory_name_en}}</li>
+                @endforeach
+
             </ul>
         </div>
         <!-- /.breadcrumb-inner -->
@@ -138,6 +141,12 @@ Tags
                     </div>
                 </div>
 
+                @foreach($breadsubsubcat as $item)
+                <span class="badge badge-pill badge-success" style="background:#f94d4d;">{{$item->getcategory->category_name_en}}</span>
+                <span class="badge badge-pill badge-success" style="background:#f94d4d;">{{$item->getsubcategory->subcategory_name_en}}</span>
+                <span class="badge badge-pill badge-success" style="background:#f94d4d;">{{$item->subsubcategory_name_en}}</span>
+                @endforeach
+
 
                 <div class="clearfix filters-container m-t-10">
                     <div class="row">
@@ -228,7 +237,7 @@ Tags
                                                     <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                                     <div class="rating rateit-small"></div>
                                                     <div class="description"></div>
-                                                    
+
                                                     <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
                                                     <!-- /.product-price -->
 

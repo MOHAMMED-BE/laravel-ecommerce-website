@@ -138,6 +138,7 @@ Tags
                     </div>
                 </div>
 
+                <span class="badge badge-pill badge-success" style="background:#f94d4d;"> {{count($products)}} Item Found</span>
 
                 <div class="clearfix filters-container m-t-10">
                     <div class="row">
