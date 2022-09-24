@@ -71,7 +71,7 @@
                     <!-- ============================================================= SEARCH AREA ============================================================= -->
                     <div class="search-area" style="height: 46px;">
                     
-                        <form action="{{route('product.search')}}" method="get">
+                        <form action="{{route('product.search')}}" method="post">
                             @csrf
                             <div class="control-group">
                                 <ul class="categories-filter animate-dropdown">
@@ -87,10 +87,11 @@
                                         </ul>
                                     </li>
                                 </ul>
-                                <input class="search-field" name="search" placeholder="Search here..." />
+                                <input class="search-field" onfocus="SearchResultShow()" onblur="SearchResultHide()" name="search" id="search" placeholder="Search here..." required style=" outline: none; "/>
                                 <button class="search-button" type="submit"></button>
                             </div>
                         </form>
+                        <div id="searchProducts" class="search-div"></div>
                     </div>
                     <!-- /.search-area -->
                     <!-- ============================================================= SEARCH AREA : END ============================================================= -->
@@ -256,3 +257,13 @@
 
 
 </header>
+
+<!-- <script>
+    function SearchResultShow(){
+        $('#searchProducts').slideDown();
+    }
+
+    function SearchResultHide(){
+        $('#searchProducts').slideUp();
+    }
+</script> -->
