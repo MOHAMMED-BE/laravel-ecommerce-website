@@ -3,6 +3,7 @@
 @section('title')
 Tags
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 <div class="breadcrumb">
     <div class="container">
@@ -210,59 +211,9 @@ Tags
                     <div id="myTabContent" class="tab-content category-list">
                         <div class="tab-pane active " id="grid-container">
                             <div class="category-product">
-                                <div class="row">
-                                    @foreach($products as $product)
-                                    <div class="col-sm-6 col-md-4 wow fadeInUp">
-                                        <div class="products">
-                                            <div class="product">
-                                                <div class="product-image">
-                                                    <div class="image"> <a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}"><img src="{{asset($product->product_thumbnail)}}" alt=""></a> </div>
-                                                    <!-- /.image -->
+                                <div class="row" id="product-grid-view">
+                                    @include('frontend.product.product-grid-view')
 
-                                                    @php
-                                                    $amount = $product->selling_price - $product->discount_price;
-                                                    $discount = ($amount/$product->selling_price) * 100;
-                                                    @endphp
-                                                    @if($product->discount_price == NULL)
-                                                    <div class="tag new"><span>new</span></div>
-                                                    @else
-                                                    <div class="tag hot"><span>{{round($discount)}} %</span></div>
-                                                    @endif
-                                                </div>
-                                                <!-- /.product-image -->
-
-                                                <div class="product-info text-left">
-                                                    <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
-                                                    <div class="rating rateit-small"></div>
-                                                    <div class="description"></div>
-
-                                                    <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
-                                                    <!-- /.product-price -->
-
-                                                </div>
-                                                <!-- /.product-info -->
-                                                <div class="cart clearfix animate-effect">
-                                                    <div class="action">
-                                                        <ul class="list-unstyled">
-                                                            <li class="add-cart-button btn-group">
-                                                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                                                <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                                                            </li>
-                                                            <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                                                            <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal"></i> </a> </li>
-                                                        </ul>
-                                                    </div>
-                                                    <!-- /.action -->
-                                                </div>
-                                                <!-- /.cart -->
-                                            </div>
-                                            <!-- /.product -->
-
-                                        </div>
-                                        <!-- /.products -->
-                                    </div>
-                                    <!-- /.item -->
-                                    @endforeach
                                 </div>
                                 <!-- /.row -->
                             </div>
@@ -271,86 +222,32 @@ Tags
                         </div>
                         <!-- /.tab-pane -->
 
-                        <div class="tab-pane " id="list-container">
-                            <div class="category-product">
-                                @foreach($products as $product)
-                                <div class="category-product-inner wow fadeInUp">
-                                    <div class="products">
-                                        <div class="product-list product">
-                                            <div class="row product-list-row">
-                                                <div class="col col-sm-4 col-lg-4">
-                                                    <div class="product-image">
-                                                        <div class="image"> <img src="{{asset($product->product_thumbnail)}}" alt=""> </div>
-                                                    </div>
-                                                    <!-- /.product-image -->
-                                                </div>
-                                                <!-- /.col -->
-                                                <div class="col col-sm-8 col-lg-8">
-                                                    <div class="product-info">
-                                                        <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
-                                                        <div class="rating rateit-small"></div>
-                                                        @php
-                                                        $product->discount_price = $product->selling_price - $product->discount_price
-                                                        @endphp
-                                                        <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
-                                                        <!-- /.product-price -->
-                                                        <div class="description m-t-10">@if(session()->get('language') == 'english') {{$product->short_desc_an}} @else {{$product->short_desc_ar}} @endif</div>
-                                                        <div class="cart clearfix animate-effect">
-                                                            <div class="action">
-                                                                <ul class="list-unstyled">
-                                                                    <li class="add-cart-button btn-group">
-                                                                        <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
-                                                                        <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
-                                                                    </li>
-                                                                    <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                                                                    <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal"></i> </a> </li>
-                                                                </ul>
-                                                            </div>
-                                                            <!-- /.action -->
-                                                        </div>
-                                                        <!-- /.cart -->
 
-                                                    </div>
-                                                    <!-- /.product-info -->
-                                                </div>
-                                                <!-- /.col -->
-                                            </div>
-                                            <!-- /.product-list-row -->
-                                            @php
-                                            $amount = $product->selling_price - $product->discount_price;
-                                            $discount = ($amount/$product->selling_price) * 100;
-                                            @endphp
-                                            @if($product->discount_price == NULL)
-                                            <div class="tag new"><span>new</span></div>
-                                            @else
-                                            <div class="tag hot"><span>{{round($discount)}} %</span></div>
-                                            @endif
-                                        </div>
-                                        <!-- /.product-list -->
-                                    </div>
-                                    <!-- /.products -->
-                                </div>
-                                <!-- /.category-product-inner -->
-                                @endforeach
+
+                        <div class="tab-pane " id="list-container">
+                            <div class="category-product" id="product-list-view">
+
+                                @include('frontend.product.product-list-view')
+
+
                             </div>
                             <!-- /.category-product -->
                         </div>
                         <!-- /.tab-pane #list-container -->
                     </div>
                     <!-- /.tab-content -->
-                    <div class="clearfix filters-container">
-                        <div class="text-right">
-                            <div class="pagination-container">
-                                <ul class="list-inline list-unstyled">
-                                    {{$products->links()}}
-                                </ul>
+                    <!-- <div class="clearfix filters-container"> -->
+                        <!-- <div class="text-right"> -->
+                            <!-- <div class="pagination-container"> -->
+                                <!-- <ul class="list-inline list-unstyled"> -->
+                                <!-- </ul> -->
                                 <!-- /.list-inline -->
-                            </div>
+                            <!-- </div> -->
                             <!-- /.pagination-container -->
-                        </div>
+                        <!-- </div> -->
                         <!-- /.text-right -->
 
-                    </div>
+                    <!-- </div> -->
                     <!-- /.filters-container -->
 
                 </div>
@@ -358,10 +255,12 @@ Tags
 
             </div>
             <!-- /.col -->
+            <div class="ajax-loadmore-product text-center">
+                <img class="loading-img" src="{{asset('frontend/assets/images/loading-more.svg')}}">
+            </div>
         </div>
         <!-- /.row -->
         <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-        @include('frontend.body.brands')
         <!-- /.logo-slider -->
         <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
     </div>
@@ -369,6 +268,43 @@ Tags
 
 </div>
 <!-- /.body-content -->
+
+
+<script>
+    function loadMoreProduct(page) {
+        $.ajax({
+                type: "get",
+                url: "?page=" + page,
+
+                beforSend: function(response) {
+                    $('.ajax-loadmore-product').show();
+                }
+
+            }) // end ajax
+
+            .done(function(data) {
+                if (data.grid_view == " " || data.list_view == " ") {
+                    return;
+                }
+                $('.ajax-loadmore-product').hide();
+                $('#product-grid-view').append(data.grid_view);
+                $('#product-list-view').append(data.list_view);
+
+            })
+
+            .fail(function() {
+                alert('Somethind Wend Wrong');
+            })
+    }
+
+    var page = 1;
+    $(window).scroll(function() {
+        if ($(window).scrollTop() + $(window).height() >= $(document).height()) {
+            page++;
+            loadMoreProduct(page);
+        }
+    });
+</script>
 
 
 

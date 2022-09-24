@@ -18,6 +18,15 @@ class CreateNewUser implements CreatesNewUsers
      * @param  array  $input
      * @return \App\Models\User
      */
+
+
+    //  protected $fillable = [
+    //     'name',
+    //     'email',
+    //     'password',
+    //     'phone',
+    //  ];
+
     public function create(array $input)
     {
         Validator::make($input, [
@@ -34,5 +43,7 @@ class CreateNewUser implements CreatesNewUsers
             'phone' => $input['phone'],
             'password' => Hash::make($input['password']),
         ]);
+
+        return redirect()->route('dashboard');
     }
 }

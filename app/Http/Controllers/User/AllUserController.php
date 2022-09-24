@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Product;
 use Auth;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Carbon\Carbon;

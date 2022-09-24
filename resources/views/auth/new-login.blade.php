@@ -28,10 +28,10 @@
                     <form class="register-form outer-top-xs" role="form" method="POST" action="{{isset($guard) ? url($guard.'/login') : route('login') }}">
                         @csrf
                         <div class="form-group">
-                            <label class="info-title" for="email">Email Address<span>*</span></label>
-                            <input type="email" class="form-control text-input" id="email" name="email">
+                            <label class="info-title" for="login">Email Address / User Name / Phone<span>*</span></label>
+                            <input type="text" class="form-control text-input" id="login" name="login">
 
-                            @error('email')
+                            @error('login')
                             <span class="invalid-feedback">
                                 <strong>{{$message}}</strong>
                             </span>

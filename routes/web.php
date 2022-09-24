@@ -430,7 +430,9 @@ Route::prefix('adminuserrole')->group(function(){
 
 // Product Search Route
 
-Route::get('/search', [IndexController::class, 'ProductSearch'])->name('product.search');
+Route::post('/search', [IndexController::class, 'ProductSearch'])->name('product.search');
+// Advance Product Search Route
+Route::post('/search-product', [IndexController::class, 'AdvanceProductSearch']);
 
 
 

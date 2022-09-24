@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Blog\BlogPost;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Hash;
 use Auth;
 use App\Models\User;
@@ -119,6 +118,9 @@ class IndexController extends Controller
         $multi_img = MultiImg::where('product_id',$id)->get();  
         $related_products = Product::where('category_id',$product->category_id)->where('id','!=',$id)->get(); 
         $reviews = Review::where('product_id',$product->id)->where('status',1)->get();
+        $totalReviews = Review::where('product_id',$product->id)->where('status',1)->latest()->get();
+        $totalReviews = count($totalReviews);
+        $avarage = Review::where('product_id',$product->id)->where('status',1)->avg('rating');
 
         $size_en = $product->product_size_en;
         $product_size_en = explode(',',$size_en);
@@ -132,7 +134,7 @@ class IndexController extends Controller
         $color_ar = $product->product_color_ar;
         $product_color_ar = explode(',',$color_ar);
 
-        return view('frontend.product.product-details',compact('product','multi_img','product_size_en','product_size_ar','product_color_en','product_color_ar','related_products','reviews'));
+        return view('frontend.product.product-details',compact('product','multi_img','product_size_en','product_size_ar','product_color_en','product_color_ar','related_products','reviews','totalReviews','avarage'));
     } // end ProductDetails
 
     public function TagWiseProduct($tag)
@@ -146,12 +148,24 @@ class IndexController extends Controller
         
     } // end TagWiseProduct
 
-    public function SubCategoryWiseProduct($subcat_id,$subcategory_slug)
+    public function SubCategoryWiseProduct(Request $request, $subcat_id,$subcategory_slug)
     {
-        $products = Product::where('status',1)->where('subcategory_id',$subcat_id)->orderBy('id','desc')->paginate(6); 
+        $products = Product::where('status',1)->where('subcategory_id',$subcat_id)->orderBy('id','desc')->paginate(3); 
         $categories = Category::orderBy('category_name_en','asc')->get();
 
         $breadsubcat = SubCategory::with('getCategory')->where('id',$subcat_id)->get();
+
+        if($request->ajax()){
+            $grid_view = view('frontend.product.product-grid-view',compact('products'))->render();
+            $list_view = view('frontend.product.product-list-view',compact('products'))->render();
+
+            return response()->json([
+                'grid_view'=> $grid_view, 
+                'list_view'=> $list_view, 
+            ]);
+        } 
+
+        
         
         return view('frontend.product.subcategory-view',compact('products','categories','breadsubcat'));
     } // end SubCategoryProduct
@@ -192,6 +206,12 @@ class IndexController extends Controller
 
     public function ProductSearch(Request $request)
     {
+        $request->validate(
+            ['search'  => 'required'],
+            [
+                'search.required' => 'Input Product Name',
+            ]
+    );
         $item = $request->search ;
 
         $products = Product::where('product_name_en','LIKE',"%$item%")->get();
@@ -201,6 +221,22 @@ class IndexController extends Controller
 
 
     } // end ProductSearch
+
+    public function AdvanceProductSearch(Request $request)
+    {
+        $request->validate(
+            ['search'  => 'required'],
+            [
+                'search.required' => 'Input Product Name',
+            ]
+    );
+        $item = $request->search ;
+
+        $products = Product::where('product_name_en','LIKE',"%$item%")->select('product_name_en','product_thumbnail','selling_price','id','product_slug_en')->limit(5)->get();
+		return view('frontend.product.search-product',compact('products'));
+ 
+
+    } // end AdvanceProductSearch
 
 }
 

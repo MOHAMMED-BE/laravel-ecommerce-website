@@ -332,7 +332,32 @@ jQuery(function () {
 /*===================================================================================*/
 jQuery("[data-toggle='tooltip']").tooltip(); 
 
+const site_url = "http://127.0.0.1:8000/";
 
+    $('body').on('keyup','#search',function(){
+        let text = $("#search").val();
+
+        if(text.length > 0){
+            $.ajax({
+                data : {search:text},
+                url : site_url + "search-product",
+                method : 'POST',
+    
+                beforSend : function(request){
+                    return request.setReuestHeader('X-CSRF-Token', ("mate[name='csrf-token']"));
+                },
+                success:function(result){
+                        $('#searchProducts').css('display', 'block');
+                        $('#searchProducts').html(result);
+                }
+            }) // end ajax
+        }
+
+        if(text.length < 1){
+            $('#searchProducts').css('display', 'none');
+            $('#searchProducts').html("");
+        }
+    })
 
 
 })
