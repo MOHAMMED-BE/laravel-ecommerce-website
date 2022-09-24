@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->text('comment');
             $table->string('summary');
+            $table->integer('rating');
             $table->string('status')->default(0);
             $table->timestamps();
         });
