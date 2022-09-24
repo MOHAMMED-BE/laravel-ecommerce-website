@@ -149,6 +149,15 @@
                                     <td class="col-md-1">
                                         <label for="">price</label>
                                     </td>
+
+                                    @foreach($orderItem as $item)
+                                    @if($item->product->digital_file !== NULL)
+                                    <td class="col-md-1">
+                                        <label for="">Download File</label>
+                                    </td>
+                                    @endif
+                                    @endforeach
+
                                 </tr>
 
                                 @foreach($orderItem as $item)
@@ -174,6 +183,20 @@
                                     <td class="col-md-2">
                                         <label for="">${{$item->price}} @if($item->qty > 1) ( ${{$item->price * $item->qty}} ) @endif</label>
                                     </td>
+                                    @php
+                                    $file = App\Models\Product::where('id',$item->product_id)->first();
+
+                                    @endphp
+
+
+                                    @if($order->status == 'confirmed' && $item->product->digital_file !== NULL)
+                                    <td class="col-md-1">
+                                        <a target="_blank" href="{{asset('upload/files/'.$file->digital_file)}}">
+                                            <span class="badge badge-pill badge-success" style="background: #FF0000;">Download</span>
+
+                                        </a>
+                                    </td>
+                                    @endif
 
                                 </tr>
                                 @endforeach
@@ -187,19 +210,19 @@
             @if($order->status !== "delivered")
             @else
             @php
-                $order = App\Models\Order::where('id',$order->id)->where('return_reason','=',NULL)->first();
+            $order = App\Models\Order::where('id',$order->id)->where('return_reason','=',NULL)->first();
             @endphp
 
             @if($order)
             <hr>
             <form method="post" action="{{ route('return.order',$order->id) }}" enctype="multipart/form-data">
-                            @csrf
-            <div class="form-group">
-                <label for="">Order Return Reason</label>
-                <textarea name="return_reason" id="" cols="30" rows="5" class="form-control" placeholder="write your reason here" required></textarea>
-            </div>
+                @csrf
+                <div class="form-group">
+                    <label for="">Order Return Reason</label>
+                    <textarea name="return_reason" id="" cols="30" rows="5" class="form-control" placeholder="write your reason here" required></textarea>
+                </div>
 
-            <button type="submit" class="btn btn-warning">Submit</button>
+                <button type="submit" class="btn btn-warning">Submit</button>
             </form>
             @else
             <span class="badge badge-pill badge-warning" style="background:red;">You Have Send Return Request For This Order</span>

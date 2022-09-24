@@ -43,6 +43,7 @@ return new class extends Migration
             $table->integer('special_offer')->nullable();
             $table->integer('special_deals')->nullable();
             $table->integer('status')->default(0);
+            $table->string('digital_file');
             $table->timestamps();
         });
     }

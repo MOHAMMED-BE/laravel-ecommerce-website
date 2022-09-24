@@ -354,6 +354,20 @@
                                     </div>
                                 </div>
                             </div>
+
+
+                            <div class="col-md-6">
+                                            <div class="form-group">
+                                                <h5>Digital Product <span class="text-info">PDF, XLSX, DOC, CSV ...</span></h5>
+                                                <div class="controls">
+                                                    <input type="file" name="file" class="form-control">
+                                                </div>
+                                                @error('file')
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+
                             <div class="text-xs-right">
                                 <input type="submit" class="btn btn-info" value="Save Product" />
                             </div>

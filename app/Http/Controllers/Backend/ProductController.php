@@ -34,6 +34,25 @@ class ProductController extends Controller
 
     public function ProductStore(Request $request)
     {
+
+        $request->validate([
+            'file' => 'mimes:jpeg,png,jpg,zip,pdf,xlsx,doc,csv|max:2048',
+        ]);
+
+        $digitalitem = "";
+
+        if($files = $request->file('file')){
+            $filePath = 'upload/files';
+            $digitalitem = date('YmdHis') . '.' . $files->getClientOriginalExtension();
+            $files->move($filePath,$digitalitem);
+
+            $digitalitem = $digitalitem;
+        }
+        else{
+            $digitalitem = NULL;
+        }
+
+
         $image = $request->file('product_thumbnail');
         $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         Image::make($image)->resize(917, 1000)->save('upload/products/thumbnail/'.$name_gen);
@@ -72,6 +91,7 @@ class ProductController extends Controller
 
             'product_thumbnail' => $save_url,
             'status' => 1,
+            'digital_file' => $digitalitem,
             'created_at' => Carbon::now(),
 
         ]);
