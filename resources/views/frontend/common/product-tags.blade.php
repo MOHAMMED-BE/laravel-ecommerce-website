@@ -17,7 +17,6 @@
             @endforeach
             @endif
 
-            <!-- <a class="item active" title="Vest" href="category.html">Vest</a> -->
         </div>
         <!-- /.tag-list -->
     </div>
