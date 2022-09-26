@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ asset ('backend/images/favicon.ico')}}">
 
-    <title>Sunny Admin - Log in </title>
+    <title>Shopping Room Admin - Log in </title>
 
     <!-- Vendors Style-->
     <link rel="stylesheet" href="{{ asset ('backend/css/vendors_css.css')}}">
@@ -58,21 +58,18 @@
                                             <label for="basic_checkbox_1">Remember Me</label>
                                         </div>
                                     </div>
-                                    <!-- /.col -->
                                     <div class="col-6">
                                         <div class="fog-pwd text-right">
                                             <a href="{{ route('password.request') }}" class="text-white hover-info"><i class="ion ion-locked"></i> Forgot pwd?</a><br>
                                         </div>
                                     </div>
-                                    <!-- /.col -->
                                     <div class="col-12 text-center">
                                         <button type="submit" class="btn btn-info btn-rounded mt-10">SIGN IN</button>
                                     </div>
-                                    <!-- /.col -->
                                 </div>
                             </form>
 
-                            <div class="text-center text-white">
+                            <!-- <div class="text-center text-white">
                                 <p class="mt-20">- Sign With -</p>
                                 <p class="gap-items-2 mb-20">
                                     <a class="btn btn-social-icon btn-round btn-outline btn-white" href="#"><i class="fa fa-facebook"></i></a>
@@ -80,11 +77,11 @@
                                     <a class="btn btn-social-icon btn-round btn-outline btn-white" href="#"><i class="fa fa-google-plus"></i></a>
                                     <a class="btn btn-social-icon btn-round btn-outline btn-white" href="#"><i class="fa fa-instagram"></i></a>
                                 </p>
-                            </div>
+                            </div> -->
 
-                            <div class="text-center">
+                            <!-- <div class="text-center">
                                 <p class="mt-15 mb-0 text-white">Don't have an account? <a href="auth_register.html" class="text-info ml-5">Sign Up</a></p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

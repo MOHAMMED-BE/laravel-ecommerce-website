@@ -26,9 +26,6 @@ class CheckoutController extends Controller
 
     public function CheckoutStore(Request $request)
     {
-        // dd($request->all());
-
-        
         $cartTotal = Cart::total();
 
         $data = array();
@@ -41,13 +38,10 @@ class CheckoutController extends Controller
         $data['district_id'] = $request->district_id;
         $data['state_id'] = $request->state_id;
         $data['notes'] = $request->notes;
+        $data['product_id'] = $request->product_id;
 
         if($request->payment_method == 'stripe'){
             return view('frontend.payment.stripe',compact('data','cartTotal'));
-            // return view('frontend.payment.stripe',compact('data','carts','cartQuantity','cartTotal'));
-        }
-        else if($request->payment_method == 'cart'){
-            return view('frontend.payment.cart',compact('data','cartTotal'));
         }
         else if($request->payment_method == 'cash'){
             return view('frontend.payment.cash',compact('data','cartTotal'));

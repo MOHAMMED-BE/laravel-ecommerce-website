@@ -7,9 +7,7 @@ use App\Models\Coupon;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Wishlist;
-use App\Models\ShipDistrict;
 use App\Models\ShipDivision;
-use App\Models\ShipState;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Auth;
 use Carbon\Carbon;
@@ -144,8 +142,6 @@ class CartController extends Controller
     public function CheckoutCreate()
     {
         $division = ShipDivision::orderBy('division_name','asc')->get();
-        // $district = ShipDistrict::orderBy('district_name','asc')->get();
-        // $state = ShipState::orderBy('state_name','asc')->get();
 
         if(Auth::check()){
             if(Cart::total() > 0){

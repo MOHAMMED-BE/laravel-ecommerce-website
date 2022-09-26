@@ -1,5 +1,9 @@
 @extends('frontend.main_master')
 @section('content')
+@section('title')
+Shopping Room - Orders
+@endsection
+
 <div class="body-content">
     <div class="container">
         <div class="row">

@@ -1,13 +1,8 @@
 @extends('admin.admin_master')
 @section('admin')
-
-<style>
-    .any-img {
-        border-radius: 6px;
-        box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
-        margin: 10px 0 5px 0;
-    }
-</style>
+@section('title')
+Shopping Room Admin - Order Details
+@endsection
 
 <!-- Content Wrapper. Contains page content -->
 <div class="container-full">

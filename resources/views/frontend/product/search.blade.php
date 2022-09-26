@@ -1,7 +1,7 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-Tags
+Shopping Room - Search Results
 @endsection
 
 <div class="breadcrumb">
@@ -9,7 +9,7 @@ Tags
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
                 <li><a href="#">Home</a></li>
-                <li class='active'>Handbags</li>
+                <li class='active'>Search Results</li>
             </ul>
         </div>
         <!-- /.breadcrumb-inner -->
@@ -113,7 +113,7 @@ Tags
                         @include('frontend.common.testimonials')
                         <!-- ============================================== Testimonials: END ============================================== -->
 
-                        <div class="home-banner"> <img src="{{asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image"> </div>
+                        <!-- <div class="home-banner"> <img src="{{asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image"> </div> -->
                     </div>
                     <!-- /.sidebar-filter -->
                 </div>

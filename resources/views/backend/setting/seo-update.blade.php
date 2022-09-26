@@ -1,5 +1,8 @@
 @extends('admin.admin_master')
 @section('admin')
+@section('title')
+Shopping Room Admin - Seo Setting
+@endsection
 
 <div class="container-full">
     <section class="content">

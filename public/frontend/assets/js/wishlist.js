@@ -37,9 +37,6 @@ function addToWishList(product_id) {
 
 //   <!-- End Add To Wishlist -->
 
-
-
-
 // view wishlist 
 
 function wishlist() {
@@ -78,8 +75,6 @@ function wishlist() {
 }
 
 wishlist();
-
-
 
 // wishlistRemove start
 function wishlistRemove(id) {

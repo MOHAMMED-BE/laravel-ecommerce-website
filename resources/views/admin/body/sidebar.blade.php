@@ -15,7 +15,7 @@ $route = Route::current()->getName();
           <!-- logo for regular statee and mobile devices -->
           <div class="d-flex align-items-center justify-content-center">
             <!-- <img src="{{ asset('backend/images/logo-dark.png') }}" alt=""> -->
-            <h3>BMS Dashboard</h3>
+            <h3>Shopping Room Admin</h3>
           </div>
         </a>
       </div>
@@ -27,7 +27,7 @@ $route = Route::current()->getName();
       <li class="{{ ($route == 'dashboard')? 'active':''}}">
         <a href="{{url('admin/dashboard')}}">
           <i data-feather="pie-chart"></i>
-          <span>Dashboard</span>
+          <span>Shopping Room Dashboard</span>
         </a>
       </li>
 
@@ -56,7 +56,6 @@ $route = Route::current()->getName();
           <i data-feather="message-circle"></i>
           <span>Brands</span>
           <span class="test" style="float: right;">
-            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -72,7 +71,6 @@ $route = Route::current()->getName();
         <a href="#">
           <i data-feather="mail"></i> <span>Category</span>
           <span style="float: right;">
-            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -91,7 +89,6 @@ $route = Route::current()->getName();
           <i data-feather="file"></i>
           <span>Products</span>
           <span style="float: right;">
-            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -109,7 +106,6 @@ $route = Route::current()->getName();
           <i data-feather="file"></i>
           <span>Slider</span>
           <span style="float: right;">
-            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -126,7 +122,6 @@ $route = Route::current()->getName();
           <i data-feather="file"></i>
           <span>Coupons</span>
           <span style="float: right;">
-            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -143,7 +138,6 @@ $route = Route::current()->getName();
           <i data-feather="file"></i>
           <span>Shipping Area</span>
           <span style="float: right;">
-            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -162,7 +156,6 @@ $route = Route::current()->getName();
           <i data-feather="file"></i>
           <span>Menage Blog</span>
           <span style="float: right;">
-            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -181,7 +174,6 @@ $route = Route::current()->getName();
           <i data-feather="file"></i>
           <span>Menage Setting</span>
           <span style="float: right;">
-            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -199,7 +191,6 @@ $route = Route::current()->getName();
           <i data-feather="file"></i>
           <span>Rerurn Order</span>
           <span style="float: right;">
-            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -217,7 +208,6 @@ $route = Route::current()->getName();
           <i data-feather="file"></i>
           <span>Menage Review</span>
           <span style="float: right;">
-            <!-- class="pull-right-container" -->
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
@@ -229,10 +219,7 @@ $route = Route::current()->getName();
       @else
       @endif
 
-
-
-
-      <li class="header nav-small-cap">Menage Orders</li>
+      <!-- <li class="header nav-small-cap">Menage Orders</li> -->
 
       @if($orders == true)
       <li class="treeview {{ ($prefix == '/orders')? 'active':''}}">
@@ -320,46 +307,15 @@ $route = Route::current()->getName();
       @else
       @endif
 
-
-      <!-- <li class="treeview">
-        <a href="#">
-          <i data-feather="grid"></i>
-          <span>Components</span>
-          <span style="float: right;" > class="pull-right-container"
-            <i class="fa-solid fa-angle-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="components_alerts.html"><i class="ti-more"></i>Alerts</a></li>
-          <li><a href="components_badges.html"><i class="ti-more"></i>Badge</a></li>
-          <li><a href="components_buttons.html"><i class="ti-more"></i>Buttons</a></li>
-        </ul>
-      </li>
-
-      <li class="treeview">
-        <a href="#">
-          <i data-feather="credit-card"></i>
-          <span>Cards</span>
-          <span style="float: right;" > class="pull-right-container"
-            <i class="fa-solid fa-angle-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li><a href="card_advanced.html"><i class="ti-more"></i>Advanced Cards</a></li>
-          <li><a href="card_basic.html"><i class="ti-more"></i>Basic Cards</a></li>
-          <li><a href="card_color.html"><i class="ti-more"></i>Cards Color</a></li>
-        </ul>
-      </li> -->
-
     </ul>
   </section>
 
   <div class="sidebar-footer">
     <!-- item-->
-    <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a>
+    <!-- <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a> -->
     <!-- item-->
-    <a href="mailbox_inbox.html" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ti-email"></i></a>
+    <!-- <a href="mailbox_inbox.html" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ti-email"></i></a> -->
     <!-- item-->
-    <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ti-lock"></i></a>
+    <a href="{{ route('admin.logout') }}" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ti-lock"></i></a>
   </div>
 </aside>

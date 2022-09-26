@@ -81,9 +81,6 @@ class ShippingAreaController extends Controller
 
     // =========================== ShipDivision End =========================== //
 
-
-
-    
     // =========================== ShipDistrict Start =========================== //
 
     public function DistrictView()
@@ -158,8 +155,6 @@ class ShippingAreaController extends Controller
     } // end DivisionDelete
 
     // =========================== ShipDistrict End =========================== //
-
-
     
     // =========================== ShipState Start =========================== //
 

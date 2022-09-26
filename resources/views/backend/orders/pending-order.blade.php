@@ -1,5 +1,8 @@
 @extends('admin.admin_master')
 @section('admin')
+@section('title')
+Shopping Room Admin - Pending Orders
+@endsection
 
 <!-- Content Wrapper. Contains page content -->
 <div class="container-full">

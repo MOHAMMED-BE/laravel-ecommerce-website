@@ -1,11 +1,8 @@
 @extends('admin.admin_master')
 @section('admin')
-
-<style>
-    .edit-img {
-        margin: 10px 0 0 0 !important;
-    }
-</style>
+@section('title')
+Shopping Room Admin - Edit Product
+@endsection
 
 <!-- Content Wrapper. Contains page content -->
 <div class="container-full">
@@ -387,7 +384,7 @@
                         <div class="row row-sm">
                             @foreach($multiImgs as $img)
                             <div class="col-md-3">
-                                <div class="card edit-img" style="width: 18rem;">
+                                <div class="card edit-img">
                                     <img src="{{ asset($img->photo_name)}}" class="card-img-top" style="height: 100%;width: 100%;">
                                     <div class="card-body">
                                         <h5 class="card-title">
@@ -427,7 +424,7 @@
                         <input type="hidden" value="{{$product->product_thumbnail}}" name="old_img">
                         <div class="row row-sm">
                             <div class="col-md-3">
-                                <div class="card edit-img" style="width: 18rem;">
+                                <div class="card edit-img">
                                     <img src="{{ asset($product->product_thumbnail)}}" class="card-img-top" id="mainThumbnail" style="height: 100%;width: 100%;">
                                     <div class="card-body">
                                         <p class="card-text">

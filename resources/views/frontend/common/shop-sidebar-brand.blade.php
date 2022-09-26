@@ -2,8 +2,6 @@
 $brands = App\Models\Brand::orderBy('brand_name_en','asc')->get();
 @endphp
 
-
-
 <div class="sidebar-widget wow fadeInUp">
     <h3 class="section-title">shop by</h3>
     <div class="widget-header">

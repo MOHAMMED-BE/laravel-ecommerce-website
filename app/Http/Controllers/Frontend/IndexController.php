@@ -140,6 +140,9 @@ class IndexController extends Controller
         $totalReviews = count($totalReviews);
         $avarage = Review::where('product_id', $product->id)->where('status', 1)->avg('rating');
 
+        $breadcrumb = SubSubCategory::with('getSubCategory')->where('id', $product->subsubcategory_id)->get();
+
+
         $size_en = $product->product_size_en;
         $product_size_en = explode(',', $size_en);
 
@@ -162,14 +165,14 @@ class IndexController extends Controller
                                                             'related_products',
                                                             'reviews',
                                                             'totalReviews',
-                                                            'avarage'
+                                                            'avarage',
+                                                            'breadcrumb',
                                                         ));
     } // end ProductDetails
 
     public function TagWiseProduct($tag)
     {
         $products = Product::where('status', 1)->where('product_tags_en', $tag)->orderBy('id', 'desc')->paginate(6);
-        // $products = Product::where('status',1)->where('product_tags_en',$tag)->where('product_tags_ar',$tag)->orderBy('id','desc')->get(); 
         $categories = Category::orderBy('category_name_en', 'asc')->get();
 
         return view('frontend.tags.tags-view', compact('products', 'categories'));

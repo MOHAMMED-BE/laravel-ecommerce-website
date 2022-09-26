@@ -1,9 +1,8 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-Blog Post
+Shopping Room - Blog Details
 @endsection
-
 
 <div class="breadcrumb">
     <div class="container">

@@ -8,9 +8,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="icon" href="{{ asset('backend/images/favicon.ico')}}">
-  <!-- <link rel="icon" href="../../../public/{{ asset('')}}backend/images/favicon.ico"> -->
 
-  <title>BMS Ecommerce Admin - Dashboard</title>
+  <title>@yield('title')</title>
 
   <!-- Vendors Style-->
   <link rel="stylesheet" href="{{ asset('backend/css/vendors_css.css')}}">
@@ -27,13 +26,7 @@
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
-
-  <!-- <link rel="stylesheet" type="text/css" href="{{ asset('../assets/icons/fontawesome-free-6.1.1-web/css/fontawesome.min.css')}}"> -->
-
   <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.css" rel="stylesheet"> -->
-
-
 
 </head>
 
@@ -63,8 +56,6 @@
 
   <!-- Vendor JS -->
   <script src="{{ asset('backend/js/vendors.min.js')}}"></script>
-  <!-- <script src="{{ asset('../assets/icons/feather-icons/feather.min.js')}}"></script> -->
-  <!-- <script src="{{ asset('../assets/icons/fontawesome-free-6.1.1-web/js/fontawesome.min.js')}}"></script> -->
   <script src="{{ asset('../assets/vendor_components/easypiechart/dist/jquery.easypiechart.js')}}"></script>
   <script src="{{ asset('../assets/vendor_components/apexcharts-bundle/irregular-data-series.js')}}"></script>
   <script src="{{ asset('../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js')}}"></script>
@@ -79,10 +70,7 @@
   <script src="{{ asset('../assets/vendor_components/datatable/datatables.min.js')}}"></script>
   <script src="{{ asset('backend/js/pages/data-table.js')}}"></script>
   <script src="{{ asset('backend/js/order.js')}}"></script>
-  <!-- <script src="{{ asset('backend/js/scripts.js')}}"></script> -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-  <!-- <script src="{{ asset('../assets/vendor_components/bootstrap-tagsinput/dist/bootstrap-tagsinput.js')}}"></script> -->
 
 
   <script>
@@ -232,48 +220,6 @@
 
     });
   </script>
-
-
-
-  <!-- <script>
- $(document).ready(function() {
- @if(Session::has('message'))
- toastr.options =
- {
- "closeButton" : true,
- "progressBar" : true
- }
- toastr.success("{{ session('message') }}");
- @endif
- 
- @if(Session::has('error'))
- toastr.options =
- {
- "closeButton" : true,
- "progressBar" : true
- }
- toastr.error("{{ session('error') }}");
- @endif
- 
- @if(Session::has('info'))
- toastr.options =
- {
- "closeButton" : true,
- "progressBar" : true
- }
- toastr.info("{{ session('info') }}");
- @endif
- 
- @if(Session::has('warning'))
- toastr.options =
- {
- "closeButton" : true,
- "progressBar" : true
- }
- toastr.warning("{{ session('warning') }}");
- @endif
- }); 
-</script> -->
 
 
 </body>

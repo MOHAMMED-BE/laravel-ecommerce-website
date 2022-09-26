@@ -2,8 +2,6 @@
 $categories = App\Models\Category::orderBy('category_name_en','asc')->get();
 @endphp
 
-
-
 <div class="sidebar-widget wow fadeInUp">
     <h3 class="section-title">shop by</h3>
     <div class="widget-header">

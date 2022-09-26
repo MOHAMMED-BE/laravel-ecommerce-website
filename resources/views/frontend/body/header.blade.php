@@ -10,13 +10,12 @@ $setting = App\Models\SiteSetting::find(1);
             <div class="header-top-inner">
                 <div class="cnt-account">
                     <ul class="list-unstyled">
-                        <li><a href="#"><i class="icon fa fa-user"></i>@if(session()->get('language') == 'english') My Profile @else حسابي @endif</a></li>
                         <li><a href="{{route('wishlist')}}"><i class="icon fa fa-heart"></i>@if(session()->get('language') == 'english') Wishlist @else قائمة الرغبات @endif</a></li>
                         <li><a href="{{route('mycart')}}"><i class="icon fa fa-shopping-cart"></i>@if(session()->get('language') == 'english') My Cart @else عربة التسوق @endif</a></li>
                         <li><a href="{{route('checkout')}}"><i class="icon fa fa-check"></i>@if(session()->get('language') == 'english') Checkout @else الدفع @endif</a></li>
                         <li><a href="" type="button" data-toggle="modal" data-target="#trackingModal"><i class="icon fa fa-check"></i>@if(session()->get('language') == 'english') Order Tracking @else تتبع @endif</a></li>
                         @auth
-                        <li><a href="{{route('dashboard')}}"><i class="icon fa fa-user"></i>@if(session()->get('language') == 'english') User Profile @else الحساب @endif</a></li>
+                        <li><a href="{{route('dashboard')}}"><i class="icon fa fa-user"></i>@if(session()->get('language') == 'english') My Profile @else الحساب @endif</a></li>
                         @else
                         <li><a href="{{route('login')}}"><i class="icon fa fa-lock"></i>@if(session()->get('language') == 'english') Login / Register @else دخول/تسجيل @endif</a></li>
                         @endauth
@@ -26,13 +25,13 @@ $setting = App\Models\SiteSetting::find(1);
 
                 <div class="cnt-block">
                     <ul class="list-unstyled list-inline">
-                        <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
+                        <!-- <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="#">USD</a></li>
                                 <li><a href="#">INR</a></li>
                                 <li><a href="#">GBP</a></li>
                             </ul>
-                        </li>
+                        </li> -->
                         <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
                                 <span class="value">@if(session()->get('language') == 'english') English @else العربية @endif</span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -212,7 +211,7 @@ $setting = App\Models\SiteSetting::find(1);
                                 </li>
                                 @endforeach
                                 <li><a href="{{route('shop.page')}}">Shop</a></li>
-                                <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li>
+                                <!-- <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li> -->
                                 <li class="dropdown  navbar-right special-menu"> <a href="{{route('home.blog')}}">Blog</a> </li>
                             </ul>
                             <!-- /.navbar-nav -->
@@ -232,7 +231,6 @@ $setting = App\Models\SiteSetting::find(1);
     </div>
     <!-- /.header-nav -->
     <!-- ============================================== NAVBAR : END ============================================== -->
-
 
     <!-- Modal -->
     <div class="modal fade" id="trackingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

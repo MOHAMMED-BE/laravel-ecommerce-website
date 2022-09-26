@@ -1,7 +1,10 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-Tags
+Shopping Room - 
+    @foreach($breadsubsubcat as $item)
+        {{$item->getcategory->category_name_en}} / {{$item->getsubcategory->subcategory_name_en}} / {{$item->subsubcategory_name_en}}
+    @endforeach
 @endsection
 
 <div class="breadcrumb">
@@ -116,7 +119,7 @@ Tags
                         @include('frontend.common.testimonials')
                         <!-- ============================================== Testimonials: END ============================================== -->
 
-                        <div class="home-banner"> <img src="{{asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image"> </div>
+                        <!-- <div class="home-banner"> <img src="{{asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image"> </div> -->
                     </div>
                     <!-- /.sidebar-filter -->
                 </div>

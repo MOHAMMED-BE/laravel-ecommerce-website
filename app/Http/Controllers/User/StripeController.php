@@ -4,7 +4,6 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Mail\OrderMail;
-use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -18,14 +17,12 @@ class StripeController extends Controller
 {
     public function StripeOrder(Request $request)
     {
-
         if(Session::has('coupon')){
             $total_amount = session('coupon')['total_amount'];
         }
         else{
             $total_amount = round(Cart::total());
         }
-
 
         \Stripe\Stripe::setApiKey('sk_test_51Lhz55LFmkTQvpPpcjeyYx5raONPv8jJLIaIjm5CkJJfafwIFebSnqOE4uQQgwOj5FtdmhMTmTOEPdH8znse8XTM00SMtyRo8L');
         $token = $_POST['stripeToken'];
@@ -37,7 +34,6 @@ class StripeController extends Controller
             'source' => $token,
             'metadata' => ['order_id' => uniqid()],
         ]);
-
 
         $order_id = Order::insertGetId([
             'user_id' => Auth::id(),
@@ -57,14 +53,12 @@ class StripeController extends Controller
             'currency' => $charge->currency,
             'amount' => $total_amount,
             'order_number' => $charge->metadata->order_id,
-            'invoice_no' => 'SH'.mt_rand(10000000,99999999),
+            'invoice_no' => 'SR'.mt_rand(10000000,99999999),
             'order_date' => Carbon::now()->format('d F Y'),
             'order_month' => Carbon::now()->format('F'),
             'order_year' => Carbon::now()->format('Y'),
             'status' => 'pending',
             'created_at' => Carbon::now(),
-
-
         ]);
 
         $invoice = Order::findOrFail($order_id);
@@ -105,6 +99,5 @@ class StripeController extends Controller
 
         return redirect()->route('my.orders')->with($notification);
 
-        // dd($charge);
     } // end StripeOrder
 }

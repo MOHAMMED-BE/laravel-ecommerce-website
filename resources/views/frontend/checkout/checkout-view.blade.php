@@ -1,7 +1,7 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-Checkout
+Shopping Room - Checkout
 @endsection
 
 <div class="breadcrumb">
@@ -199,16 +199,10 @@ Checkout
                                             <img src="{{asset('frontend/assets/images/payments/1.png')}}" alt="">
                                         </div>
                                         <div class="col-md-4">
-                                            <label for="cart">Cart</label>
-                                            <input type="radio" class="form-check-input" name="payment_method" value="cart" id="cart">
-                                            <img src="{{asset('frontend/assets/images/payments/4.png')}}" alt="">
-                                        </div>
-                                        <div class="col-md-4">
                                             <label for="cash">Cash</label>
                                             <input type="radio" class="form-check-input" name="payment_method" value="cash" id="cash">
                                             <img src="{{asset('frontend/assets/images/payments/6.png')}}" alt="">
                                         </div>
-
                                     </div>
                                     <!-- end row -->
                                     <hr>

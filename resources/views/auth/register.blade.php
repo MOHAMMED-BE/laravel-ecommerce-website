@@ -1,5 +1,10 @@
 @extends('frontend.main_master')
 @section('content')
+@section('title')
+Shopping Room - Register
+@endsection
+
+
 
 <div class="breadcrumb">
     <div class="container">

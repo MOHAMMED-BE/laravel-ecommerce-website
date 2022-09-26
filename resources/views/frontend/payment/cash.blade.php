@@ -1,7 +1,7 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-Cash On Delivery
+Shopping Room - Cash On Delivery
 @endsection
 
 <div class="breadcrumb">
@@ -77,7 +77,7 @@ Cash On Delivery
                         <div class="panel-group">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="unicase-checkout-title">Select Payment Method</h4>
+                                    <h4 class="unicase-checkout-title">Payment Method Informations</h4>
                                 </div>
 
                                 <form action="{{route('cash.order')}}" method="post" id="payment-form">

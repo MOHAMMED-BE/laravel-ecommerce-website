@@ -1,5 +1,8 @@
 @extends('admin.admin_master')
 @section('admin')
+@section('title')
+Shopping Room Admin - Return Request
+@endsection
 
 <!-- Content Wrapper. Contains page content -->
 <div class="container-full">
@@ -10,7 +13,7 @@
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Return Orders List</h3>
+                        <h3 class="box-title">Return Request</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">

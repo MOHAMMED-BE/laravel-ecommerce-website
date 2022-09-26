@@ -1,5 +1,8 @@
 @extends('admin.admin_master')
 @section('admin')
+@section('title')
+Shopping Room Admin - Create Admin User
+@endsection
 
 <div class="container-full">
     <section class="content">

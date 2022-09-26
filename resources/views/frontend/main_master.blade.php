@@ -42,14 +42,11 @@
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"> -->
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"></script>
 
   <script src="https://js.stripe.com/v3/"></script>
 
-    <!-- Go to www.addthis.com/dashboard to customize your tools -->
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-632b76a864b62174"></script>
 
 </head>
@@ -71,11 +68,6 @@
 
   <!-- ============================================================= FOOTER : END============================================================= -->
 
-  <!-- For demo purposes – can be removed on production -->
-
-  <!-- For demo purposes – can be removed on production : End -->
-
-  <!-- JavaScripts placed at the end of the document so the pages load faster -->
   <script src="{{asset('frontend/assets/js/jquery-1.11.1.min.js')}}"></script>
   <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script>
   <script src="{{asset('frontend/assets/js/bootstrap-hover-dropdown.min.js')}}"></script>
@@ -92,7 +84,6 @@
   <script src="{{asset('frontend/assets/js/cart.js')}}"></script>
   <script src="{{asset('frontend/assets/js/wishlist.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-
 
   <script>
     @if(Session::has('message'))

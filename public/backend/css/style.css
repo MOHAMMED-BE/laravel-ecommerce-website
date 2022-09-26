@@ -17650,7 +17650,7 @@ time {
   border: 1px solid #d5dfea;
   padding: 5px;
   margin-bottom: 10px;
-  background: .attachment-block light; }
+  background: attachment-block light; }
   .attachment-block .attachment-img {
     max-width: 100px;
     max-height: 100px;
@@ -24039,3 +24039,9 @@ img.away, img.busy, img.offline, img.online {
   z-index: -1; }
 
 /*# sourceMappingURL=style.css.map */
+
+.any-img{
+  border-radius: 6px;
+  box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
+  margin: 10px 0 5px 0;
+}

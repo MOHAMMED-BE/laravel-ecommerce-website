@@ -1,9 +1,11 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-Tags
+Shopping Room - 
+    @foreach($breadsubcat as $item)
+        {{$item->getcategory->category_name_en}} / {{$item->subcategory_name_en}}
+    @endforeach
 @endsection
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 
 <div class="breadcrumb">
     <div class="container">
@@ -117,7 +119,7 @@ Tags
                         @include('frontend.common.testimonials')
                         <!-- ============================================== Testimonials: END ============================================== -->
 
-                        <div class="home-banner"> <img src="{{asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image"> </div>
+                        <!-- <div class="home-banner"> <img src="{{asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image"> </div> -->
                     </div>
                     <!-- /.sidebar-filter -->
                 </div>

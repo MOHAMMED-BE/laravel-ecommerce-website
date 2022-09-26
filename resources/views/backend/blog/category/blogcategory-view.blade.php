@@ -1,5 +1,8 @@
 @extends('admin.admin_master')
 @section('admin')
+@section('title')
+Shopping Room Admin - Blog Category
+@endsection
 
 <!-- Content Wrapper. Contains page content -->
 <div class="container-full">
@@ -92,10 +95,8 @@
         <!-- /.row -->
     </section>
     <!-- /.content -->
-
 </div>
 <!-- /.content-wrapper -->
-
 
 
 @endsection

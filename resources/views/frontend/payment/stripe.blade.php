@@ -1,7 +1,7 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-Stripe Payment Page
+Shopping Room - Stripe Payment
 @endsection
 
 <style>
@@ -108,7 +108,7 @@ Stripe Payment Page
                         <div class="panel-group">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4 class="unicase-checkout-title">Select Payment Method</h4>
+                                    <h4 class="unicase-checkout-title">Payment Method Informations</h4>
                                 </div>
 
                                 <form action="{{route('stripe.order')}}" method="post" id="payment-form">

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Blog\BlogPost;
 use App\Models\Blog\BlogPostCategory;
-use Illuminate\Http\Request;
 
 class HomeBlogController extends Controller
 {

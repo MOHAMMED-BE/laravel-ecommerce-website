@@ -1,6 +1,8 @@
 @extends('admin.admin_master')
 @section('admin')
-
+@section('title')
+Shopping Room Admin - Change Password
+@endsection
 <div class="container-full">
     <section class="content">
         <!-- Basic Forms -->

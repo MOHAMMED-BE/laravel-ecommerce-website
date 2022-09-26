@@ -5,7 +5,6 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Mail\OrderMail;
-use App\Models\Coupon;
 use App\Models\Order;
 use App\Models\OrderItem;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -18,7 +17,6 @@ class CashController extends Controller
 {
     public function CashOrder(Request $request)
     {
-
         if(Session::has('coupon')){
             $total_amount = session('coupon')['total_amount'];
         }
@@ -41,7 +39,7 @@ class CashController extends Controller
             'payment_method' => 'Cash On Delivery',
             'currency' => 'usd',
             'amount' => $total_amount,
-            'invoice_no' => 'SH'.mt_rand(10000000,99999999),
+            'invoice_no' => 'SR'.mt_rand(10000000,99999999),
             'order_date' => Carbon::now()->format('d F Y'),
             'order_month' => Carbon::now()->format('F'),
             'order_year' => Carbon::now()->format('Y'),
@@ -89,6 +87,5 @@ class CashController extends Controller
 
         return redirect()->route('my.orders')->with($notification);
 
-        // dd($charge);
     } // end CashOrder
 }

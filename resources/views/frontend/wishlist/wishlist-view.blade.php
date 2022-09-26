@@ -1,9 +1,8 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-Wishlist
+Shopping Room - Wishlist
 @endsection
-
 
 <div class="breadcrumb">
     <div class="container">
@@ -29,8 +28,6 @@ Wishlist
                                 </tr>
                             </thead>
                             <tbody id="wishlist">
-                                
-                               
                                
                             </tbody>
                         </table>

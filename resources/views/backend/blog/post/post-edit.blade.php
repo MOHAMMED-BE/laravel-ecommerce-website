@@ -1,5 +1,8 @@
 @extends('admin.admin_master')
 @section('admin')
+@section('title')
+Shopping Room Admin - Edit Blog Post
+@endsection
 
 <style>
     .edit-img {

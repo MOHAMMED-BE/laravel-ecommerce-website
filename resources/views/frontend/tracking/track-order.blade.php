@@ -1,12 +1,9 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-Tracking Order #{{$track->invoice_no}}
+Shopping Room - Tracking Order #{{$track->invoice_no}}
 @endsection
-
-
 <link rel="stylesheet" href="{{asset('frontend/assets/css/track.css')}}">
-
 
 <div class="container">
     <article class="card">

@@ -4,7 +4,6 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Wishlist;
-use Illuminate\Http\Request;
 use Auth;
 
 class WishlistController extends Controller

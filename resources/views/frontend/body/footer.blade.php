@@ -1,5 +1,5 @@
 @php
-    $setting = App\Models\SiteSetting::find(1);
+$setting = App\Models\SiteSetting::find(1);
 @endphp
 
 <footer id="footer" class="footer color-bg">
@@ -24,7 +24,8 @@
                                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-mobile fa-stack-1x fa-inverse"></i> </span> </div>
                                 <div class="media-body">
                                     <p>{{$setting->phone_one}}<br>
-                                    {{$setting->phone_two}}</p>
+                                        {{$setting->phone_two}}
+                                    </p>
                                 </div>
                             </li>
                             <li class="media">

@@ -1,9 +1,8 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-My Cart
+Shopping Room - My Cart
 @endsection
-
 
 <div class="breadcrumb">
     <div class="container">

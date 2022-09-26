@@ -17,7 +17,6 @@ class ReportController extends Controller
 
     public function ReportByDate(Request $request)
     {
-        // return $request->all();
         $date = new DateTime($request->date);
         $dateFormat = $date->format('d F Y');
 

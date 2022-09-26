@@ -14,7 +14,7 @@
 						<i class="nav-link-icon mdi mdi-crop-free"></i>
 					</a>
 				</li>
-				<li class="btn-group nav-item d-none d-xl-inline-block">
+				<!-- <li class="btn-group nav-item d-none d-xl-inline-block">
 					<a href="#" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
 						<i class="ti-check-box"></i>
 					</a>
@@ -23,7 +23,7 @@
 					<a href="calendar.html" class="waves-effect waves-light nav-link rounded svg-bt-icon" title="">
 						<i class="ti-calendar"></i>
 					</a>
-				</li>
+				</li> -->
 			</ul>
 		</div>
 
@@ -36,7 +36,7 @@
 					</div>
 				</li>
 				<!-- Notifications -->
-				<li class="dropdown notifications-menu">
+				<!-- <li class="dropdown notifications-menu">
 					<a href="#" class="waves-effect waves-light rounded dropdown-toggle" data-toggle="dropdown" title="Notifications">
 						<i class="ti-bell"></i>
 					</a>
@@ -56,7 +56,6 @@
 						</li>
 
 						<li>
-							<!-- inner menu: contains the actual data -->
 							<ul class="menu sm-scrol">
 								<li>
 									<a href="#">
@@ -99,7 +98,7 @@
 							<a href="#">View all</a>
 						</li>
 					</ul>
-				</li>
+				</li> -->
 
 				@php
 				$adminData = DB::table('admins')->first()
@@ -114,17 +113,17 @@
 						<li class="user-body">
 							<a class="dropdown-item" href="{{ route('admin.profile') }}"><i class="ti-user text-muted mr-2"></i> Profile</a>
 							<a class="dropdown-item" href="{{ route('admin.change.password') }}"><i class="ti-wallet text-muted mr-2"></i> Change Password</a>
-							<a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a>
+							<!-- <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a> -->
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="{{ route('admin.logout') }}"><i class="ti-lock text-muted mr-2"></i> Logout</a>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<!-- <li>
 					<a href="#" data-toggle="control-sidebar" title="Setting" class="waves-effect waves-light">
 						<i class="ti-settings"></i>
 					</a>
-				</li>
+				</li> -->
 
 			</ul>
 		</div>

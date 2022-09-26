@@ -12,9 +12,6 @@ class ReviewController extends Controller
 {
     public function ReviewStore(Request $request)
     {
-
-        $product_id = $request->product_id ;
-
         Review::insert([
             'product_id' => $request->product_id,
             'user_id' => Auth::id(),

@@ -90,13 +90,19 @@ a {
   transition: all 0.2s linear 0s;
 }
 
+@font-face {
+  font-family: 'Varela Round';
+  src: url(../../fonts/VarelaRound-Regular.ttf);
+}
+
+
 body {
   font-size: 13px;
   color: #333;
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   background-color: #f9f9f9;
 }
 
@@ -174,7 +180,8 @@ img[src="assets/images/blank.gif"] {
   line-height: 22px;
   border-radius: 0;
   padding: 6px 14px;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   border-radius: 2px
 }
 
@@ -455,6 +462,7 @@ img[src="assets/images/blank.gif"] {
 .section-title {
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   border-bottom: 1px solid #e3e3e3;
   padding-bottom: 10px;
   text-transform: uppercase;
@@ -467,6 +475,7 @@ img[src="assets/images/blank.gif"] {
   margin-top: 5px;
   font-size: 16px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   text-transform: uppercase;
   font-weight: bold;
   border-bottom: 1px solid #e3e3e3;
@@ -487,6 +496,7 @@ img[src="assets/images/blank.gif"] {
   margin-top: 5px;
   font-size: 16px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   text-transform: uppercase;
   font-weight: bold;
   border-bottom: 1px solid #e3e3e3;
@@ -629,6 +639,7 @@ img[src="assets/images/blank.gif"] {
   margin-top: 5px;
   font-size: 16px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   text-transform: uppercase;
   font-weight: bold;
   border-bottom: 1px solid #e3e3e3;
@@ -658,6 +669,7 @@ img[src="assets/images/blank.gif"] {
   margin-top: 5px;
   font-size: 16px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   text-transform: uppercase;
   font-weight: bold;
   border-bottom: 1px solid #e3e3e3;
@@ -1579,6 +1591,7 @@ header {
 
 .main-header .top-search-holder .search-area .categories-filter .dropdown-menu li.menu-header {
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   line-height: 30px;
 }
 
@@ -1635,6 +1648,7 @@ header {
 .top-cart-row .dropdown-cart .lnk-cart .items-cart-inner .total-price-basket {
   padding: 12px 12px 13px 15px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   text-transform: uppercase;
   float: left;
   letter-spacing: 0.5px;
@@ -1682,6 +1696,7 @@ header {
 .top-cart-row .dropdown-cart .dropdown-menu .cart-item.product-summary .name {
   font-size: 13px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   margin-top: 0px;
 }
 
@@ -1708,6 +1723,7 @@ header {
 .top-cart-row .dropdown-cart .dropdown-menu .cart-total .text {
   font-size: 13px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   color: #666666;
   margin-right: 10px;
 }
@@ -1757,6 +1773,7 @@ header {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
   color: #FFFFFF;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 13px;
   line-height: 20px;
   padding: 11px 15px;
@@ -1779,6 +1796,7 @@ header {
   color: #fff;
   font-size: 9px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   right: 23px;
   line-height: normal;
   letter-spacing: 1px;
@@ -1925,6 +1943,7 @@ header {
 .yamm .dropdown-menu .yamm-content .links li a {
   padding: 4px 0px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   letter-spacing: 0.2px;
   font-size: 13px;
   color: #565656;
@@ -1936,6 +1955,7 @@ header {
   font-size: 14px;
   color: #555;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   margin-top: 0px;
   font-weight: bold
 }
@@ -2054,6 +2074,7 @@ header {
   color: #333;
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   padding: 12px 17px;
   text-transform: uppercase;
   background-color: #fdd922;
@@ -2090,6 +2111,7 @@ header {
   padding: 13px 15px;
   color: #666666;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   letter-spacing: 0.2px
 }
 
@@ -2161,6 +2183,7 @@ header {
   padding: 0px;
   font-size: 13px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .sidebar .side-menu nav .nav>li>.mega-menu .yamm-content .dropdown-banner-holder {
@@ -2180,6 +2203,7 @@ header {
 .sidebar .sidebar-module-container .sidebar-widget .widget-header .widget-title {
   font-size: 13px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   margin: 0px;
   font-weight: bold
 }
@@ -2187,7 +2211,8 @@ header {
 .sidebar .sidebar-module-container .sidebar-widget .sidebar-widget-body .accordion .accordion-group .accordion-heading .accordion-toggle {
   clear: both;
   display: block;
-  font-family: 'Open Sans', sans-serif, sans-serif;
+  /* font-family: 'Open Sans', sans-serif, sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 13px;
   line-height: 28px;
 }
@@ -2310,7 +2335,8 @@ header {
 .sidebar .sidebar-module-container .sidebar-widget .sidebar-widget-body .list li {
   clear: both;
   display: block;
-  font-family: 'Open Sans', sans-serif, sans-serif;
+  /* font-family: 'Open Sans', sans-serif, sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 13px;
   font-weight: normal;
   line-height: 28px;
@@ -2347,6 +2373,7 @@ header {
   line-height: 125px;
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   color: #fff;
   text-shadow: 1px 1px 3px #cfcfcf;
 }
@@ -2869,7 +2896,8 @@ header {
 }
 
 #owl-main .item .caption .slider-header {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase
@@ -2879,7 +2907,8 @@ header {
   font-size: 42px;
   line-height: 50px;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   padding: 0px 25px;
   background: #bbbbbb;
   color: #fff;
@@ -2897,6 +2926,7 @@ header {
   /*line-height: 50px;*/
   margin-top: 10px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-weight: 500;
   padding-left: 23px;
   background: rgba(0, 0, 0, 0);
@@ -3043,6 +3073,7 @@ header {
   line-height: 50px;
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   text-shadow: 2px 2px #c3c3c3;
   color: #fff;
   padding-left: 0px;
@@ -3053,6 +3084,7 @@ header {
   line-height: 50px;
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   text-shadow: 2px 2px #c3c3c3;
   color: #000;
   /*Error*/
@@ -3206,7 +3238,8 @@ header {
   font-size: 14px;
   line-height: 21px;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   margin-top: 0px;
   font-weight: bold;
   margin-bottom: 0px;
@@ -3254,6 +3287,7 @@ header {
   margin-top: 5px;
   font-size: 16px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   text-transform: uppercase;
   font-weight: bold
 }
@@ -3278,7 +3312,8 @@ header {
   box-shadow: none;
   padding: 0 10px !important;
   position: relative;
-  font-family: 'Open Sans', sans-serif
+  /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .scroll-tabs .nav-tab-line li a:hover,
@@ -3308,6 +3343,7 @@ header {
 .product .product-info .name {
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .product .product-info .name a {
@@ -3503,6 +3539,7 @@ header {
 .cnt-home .product-micro .product-info .product-price .price {
   font-size: 12px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .cnt-home .product-micro .product-info .action .lnk.btn.btn-primary {
@@ -3568,7 +3605,8 @@ header {
   color: #ff4c4c;
   margin: 0;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   font-weight: bold
 }
 
@@ -3577,12 +3615,14 @@ header {
   color: #fdd922;
   margin: 0;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   font-weight: bold
 }
 
 .cnt-strip .strip h2 .shopping-needs {
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   color: #fff;
   font-weight: normal;
   font-size: 22px
@@ -3593,14 +3633,16 @@ header {
   color: #434343;
   margin: 0;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .cnt-strip .strip h4 {
   font-size: 20px;
   margin: 0;
   text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .cnt-strip .strip.strip-text {
@@ -3626,6 +3668,7 @@ header {
 .cnt-strip .strip .normal-shopping-needs {
   font-size: 35px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .cnt-strip .new-label {
@@ -3640,7 +3683,8 @@ header {
 
 .cnt-strip .new-label .text {
   color: #fff;
-  font-family: 'Open Sans', sans-serif, sans-serif;
+  /* font-family: 'Open Sans', sans-serif, sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 14px;
   font-weight: bold;
   line-height: 22px;
@@ -3668,11 +3712,13 @@ header {
 .wide-banners.homepage-banner h4 {
   font-size: 30px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .wide-banners.homepage-banner h3 {
   font-size: 35px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .new-banner {
@@ -3691,6 +3737,7 @@ header {
   line-height: 24px;
   font-size: 30px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .new-banner .cnt-strip .strip h5 {
@@ -3730,32 +3777,38 @@ header {
 .wide-banner-4 .cnt-strip .strip h1 {
   font-size: 50px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .wide-banner-4 .cnt-strip .strip h2 {
   font-size: 40px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .wide-banner-4 .cnt-strip .strip h3 {
   font-size: 30px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .wide-banner-4 .cnt-strip .strip h4 {
   font-size: 20px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .wide-banner-4 .cnt-strip .strip p {
   font-size: 23px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   margin-bottom: 0px;
 }
 
 .blog-slider-container .blog-slider .blog-post-info .name {
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-weight: bold
 }
 
@@ -3962,6 +4015,7 @@ header {
   font-size: 16px;
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   color: #555555;
 }
 
@@ -3978,6 +4032,7 @@ header {
 
 .footer .contact-timing .contact-number {
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .footer .contact-information .media .media-body a {
@@ -4001,6 +4056,7 @@ header {
   font-size: 16px;
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   color: #898989;
 }
 
@@ -4181,6 +4237,7 @@ header {
 .hot-deals .product-info .name {
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .hot-deals .product-info .name a {
@@ -4267,7 +4324,8 @@ header {
 .breadcrumb ul li:after {
   color: #666666;
   content: "/";
-  font-family: 'Open Sans', sans-serif, sans-serif;
+  /* font-family: 'Open Sans', sans-serif, sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 12px;
   line-height: 24px;
   margin-left: 9px;
@@ -4281,7 +4339,8 @@ header {
 
 .breadcrumb ul li a {
   color: #666666;
-  font-family: 'Open Sans', sans-serif, sans-serif;
+  /* font-family: 'Open Sans', sans-serif, sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 12px;
   line-height: 24px;
   font-weight: 500;
@@ -4312,6 +4371,7 @@ header {
   line-height: 145px;
   text-transform: uppercase;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   color: #fdd922;
 }
 
@@ -4406,7 +4466,8 @@ header {
   -moz-border-radius: 0;
   border-radius: 0;
   color: #666666;
-  font-family: 'Open Sans', sans-serif, sans-serif;
+  /* font-family: 'Open Sans', sans-serif, sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   line-height: 18px;
   border: none !important;
   padding: 0px;
@@ -4419,7 +4480,8 @@ header {
 
 .filters-container .lbl-cnt {
   color: #666666;
-  font-family: 'Open Sans', sans-serif, sans-serif;
+  /* font-family: 'Open Sans', sans-serif, sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 12px;
   line-height: 24px;
 }
@@ -4427,7 +4489,8 @@ header {
 .filters-container .lbl-cnt .lbl {
   color: #666666;
   display: inline-block;
-  font-family: 'Open Sans', sans-serif, sans-serif;
+  /* font-family: 'Open Sans', sans-serif, sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 12px;
   line-height: 28px;
   margin-right: 10px;
@@ -4492,7 +4555,8 @@ header {
 .filters-container .pagination-container ul li a {
   color: #666666;
   display: inline-block;
-  font-family: 'Open Sans', sans-serif, sans-serif;
+  /* font-family: 'Open Sans', sans-serif, sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 13px;
   line-height: 20px;
   padding: 0 3px;
@@ -4609,6 +4673,7 @@ header {
 .single-product .product-info .stock-container .stock-box .label {
   font-size: 13px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   line-height: 18px;
   color: #666666;
   padding: 0px;
@@ -4654,6 +4719,7 @@ header {
 .single-product .product-info .quantity-container .label {
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   line-height: 35px;
   text-transform: uppercase;
   color: #666666;
@@ -4713,6 +4779,7 @@ header {
 .single-product .product-info .product-social-link .social-label {
   font-size: 15px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   line-height: 20px;
   text-transform: uppercase;
 }
@@ -4766,6 +4833,7 @@ header {
   padding: 12px 28px;
   font-size: 13px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   line-height: 28px;
   text-transform: uppercase;
   position: relative;
@@ -5015,6 +5083,7 @@ header {
 .cnt-homepage .single-product .product-info-block .stock-container .stock-box .label {
   color: #434343;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 13px;
   font-weight: normal;
   line-height: 20px;
@@ -5038,6 +5107,7 @@ header {
   border-radius: 0px;
   color: #666666;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 20px;
   line-height: 30px;
   padding-bottom: 4px;
@@ -5082,12 +5152,14 @@ header {
   line-height: 20px;
   margin: 0 0 10px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 
 }
 
 .product-tabs .tab-content .tab-pane .product-reviews .reviews .review {
   margin-bottom: 20px;
-  font-family: 'Open Sans', sans-serif, sans-serif;
+  /* font-family: 'Open Sans', sans-serif, sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   text-transform: none;
   background: #f8f8f8;
   padding: 20px
@@ -5128,6 +5200,7 @@ header {
   line-height: 20px;
   margin: 0 0 10px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .product-tabs .tab-content .tab-pane .product-add-review .review-table .table thead th {
@@ -5175,6 +5248,7 @@ header {
   line-height: 20px;
   margin: 0 0 20px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .product-tabs .tab-content .tab-pane .product-tag .form-group label {
@@ -5205,6 +5279,7 @@ header {
   font-size: 15px;
   line-height: 30px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   background: #cbc9c9;
   text-transform: uppercase;
   border: none;
@@ -5296,6 +5371,7 @@ header {
 .homepage-container .product .product-info .name {
   font-size: 18px !important;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .homepage-container .product .product-info .name a {
@@ -5368,6 +5444,7 @@ header {
   font-size: 15px;
   line-height: 30px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   background: rgba(0, 0, 0, 0);
   text-transform: uppercase;
   border: 2px solid #f2f2f2;
@@ -5862,6 +5939,7 @@ header {
 
 .blog-page .blog-post h1 {
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 22px;
   font-weight: bold;
 
@@ -5924,6 +6002,7 @@ header {
 
 .blog-page .sidebar .sidebar-module-container .sidebar-widget .blog-post h4 {
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 15px;
 
 }
@@ -6011,6 +6090,7 @@ header {
 
 .blog-page .side-bar-blog .widget .categories .side-bar-title h3 {
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 18px;
   text-transform: uppercase;
   color: #555;
@@ -6099,6 +6179,7 @@ header {
   display: inline-block;
   font-size: 15px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   color: #555;
   margin: 0px;
 }
@@ -6114,6 +6195,7 @@ header {
   font-size: 16px;
   color: #555;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   margin-bottom: 40px;
 
 }
@@ -6197,6 +6279,7 @@ header {
   font-size: 14px;
   color: #555;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   display: inline-block;
 }
 
@@ -6240,7 +6323,8 @@ header {
 }
 
 .checkout-box .checkout-steps .checkout-step-01 .already-registered-login form .form-group .info-title {
-  font-family: 'Open Sans', sans-serif, sans-serif;
+  /* font-family: 'Open Sans', sans-serif, sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   font-weight: normal;
   margin-bottom: 5px;
   font-size: 13px;
@@ -6283,6 +6367,7 @@ header {
 
 .checkout-box .checkout-steps .checkout-subtitle {
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 14px;
   color: #434343;
   margin-right: 12px;
@@ -6343,6 +6428,7 @@ header {
 .checkout-box .checkout-steps .panel .panel-heading,
 .checkout-box .checkout-progress-sidebar .panel .panel-heading {
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 20px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -6490,6 +6576,7 @@ header {
 .shopping-cart .shopping-cart-table table tbody tr .cart-product-name-info h4 {
   margin-top: 0px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 16px;
 
 }
@@ -6509,13 +6596,15 @@ header {
 
 .shopping-cart .shopping-cart-table table tbody tr .cart-product-name-info .cart-product-info span {
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 12px;
   color: #666666;
   text-transform: uppercase;
 }
 
 .shopping-cart .shopping-cart-table table tbody tr .cart-product-name-info .cart-product-info span span {
-  font-family: 'Open Sans', sans-serif, sans-serif;
+  /* font-family: 'Open Sans', sans-serif, sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 12px;
   text-transform: lowercase;
   margin-left: 14px;
@@ -6530,6 +6619,7 @@ header {
   text-align: center;
   padding: 16px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 15px;
 }
 
@@ -6540,6 +6630,7 @@ header {
 
 .shopping-cart .estimate-ship-tax table thead tr th .estimate-title {
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 14px;
   color: #555;
   margin-bottom: 2px;
@@ -6548,7 +6639,8 @@ header {
 }
 
 .shopping-cart .estimate-ship-tax table thead tr th p {
-  font-family: 'Open Sans', sans-serif, sans-serif;
+  /* font-family: 'Open Sans', sans-serif, sans-serif; */
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 13px;
   color: #666666;
   font-weight: normal;
@@ -6616,6 +6708,7 @@ header {
 .shopping-cart .shopping-cart-table table tbody tr .cart-product-grand-total span {
   display: block;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 16px;
   color: #555;
   text-transform: uppercase;
@@ -6642,6 +6735,7 @@ header {
 .shopping-cart .cart-shopping-total table thead tr th .cart-sub-total,
 .shopping-cart .cart-shopping-total table thead tr th .cart-grand-total {
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 14px;
 }
 
@@ -6703,6 +6797,7 @@ header {
 
 .product-comparison .page-title {
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 30px;
   text-transform: uppercase;
   color: #666666;
@@ -6774,6 +6869,7 @@ header {
 
 .body-content .x-page .x-text h1 {
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   font-size: 200px;
   font-weight: bold
 }
@@ -6834,6 +6930,7 @@ header {
   color: #555;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 .body-content .terms-conditions-page .terms-conditions h3 {
@@ -6841,6 +6938,7 @@ header {
   text-transform: uppercase;
   color: #555;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   margin-bottom: 30px;
   font-weight: bold;
 }
@@ -6949,6 +7047,7 @@ header {
   text-align: center;
   font-size: 30px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   text-transform: uppercase;
   border: none;
   font-weight: 400;
@@ -6968,6 +7067,7 @@ header {
 .body-content .my-wishlist-page .my-wishlist table tbody .product-name {
   font-size: 16px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   padding-bottom: 6px;
 }
 
@@ -7036,6 +7136,7 @@ header {
 .body-content .sign-in-page .create-new-account h4 {
   font-size: 18px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   padding-bottom: 14px;
   border-bottom: 1px solid #ddd;
 
@@ -7084,6 +7185,7 @@ header {
 .body-content .sign-in-page .create-new-account>span {
   font-size: 20px;
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   padding-bottom: 14px;
   text-transform: uppercase;
   display: inline-block;
@@ -7115,6 +7217,7 @@ header {
 
 .tooltip-inner {
   font-family: 'Open Sans', sans-serif;
+  font-family: 'Varela Round', sans-serif !important;
   border-radius: 2px;
   min-width: 70px;
   z-index: 100
@@ -7192,15 +7295,7 @@ header {
 
 }
 
-/* .wow {
-  box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
-  border-radius: 5px; 
-   border-radius: 5px;
-} */
-
-/*5953*/
-
-.btn-remove{
+.btn-remove {
   background-color: #fff;
   border: 1px solid #a53e3b;
   box-shadow: 0 0.1rem 0.9rem 0 rgb(255 0 0 / 15%);
@@ -7208,44 +7303,44 @@ header {
   color: #d70a0a;
 }
 
-.cart-td:not(:nth-child(2)){
+.cart-td:not(:nth-child(2)) {
   text-align: center;
 }
 
-.any-img{
+.any-img {
   border-radius: 6px;
   box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
   margin: 10px 0 5px 0;
 }
 
-.user-dash{
+.user-dash {
   border-radius: 6px;
   box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
   margin: 15px 0 15px 0;
 }
 
-.user-dash-table{
+.user-dash-table {
   box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
   border-radius: 3px;
   text-align: center;
 }
 
-.user-sidebar-img{
+.user-sidebar-img {
   height: 100px;
   box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
   border-radius: 50%;
   margin: 5px 0 10px 0;
 }
 
-.user-div{
+.user-div {
   display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 
-.post-img{
+.post-img {
   height: 40rem;
   width: 100%;
   box-shadow: 0 0.1rem 2.9rem 0 rgb(16 139 234 / 22%);
@@ -7254,49 +7349,53 @@ header {
 }
 
 
-.index-post-img{
+.index-post-img {
   height: 25rem;
   box-shadow: 0 0.1rem 1.5rem 0 rgb(19 72 112 / 15%);
   border-radius: 7px;
   margin: 5px 0 3rem 0;
 }
 
-.review-user-img{
+.review-user-img {
   height: 50px;
   box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
   border-radius: 50%;
   margin: 5px 0px 11px 5px;
 }
 
-.user-review{
+.user-review {
   border-radius: 6px;
-    box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 8%);
-    margin: 15px 0 15px 0;
-    padding: 17px 3px 30px 17px;
+  box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 8%);
+  margin: 15px 0 15px 0;
+  padding: 17px 3px 30px 17px;
 }
 
-.search-img{
+.search-img {
   border-radius: 6px;
-    box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 40%);
-    margin: 10px 5px 5px 10px;
-    height: 50px;
+  box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 40%);
+  margin: 10px 5px 5px 10px;
+  height: 50px;
 }
 
-.search-div{
+.search-div {
   border-radius: 6px;
-    box-shadow: 0 0.1rem 1.9rem 0 rgb(24 48 114 / 25%);
-    margin: 15px 0 15px 0;
-    background-color: #fff;
-    z-index: 1;
-    position: relative;
-    padding: 6px;
-    display: none;
-}
-
-.ajax-loadmore-product{
+  box-shadow: 0 0.1rem 1.9rem 0 rgb(24 48 114 / 25%);
+  margin: 15px 0 15px 0;
+  background-color: #fff;
+  z-index: 1;
+  position: relative;
+  padding: 6px;
   display: none;
 }
 
-.loading-img{
+.ajax-loadmore-product {
+  display: none;
+}
+
+.loading-img {
   height: 10rem;
+}
+
+.product-info .name a{
+  font-size: 12px;
 }

@@ -1,5 +1,9 @@
 @extends('frontend.main_master')
 @section('content')
+@section('title')
+Shopping Room User - Edit Profil
+@endsection
+
 <div class="body-content">
     <div class="container">
         <div class="row">
@@ -14,9 +18,6 @@
             <div class="col-md-6">
                 <div class="card">
                     <h3 class="text-center">
-                        <span class="text-danger">
-                            Hi..... <strong>{{Auth::user()->name}}</strong>
-                        </span>
                         Update Your Profile
                     </h3>
 
@@ -45,7 +46,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <img id="show-profile-image" class="rounded-circle" src="{{ (!empty($user->profile_photo_path)) ? url('upload/user-images/'.$user->profile_photo_path) : url('upload/no_image.jpg')}}" alt="User Avatar" style="width:100px ;height:100px;box-shadow: 0 .5rem 1rem rgba(255,255,255,.25)!important;">
+                                <img id="show-profile-image" class="user-sidebar-img" src="{{ (!empty($user->profile_photo_path)) ? url('upload/user-images/'.$user->profile_photo_path) : url('upload/no_image.jpg')}}" alt="User Avatar" >
                             </div>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary checkout-page-button">Save</button>

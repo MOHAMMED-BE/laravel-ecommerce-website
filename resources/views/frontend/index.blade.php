@@ -1,7 +1,7 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-BMS Store
+Shopping Room - Start Your Orders Today
 @endsection
 
 <style>
@@ -9,9 +9,6 @@ BMS Store
         color: orange;
     }
 </style>
-
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script> -->
 
 <div class="body-content outer-top-xs" id="top-banner-and-menu">
     <div class="container">
@@ -58,8 +55,12 @@ BMS Store
                                                     <div class="product-info">
                                                         <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                                         <div class="rating rateit-small"></div>
-                                                        <div class="product-price"> <span class="price"> {{$product->selling_price}} </span> </div>
+                                                        @if($product->discount_price == NULL)
+                                                        <div class="product-price"> <span class="price"> {{$product->selling_price}} $ </span> </div>
+                                                        @else
+                                                        <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
                                                         <!-- /.product-price -->
+                                                        @endif
                                                     </div>
                                                 </div>
                                                 <!-- /.col -->
@@ -110,8 +111,12 @@ BMS Store
                                                     <div class="product-info">
                                                         <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                                         <div class="rating rateit-small"></div>
-                                                        <div class="product-price"> <span class="price"> {{$product->selling_price}} </span> </div>
+                                                        @if($product->discount_price == NULL)
+                                                        <div class="product-price"> <span class="price"> {{$product->selling_price}} $ </span> </div>
+                                                        @else
+                                                        <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
                                                         <!-- /.product-price -->
+                                                        @endif
 
                                                     </div>
                                                 </div>
@@ -152,12 +157,11 @@ BMS Store
                 <!-- ============================================== NEWSLETTER: END ============================================== -->
 
                 <!-- ============================================== Testimonials============================================== -->
-                @include('frontend.common.testimonials')
 
 
                 <!-- ============================================== Testimonials: END ============================================== -->
 
-                <div class="home-banner"> <img src="{{asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image"> </div>
+                <!-- <div class="home-banner"> <img src="{{asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image"> </div> -->
             </div>
             <!-- /.sidemenu-holder -->
             <!-- ============================================== SIDEBAR : END ============================================== -->
@@ -537,7 +541,6 @@ BMS Store
                                                     <div class="product-image">
                                                         <div class="image"> <a href="{{url('product/details/'.$item->product->id.'/'.$item->product->product_slug_en)}}"> <img src="{{asset($item->product->product_thumbnail)}}" alt=""> </a> </div>
                                                         <!-- /.image -->
-
                                                     </div>
                                                     <!-- /.product-image -->
                                                 </div>
@@ -545,11 +548,12 @@ BMS Store
                                                 <div class="col-2 col-xs-7">
                                                     <div class="product-info">
                                                         <h3 class="name"><a href="{{url('product/details/'.$item->product->id.'/'.$item->product->product_slug_en)}}">{{ $item->product->product_name_en }}</a></h3>
-
+                                                        @if($item->product->discount_price == NULL)
+                                                        <div class="product-price"> <span class="price"> {{$item->product->selling_price}} $ </span> </div>
+                                                        @else
                                                         <div class="product-price"> <span class="price"> {{$item->product->discount_price}} $ </span> <span class="price-before-discount">{{$item->product->selling_price}} $</span> </div>
-
                                                         <!-- /.product-price -->
-
+                                                        @endif
                                                     </div>
                                                     <div class="col-md-3" style=" display: contents; ">
                                                         @php
@@ -574,11 +578,13 @@ BMS Store
                                                                     <span class="fa fa-star checked"></span>
                                                                     <span class="fa fa-star"></span>
                                                                     <span class="fa fa-star"></span>
+
                                                                     @elseif($avarage == 4 || $avarage < 5) <span class="fa fa-star checked"></span>
                                                                         <span class="fa fa-star checked"></span>
                                                                         <span class="fa fa-star checked"></span>
                                                                         <span class="fa fa-star checked"></span>
                                                                         <span class="fa fa-star"></span>
+
                                                                         @elseif($avarage == 5 || $avarage < 5) <span class="fa fa-star checked"></span>
                                                                             <span class="fa fa-star checked"></span>
                                                                             <span class="fa fa-star checked"></span>
@@ -594,27 +600,7 @@ BMS Store
                                         <!-- /.product-micro -->
 
                                     </div>
-                                    <!-- <div class="product">
-                                        <div class="product-micro">
-                                            <div class="row product-micro-row">
-                                                <div class="col col-xs-5">
-                                                    <div class="product-image">
-                                                        <div class="image"> <a href="#"> <img src="{{asset($item->product->product_thumbnail)}}" alt=""> </a> </div>
 
-                                                    </div>
-                                                </div>
-                                                <div class="col2 col-xs-7">
-                                                    <div class="product-info">
-                                                        <h3 class="name"><a href="#"></a></h3>
-                                                        <div class="rating rateit-small"></div>
-                                                        <div class="product-price"> <span class="price"> $450.99 </span> </div>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div> -->
                                 </div>
                             </div>
                             @endforeach
@@ -647,8 +633,12 @@ BMS Store
                                         <div class="rating rateit-small"></div>
                                         <div class="description"></div>
 
+                                        @if($product->discount_price == NULL)
+                                        <div class="product-price"> <span class="price"> {{$product->selling_price}} $ </span> </div>
+                                        @else
                                         <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
                                         <!-- /.product-price -->
+                                        @endif
 
                                     </div>
                                     <!-- /.product-info -->
@@ -708,8 +698,12 @@ BMS Store
                                         <div class="rating rateit-small"></div>
                                         <div class="description"></div>
 
+                                        @if($product->discount_price == NULL)
+                                        <div class="product-price"> <span class="price"> {{$product->selling_price}} $ </span> </div>
+                                        @else
                                         <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
                                         <!-- /.product-price -->
+                                        @endif
 
                                     </div>
                                     <!-- /.product-info -->
