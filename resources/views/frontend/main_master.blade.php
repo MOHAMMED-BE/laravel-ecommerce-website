@@ -30,7 +30,7 @@
   <link rel="stylesheet" href="{{asset('frontend/assets/css/animate.min.css')}}">
   <link rel="stylesheet" href="{{asset('frontend/assets/css/rateit.css')}}">
   <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap-select.min.css')}}">
-
+  <link rel="icon" href="{{ asset('assets/icons/icon-5.ico')}}">
   <!-- Icons/Glyphs -->
   <link rel="stylesheet" href="{{asset('frontend/assets/css/font-awesome.css')}}">
 

@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="{{ asset('backend/images/favicon.ico')}}">
+  <link rel="icon" href="{{ asset('assets/icons/icon-5.ico')}}">
 
   <title>@yield('title')</title>
 

@@ -144,10 +144,6 @@ Shopping Room - Stripe Payment
                 <!-- checkout-progress-sidebar -->
             </div><!-- /.row -->
         </div><!-- /.checkout-box -->
-        <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-        @include('frontend.body.brands')
-
-        <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
     </div><!-- /.container -->
 </div><!-- /.body-content -->
 

@@ -561,12 +561,6 @@ Shopping Room - {{$product->product_name_en}}
             </div><!-- /.col -->
             <div class="clearfix"></div>
         </div><!-- /.row -->
-        <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-        @include('frontend.body.brands')
-
-        <!-- /.logo-slider -->
-        <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
-
     </div>
     <!-- /.container -->
 

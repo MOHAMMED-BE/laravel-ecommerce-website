@@ -59,7 +59,7 @@ $setting = App\Models\SiteSetting::find(1);
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-3 logo-holder">
                     <!-- ============================================================= LOGO ============================================================= -->
-                    <div class="logo"> <a href="{{url('/')}}"> <img src="{{asset($setting->logo)}}" alt="logo" style=" width: 90px; height: 90px; margin: -23px 0 0 0; "> </a> </div>
+                    <div class="logo"> <a href="{{url('/')}}"> <img src="{{asset($setting->logo)}}" alt="logo" style="height: 90px;margin: -34px 0 0 -50px;"> </a> </div>
                     <!-- /.logo -->
                     <!-- ============================================================= LOGO : END ============================================================= -->
                 </div>
@@ -68,7 +68,7 @@ $setting = App\Models\SiteSetting::find(1);
                 <div class="col-xs-12 col-sm-12 col-md-7 top-search-holder">
                     <!-- /.contact-row -->
                     <!-- ============================================================= SEARCH AREA ============================================================= -->
-                    <div class="search-area" style="height: 46px;">
+                    <div class="search-area" style="height: 45px;">
 
                         <form action="{{route('product.search')}}" method="post">
                             @csrf

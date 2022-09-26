@@ -94,14 +94,6 @@ Shopping Room - My Cart
 
             </div><!-- /.row -->
         </div><!-- /.sigin-in-->
-
-        <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-
-        @include('frontend.body.brands')
-
-        <!-- /.logo-slider -->
-        <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
-
     </div><!-- /.container -->
 </div><!-- /.body-content -->
 

@@ -216,10 +216,6 @@ Shopping Room - Checkout
                 </div><!-- /.row -->
             </form>
         </div><!-- /.checkout-box -->
-        <!-- ============================================== BRANDS CAROUSEL ============================================== -->
-        @include('frontend.body.brands')
-
-        <!-- ============================================== BRANDS CAROUSEL : END ============================================== -->
     </div><!-- /.container -->
 </div><!-- /.body-content -->
 

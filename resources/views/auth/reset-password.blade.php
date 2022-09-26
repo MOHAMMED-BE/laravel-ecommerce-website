@@ -23,7 +23,6 @@ Shopping Room - Reset Password
                 <!-- reset password -->
                 <div class="col-md-6 col-sm-6 create-new-account">
                     <h4 class="checkout-subtitle">Reset Password</h4>
-                    <p class="text title-tag-line">Reset Your Password</p>
                     <form class="register-form outer-top-xs" role="form" method="POST" action="{{ route('password.update') }}">
                         @csrf
                         <input type="hidden" name="token" value="{{ $request->route('token') }}">
@@ -61,8 +60,6 @@ Shopping Room - Reset Password
                 <!-- reset password -->
             </div><!-- /.row -->
         </div><!-- /.sigin-in-->
-
-        @include('frontend.body.brands')
 
     </div><!-- /.container -->
 </div><!-- /.body-content -->
