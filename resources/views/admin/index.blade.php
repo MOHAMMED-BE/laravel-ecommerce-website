@@ -146,7 +146,7 @@ $order_item = App\Models\OrderItem::with('product','order')->get();
                                 </thead>
                                 <tbody>
                                     @foreach($order_item as $order)
-
+                                    @if($order->order->status == 'pending')
                                     <tr>
                                         <td class="pl-0 py-8">
                                             <div class="d-flex align-items-center">
@@ -193,7 +193,7 @@ $order_item = App\Models\OrderItem::with('product','order')->get();
                                         </td>
                                         <td>
                                             <span class="text-fade font-weight-600 d-block font-size-16">
-                                                $ {{$order->order->amount}}
+                                                $ {{$order->price}}
                                             </span>
                                         </td>
                                         <td>
@@ -207,6 +207,8 @@ $order_item = App\Models\OrderItem::with('product','order')->get();
                                             <a href="{{ route('pending.order.details',$order->order->id)}}" title="View Order Details" class="btn btn-primary"><i class="fa fa-eye"></i></a>
                                         </td>
                                     </tr>
+                                    @else
+                                    @endif
                                     @endforeach
                                 </tbody>
                             </table>

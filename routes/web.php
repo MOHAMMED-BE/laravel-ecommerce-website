@@ -435,45 +435,8 @@ Route::post('/search', [IndexController::class, 'ProductSearch'])->name('product
 // Advance Product Search Route
 Route::post('/search-product', [IndexController::class, 'AdvanceProductSearch']);
 
-
 // Shop Page Route
 
 Route::get('/shop', [ShopController::class, 'ShopPage'])->name('shop.page');
 Route::post('/shop/filter', [ShopController::class, 'ShopFilter'])->name('shop.filter');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Route::get('/sign-in', [IndexController::class, 'signin']);
-
-
-
-
-
-
-
-// Route::middleware(['auth:sanctum,web','verified'])->get('/dashboard',function() {
-//     return view('dashboard');
-// })->name('dashboard');
-
-
-// Route::middleware(['auth:sanctum,admin','verified'])->get('/admin/dashboard',function() {
-//     return view('dashboard');
-// })->name('dashboard');

@@ -14,7 +14,7 @@ Shopping Room - {{$product->product_name_en}}
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-                <li><a href="#">Home</a></li>
+                <li><a href="{{('/')}}">Home</a></li>
                 @foreach($breadcrumb as $item)
                 <li class='active'> {{$item->getcategory->category_name_en}} / {{$item->getsubcategory->subcategory_name_en}} / {{$item->subsubcategory_name_en}}</li>
                 @endforeach
@@ -40,21 +40,6 @@ Shopping Room - {{$product->product_name_en}}
 
                     <!-- ============================================== HOT DEALS: END ============================================== -->
 
-                    <!-- ============================================== NEWSLETTER ============================================== -->
-                    <div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small outer-top-vs">
-                        <h3 class="section-title">Newsletters</h3>
-                        <div class="sidebar-widget-body outer-top-xs">
-                            <p>Sign Up for Our Newsletter!</p>
-                            <form>
-                                <div class="form-group">
-                                    <label class="sr-only" for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Subscribe to our newsletter">
-                                </div>
-                                <button class="btn btn-primary">Subscribe</button>
-                            </form>
-                        </div><!-- /.sidebar-widget-body -->
-                    </div><!-- /.sidebar-widget -->
-                    <!-- ============================================== NEWSLETTER: END ============================================== -->
 
                     <!-- ============================================== Testimonials============================================== -->
                     <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
@@ -196,20 +181,17 @@ Shopping Room - {{$product->product_name_en}}
 
                                 <div class="price-container info-container m-t-20">
                                     <div class="row">
-
-
                                         <div class="col-sm-6">
                                             <div class="price-box">
 
                                                 @if($product->discount_price == NULL)
-                                                <span class="price">{{$product->selling_price}}</span>
+                                                <span class="price">${{$product->selling_price}}</span>
                                                 @else
-                                                <span class="price-strike">{{$product->selling_price}}</span>
-                                                <span class="price">{{$product->discount_price}}</span>
+                                                <span class="price-strike">${{$product->selling_price}}</span>
+                                                <span class="price">${{$product->discount_price}}</span>
                                                 @endif
                                             </div>
                                         </div>
-
                                         <div class="col-sm-6">
                                             <div class="favorite-button m-t-10">
                                                 <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
@@ -228,7 +210,6 @@ Shopping Room - {{$product->product_name_en}}
                                 </div><!-- /.price-container -->
 
                                 <!-- ============================================== Color and Size: Start ============================================== -->
-
 
                                 <div class="row">
                                     @if($product->product_size_en != NULL)
@@ -287,11 +268,7 @@ Shopping Room - {{$product->product_name_en}}
                                         <div class="col-sm-2">
                                             <div class="cart-quantity">
                                                 <div class="quant-input">
-                                                    <div class="arrows">
-                                                        <div class="arrow plus gradient"><span class="ir"><i class="icon fa fa-sort-asc" style="top: 5px;"></i></span></div>
-                                                        <div class="arrow minus gradient"><span class="ir"><i class="icon fa fa-sort-desc" style="top: -7px;"></i></span></div>
-                                                    </div>
-                                                    <input type="number" id="quantity" value="1" min="1">
+                                                    <input type="number" id="quantity" value="1" min="1" style=" padding: 0 0 0 0; ">
                                                 </div>
                                             </div>
                                         </div>

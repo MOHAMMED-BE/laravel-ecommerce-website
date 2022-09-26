@@ -32,6 +32,8 @@ class IndexController extends Controller
         $special_offers = Product::where('special_offer', 1)->orderBy('id', 'desc')->limit(5)->get();
         $special_deals  = Product::where('special_deals', 1)->orderBy('id', 'desc')->limit(5)->get();
 
+        $order_item = OrderItem::with('product','order')->orderBy('id', 'desc')->limit(7)->get();
+
         $skip_category = Category::skip(1)->first();
         $skip_brand = Brand::skip(0)->first();
         $skip_product  = Product::where('status', 1)->where('category_id', $skip_category->id)->orderBy('id', 'desc')->get();
@@ -55,7 +57,8 @@ class IndexController extends Controller
                                         'skip_product',
                                         'skip_brand',
                                         'skip_product_brand',
-                                        'blogpost'
+                                        'blogpost',
+                                        'order_item'
                                     ));
     }
 

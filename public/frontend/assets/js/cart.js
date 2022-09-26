@@ -18,10 +18,10 @@ function productView(id) {
 
             if (data.product.discount_price == null) {
                 $('#product-old-price').css('display', 'none');
-                $('#product-selling-price').text(data.product.selling_price);
+                $('#product-selling-price').text("$" + data.product.selling_price);
             } else {
-                $('#product-selling-price').text(data.product.discount_price);
-                $('#product-old-price').text(data.product.selling_price).css('display', 'block');
+                $('#product-selling-price').text("$"+data.product.discount_price);
+                $('#product-old-price').text("$" + data.product.selling_price).css('display', 'block');
             }
 
             $('#product-code').text(data.product.product_code);
@@ -238,7 +238,7 @@ function cart() {
                 </td>
 
                 <td class="cart-td col-md-2">
-                <strong>${value.subtotal}</strong>
+                <strong>$${value.subtotal}</strong>
                 </td>
                 
                 <td class="cart-td col-md-1 close-btn">

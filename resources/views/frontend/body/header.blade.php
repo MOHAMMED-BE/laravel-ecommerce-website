@@ -73,19 +73,6 @@ $setting = App\Models\SiteSetting::find(1);
                         <form action="{{route('product.search')}}" method="post">
                             @csrf
                             <div class="control-group">
-                                <ul class="categories-filter animate-dropdown">
-                                    <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown" href="category.html">Categories <b class="caret"></b></a>
-                                        <ul class="dropdown-menu" role="menu">
-                                            @php
-                                            $categories = App\Models\Category::orderBy('category_name_en','asc')->get();
-                                            @endphp
-
-                                            @foreach($categories as $category)
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="category.html">- @if(session()->get('language') == 'english') {{$category->category_name_en}} @else {{$category->category_name_ar}} @endif</a></li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
-                                </ul>
                                 <input class="search-field" onfocus="SearchResultShow()" onblur="SearchResultHide()" name="search" id="search" placeholder="Search here..." required style=" outline: none; " />
                                 <button class="search-button" type="submit"></button>
                             </div>
@@ -126,7 +113,7 @@ $setting = App\Models\SiteSetting::find(1);
                                         <span class='price cart-sub-total'></span>
                                     </div>
                                     <div class="clearfix"></div>
-                                    <a href="checkout.html" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
+                                    <a href="{{route('checkout')}}" class="btn btn-upper btn-primary btn-block m-t-20">Checkout</a>
                                 </div>
                                 <!-- /.cart-total-->
 
@@ -160,7 +147,7 @@ $setting = App\Models\SiteSetting::find(1);
                     <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
                         <div class="nav-outer">
                             <ul class="nav navbar-nav">
-                                <li class="active dropdown yamm-fw"> <a href="home.html" data-hover="dropdown" class="dropdown-toggle" data-toggle="dropdown">
+                                <li class="active dropdown yamm-fw"> <a href="{{('/')}}">
                                         @if(session()->get('language') == 'english') Home @else الرئيسية @endif</a> </li>
 
                                 @php
@@ -211,7 +198,6 @@ $setting = App\Models\SiteSetting::find(1);
                                 </li>
                                 @endforeach
                                 <li><a href="{{route('shop.page')}}">Shop</a></li>
-                                <!-- <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li> -->
                                 <li class="dropdown  navbar-right special-menu"> <a href="{{route('home.blog')}}">Blog</a> </li>
                             </ul>
                             <!-- /.navbar-nav -->
@@ -254,7 +240,6 @@ $setting = App\Models\SiteSetting::find(1);
             </div>
         </div>
     </div>
-
 
 </header>
 

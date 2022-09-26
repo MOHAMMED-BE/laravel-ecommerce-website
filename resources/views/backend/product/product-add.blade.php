@@ -275,7 +275,7 @@ Shopping Room Admin - Add Product
                                             <div class="form-group">
                                                 <h5>English Short Description <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <textarea name="short_desc_en" id="textarea" class="form-control" required placeholder="Textarea text"></textarea>
+                                                    <textarea name="short_desc_en" id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
                                                 </div>
                                                 @error('short_desc_en')
                                                 <span class="text-danger">{{$message}}</span>
@@ -286,7 +286,7 @@ Shopping Room Admin - Add Product
                                             <div class="form-group">
                                                 <h5>Arabic Short Description <span class="text-danger">*</span></h5>
                                                 <div class="controls">
-                                                    <textarea name="short_desc_ar" id="textarea" class="form-control" required placeholder="Textarea text"></textarea>
+                                                    <textarea name="short_desc_ar" id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
                                                 </div>
                                                 @error('short_desc_ar')
                                                 <span class="text-danger">{{$message}}</span>

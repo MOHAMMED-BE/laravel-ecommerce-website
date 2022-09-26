@@ -35,7 +35,7 @@ Shopping Room Admin - Edit Product
                                                     <div class="form-group">
                                                         <h5>Brand Select <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <select name="brand_id" class="form-control" required aria-invalid="false">
+                                                            <select name="brand_id" class="form-control"  aria-invalid="false">
                                                                 <option value="$brand->brand_name_en" selected="" disabled>Select Your Brand</option>
                                                                 @foreach($brand as $item)
                                                                 <option value="{{$item->id}}" {{$item->id == $product->brand_id ? 'selected':''}}>{{$item->brand_name_en}}</option>
@@ -52,7 +52,7 @@ Shopping Room Admin - Edit Product
                                                     <div class="form-group">
                                                         <h5>Category Select <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <select name="category_id" class="form-control" required aria-invalid="false">
+                                                            <select name="category_id" class="form-control"  aria-invalid="false">
                                                                 <option value="" selected="" disabled>Select Your Category</option>
                                                                 @foreach($category as $item)
                                                                 <option value="{{$item->id}}" {{$item->id == $product->category_id ? 'selected':''}}>{{$item->category_name_en}}</option>
@@ -69,7 +69,7 @@ Shopping Room Admin - Edit Product
                                                     <div class="form-group">
                                                         <h5>Sub Category Select <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <select name="subcategory_id" class="form-control" required aria-invalid="false">
+                                                            <select name="subcategory_id" class="form-control"  aria-invalid="false">
                                                                 <option value="" selected="" disabled>Select SubCategory</option>
                                                                 @foreach($subcategory as $subitem)
 
@@ -92,7 +92,7 @@ Shopping Room Admin - Edit Product
                                                     <div class="form-group">
                                                         <h5>Sub-SubCategory Select <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <select name="subsubcategory_id" class="form-control" required aria-invalid="false">
+                                                            <select name="subsubcategory_id" class="form-control"  aria-invalid="false">
                                                                 <option value="" selected="" disabled>Select Sub-SubCategory</option>
                                                                 @foreach($subsubcategory as $subitem)
 
@@ -109,7 +109,7 @@ Shopping Room Admin - Edit Product
                                                     <div class="form-group">
                                                         <h5>Product Name En <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="text" name="product_name_en" value="{{$product->product_name_en}}" class="form-control" required>
+                                                            <input type="text" name="product_name_en" value="{{$product->product_name_en}}" class="form-control" >
                                                         </div>
                                                         @error('product_name_en')
                                                         <span class="text-danger">{{$message}}</span>
@@ -120,7 +120,7 @@ Shopping Room Admin - Edit Product
                                                     <div class="form-group">
                                                         <h5>Product Name Ar <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="text" name="product_name_ar" value="{{$product->product_name_ar}}" class="form-control" required>
+                                                            <input type="text" name="product_name_ar" value="{{$product->product_name_ar}}" class="form-control" >
                                                         </div>
                                                         @error('product_name_ar')
                                                         <span class="text-danger">{{$message}}</span>
@@ -137,7 +137,7 @@ Shopping Room Admin - Edit Product
                                                     <div class="form-group">
                                                         <h5>Product Code <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="text" name="product_code" value="{{$product->product_code}}" class="form-control" required>
+                                                            <input type="text" name="product_code" value="{{$product->product_code}}" class="form-control" >
                                                         </div>
                                                         @error('product_code')
                                                         <span class="text-danger">{{$message}}</span>
@@ -148,7 +148,7 @@ Shopping Room Admin - Edit Product
                                                     <div class="form-group">
                                                         <h5>Product Quantity <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="text" name="product_quantity" value="{{$product->product_quantity}}" class="form-control" required>
+                                                            <input type="text" name="product_quantity" value="{{$product->product_quantity}}" class="form-control" >
                                                         </div>
                                                         @error('product_quantity')
                                                         <span class="text-danger">{{$message}}</span>
@@ -234,7 +234,7 @@ Shopping Room Admin - Edit Product
                                                     <div class="form-group">
                                                         <h5>Product Selling Price <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <input type="text" name="selling_price" value="{{$product->selling_price}}" class="form-control" required>
+                                                            <input type="text" name="selling_price" value="{{$product->selling_price}}" class="form-control" >
                                                         </div>
                                                         @error('selling_price')
                                                         <span class="text-danger">{{$message}}</span>
@@ -264,7 +264,7 @@ Shopping Room Admin - Edit Product
                                                     <div class="form-group">
                                                         <h5>English Short Description <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <textarea name="short_desc_en" id="textarea" class="form-control" required placeholder="Textarea text">
+                                                            <textarea name="short_desc_en" id="textarea" class="form-control"  placeholder="Textarea text">
                                                         {!! $product->short_desc_en !!}
                                                     </textarea>
                                                         </div>
@@ -277,7 +277,7 @@ Shopping Room Admin - Edit Product
                                                     <div class="form-group">
                                                         <h5>Arabic Short Description <span class="text-danger">*</span></h5>
                                                         <div class="controls">
-                                                            <textarea name="short_desc_ar" id="textarea" class="form-control" required placeholder="Textarea text">
+                                                            <textarea name="short_desc_ar" id="textarea" class="form-control"  placeholder="Textarea text">
                                                         {!! $product->short_desc_ar !!}
                                                     </textarea>
                                                         </div>

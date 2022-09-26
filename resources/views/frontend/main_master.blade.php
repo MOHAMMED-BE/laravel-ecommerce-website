@@ -2,7 +2,7 @@
 <html lang="en">
 
 @php
-  $seo = App\Models\Seo::find(1);
+$seo = App\Models\Seo::find(1);
 @endphp
 
 <head>
@@ -15,7 +15,7 @@
   <meta name="keywords" content="{{$seo->meta_keyword}}">
   <meta name="robots" content="all">
   <script>
-    {{$seo->google_analytics}}
+  {{$seo->google_analytics}}
   </script>
   <title>@yield('title')</title>
 
@@ -31,7 +31,7 @@
   <link rel="stylesheet" href="{{asset('frontend/assets/css/rateit.css')}}">
   <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap-select.min.css')}}">
   <link rel="icon" href="{{ asset('assets/icons/icon-5.ico')}}">
-  <!-- Icons/Glyphs -->
+  <!-- Icons -->
   <link rel="stylesheet" href="{{asset('frontend/assets/css/font-awesome.css')}}">
 
   <!-- Fonts -->
@@ -44,10 +44,7 @@
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/js/all.min.js"></script>
-
   <script src="https://js.stripe.com/v3/"></script>
-
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-632b76a864b62174"></script>
 
 </head>
 
@@ -84,6 +81,7 @@
   <script src="{{asset('frontend/assets/js/cart.js')}}"></script>
   <script src="{{asset('frontend/assets/js/wishlist.js')}}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-632b76a864b62174"></script>
 
   <script>
     @if(Session::has('message'))
@@ -191,7 +189,7 @@
 
         success: function(data) {
           couponCalculation();
-          if(data.validity == true){
+          if (data.validity == true) {
             $('#coupon-field').hide();
           }
 
@@ -244,8 +242,8 @@
                 </th>
               </tr>
             `)
-          }// end if
-          else{
+          } // end if
+          else {
             $('#coupon-cal-field ').html(`
               <tr>
                 <th style="text-align:start;">
@@ -264,8 +262,8 @@
                 </th>
               </tr>
             `)
-            
-          }// end else
+
+          } // end else
         }
       })
     }
@@ -276,7 +274,6 @@
   </script>
 
   <script>
-    
     // <!-- // ========================= CouponRemove Start -->
 
     function CouponRemove() {
@@ -310,7 +307,7 @@
             })
           }
           // End Message
-          
+
         }
       })
     }
@@ -321,31 +318,30 @@
 
 
 
-<script>
-  // <!-- // get district -->
-  $(document).ready(function() {
-        $('select[name="division_id"]').on('change', function() {
-          var division_id = $(this).val();
-          if (division_id) {
-            $.ajax({
-              url: "{{ url('/shipping/district/ajax') }}/" + division_id,
-              type: "GET",
-              dataType: "json",
-              success: function(data) {
-                var d = $('select[name="district_id"]').empty();
-                $.each(data, function(key, value) {
-                  $('select[name="district_id"]').append('<option value="' + value.id + '">' + value.district_name + '</option>');
-                });
-              },
-            });
-          } else {
-            alert('danger');
-          }
-        });
-
+  <script>
+    // <!-- // get district -->
+    $(document).ready(function() {
+      $('select[name="division_id"]').on('change', function() {
+        var division_id = $(this).val();
+        if (division_id) {
+          $.ajax({
+            url: "{{ url('/shipping/district/ajax') }}/" + division_id,
+            type: "GET",
+            dataType: "json",
+            success: function(data) {
+              var d = $('select[name="district_id"]').empty();
+              $.each(data, function(key, value) {
+                $('select[name="district_id"]').append('<option value="' + value.id + '">' + value.district_name + '</option>');
+              });
+            },
+          });
+        } else {
+          alert('danger');
+        }
       });
 
-</script>
+    });
+  </script>
 
 
 </body>
