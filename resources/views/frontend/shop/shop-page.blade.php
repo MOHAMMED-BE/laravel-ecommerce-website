@@ -8,7 +8,7 @@ Shopping Room - Shop
     <div class="container">
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
-            <li><a href="{{('/')}}">Home</a></li>
+                <li><a href="{{('/')}}">Home</a></li>
                 <li><a href="#">Shop Page</a></li>
 
             </ul>
@@ -55,7 +55,7 @@ Shopping Room - Shop
                             </div> -->
                             <!-- /.sidebar-widget -->
                             <!-- ============================================== PRICE SILDER : END ============================================== -->
-                            
+
                             <!-- ============================================== PRODUCT TAGS ============================================== -->
 
                             @include('frontend.common.product-tags')
@@ -63,10 +63,8 @@ Shopping Room - Shop
                             <!-- ============================================== PRODUCT TAGS : END ============================================== -->
                             <!-- /.sidebar-widget -->
 
-                            
                             <!-- ============================================== Testimonials: END ============================================== -->
 
-                            
                         </div>
                         <!-- /.sidebar-filter -->
                     </div>

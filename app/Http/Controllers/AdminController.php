@@ -35,7 +35,6 @@ class AdminController extends Controller
     public function __construct(StatefulGuard $guard)
     {
         $this->guard = $guard;
-        // dd($this->guard);
     }
 
     public function loginForm(){
@@ -100,7 +99,7 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Laravel\Fortify\Contracts\LogoutResponse
      */
-    public function destroy(Request $request): LogoutResponse
+    public function destroy(Request $request)
     {
         $this->guard->logout();
 
@@ -108,6 +107,6 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return app(LogoutResponse::class);
+        return redirect()->route('admin.login');
     }
 }

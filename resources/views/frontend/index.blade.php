@@ -391,7 +391,7 @@ Shopping Room - Start Your Orders Today
                 </div>
                 <!-- /.scroll-tabs -->
                 <!-- ============================================== SCROLL TABS : END ============================================== -->
-               
+
                 <!-- ============================================== FEATURED PRODUCTS ============================================== -->
                 <section class="section featured-product wow fadeInUp">
                     <h3 class="section-title">Featured products</h3>
@@ -452,7 +452,7 @@ Shopping Room - Start Your Orders Today
                 </section>
                 <!-- /.section -->
                 <!-- ============================================== FEATURED PRODUCTS : END ============================================== -->
-              
+
                 <!-- ============================================== BEST SELLER ============================================== -->
 
                 <div class="best-deal wow fadeInUp outer-bottom-xs">
@@ -488,7 +488,7 @@ Shopping Room - Start Your Orders Today
                                                         $avarage = App\Models\Review::where('product_id',$item->product->id)->where('status',1)->avg('rating');
                                                         @endphp
                                                         @if($avarage == 0)
-                                                        
+
 
                                                         @elseif($avarage == 1 || $avarage < 2) <span class="fa fa-star checked"></span>
                                                             <span class="fa fa-star"></span>
@@ -706,8 +706,8 @@ Shopping Room - Start Your Orders Today
                 <section class="section wow fadeInUp new-arriavls">
                     <h3 class="section-title">Recent Products Sold</h3>
                     <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
-                    @foreach($order_item as $order)
-                                    @if($order->order->status == 'pending')
+                        @foreach($order_item as $order)
+                        @if($order->order->status == 'pending')
                         <div class="item item-carousel">
                             <div class="products">
                                 <div class="product">
@@ -716,69 +716,69 @@ Shopping Room - Start Your Orders Today
                                         <!-- /.image -->
 
                                         @php
-                                                    $amount = $order->product->selling_price - $order->product->discount_price;
-                                                    $discount = ($amount/$order->product->selling_price) * 100;
-                                                    @endphp
-                                                    @if($order->product->discount_price == NULL)
-                                                    <div class="tag new"><span>new</span></div>
-                                                    @else
-                                                    <div class="tag hot"><span>{{round($discount)}} %</span></div>
-                                                    @endif
+                                        $amount = $order->product->selling_price - $order->product->discount_price;
+                                        $discount = ($amount/$order->product->selling_price) * 100;
+                                        @endphp
+                                        @if($order->product->discount_price == NULL)
+                                        <div class="tag new"><span>new</span></div>
+                                        @else
+                                        <div class="tag hot"><span>{{round($discount)}} %</span></div>
+                                        @endif
                                     </div>
                                     <!-- /.product-image -->
 
                                     <div class="product-info text-left">
                                         <h3 class="name"><a href="{{url('product/details/'.$order->product->id.'/'.$order->product->product_slug_en)}}">{{$order->product->product_name_en}}</a></h3>
                                         <div class="col-md-3" style=" display: contents; ">
-                                                        @php
-                                                        $avarage = App\Models\Review::where('product_id',$order->product->id)->where('status',1)->avg('rating');
-                                                        @endphp
-                                                        @if($avarage == 0)
-                                                        
+                                            @php
+                                            $avarage = App\Models\Review::where('product_id',$order->product->id)->where('status',1)->avg('rating');
+                                            @endphp
+                                            @if($avarage == 0)
 
-                                                        @elseif($avarage == 1 || $avarage < 2) <span class="fa fa-star checked"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
-                                                            <span class="fa fa-star"></span>
+
+                                            @elseif($avarage == 1 || $avarage < 2) <span class="fa fa-star checked"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+                                                <span class="fa fa-star"></span>
+
+                                                @elseif($avarage == 2 || $avarage < 3) <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star checked"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    <span class="fa fa-star"></span>
+                                                    @elseif($avarage == 3 || $avarage < 4) <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star checked"></span>
+                                                        <span class="fa fa-star"></span>
+                                                        <span class="fa fa-star"></span>
+
+                                                        @elseif($avarage == 4 || $avarage < 5) <span class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star checked"></span>
+                                                            <span class="fa fa-star checked"></span>
                                                             <span class="fa fa-star"></span>
 
-                                                            @elseif($avarage == 2 || $avarage < 3) <span class="fa fa-star checked"></span>
+                                                            @elseif($avarage == 5 || $avarage < 5) <span class="fa fa-star checked"></span>
                                                                 <span class="fa fa-star checked"></span>
-                                                                <span class="fa fa-star"></span>
-                                                                <span class="fa fa-star"></span>
-                                                                <span class="fa fa-star"></span>
-                                                                @elseif($avarage == 3 || $avarage < 4) <span class="fa fa-star checked"></span>
-                                                                    <span class="fa fa-star checked"></span>
-                                                                    <span class="fa fa-star checked"></span>
-                                                                    <span class="fa fa-star"></span>
-                                                                    <span class="fa fa-star"></span>
-
-                                                                    @elseif($avarage == 4 || $avarage < 5) <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star checked"></span>
-                                                                        <span class="fa fa-star"></span>
-
-                                                                        @elseif($avarage == 5 || $avarage < 5) <span class="fa fa-star checked"></span>
-                                                                            <span class="fa fa-star checked"></span>
-                                                                            <span class="fa fa-star checked"></span>
-                                                                            <span class="fa fa-star checked"></span>
-                                                                            <span class="fa fa-star checked"></span>
-                                                                            @endif
-                                                    </div>
+                                                                <span class="fa fa-star checked"></span>
+                                                                <span class="fa fa-star checked"></span>
+                                                                <span class="fa fa-star checked"></span>
+                                                                @endif
+                                        </div>
                                         <div class="description"></div>
                                         @if($order->product->discount_price == NULL)
-                                                        <div class="product-price"> <span class="price"> {{$order->product->selling_price}} $ </span> </div>
-                                                        @else
-                                                        <div class="product-price"> <span class="price"> {{$order->product->discount_price}} $ </span> <span class="price-before-discount">{{$order->product->selling_price}} $</span> </div>
-                                                        <!-- /.product-price -->
-                                                        @endif
+                                        <div class="product-price"> <span class="price"> {{$order->product->selling_price}} $ </span> </div>
+                                        @else
+                                        <div class="product-price"> <span class="price"> {{$order->product->discount_price}} $ </span> <span class="price-before-discount">{{$order->product->selling_price}} $</span> </div>
+                                        <!-- /.product-price -->
+                                        @endif
 
                                     </div>
                                     <!-- /.product-info -->
                                     <div class="cart clearfix animate-effect">
                                         <div class="action">
-                                        <ul class="list-unstyled">
+                                            <ul class="list-unstyled">
                                                 <li class="add-cart-button btn-group">
                                                     <button class="btn btn-primary icon" title="Add Cart" type="button" data-toggle="modal" data-target="#exampleModal" id="{{$product->id}}" onclick="productView(this.id)"> <i class="fa fa-shopping-cart"></i> </button>
                                                     <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
@@ -800,9 +800,8 @@ Shopping Room - Start Your Orders Today
                         </div>
                         <!-- /.item -->
                         @endif
-                        
-                        @endforeach
 
+                        @endforeach
 
                     </div>
                     <!-- /.home-owl-carousel -->

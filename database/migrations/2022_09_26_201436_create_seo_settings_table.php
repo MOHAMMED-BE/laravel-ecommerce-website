@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('seos', function (Blueprint $table) {
+        Schema::create('seo_settings', function (Blueprint $table) {
             $table->id();
             $table->string('meta_title')->nullable();
             $table->string('meta_author')->nullable();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('seos');
+        Schema::dropIfExists('seo_settings');
     }
 };

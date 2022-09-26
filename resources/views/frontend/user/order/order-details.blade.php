@@ -39,17 +39,17 @@ Shopping Room - Order Details
                                 </tr>
 
                                 <tr>
-                                    <th>Division : </th>
+                                    <th>Country : </th>
                                     <th>{{$order->division->division_name}}</th>
                                 </tr>
 
                                 <tr>
-                                    <th>District : </th>
+                                    <th>Region : </th>
                                     <th>{{$order->district->district_name}}</th>
                                 </tr>
 
                                 <tr>
-                                    <th>State : </th>
+                                    <th>City : </th>
                                     <th>{{$order->state->state_name}}</th>
                                 </tr>
 
@@ -73,33 +73,15 @@ Shopping Room - Order Details
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Order Details
-                            <span class="text-danger">Invoice No : {{$order->invoice_no}}</span>
-                        </h4>
+                        <h4>Order Details</h4>
                     </div>
                     <hr>
                     <div class="card-body">
-                        <!-- style="background:#E9EBEC;" -->
                         <table class="table">
                             <tbody class="user-dash-table">
                                 <tr>
-                                    <th>Name : </th>
-                                    <th>{{$order->user->name}}</th>
-                                </tr>
-
-                                <tr>
-                                    <th>Phone : </th>
-                                    <th>{{$order->user->phone}}</th>
-                                </tr>
-
-                                <tr>
                                     <th>Payment Type : </th>
                                     <th>{{$order->payment_method}}</th>
-                                </tr>
-
-                                <tr>
-                                    <th>Tarnx Id : </th>
-                                    <th>{{$order->transaction_id}}</th>
                                 </tr>
 
                                 <tr>
@@ -113,7 +95,7 @@ Shopping Room - Order Details
                                 </tr>
 
                                 <tr>
-                                    <th>Order : </th>
+                                    <th>Status : </th>
                                     <td><span class="badge badge-pill badge-warning" style="background:#418D89;">{{$order->status}}</span></td>
                                 </tr>
                             </tbody>
@@ -134,16 +116,16 @@ Shopping Room - Order Details
                                     <td class="col-md-1">
                                         <label for="">Image</label>
                                     </td>
-                                    <td class="col-md-2">
+                                    <td class="col-md-4">
                                         <label for="">Product Name</label>
                                     </td>
                                     <td class="col-md-2">
                                         <label for="">Product Code</label>
                                     </td>
-                                    <td class="col-md-2">
+                                    <td class="col-md-1">
                                         <label for="">Color</label>
                                     </td>
-                                    <td class="col-md-2">
+                                    <td class="col-md-1">
                                         <label for="">Size</label>
                                     </td>
                                     <td class="col-md-1">
@@ -168,17 +150,26 @@ Shopping Room - Order Details
                                     <td class="col-md-1">
                                         <label for=""><img class="any-img" src="{{asset($item->product->product_thumbnail)}}" height="80px" width="80px"></label>
                                     </td>
-                                    <td class="col-md-2">
-                                        <label for="">{{$item->product->product_name_en}}</label>
+                                    <td class="col-md-4">
+                                        <label for="" style=" text-align: start; ">{{$item->product->product_name_en}}</label>
                                     </td>
                                     <td class="col-md-2">
                                         <label for="">{{$item->product->product_code}}</label>
                                     </td>
-                                    <td class="col-md-2">
+
+                                    <td class="col-md-1">
+                                        @if($item->color != NULL)
                                         <label for="">{{$item->color}}</label>
+                                        @else
+                                        ---
+                                        @endif
                                     </td>
-                                    <td class="col-md-2">
+                                    <td class="col-md-1">
+                                        @if($item->size != NULL)
                                         <label for="">{{$item->size}}</label>
+                                        @else
+                                        ---
+                                        @endif
                                     </td>
                                     <td class="col-md-1">
                                         <label for="">{{$item->qty}}</label>

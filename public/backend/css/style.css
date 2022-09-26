@@ -24045,3 +24045,10 @@ img.away, img.busy, img.offline, img.online {
   box-shadow: 0 0.1rem 0.9rem 0 rgb(22 39 86 / 15%);
   margin: 10px 0 5px 0;
 }
+
+
+.admin-bg{
+  background-attachment: fixed;
+  background-image: url(../../assets/admin-bg-1.png);
+  background-size: cover;
+}

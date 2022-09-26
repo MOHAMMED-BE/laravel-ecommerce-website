@@ -32,10 +32,10 @@ Shopping Room - Orders
                                 <td class="col-md-2">
                                     <label for="">Invoice</label>
                                 </td>
-                                <td class="col-md-2">
+                                <td class="col-md-1">
                                     <label for="">Order</label>
                                 </td>
-                                <td class="col-md-1">
+                                <td class="col-md-3">
                                     <label for="">Action</label>
                                 </td>
                             </tr>
@@ -54,7 +54,7 @@ Shopping Room - Orders
                                 <td class="col-md-2">
                                     <label for="">{{$order->invoice_no}}</label>
                                 </td>
-                                <td class="col-md-2">
+                                <td class="col-md-1">
                                     <label for="">
                                     @if($order->status == 'pending')
                                     <span class="badge badge-pill badge-warning" style="background:#7733ff;">Pending</span>
@@ -73,9 +73,9 @@ Shopping Room - Orders
                                     @endif
                                     </label>
                                 </td>
-                                <td class="col-md-2">
-                                <a href="{{ url('user/order-details/'.$order->id)}}" class="btn btn-sm btn-info"><i class="fa fa-eye"></i> View</a>
-                                <a href="{{ url('user/invoice-download/'.$order->id)}}" target="_blank" class="btn btn-sm btn-info"><i class="fa fa-download"></i> Invoice</a>
+                                <td class="col-md-3">
+                                <a href="{{ url('user/order-details/'.$order->id)}}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+                                <a href="{{ url('user/invoice-download/'.$order->id)}}" target="_blank" class="btn btn-sm btn-danger"><i class="fa fa-download"></i></a>
                                 </td>
                             </tr>
                             @endforeach

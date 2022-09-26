@@ -1,6 +1,9 @@
 @php
 $prefix = Request::route()->getPrefix();
 $route = Route::current()->getName();
+
+$setting = App\Models\SiteSetting::find(1);
+
 @endphp
 
 
@@ -14,8 +17,7 @@ $route = Route::current()->getName();
         <a href="{{url('admin/dashboard')}}">
           <!-- logo for regular statee and mobile devices -->
           <div class="d-flex align-items-center justify-content-center">
-            <!-- <img src="{{ asset('backend/images/logo-dark.png') }}" alt=""> -->
-            <h3>Shopping Room Admin</h3>
+            <img src="{{asset($setting->logo)}}" alt="" style=" transform: scale(0.7); margin: -10px 0 0 0; ">
           </div>
         </a>
       </div>

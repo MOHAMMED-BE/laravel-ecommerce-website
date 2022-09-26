@@ -2,7 +2,7 @@
 <html lang="en">
 
 @php
-$seo = App\Models\Seo::find(1);
+$seo = App\Models\SeoSetting::find(1);
 @endphp
 
 <head>
