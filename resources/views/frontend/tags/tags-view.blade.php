@@ -141,7 +141,10 @@ Shopping Room - Tags Search Results
 
                         <div class="product-info text-left">
                           <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
-                          <div class="rating rateit-small"></div>
+                          @php
+                                                        $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                                                        @endphp
+                                                        @include('frontend.common.rating')
                           <div class="description"></div>
                           @php
                           $product->discount_price = $product->selling_price - $product->discount_price
@@ -198,7 +201,10 @@ Shopping Room - Tags Search Results
                         <div class="col col-sm-8 col-lg-8">
                           <div class="product-info">
                             <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
-                            <div class="rating rateit-small"></div>
+                            @php
+                                                        $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                                                        @endphp
+                                                        @include('frontend.common.rating')
                             @php
                             $product->discount_price = $product->selling_price - $product->discount_price
                             @endphp

@@ -4,12 +4,6 @@
 Shopping Room - Start Your Orders Today
 @endsection
 
-<style>
-    .checked {
-        color: orange;
-    }
-</style>
-
 <div class="body-content outer-top-xs" id="top-banner-and-menu">
     <div class="container">
         <div class="row">

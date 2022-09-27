@@ -23,7 +23,10 @@ $hot_deals = App\Models\Product::where('hot_deals',1)->where('discount_price','!
 
                 <div class="product-info text-left m-t-20">
                     <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif </a></h3>
-                    <div class="rating rateit-small"></div>
+                    @php
+                                                        $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                                                        @endphp
+                                                        @include('frontend.common.rating')
                     <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
                     <!-- /.product-price -->
 

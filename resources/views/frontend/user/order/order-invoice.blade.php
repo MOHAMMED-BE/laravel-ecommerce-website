@@ -30,14 +30,12 @@
         }
 
         .authority {
-            /*text-align: center;*/
             float: right
         }
 
         .authority h5 {
             margin-top: -10px;
             color: green;
-            /*text-align: center;*/
             margin-left: 35px;
         }
 
@@ -50,7 +48,7 @@
             margin-top: 20px;
         }
 
-        .td-align{
+        .td-align {
             text-align: center;
         }
     </style>
@@ -62,16 +60,14 @@
     <table width="100%" style="background: #F7F7F7; padding:0 20px 0 20px;">
         <tr>
             <td valign="top">
-                <!-- {{-- <img src="" alt="" width="150"/> --}} -->
-                <h2 style="color: green; font-size: 26px;"><strong>EasyShop</strong></h2>
+                <h2 style="color: green; font-size: 26px;"><strong>Shopping Room</strong></h2>
             </td>
             <td align="right">
                 <pre class="font">
-               EasyShop Head Office
-               Email:support@easylearningbd.com <br>
-               Mob: 1245454545 <br>
-               Dhaka 1207,Dhanmondi:#4 <br>
-              
+               Shopping Room Head Office
+               Email : support@shoppingroom.com <br>
+               Phone : +21268367549 <br>
+               Moroco, Oujda <br>
             </pre>
             </td>
         </tr>
@@ -103,7 +99,6 @@
                 <p class="font">
                 <h3><span style="color: green;">Invoice:</span> {{$order->invoice_no}}</h3>
                 Order Date: {{$order->order_date}} <br>
-                Delivery Date: {{$order->delivered_date}} <br>
                 Payment Type : {{$order->payment_method}} </span>
                 </p>
             </td>
@@ -163,7 +158,6 @@
             <td align="right">
                 <h2><span style="color: green;">Subtotal:</span> ${{$order->amount}}</h2>
                 <h2><span style="color: green;">Total:</span> ${{$order->amount}}</h2>
-                <!-- {{-- <h2><span style="color: green;">Full Payment PAID</h2> --}} -->
             </td>
         </tr>
     </table>

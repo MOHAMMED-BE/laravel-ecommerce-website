@@ -34,7 +34,7 @@ $old_pending = App\Models\Order::where('order_month',$prev_month)->where('status
 
 $new_pending = App\Models\Order::where('order_month',$this_month)->where('status','pending')->get();
 
-$order_item = App\Models\OrderItem::with('product','order')->get();
+$order_item = App\Models\OrderItem::with('product','order')->orderby('id','desc')->get();
 
 @endphp
 
