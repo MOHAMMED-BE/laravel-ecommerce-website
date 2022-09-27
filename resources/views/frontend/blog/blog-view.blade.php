@@ -1,7 +1,7 @@
 @extends('frontend.main_master')
 @section('content')
 @section('title')
-Shopping Room - Blogs
+Shopping Room - Blog
 @endsection
 
 <div class="breadcrumb">
@@ -26,8 +26,8 @@ Shopping Room - Blogs
                         <h1>
                             <a href="{{route('blog.details',$post->id)}}">@if(session()->get('language') == 'english') {{$post->post_title_en}} @else {{$post->post_title_ar}} @endif</a>
                         </h1>
-                        <span class="author">John Doe</span>
-                        <span class="review">6 Comments</span>
+                        <!-- <span class="author"></span>
+                        <span class="review"></span> -->
                         <span class="date-time">{{Carbon\Carbon::parse($post->created_at)->diffForHumans()}}</span>
                         <p>@if(session()->get('language') == 'english') {!! Str::limit($post->post_details_en,500) !!} @else {!! Str::limit($post->post_details_ar,500) !!} @endif</p>
                         <a href="{{route('blog.details',$post->id)}}" class="btn btn-upper btn-primary read-more">read more</a>
@@ -55,18 +55,6 @@ Shopping Room - Blogs
                 <div class="col-md-3 sidebar">
 
                     <div class="sidebar-module-container">
-                        <div class="search-area outer-bottom-small">
-                            <form>
-                                <div class="control-group">
-                                    <input placeholder="Type to search" class="search-field">
-                                    <a href="#" class="search-button"></a>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="home-banner outer-top-n outer-bottom-xs">
-                            <img src="{{asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image">
-                        </div>
                         <!-- ==============================================CATEGORY============================================== -->
                         <div class="sidebar-widget outer-bottom-xs wow fadeInUp">
                             <h3 class="section-title">Category</h3>
@@ -84,10 +72,6 @@ Shopping Room - Blogs
                             </div><!-- /.sidebar-widget-body -->
                         </div><!-- /.sidebar-widget -->
                         <!-- ============================================== CATEGORY : END ============================================== -->
-                        <!-- ============================================== PRODUCT TAGS ============================================== -->
-                        @include('frontend.common.product-tags')
-
-                        <!-- ============================================== PRODUCT TAGS : END ============================================== -->
                     </div>
                 </div>
             </div>

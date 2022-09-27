@@ -189,7 +189,6 @@ $setting = App\Models\SiteSetting::find(1);
                                                     </div>
                                                     @endforeach
                                                     <!-- /.col -->
-                                                    <div class="col-xs-12 col-sm-6 col-md-4 col-menu banner-image"> <img class="img-responsive" src="{{asset('frontend/assets/images/banners/top-menu-banner.jpg')}}" alt=""> </div>
                                                     <!-- /.yamm-content -->
                                                 </div>
                                             </div>

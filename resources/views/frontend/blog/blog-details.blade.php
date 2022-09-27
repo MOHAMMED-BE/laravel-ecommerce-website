@@ -23,8 +23,8 @@ Shopping Room - Blog Details
                     <div class="blog-post wow fadeInUp">
                         <img class="img-responsive post-img" src="{{asset($post->post_image)}}" alt="">
                         <h1>@if(session()->get('language') == 'english') {{$post->post_title_en}} @else {{$post->post_title_ar}} @endif</h1>
-                        <span class="author">John Doe</span>
-                        <span class="review">7 Comments</span>
+                        <!-- <span class="author"></span>
+                        <span class="review"></span> -->
                         <span class="date-time">{{Carbon\Carbon::parse($post->created_at)->diffForHumans()}}</span>
                         <div class="addthis_inline_share_toolbox"></div>
                         <p>@if(session()->get('language') == 'english') {!! $post->post_details_en !!} @else {!! $post->post_details_ar !!} @endif</p>
@@ -77,18 +77,6 @@ Shopping Room - Blog Details
                 <div class="col-md-3 sidebar">
 
                     <div class="sidebar-module-container">
-                        <div class="search-area outer-bottom-small">
-                            <form>
-                                <div class="control-group">
-                                    <input placeholder="Type to search" class="search-field">
-                                    <a href="#" class="search-button"></a>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="home-banner outer-top-n outer-bottom-xs">
-                            <img src="{{asset('frontend/assets/images/banners/LHS-banner.jpg')}}" alt="Image">
-                        </div>
                         <!-- ==============================================CATEGORY============================================== -->
                         <div class="sidebar-widget outer-bottom-xs wow fadeInUp">
                             <h3 class="section-title">Category</h3>
@@ -106,10 +94,6 @@ Shopping Room - Blog Details
                             </div><!-- /.sidebar-widget-body -->
                         </div><!-- /.sidebar-widget -->
                         <!-- ============================================== CATEGORY : END ============================================== -->
-                        <!-- ============================================== PRODUCT TAGS ============================================== -->
-                        @include('frontend.common.product-tags')
-
-                        <!-- ============================================== PRODUCT TAGS : END ============================================== -->
                     </div>
                 </div>
             </div>
