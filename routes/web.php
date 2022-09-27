@@ -351,6 +351,7 @@ Route::prefix('reports')->group(function(){
 
 Route::prefix('allusers')->group(function(){
     Route::get('/view', [AdminProfileController::class, 'AllUsers'])->name('all.users');
+    Route::get('/delete/{id}', [AdminProfileController::class, 'DeleteUser'])->name('user.delete');
 
 });
 

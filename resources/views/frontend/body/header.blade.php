@@ -197,7 +197,7 @@ $setting = App\Models\SiteSetting::find(1);
                                 </li>
                                 @endforeach
                                 <li><a href="{{route('shop.page')}}">Shop</a></li>
-                                <li class="dropdown  navbar-right special-menu"> <a href="{{route('home.blog')}}">Blog</a> </li>
+                                <li class="dropdown  navbar-right special-menu" style="display: none;"> <a href="{{route('home.blog')}}">Blog</a> </li>
                             </ul>
                             <!-- /.navbar-nav -->
                             <div class="clearfix"></div>

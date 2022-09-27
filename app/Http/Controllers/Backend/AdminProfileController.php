@@ -89,4 +89,22 @@ class AdminProfileController extends Controller
         return view('backend.user.all-users',compact('users'));
 
     } // end AllUsers
+
+    public function DeleteUser($id){
+
+        $user = User::findOrFail($id);
+        if($user->profile_photo_path != NULL){
+            $user_img = $user->profile_photo_path;
+            unlink("upload/user-images/".$user_img);
+        }
+
+        User::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'User Deleted Successfully',
+            'alert-type' => 'info'
+        );
+
+        return redirect()->route('all.users')->with($notification);
+    } // end DeleteUser
 }

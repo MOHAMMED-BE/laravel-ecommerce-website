@@ -50,8 +50,7 @@ Shopping Room Admin - User List
                                         </td>
 
                                         <td class="text-center">
-                                            <a href=""   title="Edit Data" class="btn btn-info"><i class="fa fa-pencil"></i></a>
-                                            <a href="" title="Delete Data" class="btn btn-danger" id="delete" ><i class="fa fa-trash"></i></a>
+                                            <a href="{{ route('user.delete',$user->id)}}" title="Delete Data" class="btn btn-danger" id="delete" ><i class="fa fa-trash"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach

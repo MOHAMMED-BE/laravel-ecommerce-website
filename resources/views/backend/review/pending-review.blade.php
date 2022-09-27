@@ -45,6 +45,7 @@ Shopping Room Admin - Pending Reviews
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route('review.approve',$review->id)}}" class="btn btn-success">Approve</a>
+                                            <a href="{{ route('review.delete',$review->id)}}" id="delete" class="btn btn-danger">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach

@@ -44,7 +44,7 @@ Shopping Room Admin - Publish Reviews
                                             @endif
                                         </td>
                                         <td class="text-center">
-                                            <a href="{{ route('review.delete',$review->id)}}" title="Delete Data" class="btn btn-danger" id="delete">Delete</a>
+                                            <a href="{{ route('review.delete',$review->id)}}" id="delete"  title="Delete Data" class="btn btn-danger" id="delete">Delete</a>
                                         </td>
                                     </tr>
                                     @endforeach

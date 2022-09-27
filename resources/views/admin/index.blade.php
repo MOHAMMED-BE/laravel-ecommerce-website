@@ -34,6 +34,8 @@ $old_pending = App\Models\Order::where('order_month',$prev_month)->where('status
 
 $new_pending = App\Models\Order::where('order_month',$this_month)->where('status','pending')->get();
 
+$today_orders = App\Models\Order::where('order_date',$this_day)->where('status','pending')->get();
+
 $order_item = App\Models\OrderItem::with('product','order')->orderby('id','desc')->get();
 
 @endphp
@@ -126,7 +128,7 @@ $order_item = App\Models\OrderItem::with('product','order')->orderby('id','desc'
                     <div class="box-header">
                         <h4 class="box-title align-items-start flex-column">
                             Recents Orders
-                            <small class="subtitle">More than {{count($new_pending)}}+ new orders</small>
+                            <small class="subtitle">More than {{count($today_orders)}}+ new orders</small>
                         </h4>
                     </div>
                     <div class="box-body">
