@@ -29,7 +29,7 @@ Shopping Room Admin - Edit Sub-SubCategory
                                     <h5>Category Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <select name="category_id" id="categoryselect" class="form-control" aria-invalid="false">
-                                        <option value="" selected="" disabled>Select Your Category</option>
+                                        <option value="" selected="" disabled>Select  Category</option>
                                             @foreach($category as $item)
                                             <option value="{{$item->id}}" {{$item->id == $subsubcategory->category_id ? 'selected' : ''}} >{{$item->category_name_en}}</option>
                                             @endforeach

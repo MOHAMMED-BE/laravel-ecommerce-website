@@ -60,7 +60,7 @@ Shopping Room Admin - Add Blog Post
                                                 <h5>BlogCategory Select <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <select name="category_id" class="form-control" required aria-invalid="false">
-                                                        <option value="" selected="" disabled>Select Your Category</option>
+                                                        <option value="" selected="" disabled>Select  Category</option>
                                                         @foreach($blogcategory as $item)
                                                         <option value="{{$item->id}}">{{$item->blog_category_name_en}}</option>
                                                         @endforeach

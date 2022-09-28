@@ -13,7 +13,7 @@ Shopping Room Admin - Edit SubCategory list
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">SubCategory List <span class="badge badge-pill badge-info">{{count($subcategory)}}</h3>
+                        <h3 class="box-title">SubCategory List <span class="badge badge-pill badge-info">{{count($subcategory)}}</span></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -66,7 +66,7 @@ Shopping Room Admin - Edit SubCategory list
                                     <h5>Category Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <select name="category_id" class="form-control" aria-invalid="false">
-                                            <option value="" selected="" disabled>Select Your Category</option>
+                                            <option value="" selected="" disabled>Select  Category</option>
                                             @foreach($category as $item)
                                             <option value="{{$item->id}}">{{$item->category_name_en}}</option>
                                             @endforeach

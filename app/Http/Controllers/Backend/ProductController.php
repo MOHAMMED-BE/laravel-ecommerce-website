@@ -68,7 +68,7 @@ class ProductController extends Controller
             'product_name_ar' => $request->product_name_ar,
             'product_slug_en' => strtolower(str_replace(' ', '-', $request->product_name_en)),
             'product_slug_ar' => str_replace(' ', '-', $request->product_name_ar),
-            'product_code' => $request->product_code,
+            'product_code' => 'SRP'.mt_rand(10000000,99999999),
             'product_quantity' => $request->product_quantity,
             'product_tags_en' => $request->product_tags_en,
             'product_tags_ar' => $request->product_tags_ar,
@@ -100,18 +100,22 @@ class ProductController extends Controller
 
         $images = $request->file('multi_img');
 
-        foreach ($images as $img) {
-            $make_name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($img)->resize(917, 1000)->save('upload/products/multi-images/'.$make_name);
-            $upload_path = 'upload/products/multi-images/'.$make_name;
-
-            MultiImg::insert([
-                'product_id' => $product_id,
-                'photo_name' => $upload_path,
-                'created_at' => Carbon::now(),
-
-            ]);
+        if($request->file('multi_img')){
+            foreach ($images as $img) {
+                $make_name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+                Image::make($img)->resize(917, 1000)->save('upload/products/multi-images/'.$make_name);
+                $upload_path = 'upload/products/multi-images/'.$make_name;
+    
+                MultiImg::insert([
+                    'product_id' => $product_id,
+                    'photo_name' => $upload_path,
+                    'created_at' => Carbon::now(),
+    
+                ]);
+            }
         }
+
+        
 
         // Multiple Image Upload end
 
@@ -156,7 +160,7 @@ class ProductController extends Controller
             'product_name_ar' => $request->product_name_ar,
             'product_slug_en' => strtolower(str_replace(' ', '-', $request->product_name_en)),
             'product_slug_ar' => str_replace(' ', '-', $request->product_name_ar),
-            'product_code' => $request->product_code,
+            'product_code' => 'SRP'.mt_rand(10000000,99999999),
             'product_quantity' => $request->product_quantity,
             'product_tags_en' => $request->product_tags_en,
             'product_tags_ar' => $request->product_tags_ar,
@@ -305,19 +309,6 @@ class ProductController extends Controller
 
         return redirect()->back()->with($notification);
     } // end ProductDelete
-
-    public function ProductDetails($id)
-    {
-        $multiImgs = MultiImg::where('product_id', $id)->get();
-        $product = Product::findOrFail($id);
-        $brand  = Brand::latest()->get();
-        $category = Category::latest()->get();
-        $subcategory = SubCategory::latest()->get();
-        $subsubcategory = SubSubCategory::latest()->get();
-
-        return view('backend.product.product-details', compact('product', 'brand', 'category', 'subcategory', 'subsubcategory', 'multiImgs'));
-    } // ProductDetails
-
 
     public function ProductStock()
     {

@@ -13,7 +13,7 @@ Shopping Room Admin - All Admin User
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Total Admin User <span class="badge badge-pill badge-info">{{count($adminuser)}}</h3>
+                        <h3 class="box-title">All Admin Users <span class="badge badge-pill badge-info">{{count($adminuser)}}</span></h3>
                         <a href="{{route('add.admin')}}" class="btn btn-success" style="float:right;">Add Admin User</a>
                     </div>
                     <!-- /.box-header -->

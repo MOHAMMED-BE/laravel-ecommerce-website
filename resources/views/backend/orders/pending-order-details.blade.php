@@ -9,15 +9,7 @@ Shopping Room Admin - Order Details
     <div class="content-header">
         <div class="d-flex align-items-center">
             <div class="mr-auto">
-                <h3 class="page-title">Pending Order Details</h3>
-                <div class="d-inline-block align-items-center">
-                    <nav>
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-                            <li class="breadcrumb-item" aria-current="page">Pending Order Details</li>
-                        </ol>
-                    </nav>
-                </div>
+                <h3 class="page-title">Order Details</h3>
             </div>
         </div>
     </div>
@@ -26,7 +18,7 @@ Shopping Room Admin - Order Details
         <div class="row">
 
             <div class="col-md-6 col-12">
-                <div class="box box-bordered border-primary">
+                <div class="box box-bordered border-info">
                     <div class="box-header with-border">
                         <h4 class="box-title"><strong>Shipping Details</strong></h4>
                     </div>
@@ -48,17 +40,17 @@ Shopping Room Admin - Order Details
                             </tr>
 
                             <tr>
-                                <th>Division : </th>
+                                <th>Country : </th>
                                 <th>{{$order->division->division_name}}</th>
                             </tr>
 
                             <tr>
-                                <th>District : </th>
+                                <th>Region : </th>
                                 <th>{{$order->district->district_name}}</th>
                             </tr>
 
                             <tr>
-                                <th>State : </th>
+                                <th>City : </th>
                                 <th>{{$order->state->state_name}}</th>
                             </tr>
 
@@ -78,30 +70,15 @@ Shopping Room Admin - Order Details
             </div>
 
             <div class="col-md-6 col-12">
-                <div class="box box-bordered border-primary">
+                <div class="box box-bordered border-info">
                     <div class="box-header with-border">
-                        <h4 class="box-title"><strong>Order Details</strong><span class="text-danger"> Invoice No : {{$order->invoice_no}}</span></h4>
+                        <h4 class="box-title"><strong>Order Details</strong></h4>
                     </div>
                     <table class="table">
                         <tbody class="user-dash-table">
                             <tr>
-                                <th>Name : </th>
-                                <th>{{$order->user->name}}</th>
-                            </tr>
-
-                            <tr>
-                                <th>Phone : </th>
-                                <th>{{$order->user->phone}}</th>
-                            </tr>
-
-                            <tr>
-                                <th>Payment Type : </th>
+                                <th>Payment Method : </th>
                                 <th>{{$order->payment_method}}</th>
-                            </tr>
-
-                            <tr>
-                                <th>Tarnx Id : </th>
-                                <th>{{$order->transaction_id}}</th>
                             </tr>
 
                             <tr>
@@ -114,48 +91,7 @@ Shopping Room Admin - Order Details
                                 <th>${{$order->amount}}</th>
                             </tr>
 
-                            <tr>
-                                <th>Order : </th>
-                                <td>
-                                    @if($order->status == 'pending')
-                                    <span class="badge badge-pill badge-warning" style="background:#7733ff;">Pending</span>
-                                    @elseif($order->status == 'confirmed')
-                                    <span class="badge badge-pill badge-warning" style="background:#668cff;">Confirmed</span>
-                                    @elseif($order->status == 'proccessing')
-                                    <span class="badge badge-pill badge-warning" style="background:#66d9ff;">Proccessing</span>
-                                    @elseif($order->status == 'picked')
-                                    <span class="badge badge-pill badge-warning" style="background:#ff751a;">Picked</span>
-                                    @elseif($order->status == 'shipped')
-                                    <span class="badge badge-pill badge-warning" style="background:#729b1f;">Shipped</span>
-                                    @elseif($order->status == 'delivered')
-                                    <span class="badge badge-pill badge-warning" style="background:#237408;">Delivered</span>
-                                    @elseif($order->status == 'cancel')
-                                    <span class="badge badge-pill badge-warning" style="background:#ff0040;">Cancel</span>
-                                    @endif
-                                </td>
-                            </tr>
 
-                            <tr>
-                                <th></th>
-                                <th>
-                                    @if($order->status == 'pending')
-                                    <a href="{{ route('pending.confirm',$order->id)}}" id="confirm" class="btn btn-block btn-success">Confirm Order</a>
-
-                                    @elseif($order->status == 'confirmed')
-                                    <a href="{{ route('confirm.proccessing',$order->id)}}" id="proccessing" class="btn btn-block btn-success">Proccessing Order</a>
-
-                                    @elseif($order->status == 'proccessing')
-                                    <a href="{{ route('proccessing.picked',$order->id)}}" id="picked" class="btn btn-block btn-success">Picked Order</a>
-
-                                    @elseif($order->status == 'picked')
-                                    <a href="{{ route('picked.shipped',$order->id)}}" id="shipped" class="btn btn-block btn-success">Shipped Order</a>
-
-                                    @elseif($order->status == 'shipped')
-                                    <a href="{{ route('shipped.delivered',$order->id)}}" id="delivered" class="btn btn-block btn-success">Delivered Order</a>
-
-                                    @endif
-                                </th>
-                            </tr>
                         </tbody>
 
                     </table>
@@ -163,14 +99,13 @@ Shopping Room Admin - Order Details
             </div>
 
             <div class="col-md-12 col-12">
-                <div class="box box-bordered border-primary">
+                <div class="box box-bordered border-info">
                     <div class="box-header with-border">
                         <h4 class="box-title"><strong>Product Details</strong></h4>
                     </div>
                     <table class="table">
                         <tbody>
-                            <tr class="user-dash-table">
-                                <!--  style="background:#E2E2E2;"  -->
+                            <tr class="user-dash-table" style=" text-align: center; ">
                                 <td class="col-md-1">
                                     <label for="">Image</label>
                                 </td>
@@ -190,7 +125,7 @@ Shopping Room Admin - Order Details
                                     <label for="">Quantity</label>
                                 </td>
                                 <td class="col-md-1">
-                                    <label for="">price</label>
+                                    <label for="">Price</label>
                                 </td>
                             </tr>
 
@@ -206,10 +141,22 @@ Shopping Room Admin - Order Details
                                     <label for="">{{$item->product->product_code}}</label>
                                 </td>
                                 <td class="col-md-2">
-                                    <label for="">{{$item->color}}</label>
+                                    <label for="">
+                                        @if($item->color == NULL)
+                                        ---
+                                        @else
+                                        {{$item->color}}
+                                        @endif
+                                    </label>
                                 </td>
                                 <td class="col-md-2">
-                                    <label for="">{{$item->size}}</label>
+                                    <label for="">
+                                        @if($item->size == NULL)
+                                        ---
+                                        @else
+                                        {{$item->size}}
+                                        @endif
+                                    </label>
                                 </td>
                                 <td class="col-md-1">
                                     <label for="">{{$item->qty}}</label>

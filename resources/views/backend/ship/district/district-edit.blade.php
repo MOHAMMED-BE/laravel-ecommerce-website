@@ -28,7 +28,7 @@ Shopping Room Admin - Edit Region
                                     <h5>Country Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <select name="division_id" class="form-control" aria-invalid="false">
-                                            <option value="" selected="" disabled>Select Your division</option>
+                                            <option value="" selected="" disabled>Select  Country</option>
                                             @foreach($division as $item)
                                             <option value="{{$item->id}}" {{$item->id == $district->division_id ? 'selected':''}} >{{$item->division_name}}</option>
                                             @endforeach
@@ -41,7 +41,7 @@ Shopping Room Admin - Edit Region
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>Region Name <span class="text-danger">*</span></h5>
+                                    <h5>Region Name </h5>
                                     <div class="controls">
                                         <input type="text" value="{{$district->district_name}}" name="district_name" class="form-control">
                                         @error('district_name')

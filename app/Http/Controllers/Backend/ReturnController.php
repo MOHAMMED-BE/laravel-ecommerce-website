@@ -31,7 +31,7 @@ class ReturnController extends Controller
 
     public function ReturnAllRequest()
     {
-        $orders = Order::where('return_order',2)->orderBy('id','desc')->get();
+        $orders = Order::where('return_date','!=', NULL)->orderBy('id','desc')->get();
 
         return view('backend.return-order.all-return-request',compact('orders'));
     } // end ReturnAllRequest

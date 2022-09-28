@@ -12,7 +12,7 @@ Shopping Room Admin - User List
             <div class="col-12">
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Total User <span class="badge badge-pill badge-info">{{count($users)}}</span></h3>
+                        <h3 class="box-title">All Users <span class="badge badge-pill badge-info">{{count($users)}}</span></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">

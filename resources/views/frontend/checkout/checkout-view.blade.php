@@ -69,7 +69,7 @@ Shopping Room - Checkout
                                                         <h5><b>Country Select</b> <span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <select name="division_id" id="divisionselect" class="form-control" aria-invalid="false">
-                                                                <option value="" selected="" disabled>Select Your division</option>
+                                                                <option value="" selected="" disabled>Select  division</option>
                                                                 @foreach($division as $item)
                                                                 <option value="{{$item->id}}">{{$item->division_name}}</option>
                                                                 @endforeach
@@ -85,7 +85,7 @@ Shopping Room - Checkout
                                                         <h5><b>Region Select</b> <span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <select name="district_id" id="districtselect" class="form-control" aria-invalid="false">
-                                                                <option value="" selected="" disabled>Select Your District</option>
+                                                                <option value="" selected="" disabled>Select  District</option>
 
                                                             </select>
                                                             @error('district_id')
@@ -98,7 +98,7 @@ Shopping Room - Checkout
                                                         <h5><b>City Select</b> <span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <select name="state_id" id="stateselect" class="form-control" aria-invalid="false">
-                                                                <option value="" selected="" disabled>Select Your State</option>
+                                                                <option value="" selected="" disabled>Select  State</option>
 
                                                             </select>
                                                             @error('state_id')

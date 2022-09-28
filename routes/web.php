@@ -163,7 +163,6 @@ Route::prefix('product')->group(function(){
     Route::get('images/delete/{id}', [ProductController::class, 'MultiImagesDelete'])->name('product-multiimg-delete');
     Route::get('/inactive/{id}', [ProductController::class, 'InactiveProduct'])->name('product-inactive');
     Route::get('/active/{id}', [ProductController::class, 'ActiveProduct'])->name('product-active');
-    Route::get('/details/{id}', [ProductController::class, 'ProductDetails'])->name('product-details');
 
 });
 

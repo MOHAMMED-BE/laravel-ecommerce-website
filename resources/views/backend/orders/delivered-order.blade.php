@@ -13,7 +13,7 @@ Shopping Room Admin - Delivered Orders
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Delivered Orders List</h3>
+                        <h3 class="box-title">Delivered Orders List <span class="badge badge-pill badge-info">{{count($orders)}}</span></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -39,7 +39,6 @@ Shopping Room Admin - Delivered Orders
                                         <td><span class="badge badge-pill badge-success" style="background:#237408;">{{$order->status}}</span></td>
                                         <td class="text-center">
                                             <a href="{{ route('pending.order.details',$order->id)}}" title="View Order Details" class="btn btn-primary"><i class="fa fa-eye"></i></a>
-                                            <a href="{{ route('invoice.download',$order->id)}}" target="_blank" title="download order invoice" class="btn btn-info"><i class="fa fa-download"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach

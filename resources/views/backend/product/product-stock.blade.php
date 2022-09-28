@@ -13,7 +13,7 @@ Shopping Room Admin - Product Stock List
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Product Stock List <span class="badge badge-pill badge-info">{{count($products)}}</h3>
+                        <h3 class="box-title">Product Stock <span class="badge badge-pill badge-info">{{count($products)}}</span></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -21,11 +21,11 @@ Shopping Room Admin - Product Stock List
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>product Image</th>
-                                        <th>product En</th>
-                                        <th>product Price</th>
+                                        <th>Product Image</th>
+                                        <th>Product En</th>
+                                        <th>Product Price</th>
                                         <th>Discount</th>
-                                        <th>product Quantity</th>
+                                        <th>Product Quantity</th>
                                         <th>Status</th>
                                     </tr>
                                 </thead>
@@ -35,7 +35,7 @@ Shopping Room Admin - Product Stock List
                                         <!-- <td><span><i class="fa-solid fa-id-card"></i></span></td> -->
                                         <td class="d-flex justify-content-center"><img class="img rounded-4 center" src="{{asset($item->product_thumbnail)}}" alt="" style="width: 4rem !important;height: 3.5rem !important;"></td>
                                         <td style="width: 33%;">{{$item->product_name_en}}</td>
-                                        <td>{{$item->selling_price}}</td>
+                                        <td>${{$item->selling_price}}</td>
                                         <td>
                                             @if($item->discount_price == NULL)
                                             <span class="badge badge-pill badge-warning">No Discount</span>

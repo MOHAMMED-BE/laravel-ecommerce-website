@@ -25,7 +25,7 @@ Shopping Room Admin - Edit Coupon
                                 <input type="hidden" value="{{$coupon->id}}" name="id">
 
                                 <div class="form-group">
-                                    <h5>coupon Name <span class="text-danger">*</span></h5>
+                                    <h5>coupon Name </h5>
                                     <div class="controls">
                                         <input type="text" value="{{$coupon->coupon_name}}" name="coupon_name" class="form-control">
                                         @error('coupon_name')
@@ -34,7 +34,7 @@ Shopping Room Admin - Edit Coupon
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <h5>coupon Discount (%)<span class="text-danger">*</span></h5>
+                                    <h5>coupon Discount (%)</h5>
                                     <div class="controls">
                                         <input type="text" value="{{$coupon->coupon_discount}}" name="coupon_discount" class="form-control">
                                         @error('coupon_discount')
@@ -44,7 +44,7 @@ Shopping Room Admin - Edit Coupon
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>coupon Validity <span class="text-danger">*</span></h5>
+                                    <h5>coupon Validity </h5>
                                     <div class="controls">
                                         <input type="date" value="{{$coupon->coupon_validity}}" min="{{Carbon\Carbon::now()->format('Y-m-d')}}" name="coupon_validity" class="form-control">
                                         @error('coupon_validity')

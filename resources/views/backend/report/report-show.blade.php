@@ -36,10 +36,25 @@ Shopping Room Admin - Reports Result
                                         <td>{{$order->invoice_no}}</td>
                                         <td>${{$order->amount}}</td>
                                         <td>{{$order->payment_method}}</td>
-                                        <td><span class="badge badge-pill badge-success">{{$order->status}}</span></td>
+                                        <td>
+                                            @if($order->status == 'pending')
+                                            <span class="badge badge-pill badge-warning" style="background:#7733ff;">Pending</span>
+                                            @elseif($order->status == 'confirmed')
+                                            <span class="badge badge-pill badge-warning" style="background:#668cff;">Confirmed</span>
+                                            @elseif($order->status == 'proccessing')
+                                            <span class="badge badge-pill badge-warning" style="background:#66d9ff;">Proccessing</span>
+                                            @elseif($order->status == 'picked')
+                                            <span class="badge badge-pill badge-warning" style="background:#ff751a;">Picked</span>
+                                            @elseif($order->status == 'shipped')
+                                            <span class="badge badge-pill badge-warning" style="background:#729b1f;">Shipped</span>
+                                            @elseif($order->status == 'delivered')
+                                            <span class="badge badge-pill badge-warning" style="background:#237408;">Delivered</span>
+                                            @elseif($order->status == 'cancel')
+                                            <span class="badge badge-pill badge-warning" style="background:#ff0040;">Cancel</span>
+                                            @endif
+                                        </td>
                                         <td class="text-center">
                                             <a href="{{ route('pending.order.details',$order->id)}}" title="View Order Details" class="btn btn-primary"><i class="fa fa-eye"></i></a>
-                                            <a href="{{ route('invoice.download',$order->id)}}" target="_blank" title="download order invoice" class="btn btn-info"><i class="fa fa-download"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach

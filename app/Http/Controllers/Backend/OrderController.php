@@ -94,6 +94,11 @@ class OrderController extends Controller
 
     public function PendingToConfirm($order_id)
     {
+        $product = OrderItem::where('order_id',$order_id)->get();
+        foreach($product as $item){
+            Product::where('id',$item->product_id)->update(['product_quantity' => DB::raw('product_quantity-'.$item->qty)]);
+        }
+        
         Order::findOrFail($order_id)->update([
             'status' => 'confirmed',
             'confirmed_date' => Carbon::now(),
@@ -158,11 +163,6 @@ class OrderController extends Controller
 
     public function ShippedToDelivered($order_id)
     {
-        $product = OrderItem::where('order_id',$order_id)->get();
-        foreach($product as $item){
-            Product::where('id',$item->product_id)->update(['product_quantity' => DB::raw('product_quantity-'.$item->qty)]);
-        }
-
         Order::findOrFail($order_id)->update([
             'status' => 'delivered',
             'delivered_date' => Carbon::now(),

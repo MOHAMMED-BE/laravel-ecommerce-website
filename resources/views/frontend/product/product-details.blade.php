@@ -398,15 +398,15 @@ Shopping Room - {{$product->product_name_en}}
                                                         <div class="row">
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputSummary">Summary <span class="astk">*</span></label>
+                                                                    <label for="exampleInputSummary">Summary <span class="text-danger">*</span></label>
                                                                     <input type="text" name="summary" class="form-control txt" id="exampleInputSummary" required placeholder="">
                                                                 </div><!-- /.form-group -->
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputReview">Review <span class="astk">*</span></label>
-                                                                    <textarea class="form-control txt txt-review" name="comment" id="exampleInputReview" rows="4" required placeholder=""></textarea>
+                                                                    <label for="exampleInputReview">Comment</label>
+                                                                    <textarea class="form-control txt txt-review" name="comment" id="exampleInputReview" rows="4" placeholder=""></textarea>
                                                                 </div><!-- /.form-group -->
                                                             </div>
                                                         </div><!-- /.row -->

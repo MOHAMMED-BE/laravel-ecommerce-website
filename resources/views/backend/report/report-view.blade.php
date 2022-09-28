@@ -14,7 +14,7 @@ Shopping Room Admin - Reports
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Search With Date</h3>
+                        <h3 class="box-title">Orders Search With Date</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -46,7 +46,7 @@ Shopping Room Admin - Reports
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Search With Month</h3>
+                        <h3 class="box-title">Orders Search With Month</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -109,7 +109,7 @@ Shopping Room Admin - Reports
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Search With Year</h3>
+                        <h3 class="box-title">Orders Search With Year</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">

@@ -13,7 +13,7 @@ Shopping Room Admin - Blog Category
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Blog Category List <span class="badge badge-pill badge-info">{{count($blogcategory)}}</h3>
+                        <h3 class="box-title">Blog Category List <span class="badge badge-pill badge-info">{{count($blogcategory)}}</span></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">

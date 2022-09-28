@@ -153,7 +153,7 @@ $setting = App\Models\SiteSetting::find(1);
       @endif
 
       @if($blog == true)
-      <li class="treeview {{ ($prefix == '/blog')? 'active':''}}">
+      <li class="treeview {{ ($prefix == '/blog')? 'active':''}}" style="display: none;">
         <a href="#">
           <i data-feather="file"></i>
           <span>Menage Blog</span>
@@ -174,14 +174,14 @@ $setting = App\Models\SiteSetting::find(1);
       <li class="treeview {{ ($prefix == '/setting')? 'active':''}}">
         <a href="#">
           <i data-feather="file"></i>
-          <span>Menage Setting</span>
+          <span>Menage Settings</span>
           <span style="float: right;">
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="{{ ($route == 'site.setting')? 'active':''}}"><a href="{{route('site.setting')}}"><i class="ti-more"></i>Site Setting</a></li>
-          <li class="{{ ($route == 'seo.setting')? 'active':''}}"><a href="{{route('seo.setting')}}"><i class="ti-more"></i>Seo Setting</a></li>
+          <li class="{{ ($route == 'site.setting')? 'active':''}}"><a href="{{route('site.setting')}}"><i class="ti-more"></i>Site Settings</a></li>
+          <li class="{{ ($route == 'seo.setting')? 'active':''}}"><a href="{{route('seo.setting')}}"><i class="ti-more"></i>Seo Settings</a></li>
         </ul>
       </li>
       @else
@@ -271,7 +271,7 @@ $setting = App\Models\SiteSetting::find(1);
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="{{ ($route == 'all.reports')? 'active':''}}"><a href="{{route('all.reports')}}"><i class="ti-more"></i>All reports</a></li>
+          <li class="{{ ($route == 'all.reports')? 'active':''}}"><a href="{{route('all.reports')}}"><i class="ti-more"></i>All Orders reports</a></li>
         </ul>
       </li>
       @else

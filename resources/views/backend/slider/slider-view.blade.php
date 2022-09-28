@@ -13,7 +13,7 @@ Shopping Room Admin - Slider List
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Slider List</h3>
+                        <h3 class="box-title">Slider List <span class="badge badge-pill badge-info">{{count($sliders)}}</span></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">

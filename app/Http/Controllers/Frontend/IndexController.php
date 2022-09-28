@@ -24,7 +24,7 @@ class IndexController extends Controller
     public function Index()
     {
         $categories = Category::orderBy('category_name_en', 'asc')->get();
-        $sliders = Slider::where('status', 1)->orderBy('id', 'asc')->limit(3)->get();
+        $sliders = Slider::where('status', 1)->orderBy('id', 'asc')->limit(4)->get();
 
         $products  = Product::where('status', 1)->orderBy('id', 'desc')->limit(7)->get();
         $featureds = Product::where('featured', 1)->orderBy('id', 'desc')->limit(5)->get();

@@ -1589,21 +1589,20 @@ header {
 }
 
 .main-header .top-search-holder .search-area .search-button {
-  border-radius: 0px 3px 3px 0px;
   display: inline-block;
-  float: right;
-  margin: 0px;
-  padding: 12px 19px 12px;
-  text-align: center;
-  background-color: #fdd922;
-  border: 1px solid #e0bc27;
+    float: right;
+    margin: 0px;
+    padding: 12px 12px 12px;
+    text-align: center;
+    background-color: #fff;
+    border: none;
 }
 
 .main-header .top-search-holder .search-area .search-button:after {
-  color: #333;
+  color: #ff7205;
   content: "\f002";
   font-family: fontawesome;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 9px;
   vertical-align: middle;
 }

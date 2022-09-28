@@ -34,8 +34,8 @@ Shopping Room Admin - Publish Reviews
                                     <tr>
                                         <td>{{$review->summary}}</td>
                                         <td>{{$review->comment}}</td>
-                                        <td>{{$review->user->name}}</td>
                                         <td>{{$review->product->product_name_en}}</td>
+                                        <td>{{$review->user->name}}</td>
                                         <td>
                                             @if($review->status == 0)
                                             <span class="badge badge-pill badge-warning" style="background: #7733ff;"> Pending </span>

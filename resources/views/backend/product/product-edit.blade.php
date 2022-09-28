@@ -15,7 +15,7 @@ Shopping Room Admin - Edit Product
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Update product</h3>
+                        <h3 class="box-title">Update Product</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -36,7 +36,7 @@ Shopping Room Admin - Edit Product
                                                         <h5>Brand Select <span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <select name="brand_id" class="form-control"  aria-invalid="false">
-                                                                <option value="$brand->brand_name_en" selected="" disabled>Select Your Brand</option>
+                                                                <option value="$brand->brand_name_en" selected="" disabled>Select  Brand</option>
                                                                 @foreach($brand as $item)
                                                                 <option value="{{$item->id}}" {{$item->id == $product->brand_id ? 'selected':''}}>{{$item->brand_name_en}}</option>
                                                                 @endforeach
@@ -53,7 +53,7 @@ Shopping Room Admin - Edit Product
                                                         <h5>Category Select <span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <select name="category_id" class="form-control"  aria-invalid="false">
-                                                                <option value="" selected="" disabled>Select Your Category</option>
+                                                                <option value="" selected="" disabled>Select  Category</option>
                                                                 @foreach($category as $item)
                                                                 <option value="{{$item->id}}" {{$item->id == $product->category_id ? 'selected':''}}>{{$item->category_name_en}}</option>
                                                                 @endforeach
@@ -133,24 +133,38 @@ Shopping Room Admin - Edit Product
 
                                             <!-- start third row -->
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <h5>Product Code <span class="text-danger">*</span></h5>
-                                                        <div class="controls">
-                                                            <input type="text" name="product_code" value="{{$product->product_code}}" class="form-control" >
-                                                        </div>
-                                                        @error('product_code')
-                                                        <span class="text-danger">{{$message}}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="form-group">
                                                         <h5>Product Quantity <span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <input type="text" name="product_quantity" value="{{$product->product_quantity}}" class="form-control" >
                                                         </div>
                                                         @error('product_quantity')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <h5>Product Selling Price <span class="text-danger">*</span></h5>
+                                                        <div class="controls">
+                                                            <input type="text" name="selling_price" value="{{$product->selling_price}}" class="form-control" >
+                                                        </div>
+                                                        @error('selling_price')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                        @enderror
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <h5>Product Discount Price</h5>
+                                                        <div class="controls">
+                                                            <input type="text" name="discount_price" value="{{$product->discount_price}}" class="form-control">
+                                                        </div>
+                                                        @error('discount_price')
                                                         <span class="text-danger">{{$message}}</span>
                                                         @enderror
                                                     </div>
@@ -228,41 +242,11 @@ Shopping Room Admin - Edit Product
                                             </div>
                                             <!-- end fifth row -->
 
-                                            <!-- start sexth row -->
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <h5>Product Selling Price <span class="text-danger">*</span></h5>
-                                                        <div class="controls">
-                                                            <input type="text" name="selling_price" value="{{$product->selling_price}}" class="form-control" >
-                                                        </div>
-                                                        @error('selling_price')
-                                                        <span class="text-danger">{{$message}}</span>
-                                                        @enderror
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="col-md-6">
-                                                    <div class="form-group">
-                                                        <h5>Product Discount Price</h5>
-                                                        <div class="controls">
-                                                            <input type="text" name="discount_price" value="{{$product->discount_price}}" class="form-control">
-                                                        </div>
-                                                        @error('discount_price')
-                                                        <span class="text-danger">{{$message}}</span>
-                                                        @enderror
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <!-- end sexth row -->
-
                                             <!-- start seventh row -->
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <h5>English Short Description <span class="text-danger">*</span></h5>
+                                                        <h5>English Short Description</h5>
                                                         <div class="controls">
                                                             <textarea name="short_desc_en" id="textarea" class="form-control"  placeholder="Textarea text">
                                                         {!! $product->short_desc_en !!}
@@ -275,7 +259,7 @@ Shopping Room Admin - Edit Product
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <h5>Arabic Short Description <span class="text-danger">*</span></h5>
+                                                        <h5>Arabic Short Description</h5>
                                                         <div class="controls">
                                                             <textarea name="short_desc_ar" id="textarea" class="form-control"  placeholder="Textarea text">
                                                         {!! $product->short_desc_ar !!}

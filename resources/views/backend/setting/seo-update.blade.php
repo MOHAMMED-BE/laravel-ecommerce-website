@@ -9,7 +9,7 @@ Shopping Room Admin - Seo Setting
         <!-- Basic Forms -->
         <div class="box">
             <div class="box-header with-border">
-                <h4 class="box-title">Seo Setting</h4>
+                <h4 class="box-title">Seo Settings</h4>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

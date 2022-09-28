@@ -110,7 +110,7 @@ Shopping Room Admin - Create Admin User
                                                 <input type="checkbox" name="shipping" id="checkbox_6" value="1">
                                                 <label for="checkbox_6">Shipping</label>
                                             </fieldset>
-                                            <fieldset>
+                                            <fieldset style="display: none;">
                                                 <input type="checkbox" name="blog" id="checkbox_7" value="1">
                                                 <label for="checkbox_7">Blog</label>
                                             </fieldset>
@@ -126,7 +126,10 @@ Shopping Room Admin - Create Admin User
                                                 <input type="checkbox" name="review" id="checkbox_10" value="1">
                                                 <label for="checkbox_10">Review</label>
                                             </fieldset>
-
+                                            <fieldset>
+                                                <input type="checkbox" name="orders" id="checkbox_11" value="1">
+                                                <label for="checkbox_11">Orders</label>
+                                            </fieldset>
                                         </div>
                                     </div>
                                 </div>
@@ -134,10 +137,6 @@ Shopping Room Admin - Create Admin User
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="controls">
-                                            <fieldset>
-                                                <input type="checkbox" name="orders" id="checkbox_11" value="1">
-                                                <label for="checkbox_11">Orders</label>
-                                            </fieldset>
                                             <fieldset>
                                                 <input type="checkbox" name="stock" id="checkbox_12" value="1">
                                                 <label for="checkbox_12">Stock</label>

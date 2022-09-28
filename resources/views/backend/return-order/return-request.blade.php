@@ -21,11 +21,12 @@ Shopping Room Admin - Return Request
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Date</th>
+                                        <th>Order Date</th>
                                         <th>Invoice</th>
                                         <th>Amount</th>
                                         <th>Payment</th>
-                                        <th>Status</th>
+                                        <th>Return Reason</th>
+                                        <th>Return Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -36,6 +37,7 @@ Shopping Room Admin - Return Request
                                         <td>{{$order->invoice_no}}</td>
                                         <td>${{$order->amount}}</td>
                                         <td>{{$order->payment_method}}</td>
+                                        <td>{{$order->return_reason}}</td>
                                         <td>
                                         @if($order->return_order == 0)
                                         <span class="badge badge-pill badge-warning" style="background: #418DB9;"> No Return Request </span>

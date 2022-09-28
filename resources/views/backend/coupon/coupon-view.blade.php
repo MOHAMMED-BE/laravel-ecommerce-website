@@ -13,7 +13,7 @@ Shopping Room Admin - Coupon List
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Coupon List <span class="badge badge-pill badge-info">{{count($coupons)}}</h3>
+                        <h3 class="box-title">Coupon List <span class="badge badge-pill badge-info">{{count($coupons)}}</span></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -38,9 +38,9 @@ Shopping Room Admin - Coupon List
                                             {{Carbon\Carbon::parse($item->coupon_validity)->format('D, d F Y')}}
                                         </td>
                                         <td>
-                                            @if($item->coupon_validity >= Carbon\Carbon::now()->format('Y-m-d'))
+                                            @if($item->coupon_validity >= Carbon\Carbon::now()->format('Y-m-d') && $item->status == 1)
                                             <span class="badge badge-pill badge-success">Valid</span>
-                                            @else
+                                            @elseif($item->coupon_validity < Carbon\Carbon::now()->format('Y-m-d') || $item->status == 0)
                                             <span class="badge badge-pill badge-danger">Invalid</span>
                                             @endif
                                         </td>

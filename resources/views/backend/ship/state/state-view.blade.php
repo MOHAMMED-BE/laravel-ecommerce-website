@@ -13,7 +13,7 @@ Shopping Room Admin - City List
 
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="box-title">City List</h3>
+                        <h3 class="box-title">City List <span class="badge badge-pill badge-info">{{count($states)}}</span></h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
@@ -68,7 +68,7 @@ Shopping Room Admin - City List
                                     <h5>Country Select <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <select name="division_id" id="divisionselect" class="form-control" aria-invalid="false">
-                                            <option value="" selected="" disabled>Select Your division</option>
+                                            <option value="" selected="" disabled>Select Country</option>
                                             @foreach($divisions as $item)
                                             <option value="{{$item->id}}">{{$item->division_name}}</option>
                                             @endforeach

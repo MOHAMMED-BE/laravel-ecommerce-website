@@ -32,7 +32,7 @@ Shopping Room Admin - Add Product
                                                 <h5>Brand Select <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <select name="brand_id" class="form-control" required aria-invalid="false">
-                                                        <option value="" selected="" disabled>Select Your Brand</option>
+                                                        <option value="" selected="" disabled>Select Brand</option>
                                                         @foreach($brand as $item)
                                                         <option value="{{$item->id}}">{{$item->brand_name_en}}</option>
                                                         @endforeach
@@ -49,7 +49,7 @@ Shopping Room Admin - Add Product
                                                 <h5>Category Select <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <select name="category_id" class="form-control" required aria-invalid="false">
-                                                        <option value="" selected="" disabled>Select Your Category</option>
+                                                        <option value="" selected="" disabled>Select Category</option>
                                                         @foreach($category as $item)
                                                         <option value="{{$item->id}}">{{$item->category_name_en}}</option>
                                                         @endforeach
@@ -125,17 +125,6 @@ Shopping Room Admin - Add Product
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <h5>Product Code <span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <input type="text" name="product_code" class="form-control" required>
-                                                </div>
-                                                @error('product_code')
-                                                <span class="text-danger">{{$message}}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
                                                 <h5>Product Quantity <span class="text-danger">*</span></h5>
                                                 <div class="controls">
                                                     <input type="text" name="product_quantity" class="form-control" required>
@@ -147,6 +136,34 @@ Shopping Room Admin - Add Product
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
+                                                <h5>Product Selling Price <span class="text-danger">*</span></h5>
+                                                <div class="controls">
+                                                    <input type="text" name="selling_price" class="form-control" required>
+                                                </div>
+                                                @error('selling_price')
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <h5>Product Discount Price</h5>
+                                                <div class="controls">
+                                                    <input type="text" name="discount_price" class="form-control">
+                                                </div>
+                                                @error('discount_price')
+                                                <span class="text-danger">{{$message}}</span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <!-- end third row -->
+
+                                    <!-- start fourth row -->
+                                    <div class="row">
+                                    <div class="col-md-4">
+                                            <div class="form-group">
                                                 <h5>Product Tags En </h5>
                                                 <input type="text"  name="product_tags_en"  data-role="tagsinput" placeholder="add tags" />
                                                 @error('product_tags_en')
@@ -155,11 +172,6 @@ Shopping Room Admin - Add Product
                                             </div>
 
                                         </div>
-                                    </div>
-                                    <!-- end third row -->
-
-                                    <!-- start fourth row -->
-                                    <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Tags Ar </h5>
@@ -178,7 +190,13 @@ Shopping Room Admin - Add Product
                                                 @enderror
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        
+                                    </div>
+                                    <!-- end fourth row -->
+
+                                    <!-- start fifth row -->
+                                    <div class="row">
+                                    <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Size Ar </h5>
                                                 <input type="text"  name="product_size_ar"  data-role="tagsinput" placeholder="add size" />
@@ -188,11 +206,6 @@ Shopping Room Admin - Add Product
                                             </div>
 
                                         </div>
-                                    </div>
-                                    <!-- end fourth row -->
-
-                                    <!-- start fifth row -->
-                                    <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Color En </h5>
@@ -212,35 +225,14 @@ Shopping Room Admin - Add Product
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <h5>Product Selling Price <span class="text-danger">*</span></h5>
-                                                <div class="controls">
-                                                    <input type="text" name="selling_price" class="form-control" required>
-                                                </div>
-                                                @error('selling_price')
-                                                <span class="text-danger">{{$message}}</span>
-                                                @enderror
-                                            </div>
-
-                                        </div>
+                                        
                                     </div>
                                     <!-- end fifth row -->
 
                                     <!-- start sexth row -->
                                     <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <h5>Product Discount Price</h5>
-                                                <div class="controls">
-                                                    <input type="text" name="discount_price" class="form-control">
-                                                </div>
-                                                @error('discount_price')
-                                                <span class="text-danger">{{$message}}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
+                                    
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <h5>Product Thumbnail <span class="text-danger">*</span></h5>
                                                 <div class="controls">
@@ -252,11 +244,11 @@ Shopping Room Admin - Add Product
                                                 <img src="" alt="" id="mainThumbnail">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
-                                                <h5>Mutiple Images <span class="text-danger">*</span></h5>
+                                                <h5>Mutiple Images </h5>
                                                 <div class="controls">
-                                                    <input type="file" name="multi_img[]" id="multiImg" class="form-control" required multiple="">
+                                                    <input type="file" name="multi_img[]" id="multiImg" class="form-control" multiple="">
                                                 </div>
                                                 @error('multi_img')
                                                 <span class="text-danger">{{$message}}</span>
@@ -273,7 +265,7 @@ Shopping Room Admin - Add Product
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <h5>English Short Description <span class="text-danger">*</span></h5>
+                                                <h5>English Short Description </h5>
                                                 <div class="controls">
                                                     <textarea name="short_desc_en" id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
                                                 </div>
@@ -284,7 +276,7 @@ Shopping Room Admin - Add Product
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <h5>Arabic Short Description <span class="text-danger">*</span></h5>
+                                                <h5>Arabic Short Description </h5>
                                                 <div class="controls">
                                                     <textarea name="short_desc_ar" id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
                                                 </div>

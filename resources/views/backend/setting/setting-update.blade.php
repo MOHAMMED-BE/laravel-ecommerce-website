@@ -9,7 +9,7 @@ Shopping Room Admin - Site Setting
         <!-- Basic Forms -->
         <div class="box">
             <div class="box-header with-border">
-                <h4 class="box-title">Site Setting</h4>
+                <h4 class="box-title">Site Settings</h4>
             </div>
             <!-- /.box-header -->
             <div class="box-body">

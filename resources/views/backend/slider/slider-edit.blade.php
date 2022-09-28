@@ -26,7 +26,7 @@ Shopping Room Admin - Edit Slider
                                 <input type="hidden" value="{{$slider->slider_img}}" name="old_image">
 
                                 <div class="form-group">
-                                    <h5>Slider Image <span class="text-danger">*</span></h5>
+                                    <h5>Slider Image</h5>
                                     <div class="controls">
                                         <input type="file" value="" name="slider_img" class="form-control">
                                         @error('slider_img')
@@ -36,14 +36,14 @@ Shopping Room Admin - Edit Slider
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>Slider Title <span class="text-danger">*</span></h5>
+                                    <h5>Slider Title</h5>
                                     <div class="controls">
                                         <input type="text" value="{{$slider->title}}" name="title" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>Slider Description <span class="text-danger">*</span></h5>
+                                    <h5>Slider Description</h5>
                                     <div class="controls">
                                         <input type="text" value="{{$slider->description}}" name="description" class="form-control">
                                     </div>
