@@ -55,16 +55,6 @@ Shopping Room - Shop
                             </div> -->
                             <!-- /.sidebar-widget -->
                             <!-- ============================================== PRICE SILDER : END ============================================== -->
-
-                            <!-- ============================================== PRODUCT TAGS ============================================== -->
-
-                            @include('frontend.common.product-tags')
-
-                            <!-- ============================================== PRODUCT TAGS : END ============================================== -->
-                            <!-- /.sidebar-widget -->
-
-                            <!-- ============================================== Testimonials: END ============================================== -->
-
                         </div>
                         <!-- /.sidebar-filter -->
                     </div>
@@ -180,9 +170,8 @@ Shopping Room - Shop
                                                                     <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                                                                 </li>
                                                                 <li class="">
-                                                                    <button class="btn btn-primary icon" type="button" title="Wishlist" id="{{$product->id}}" onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i> </button>
+                                                                    <button class="btn btn-primary icon add-to-cart" type="button" title="Wishlist" id="{{$product->id}}" onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i> </button>
                                                                 </li>
-                                                                <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
                                                             </ul>
                                                         </div>
                                                         <!-- /.action -->
@@ -241,7 +230,6 @@ Shopping Room - Shop
                                                                         <li class="">
                                                                             <button class="btn btn-primary icon" type="button" title="Wishlist" id="{{$product->id}}" onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i> </button>
                                                                         </li>
-                                                                        <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
                                                                     </ul>
                                                                 </div>
                                                                 <!-- /.action -->

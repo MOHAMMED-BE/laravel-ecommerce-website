@@ -11,9 +11,10 @@ Shopping Room Admin - Profil
             <div class="box box-widget widget-user">
                 <div class="widget-user-header">
                     <!--  bg-black -->
-                    <h3 class="widget-user-username">Admin Name : {{$adminData->name}}</h3>
+                    <h3 class="widget-user-username">Name : {{$adminData->name}}</h3>
                     <a href="{{ route('admin.profile.edit')}}" style="float: right;" class="btn btn-success mb-5">Edit Profile</a>
-                    <h6 class="widget-user-desc">Admin Email : {{$adminData->email}}</h6>
+                    <h6 class="widget-user-username">Email : {{$adminData->email}}</h6>
+                    <h6 class="widget-user-username">Phone : {{$adminData->phone}}</h6>
                 </div>
                 <div class="widget-user-image">
                     <img class="rounded-circle" src="{{ (!empty($adminData->profile_photo_path))? url($adminData->profile_photo_path) : url('upload/no_image.jpg')}}" alt="User Avatar">

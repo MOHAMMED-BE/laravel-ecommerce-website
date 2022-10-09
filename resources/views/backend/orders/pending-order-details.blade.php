@@ -91,9 +91,25 @@ Shopping Room Admin - Order Details
                                 <th>${{$order->amount}}</th>
                             </tr>
 
+                            <tr>
+                                <th></th>
+                                <th>
+                                    @if($order->status == 'pending')
+                                    <a href="{{ route('pending.confirm',$order->id)}}" id="confirm" class="btn btn-block btn-success">Confirm Order</a>
 
+                                    @elseif($order->status == 'confirmed')
+                                    <a href="{{ route('confirm.proccessing',$order->id)}}" id="proccessing" class="btn btn-block btn-success">Proccessing Order</a>
+
+                                    @elseif($order->status == 'proccessing')
+                                    <a href="{{ route('proccessing.shipped',$order->id)}}" id="shipped" class="btn btn-block btn-success">Shipped Order</a>
+
+                                    @elseif($order->status == 'shipped')
+                                    <a href="{{ route('shipped.delivered',$order->id)}}" id="delivered" class="btn btn-block btn-success">Delivered Order</a>
+
+                                    @endif
+                                </th>
+                            </tr>
                         </tbody>
-
                     </table>
                 </div>
             </div>

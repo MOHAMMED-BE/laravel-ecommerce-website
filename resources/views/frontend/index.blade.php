@@ -70,7 +70,6 @@ Shopping Room - Start Your Orders Today
 
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <!-- /.sidebar-widget-body -->
@@ -374,13 +373,8 @@ Shopping Room - Start Your Orders Today
                                         <!-- /.products -->
                                     </div>
                                     @empty
-
                                     <h5 class="text-danger">No Product Found</h5>
-
                                     @endforelse
-
-
-
                                     <!-- /.item -->
                                 </div>
                                 <!-- /.home-owl-carousel -->
@@ -389,14 +383,35 @@ Shopping Room - Start Your Orders Today
                         </div>
                         @endforeach
                         <!-- /.tab-pane -->
-
-
-
                     </div>
                     <!-- /.tab-content -->
                 </div>
                 <!-- /.scroll-tabs -->
                 <!-- ============================================== SCROLL TABS : END ============================================== -->
+
+                <!-- ============================================== WIDE PRODUCTS ============================================== -->
+                <div class="wide-banners wow fadeInUp outer-bottom-xs">
+                    <div class="row">
+                        <div class="col-md-7 col-sm-7">
+                            <div class="wide-banner cnt-strip">
+                                <div class="image"> <img class="img-responsive" src="{{asset('frontend/assets/images/banners/home-banner1.jpg')}}" alt=""> </div>
+                            </div>
+                            <!-- /.wide-banner -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col-md-5 col-sm-5">
+                            <div class="wide-banner cnt-strip">
+                                <div class="image"> <img class="img-responsive" src="{{asset('frontend/assets/images/banners/home-banner2.jpg')}}" alt=""> </div>
+                            </div>
+                            <!-- /.wide-banner -->
+                        </div>
+                        <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.wide-banners -->
+
+                <!-- ============================================== WIDE PRODUCTS : END ============================================== -->
 
                 <!-- ============================================== FEATURED PRODUCTS ============================================== -->
                 <section class="section featured-product wow fadeInUp">
@@ -517,7 +532,33 @@ Shopping Room - Start Your Orders Today
                 </div>
                 <!-- /.sidebar-widget -->
                 <!-- ============================================== BEST SELLER : END ============================================== -->
+                <!-- ============================================== WIDE PRODUCTS ============================================== -->
+                <div class="wide-banners wow fadeInUp outer-bottom-xs">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="wide-banner cnt-strip">
+                                <div class="image"> <img class="img-responsive" src="{{asset('frontend/assets/images/banners/home-banner.jpg')}}" alt=""> </div>
+                                <div class="strip strip-text">
+                                    <div class="strip-inner">
+                                        <h2 class="text-right">New Mens Fashion<br>
+                                            <span class="shopping-needs">Save up to 40% off</span>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <div class="new-label">
+                                    <div class="text">NEW</div>
+                                </div>
+                                <!-- /.new-label -->
+                            </div>
+                            <!-- /.wide-banner -->
+                        </div>
+                        <!-- /.col -->
 
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.wide-banners -->
+                <!-- ============================================== WIDE PRODUCTS : END ============================================== -->
                 <!-- ============================================== Electronics PRODUCTS ============================================== -->
                 <section class="section featured-product wow fadeInUp">
                     <h3 class="section-title">{{$skip_category->category_name_en}}</h3>
@@ -650,49 +691,11 @@ Shopping Room - Start Your Orders Today
                 <!-- /.section -->
                 <!-- ============================================== Apple PRODUCTS : END ============================================== -->
 
-
-                <!-- ============================================== BLOG SLIDER ============================================== -->
-                <section class="section latest-blog outer-bottom-vs wow fadeInUp" style="display: none;">
-                    <h3 class="section-title">Latest Blog Posts</h3>
-                    <div class="blog-slider-container outer-top-xs">
-                        <div class="owl-carousel blog-slider custom-carousel">
-                            @foreach($blogpost as $post)
-
-                            <div class="item">
-                                <div class="blog-post">
-                                    <div class="blog-post-image">
-                                        <div class="image"> <a href="{{route('blog.details',$post->id)}}"><img class="index-post-img" src="{{asset($post->post_image)}}" alt=""></a> </div>
-                                    </div>
-                                    <!-- /.blog-post-image -->
-
-                                    <div class="blog-post-info text-left">
-                                        <h3 class="name"><a href="{{route('blog.details',$post->id)}}">@if(session()->get('language') == 'english') {{$post->post_title_en}} @else {{$post->post_title_ar}} @endif</a></h3>
-                                        <span class="info">{{Carbon\Carbon::parse($post->created_at)->diffForHumans()}} </span>
-                                        <p class="text">@if(session()->get('language') == 'english') {!! Str::limit($post->post_details_en,200) !!} @else {!! Str::limit($post->post_details_ar,200) !!} @endif</p>
-                                        <a href="{{route('blog.details',$post->id)}}" class="lnk btn btn-primary">Read more</a>
-                                    </div>
-                                    <!-- /.blog-post-info -->
-
-                                </div>
-                                <!-- /.blog-post -->
-                            </div>
-                            <!-- /.item -->
-                            @endforeach
-
-                        </div>
-                        <!-- /.owl-carousel -->
-                    </div>
-                    <!-- /.blog-slider-container -->
-                </section>
-                <!-- /.section -->
-                <!-- ============================================== BLOG SLIDER : END ============================================== -->
-
-                <!-- ============================================== FEATURED PRODUCTS ============================================== -->
+                <!-- ============================================== Recent Products Sold ============================================== -->
                 <section class="section wow fadeInUp new-arriavls">
                     <h3 class="section-title">Recent Products Sold</h3>
                     <div class="owl-carousel home-owl-carousel custom-carousel owl-theme outer-top-xs">
-                        @foreach($order_item as $order)
-                        @if($order->order->status == 'pending')
+                        @foreach($recent_orders as $order)
                         <div class="item item-carousel">
                             <div class="products">
                                 <div class="product">
@@ -784,7 +787,6 @@ Shopping Room - Start Your Orders Today
                             <!-- /.products -->
                         </div>
                         <!-- /.item -->
-                        @endif
 
                         @endforeach
 
@@ -792,7 +794,7 @@ Shopping Room - Start Your Orders Today
                     <!-- /.home-owl-carousel -->
                 </section>
                 <!-- /.section -->
-                <!-- ============================================== FEATURED PRODUCTS : END ============================================== -->
+                <!-- ============================================== Recent Products Sold : END ============================================== -->
 
             </div>
             <!-- /.homebanner-holder -->

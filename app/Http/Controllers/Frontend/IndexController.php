@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Blog\BlogPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Auth;
@@ -34,15 +33,14 @@ class IndexController extends Controller
 
         $order_item = OrderItem::with('product','order')->orderBy('id', 'desc')->limit(7)->get();
 
+        $recent_orders =  OrderItem::with('product','order')->groupBy('product_id')->orderBy('id', 'desc')->limit(7)->get();
+
         $skip_category = Category::skip(1)->first();
         $skip_brand = Brand::skip(0)->first();
         $skip_product  = Product::where('status', 1)->where('category_id', $skip_category->id)->orderBy('id', 'desc')->get();
         $skip_product_brand  = Product::where('status', 1)->where('brand_id', $skip_brand->id)->orderBy('id', 'desc')->get();
 
-        $blogpost = BlogPost::latest()->get();
-
-        $best_seller = OrderItem::select('product_id', DB::raw('sum(qty) as somme'))->groupBy('product_id')->orderBy('somme', 'desc')->limit(4)->get();
-
+        $best_seller = OrderItem::select('product_id', DB::raw('sum(qty) as somme'))->groupBy('product_id')->orderBy('somme', 'desc')->limit(5)->get();
 
         return view('frontend.index', compact(
                                         'best_seller',
@@ -57,8 +55,8 @@ class IndexController extends Controller
                                         'skip_product',
                                         'skip_brand',
                                         'skip_product_brand',
-                                        'blogpost',
-                                        'order_item'
+                                        'order_item',
+                                        'recent_orders'
                                     ));
     }
 

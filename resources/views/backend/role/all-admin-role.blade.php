@@ -93,6 +93,11 @@ Shopping Room Admin - All Admin User
                                             @else
                                             @endif
 
+                                            @if($item->orders == 1)
+                                            <span class="badge badge-pill badge-success">Orders</span>
+                                            @else
+                                            @endif
+
                                             @if($item->reports == 1)
                                             <span class="badge badge-pill badge-success">Reports</span>
                                             @else

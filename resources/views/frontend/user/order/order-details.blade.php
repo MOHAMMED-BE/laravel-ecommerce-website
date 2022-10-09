@@ -80,7 +80,7 @@ Shopping Room - Order Details
                         <table class="table">
                             <tbody class="user-dash-table">
                                 <tr>
-                                    <th>Payment Type : </th>
+                                    <th>Payment Method : </th>
                                     <th>{{$order->payment_method}}</th>
                                 </tr>
 
@@ -94,10 +94,6 @@ Shopping Room - Order Details
                                     <th>${{$order->amount}}</th>
                                 </tr>
 
-                                <tr>
-                                    <th>Status : </th>
-                                    <td><span class="badge badge-pill badge-warning" style="background:#418D89;">{{$order->status}}</span></td>
-                                </tr>
                             </tbody>
 
                         </table>
@@ -230,18 +226,6 @@ Shopping Room - Order Details
         </div>
     </div>
 
-
-    <script>
-        $(document).ready(function() {
-            $('#profile-image').change(function(e) {
-                var reader = new FileReader()
-                reader.onload = function(e) {
-                    $('#show-profile-image').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(e.target.files['0']);
-            });
-        });
-    </script>
 
 
     @endsection

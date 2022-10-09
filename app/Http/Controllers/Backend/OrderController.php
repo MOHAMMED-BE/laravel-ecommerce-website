@@ -52,16 +52,6 @@ class OrderController extends Controller
     } // end ProccessingOrders
 
 
-    public function PickedOrders()
-    {
-        $orders = Order::where('status','picked')->orderBy('id','desc')->get();
-
-        return view('backend.orders.picked-order',compact('orders'));
-
-
-    } // end PickedOrders
-
-
     public function ShippedOrders()
     {
         $orders = Order::where('status','shipped')->orderBy('id','desc')->get();
@@ -90,6 +80,21 @@ class OrderController extends Controller
 
 
     } // end CancelOrders
+
+    public function PendingToCancel($order_id)
+    {
+        Order::findOrFail($order_id)->update([
+            'status' => 'cancel',
+            'cancel_date' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Order Canceled Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('cancel-orders')->with($notification);
+    } // end PendingToCancel
 
 
     public function PendingToConfirm($order_id)
@@ -129,23 +134,7 @@ class OrderController extends Controller
     } // end ConfirmToProccessing
 
 
-    public function ProccessingToPicked($order_id)
-    {
-        Order::findOrFail($order_id)->update([
-            'status' => 'picked',
-            'picked_date' => Carbon::now(),
-        ]);
-
-        $notification = array(
-            'message' => 'Order picked Successfully',
-            'alert-type' => 'success'
-        );
-
-        return redirect()->route('picked-orders')->with($notification);
-    } // end ProccessingToPicked
-
-
-    public function PickedToShipped($order_id)
+    public function ProccessingToshipped($order_id)
     {
         Order::findOrFail($order_id)->update([
             'status' => 'shipped',
@@ -158,7 +147,7 @@ class OrderController extends Controller
         );
 
         return redirect()->route('shipped-orders')->with($notification);
-    } // end PickedToShipped
+    } // end ProccessingToshipped
 
 
     public function ShippedToDelivered($order_id)

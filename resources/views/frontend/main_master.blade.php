@@ -15,7 +15,7 @@ $seo = App\Models\SeoSetting::find(1);
   <meta name="keywords" content="{{$seo->meta_keyword}}">
   <meta name="robots" content="all">
   <script>
-  {{$seo->google_analytics}}
+  {{"$seo->google_analytics"}}
   </script>
   <title>@yield('title')</title>
 
@@ -34,11 +34,6 @@ $seo = App\Models\SeoSetting::find(1);
   <!-- Icons -->
   <link rel="stylesheet" href="{{asset('frontend/assets/css/font-awesome.css')}}">
 
-  <!-- Fonts -->
-  <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,500,700' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
@@ -56,8 +51,6 @@ $seo = App\Models\SeoSetting::find(1);
   <!-- ============================================== HEADER : END ============================================== -->
 
   @yield('content')
-
-  <!-- /#top-banner-and-menu -->
 
   <!-- ============================================================= FOOTER ============================================================= -->
 
@@ -170,8 +163,8 @@ $seo = App\Models\SeoSetting::find(1);
       </div>
     </div>
   </div>
-  <!-- End Add To Card Modal -->
 
+  <!-- End Add To Card Modal -->
 
 
 
@@ -219,9 +212,9 @@ $seo = App\Models\SeoSetting::find(1);
       })
 
     }
-    // <!-- // ========================= applyCoupon end -->
+    // ========================= applyCoupon end 
 
-    // <!-- // ========================= couponCalculation Start -->
+    // ========================= couponCalculation Start 
 
     function couponCalculation() {
       $.ajax({
@@ -270,11 +263,11 @@ $seo = App\Models\SeoSetting::find(1);
 
     couponCalculation();
 
-    // <!-- // ========================= couponCalculation end -->
+    // ========================= couponCalculation end 
   </script>
 
   <script>
-    // <!-- // ========================= CouponRemove Start -->
+    // ========================= CouponRemove Start 
 
     function CouponRemove() {
       $.ajax({
@@ -312,14 +305,13 @@ $seo = App\Models\SeoSetting::find(1);
       })
     }
 
-
-    // <!-- // ========================= CouponRemove end -->
+    // ========================= CouponRemove end 
   </script>
 
 
 
   <script>
-    // <!-- // get district -->
+    // get district 
     $(document).ready(function() {
       $('select[name="division_id"]').on('change', function() {
         var division_id = $(this).val();

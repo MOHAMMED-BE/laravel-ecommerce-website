@@ -34,17 +34,6 @@ Shopping Room - Tags Search Results
 
             <!-- ============================================== SIDEBAR CATEGORY : END ============================================== -->
 
-            <!-- ============================================== PRODUCT TAGS ============================================== -->
-
-            @include('frontend.common.product-tags')
-
-            <!-- ============================================== PRODUCT TAGS : END ============================================== -->
-            <!-- /.sidebar-widget -->
-
-            
-            <!-- ============================================== Testimonials: END ============================================== -->
-
-            
           </div>
           <!-- /.sidebar-filter -->
         </div>
@@ -142,9 +131,9 @@ Shopping Room - Tags Search Results
                         <div class="product-info text-left">
                           <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                           @php
-                                                        $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
-                                                        @endphp
-                                                        @include('frontend.common.rating')
+                          $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                          @endphp
+                          @include('frontend.common.rating')
                           <div class="description"></div>
                           @php
                           $product->discount_price = $product->selling_price - $product->discount_price
@@ -158,11 +147,13 @@ Shopping Room - Tags Search Results
                           <div class="action">
                             <ul class="list-unstyled">
                               <li class="add-cart-button btn-group">
-                                <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
+                                <button class="btn btn-primary icon" title="Add Cart" type="button" data-toggle="modal" data-target="#exampleModal" id="{{$product->id}}" onclick="productView(this.id)"> <i class="fa fa-shopping-cart"></i> </button>
                                 <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                               </li>
-                              <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                              <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal"></i> </a> </li>
+                              <li class="">
+                                <button class="btn btn-primary icon" type="button" title="Wishlist" id="{{$product->id}}" onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i> </button>
+                              </li>
+                              <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
                             </ul>
                           </div>
                           <!-- /.action -->
@@ -202,9 +193,9 @@ Shopping Room - Tags Search Results
                           <div class="product-info">
                             <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                             @php
-                                                        $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
-                                                        @endphp
-                                                        @include('frontend.common.rating')
+                            $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                            @endphp
+                            @include('frontend.common.rating')
                             @php
                             $product->discount_price = $product->selling_price - $product->discount_price
                             @endphp
@@ -215,11 +206,13 @@ Shopping Room - Tags Search Results
                               <div class="action">
                                 <ul class="list-unstyled">
                                   <li class="add-cart-button btn-group">
-                                    <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
+                                    <button class="btn btn-primary icon" title="Add Cart" type="button" data-toggle="modal" data-target="#exampleModal" id="{{$product->id}}" onclick="productView(this.id)"> <i class="fa fa-shopping-cart"></i> </button>
                                     <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                                   </li>
-                                  <li class="lnk wishlist"> <a class="add-to-cart" href="detail.html" title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                                  <li class="lnk"> <a class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal"></i> </a> </li>
+                                  <li class="">
+                                    <button class="btn btn-primary icon" type="button" title="Wishlist" id="{{$product->id}}" onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i> </button>
+                                  </li>
+                                  <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart" href="detail.html" title="Compare"> <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
                                 </ul>
                               </div>
                               <!-- /.action -->

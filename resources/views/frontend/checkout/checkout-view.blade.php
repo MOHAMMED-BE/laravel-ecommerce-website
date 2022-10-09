@@ -69,7 +69,7 @@ Shopping Room - Checkout
                                                         <h5><b>Country Select</b> <span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <select name="division_id" id="divisionselect" class="form-control" aria-invalid="false">
-                                                                <option value="" selected="" disabled>Select  division</option>
+                                                                <option value="" selected="" required disabled>Select Your Country</option>
                                                                 @foreach($division as $item)
                                                                 <option value="{{$item->id}}">{{$item->division_name}}</option>
                                                                 @endforeach
@@ -85,7 +85,7 @@ Shopping Room - Checkout
                                                         <h5><b>Region Select</b> <span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <select name="district_id" id="districtselect" class="form-control" aria-invalid="false">
-                                                                <option value="" selected="" disabled>Select  District</option>
+                                                                <option value="" selected="" required disabled>Select Your Region</option>
 
                                                             </select>
                                                             @error('district_id')
@@ -98,7 +98,7 @@ Shopping Room - Checkout
                                                         <h5><b>City Select</b> <span class="text-danger">*</span></h5>
                                                         <div class="controls">
                                                             <select name="state_id" id="stateselect" class="form-control" aria-invalid="false">
-                                                                <option value="" selected="" disabled>Select  State</option>
+                                                                <option value="" selected="" required disabled>Select Your City</option>
 
                                                             </select>
                                                             @error('state_id')
@@ -196,12 +196,13 @@ Shopping Room - Checkout
                                         <div class="col-md-4">
                                             <label for="stripe">Stripe</label>
                                             <input type="radio" class="form-check-input" name="payment_method" value="stripe" id="stripe">
-                                            <img src="{{asset('frontend/assets/images/payments/1.png')}}" alt="">
+                                            <img src="{{asset('frontend/assets/images/payments/logo-stripe.png')}}" alt="">
                                         </div>
+                                        <div class="col-md-2"></div>
                                         <div class="col-md-4">
                                             <label for="cash">Cash</label>
                                             <input type="radio" class="form-check-input" name="payment_method" value="cash" id="cash">
-                                            <img src="{{asset('frontend/assets/images/payments/6.png')}}" alt="">
+                                            <img src="{{asset('frontend/assets/images/payments/logo-cash.png')}}" alt="">
                                         </div>
                                     </div>
                                     <!-- end row -->

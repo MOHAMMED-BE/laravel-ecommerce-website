@@ -46,9 +46,7 @@ class StripeController extends Controller
             'post_code' => $request->post_code,
             'notes' => $request->notes,
 
-            'payment_type' => 'Strip',
             'payment_method' => 'Strip',
-            'payment_type' => $charge->payment_method,
             'transaction_id' => $charge->balance_transaction,
             'currency' => $charge->currency,
             'amount' => $total_amount,

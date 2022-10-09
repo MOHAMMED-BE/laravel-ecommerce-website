@@ -4,12 +4,6 @@
 Shopping Room - {{$product->product_name_en}}
 @endsection
 
-<style>
-    .checked {
-        color: orange;
-    }
-</style>
-
 <div class="breadcrumb">
     <div class="container">
         <div class="breadcrumb-inner">
@@ -31,21 +25,6 @@ Shopping Room - {{$product->product_name_en}}
                     <div class="home-banner outer-top-n">
                         <img src="{{asset($product->product_thumbnail)}}" alt="Image">
                     </div>
-
-
-
-                    <!-- ============================================== HOT DEALS ============================================== -->
-
-                    @include('frontend.common.hot-deals')
-
-                    <!-- ============================================== HOT DEALS: END ============================================== -->
-
-
-                    <!-- ============================================== Testimonials============================================== -->
-
-                    <!-- ============================================== Testimonials: END ============================================== -->
-
-
 
                 </div>
             </div><!-- /.sidebar -->
@@ -81,8 +60,6 @@ Shopping Room - {{$product->product_name_en}}
                                         @endforeach
 
                                     </div><!-- /#owl-single-product-thumbnails -->
-
-
 
                                 </div><!-- /.gallery-thumbs -->
 
@@ -161,7 +138,6 @@ Shopping Room - {{$product->product_name_en}}
                                     <div class="row">
                                         <div class="col-sm-6">
                                             <div class="price-box">
-
                                                 @if($product->discount_price == NULL)
                                                 <span class="price">${{$product->selling_price}}</span>
                                                 @else
@@ -170,20 +146,6 @@ Shopping Room - {{$product->product_name_en}}
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="col-sm-6">
-                                            <div class="favorite-button m-t-10">
-                                                <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Wishlist" href="#">
-                                                    <i class="fa fa-heart"></i>
-                                                </a>
-                                                <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="Add to Compare" href="#">
-                                                    <i class="fa fa-signal"></i>
-                                                </a>
-                                                <a class="btn btn-primary" data-toggle="tooltip" data-placement="right" title="E-mail" href="#">
-                                                    <i class="fa fa-envelope"></i>
-                                                </a>
-                                            </div>
-                                        </div>
-
                                     </div><!-- /.row -->
                                 </div><!-- /.price-container -->
 
@@ -261,11 +223,8 @@ Shopping Room - {{$product->product_name_en}}
                                     </div><!-- /.row -->
                                 </div><!-- /.quantity-container -->
 
-
                                 <!-- Go to www.addthis.com/dashboard to customize your tools -->
                                 <div class="addthis_inline_share_toolbox"></div>
-
-
 
                             </div><!-- /.product-info -->
                         </div><!-- /.col-sm-7 -->
@@ -278,7 +237,6 @@ Shopping Room - {{$product->product_name_en}}
                             <ul id="product-tabs" class="nav nav-tabs nav-tab-cell">
                                 <li class="active"><a data-toggle="tab" href="#description">DESCRIPTION</a></li>
                                 <li><a data-toggle="tab" href="#review">REVIEW</a></li>
-                                <li><a data-toggle="tab" href="#tags">TAGS</a></li>
                             </ul><!-- /.nav-tabs #product-tabs -->
                         </div>
                         <div class="col-sm-9">
@@ -483,9 +441,9 @@ Shopping Room - {{$product->product_name_en}}
                                         <div class="product-info text-left">
                                             <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif</a></h3>
                                             @php
-                                                        $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
-                                                        @endphp
-                                                        @include('frontend.common.rating')
+                                            $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                                            @endphp
+                                            @include('frontend.common.rating')
                                             <div class="description"></div>
                                             @if($product->discount_price == NULL)
                                             <div class="product-price"> <span class="price"> {{$product->selling_price}} $ </span> </div>

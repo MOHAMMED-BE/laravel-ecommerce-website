@@ -57,7 +57,6 @@ class AdminUserController extends Controller
             'slider' =>  $request->slider,
             'coupon' =>  $request->coupon,
             'shipping' =>  $request->shipping,
-            'blog' =>  $request->blog,
             'setting' =>  $request->setting,
             'returnorder' =>  $request->returnorder,
             'review' =>  $request->review,
@@ -90,63 +89,15 @@ class AdminUserController extends Controller
 
     public function UpdateAdminUser(Request $request)
     {
-
         $adminuser_id = $request->id;
-        $adminuser_ol_image = $request->adminuser_ol_image;
-
-        if ($request->file('profile_photo_path')) {
-            unlink($adminuser_ol_image);
-
-            $image = $request->file('profile_photo_path');
-            $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-            Image::make($image)->resize(300, 300)->save('upload/admin-images/' . $name_gen);
-            $save_url = 'upload/admin-images/' . $name_gen;
 
         Admin::findOrFail($adminuser_id)->update([
-            'name' =>  $request->name,
-            'email' =>  $request->email,
-            'phone' =>  $request->phone,
             'brand' =>  $request->brand,
             'category' =>  $request->category,
             'product' =>  $request->product,
             'slider' =>  $request->slider,
             'coupon' =>  $request->coupon,
             'shipping' =>  $request->shipping,
-            'blog' =>  $request->blog,
-            'setting' =>  $request->setting,
-            'returnorder' =>  $request->returnorder,
-            'review' =>  $request->review,
-            'orders' =>  $request->orders,
-            'stock' =>  $request->stock,
-            'reports' =>  $request->reports,
-            'allusers' =>  $request->allusers,
-            'adminuserrole' =>  $request->adminuserrole,
-            'type' =>  2,
-            'profile_photo_path' =>  $save_url,
-            'updated_at' =>  Carbon::now(),
-        ]);
-
-        $notification = array(
-            'message' => 'Admin User Updated Successfully',
-            'alert-type' => 'success'
-        );
-
-        return redirect()->route('all.admin.user')->with($notification);
-
-    }// end if
-
-    else{
-        Admin::findOrFail($adminuser_id)->update([
-            'name' =>  $request->name,
-            'email' =>  $request->email,
-            'phone' =>  $request->phone,
-            'brand' =>  $request->brand,
-            'category' =>  $request->category,
-            'product' =>  $request->product,
-            'slider' =>  $request->slider,
-            'coupon' =>  $request->coupon,
-            'shipping' =>  $request->shipping,
-            'blog' =>  $request->blog,
             'setting' =>  $request->setting,
             'returnorder' =>  $request->returnorder,
             'review' =>  $request->review,
@@ -165,11 +116,8 @@ class AdminUserController extends Controller
         );
 
         return redirect()->route('all.admin.user')->with($notification);
-    }
-
 
     } // end UpdateAdminUser
-
 
 
     public function DeleteAdminUser($id)

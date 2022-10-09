@@ -42,7 +42,6 @@ Shopping Room - Tracking Order #{{$track->invoice_no}}
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Pending</span> </div>
                 <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order confirmed</span> </div>
                 <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Proccessing</span> </div>
-                <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Picked</span> </div>
                 <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Shipped</span> </div>
                 <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Delivered</span> </div>
 
@@ -50,7 +49,6 @@ Shopping Room - Tracking Order #{{$track->invoice_no}}
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Pending</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order confirmed</span> </div>
                 <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Proccessing</span> </div>
-                <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Picked</span> </div>
                 <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Shipped</span> </div>
                 <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Delivered</span> </div>
 
@@ -58,23 +56,14 @@ Shopping Room - Tracking Order #{{$track->invoice_no}}
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Pending</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order confirmed</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Proccessing</span> </div>
-                <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Picked</span> </div>
                 <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Shipped</span> </div>
                 <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Delivered</span> </div>
 
-                @elseif($track->status == 'picked')
-                <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Pending</span> </div>
-                <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order confirmed</span> </div>
-                <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Proccessing</span> </div>
-                <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Picked</span> </div>
-                <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Shipped</span> </div>
-                <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Delivered</span> </div>
 
                 @elseif($track->status == 'shipped')
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Pending</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order confirmed</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Proccessing</span> </div>
-                <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Picked</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Shipped</span> </div>
                 <div class="step"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Delivered</span> </div>
 
@@ -82,7 +71,6 @@ Shopping Room - Tracking Order #{{$track->invoice_no}}
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Pending</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order confirmed</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Proccessing</span> </div>
-                <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Picked</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Order Shipped</span> </div>
                 <div class="step active"> <span class="icon"> <i class="fa fa-check"></i> </span> <span class="text">Delivered</span> </div>
 

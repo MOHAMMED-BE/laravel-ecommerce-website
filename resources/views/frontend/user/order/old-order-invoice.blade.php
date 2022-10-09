@@ -60,7 +60,7 @@
     <table width="100%" style="background: #F7F7F7; padding:0 20px 0 20px;">
         <tr>
             <td valign="top">
-                <img src="{{public_path('upload/LOGO-A.png')}}" height="60px;" width="90px;" style="margin:  10px 0 0 0;" alt="">
+                <h2 style="color: green; font-size: 26px;"><strong>Shopping Room</strong> <img src="" alt=""></h2>
             </td>
             <td align="right">
                 <pre class="font">
@@ -115,9 +115,10 @@
                 <th>Product Name</th>
                 <th>Size</th>
                 <th>Color</th>
+                <th>Code</th>
                 <th>Quantity</th>
-                <th>Price</th>
-                <th>Total</th>
+                <th>Unit Price </th>
+                <th>Total </th>
             </tr>
         </thead>
         <tbody>
@@ -128,7 +129,7 @@
                 <td class="td-align">
                     <img src="{{public_path($item->product->product_thumbnail)}}" class="any-img" height="60px;" width="60px;" alt="">
                 </td>
-                <td class="td-align" width="350px">{{$item->product->product_name_en}}</td>
+                <td class="td-align">{{$item->product->product_name_en}}</td>
                 <td class="td-align">
                     @if($item->size == NULL)
                     ---
@@ -143,6 +144,7 @@
                     {{$item->color}}
                     @endif
                 </td>
+                <td class="td-align">{{$item->product->product_code}}</td>
                 <td class="td-align">{{$item->qty}}</td>
                 <td class="td-align">${{$item->price}}</td>
                 <td class="td-align">${{$item->price * $item->qty}}</td>
@@ -154,7 +156,8 @@
     <table width="100%" style=" padding:0 10px 0 10px;">
         <tr>
             <td align="right">
-                <h2><span style="color: green;">Total :</span> ${{$order->amount}}</h2>
+                <h2><span style="color: green;">Subtotal:</span> ${{$order->amount}}</h2>
+                <h2><span style="color: green;">Total:</span> ${{$order->amount}}</h2>
             </td>
         </tr>
     </table>
@@ -163,8 +166,7 @@
     </div>
     <div class="authority float-right mt-5">
         <p>-----------------------------------</p>
-        <h5>Store Signature :</h5>
-        <img src="{{public_path('upload/sign-1.png')}}" height="60px;" width="60px;" style="margin-left: 4rem;" alt="">
+        <h5>Authority Signature:</h5>
     </div>
 </body>
 

@@ -39,6 +39,7 @@ Shopping Room Admin - Pending Orders
                                         <td><span class="badge badge-pill badge-success" style="background:#7733ff;">{{$order->status}}</span></td>
                                         <td class="text-center">
                                             <a href="{{ route('pending.order.details',$order->id)}}" title="View Order Details" class="btn btn-primary"><i class="fa fa-eye"></i></a>
+                                            <a href="{{ route('cancel.order',$order->id)}}" title="Cancel Order" id="cancel" class="btn btn-danger">Cancel</a>
                                         </td>
                                     </tr>
                                     @endforeach

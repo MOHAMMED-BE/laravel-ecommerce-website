@@ -4,7 +4,7 @@
         <ul class="nav">
             @foreach($categories as $category)
             <li class="dropdown menu-item">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon {{$category->category_icon}}" aria-hidden="true"></i>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon {{$category->category_icon}} category-icon" aria-hidden="true"></i>
                     @if(session()->get('language') == 'english') {{$category->category_name_en}} @else {{$category->category_name_ar}} @endif
                 </a>
                 <ul class="dropdown-menu mega-menu">

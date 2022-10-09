@@ -22,32 +22,43 @@ Shopping Room Admin - Edit Profil
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <h5>Admin User Name <span class="text-danger">*</span></h5>
+                                                <h5>Name </h5>
                                                 <div class="controls">
-                                                    <input type="text" value="{{$editData->name}}" name="name" class="form-control" required="" data-validation-required-message="This field is required">
+                                                    <input type="text" value="{{$editData->name}}" name="name" class="form-control" >
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <h5>Admin Email <span class="text-danger">*</span></h5>
+                                                <h5>Email </h5>
                                                 <div class="controls">
-                                                    <input type="email" value="{{$editData->email}}" name="email" class="form-control" required="" data-validation-required-message="This field is required">
+                                                    <input type="email" value="{{$editData->email}}" name="email" class="form-control" >
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-6">
+                                    <div class="col-md-6">
                                             <div class="form-group">
-                                                <h5>Profile Image <span class="text-danger">*</span></h5>
+                                                <h5>Phone </h5>
                                                 <div class="controls">
-                                                    <input type="file" id="profile-image" name="profile_photo_path" class="form-control" required="">
+                                                    <input type="text" value="{{$editData->phone}}" name="phone" class="form-control" >
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
+                                            <div class="form-group">
+                                                <h5>Profile Image </h5>
+                                                <div class="controls">
+                                                    <input type="file" id="profile-image" name="profile_photo_path" class="form-control" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6"></div>
+                                        <div class="col-md-4">
                                             <img id="show-profile-image" class="rounded-circle" src="{{ (!empty($editData->profile_photo_path)) ? url($editData->profile_photo_path) : url('upload/no_image.jpg')}}" alt="User Avatar" style="width:100px ;height:100px;box-shadow: 0 .5rem 1rem rgba(255,255,255,.25)!important;">
                                         </div>
                                     </div>

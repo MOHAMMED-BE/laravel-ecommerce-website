@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -31,6 +30,6 @@ class OrderMail extends Mailable
     public function build()
     {
         $order = $this->data;
-        return $this->from('support@shoppingroom.com')->view('mail.order_mail',compact('order'))->subject('Email From shoppinghouse');
+        return $this->from('support@shoppingroom.com')->view('mail.order_mail',compact('order'))->subject('Email From Shopping Room');
     }
 }

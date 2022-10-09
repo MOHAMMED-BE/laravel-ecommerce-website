@@ -31,6 +31,7 @@ class AdminProfileController extends Controller
         $storeData = Admin::find($id);
         $storeData->name = $request->name;
         $storeData->email = $request->email;
+        $storeData->phone = $request->phone;
 
         if ($request->file('profile_photo_path')) {
             $file = $request->file('profile_photo_path');

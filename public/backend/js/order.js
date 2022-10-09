@@ -12,13 +12,13 @@ $(function () {
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, Confirmed it!'
+      confirmButtonText: 'Yes, Confirm'
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = link
         Swal.fire(
           'Confirmed!',
-          'Your Order has been Confirmed.',
+          'Order has been Confirmed.',
           'success'
         )
       }
@@ -33,46 +33,19 @@ $(function () {
     e.preventDefault();
     var link = $(this).attr("href");
     Swal.fire({
-      title: 'Are you sure to Proccessing',
+      title: 'Are you sure to confirm',
       text: "You will not able to undo this again",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, Proccessing it!'
+      confirmButtonText: 'Yes, Confirm'
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = link
         Swal.fire(
           'Proccessing!',
-          'Your Order has been Proccessing.',
-          'success'
-        )
-      }
-    })
-  });
-});
-
-// ------------------------- Picked Order
-
-$(function () {
-  $(document).on('click', '#picked', function (e) {
-    e.preventDefault();
-    var link = $(this).attr("href");
-    Swal.fire({
-      title: 'Are you sure to picked',
-      text: "You will not able to undo this again",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, Picked it!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.href = link
-        Swal.fire(
-          'Picked!',
-          'Your Order has been Picked.',
+          'Order is being Proccessed.',
           'success'
         )
       }
@@ -87,19 +60,19 @@ $(function () {
     e.preventDefault();
     var link = $(this).attr("href");
     Swal.fire({
-      title: 'Are you sure to shipped',
+      title: 'Are you sure to confirm',
       text: "You will not able to undo this again",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, shipped it!'
+      confirmButtonText: 'Yes, Confirm'
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = link
         Swal.fire(
           'shipped!',
-          'Your Order has been shipped.',
+          'Order is being shipped.',
           'success'
         )
       }
@@ -114,19 +87,47 @@ $(function () {
     e.preventDefault();
     var link = $(this).attr("href");
     Swal.fire({
-      title: 'Are you sure to delivered',
+      title: 'Are you sure to confirm',
       text: "You will not able to undo this again",
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delivered it!'
+      confirmButtonText: 'Yes, Confirm'
     }).then((result) => {
       if (result.isConfirmed) {
         window.location.href = link
         Swal.fire(
           'delivered!',
-          'Your Order has been delivered.',
+          'Order has been delivered.',
+          'success'
+        )
+      }
+    })
+  });
+});
+
+
+// ------------------------- Cancel Order
+
+$(function () {
+  $(document).on('click', '#cancel', function (e) {
+    e.preventDefault();
+    var link = $(this).attr("href");
+    Swal.fire({
+      title: 'Are you sure to confirm',
+      text: "You will not able to undo this again",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, Confirm'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = link
+        Swal.fire(
+          'Canceled!',
+          'Order has been Canceled.',
           'success'
         )
       }

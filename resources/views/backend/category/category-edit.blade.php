@@ -25,7 +25,7 @@ Shopping Room Admin - Edit Category
                                 <input type="hidden" value="{{$category->id}}" name="id">
 
                                 <div class="form-group">
-                                    <h5>category Icon <span class="text-danger">*</span></h5>
+                                    <h5>category Icon </h5>
                                     <div class="controls">
                                         <input type="text" value="{{$category->category_icon}}" name="category_icon" class="form-control">
                                         @error('category_icon')
@@ -34,7 +34,7 @@ Shopping Room Admin - Edit Category
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <h5>category Name English <span class="text-danger">*</span></h5>
+                                    <h5>category Name English </h5>
                                     <div class="controls">
                                         <input type="text" value="{{$category->category_name_en}}" name="category_name_en" class="form-control">
                                         @error('category_name_en')
@@ -44,7 +44,7 @@ Shopping Room Admin - Edit Category
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>category Name Arab <span class="text-danger">*</span></h5>
+                                    <h5>category Name Arab </h5>
                                     <div class="controls">
                                         <input type="text" value="{{$category->category_name_ar}}" name="category_name_ar" class="form-control">
                                         @error('category_name_ar')

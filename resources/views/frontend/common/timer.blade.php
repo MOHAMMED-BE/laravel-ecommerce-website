@@ -110,7 +110,7 @@
     </div>
 
     <script>
-        var countDownDate = new Date("2022-10-05 21:34:41").getTime();
+        var countDownDate = new Date("2022-10-25 21:34:41").getTime();
 
         var x = setInterval(function() {
 

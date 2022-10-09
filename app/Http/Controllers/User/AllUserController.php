@@ -66,23 +66,23 @@ class AllUserController extends Controller
 
     } // end ReturnOrderList
 
-    public function CancelOrder()
+    public function CancelOrderList()
     {
         $orders = Order::where('user_id',Auth::id())->where('status','cancel')->orderBy('id','desc')->get();
 
         return view('frontend.user.order.cancel-order-view',compact('orders'));
 
-    } // end CancelOrders
+    } // end CancelOrderList
 
 
     public function OrderTracking(Request $request)
     {
         $invoice_code = $request->invoice_code;
-
         $track = Order::where('invoice_no',$invoice_code)->first();
-        $orderItem = OrderItem::with('product')->where('order_id',$track->id)->first();
 
         if($track){
+
+        $orderItem = OrderItem::with('product')->where('order_id',$track->id)->first();
             
         return view('frontend.tracking.track-order',compact('track','orderItem'));
             
@@ -93,7 +93,7 @@ class AllUserController extends Controller
                 'alert-type' => 'error'
             );
     
-            return redirect()->back()->with($notification);
+            return redirect('/')->with($notification);
         }
 
     } // end OrderTracking

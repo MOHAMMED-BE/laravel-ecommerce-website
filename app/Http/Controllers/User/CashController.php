@@ -35,7 +35,6 @@ class CashController extends Controller
             'post_code' => $request->post_code,
             'notes' => $request->notes,
 
-            'payment_type' => 'Cash On Delivery',
             'payment_method' => 'Cash On Delivery',
             'currency' => 'usd',
             'amount' => $total_amount,

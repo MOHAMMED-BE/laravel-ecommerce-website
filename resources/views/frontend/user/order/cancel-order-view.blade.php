@@ -13,17 +13,17 @@ Shopping Room - Cancel Orders
 
             <!-- ============================================== User Sidebar: END ============================================== -->
 
-            <div class="col-md-2"></div>
-        
-            <div class="col-md-8 user-dash" style=" padding: 3px; ">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-9 user-dash" style=" padding: 3px; ">
                 <div class="table-responsive">
                     <table class="table">
                         <tbody>
-                            <tr class="user-dash-table"> <!--  style="background:#E2E2E2;"  -->
+                            <tr class="user-dash-table">
                                 <td class="col-md-1">
                                     <label for="">Date</label>
                                 </td>
-                                <td class="col-md-2">
+                                <td class="col-md-1">
                                     <label for="">Total</label>
                                 </td>
                                 <td class="col-md-2">
@@ -35,18 +35,18 @@ Shopping Room - Cancel Orders
                                 <td class="col-md-2">
                                     <label for="">Order</label>
                                 </td>
-                                <td class="col-md-1">
+                                <td class="col-md-2">
                                     <label for="">Action</label>
                                 </td>
                             </tr>
 
                             @forelse($orders as $order)
-                            <tr>
-                                <td class="col-md-1">
+                            <tr style="text-align: center; ">
+                                <td class="col-md-3">
                                     <label for="">{{$order->order_date}}</label>
                                 </td>
-                                <td class="col-md-2">
-                                    <label for="">{{$order->amount}}</label>
+                                <td class="col-md-1">
+                                    <label for="">${{$order->amount}}</label>
                                 </td>
                                 <td class="col-md-2">
                                     <label for="">{{$order->payment_method}}</label>
@@ -54,43 +54,28 @@ Shopping Room - Cancel Orders
                                 <td class="col-md-2">
                                     <label for="">{{$order->invoice_no}}</label>
                                 </td>
-                                <td class="col-md-2">
+                                <td class="col-md-1">
                                     <label for="">
-                                        <span class="badge badge-pill badge-warning" style="background:#418D89;">{{$order->status}}</span>
-                                        <span class="badge badge-pill badge-warning" style="background:red;">Return Requested</span>
-
+                                        <span class="badge badge-pill badge-warning" style="background:#ff0040;">{{$order->status}}</span>
                                     </label>
                                 </td>
                                 <td class="col-md-2">
-                                <a href="{{ url('user/order-details/'.$order->id)}}" class="btn btn-sm btn-info"><i class="fa fa-eye"></i> View</a>
-                                <a href="{{ url('user/invoice-download/'.$order->id)}}" target="_blank" class="btn btn-sm btn-info"><i class="fa fa-download"></i> Invoice</a>
+                                    <a href="{{ url('user/order-details/'.$order->id)}}" class="btn btn-sm btn-warning"><i class="fa fa-eye"></i></a>
+                                    <a href="{{ url('user/invoice-download/'.$order->id)}}" target="_blank" class="btn btn-sm btn-danger"><i class="fa fa-download"></i></a>
                                 </td>
                             </tr>
                             @empty
                             <h5 class="text-danger">No Products</h5>
                             @endforelse
 
-                            
+
                         </tbody>
                     </table>
                 </div>
             </div>
-        
+
         </div>
     </div>
-
-
-    <script>
-        $(document).ready(function() {
-            $('#profile-image').change(function(e) {
-                var reader = new FileReader()
-                reader.onload = function(e) {
-                    $('#show-profile-image').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(e.target.files['0']);
-            });
-        });
-    </script>
 
 
     @endsection

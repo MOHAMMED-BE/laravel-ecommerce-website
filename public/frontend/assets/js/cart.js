@@ -20,7 +20,7 @@ function productView(id) {
                 $('#product-old-price').css('display', 'none');
                 $('#product-selling-price').text("$" + data.product.selling_price);
             } else {
-                $('#product-selling-price').text("$"+data.product.discount_price);
+                $('#product-selling-price').text("$" + data.product.discount_price);
                 $('#product-old-price').text("$" + data.product.selling_price).css('display', 'block');
             }
 
@@ -35,8 +35,10 @@ function productView(id) {
 
             if (stock > 0)
                 $('#product-stock').text('in stock').attr('class', 'badge badge-pill badge-success').css('background-color', 'green', 'color', '#fff');
-            else if (stock < 1)
+            else if (stock < 1) {
                 $('#product-stock').text('out of stock').attr('class', 'badge badge-pill badge-danger').css('background-color', 'red', 'color', '#fff');
+                $('button[type="submit"]').attr('disabled', 'disabled');
+            }
 
             if (data.product_size_en != "")
                 $.each(data.product_size_en, function (key, value) {
@@ -232,8 +234,8 @@ function cart() {
                     <input type="text" class="form-control" id="quantity" value="${value.qty}" min="1" max="100" disabled style=" width: 6rem; ">
 
                     ${value.qty < 100
-                            ? `<button type="submit" id="${value.rowId}" onclick="cartIncrement(this.id)" id="cartIncrement" class="btn btn-danger btn-sm" style=" margin: 0 0 0 4px; ">+</button>`
-                            : `<button type="submit" id="${value.rowId}" onclick="cartIncrement(this.id)" id="cartIncrement" disabled class="btn btn-danger btn-sm" style=" margin: 0 0 0 4px; ">+</button>`
+                        ? `<button type="submit" id="${value.rowId}" onclick="cartIncrement(this.id)" id="cartIncrement" class="btn btn-danger btn-sm" style=" margin: 0 0 0 4px; ">+</button>`
+                        : `<button type="submit" id="${value.rowId}" onclick="cartIncrement(this.id)" id="cartIncrement" disabled class="btn btn-danger btn-sm" style=" margin: 0 0 0 4px; ">+</button>`
                     }
                 </td>
 

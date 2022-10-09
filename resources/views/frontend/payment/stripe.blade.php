@@ -83,7 +83,7 @@ Shopping Room - Stripe Payment
                                                 <hr>
 
                                                 @else
-                                                <strong>SubTotal : </strong>
+                                                <strong>Total : </strong>
                                                 ${{$cartTotal}}
                                                 <hr>
                                                 <strong>Grand Total : </strong>

@@ -26,7 +26,7 @@ Shopping Room Admin - Edit Sub-SubCategory
                                 <input type="hidden" value="{{$subsubcategory->id}}" name="id">
 
                                 <div class="form-group">
-                                    <h5>Category Select <span class="text-danger">*</span></h5>
+                                    <h5>Category Select </h5>
                                     <div class="controls">
                                         <select name="category_id" id="categoryselect" class="form-control" aria-invalid="false">
                                         <option value="" selected="" disabled>Select  Category</option>
@@ -42,7 +42,7 @@ Shopping Room Admin - Edit Sub-SubCategory
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>Sub Category Select <span class="text-danger">*</span></h5>
+                                    <h5>Sub Category Select </h5>
                                     <div class="controls">
                                         <select name="subcategory_id" id="subcategoryselect" class="form-control" aria-invalid="false">
                                         <option value="" selected="" disabled>Select SubCategory</option>
@@ -60,7 +60,7 @@ Shopping Room Admin - Edit Sub-SubCategory
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>Sub-SubCategory English <span class="text-danger">*</span></h5>
+                                    <h5>Sub-SubCategory English </h5>
                                     <div class="controls">
                                         <input type="text" value="{{$subsubcategory->subsubcategory_name_en}}" name="subsubcategory_name_en" class="form-control">
                                         @error('subsubcategory_name_en')
@@ -70,7 +70,7 @@ Shopping Room Admin - Edit Sub-SubCategory
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>Sub-SubCategory Arab <span class="text-danger">*</span></h5>
+                                    <h5>Sub-SubCategory Arab </h5>
                                     <div class="controls">
                                         <input type="text" value="{{$subsubcategory->subsubcategory_name_ar}}" name="subsubcategory_name_ar" class="form-control">
                                         @error('subcategory_name_ar')

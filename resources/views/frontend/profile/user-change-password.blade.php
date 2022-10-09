@@ -16,7 +16,7 @@ Shopping Room User - Change Password
 
             <!-- ============================================== User Sidebar: END ============================================== -->
             <div class="col-md-2"></div>
-            <div class="col-md-6">
+            <div class="col-md-6 user-dash">
                 <div class="card">
                     <h3 class="text-center">
                         Update Your Password

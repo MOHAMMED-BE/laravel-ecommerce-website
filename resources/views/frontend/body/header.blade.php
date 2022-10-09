@@ -12,8 +12,8 @@ $setting = App\Models\SiteSetting::find(1);
                     <ul class="list-unstyled">
                         <li><a href="{{route('wishlist')}}"><i class="icon fa fa-heart"></i>@if(session()->get('language') == 'english') Wishlist @else قائمة الرغبات @endif</a></li>
                         <li><a href="{{route('mycart')}}"><i class="icon fa fa-shopping-cart"></i>@if(session()->get('language') == 'english') My Cart @else عربة التسوق @endif</a></li>
-                        <li><a href="{{route('checkout')}}"><i class="icon fa fa-check"></i>@if(session()->get('language') == 'english') Checkout @else الدفع @endif</a></li>
-                        <li><a href="" type="button" data-toggle="modal" data-target="#trackingModal"><i class="icon fa fa-check"></i>@if(session()->get('language') == 'english') Order Tracking @else تتبع @endif</a></li>
+                        <li><a href="{{route('checkout')}}"><i class="fa-solid fa-money-check-dollar"></i>@if(session()->get('language') == 'english') Checkout @else الدفع @endif</a></li>
+                        <li><a href="" type="button" data-toggle="modal" data-target="#trackingModal"><i class="fa-solid fa-map-location-dot"></i>@if(session()->get('language') == 'english') Order Tracking @else تتبع @endif</a></li>
                         @auth
                         <li><a href="{{route('dashboard')}}"><i class="icon fa fa-user"></i>@if(session()->get('language') == 'english') My Profile @else الحساب @endif</a></li>
                         @else
@@ -25,13 +25,6 @@ $setting = App\Models\SiteSetting::find(1);
 
                 <div class="cnt-block">
                     <ul class="list-unstyled list-inline">
-                        <!-- <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">USD</a></li>
-                                <li><a href="#">INR</a></li>
-                                <li><a href="#">GBP</a></li>
-                            </ul>
-                        </li> -->
                         <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
                                 <span class="value">@if(session()->get('language') == 'english') English @else العربية @endif</span><b class="caret"></b></a>
                             <ul class="dropdown-menu">
@@ -141,15 +134,16 @@ $setting = App\Models\SiteSetting::find(1);
             <div class="yamm navbar navbar-default" role="navigation">
                 <div class="navbar-header">
                     <button data-target="#mc-horizontal-menu-collapse" data-toggle="collapse" class="navbar-toggle collapsed" type="button">
-                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                        <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    </button>
                 </div>
                 <div class="nav-bg-class">
                     <div class="navbar-collapse collapse" id="mc-horizontal-menu-collapse">
                         <div class="nav-outer">
                             <ul class="nav navbar-nav">
                                 <li class="active dropdown yamm-fw"> <a href="{{('/')}}">
-                                        @if(session()->get('language') == 'english') Home @else الرئيسية @endif</a> </li>
-
+                                    @if(session()->get('language') == 'english') Home @else الرئيسية @endif</a>
+                                </li>
                                 @php
                                 $categories = App\Models\Category::orderBy('category_name_en','asc')->get();
                                 @endphp
@@ -197,7 +191,6 @@ $setting = App\Models\SiteSetting::find(1);
                                 </li>
                                 @endforeach
                                 <li><a href="{{route('shop.page')}}">Shop</a></li>
-                                <li class="dropdown  navbar-right special-menu" style="display: none;"> <a href="{{route('home.blog')}}">Blog</a> </li>
                             </ul>
                             <!-- /.navbar-nav -->
                             <div class="clearfix"></div>
@@ -227,7 +220,7 @@ $setting = App\Models\SiteSetting::find(1);
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{route('order.tracking')}}" method="post">
+                <form action="{{route('order.tracking')}}" method="get">
                     @csrf
                     <div class="modal-body">
                         <label for="">Invoice Code</label>

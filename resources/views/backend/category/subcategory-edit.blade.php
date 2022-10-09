@@ -25,7 +25,7 @@ Shopping Room Admin - Edit SubCategory
                                 <input type="hidden" value="{{$subcategory->id}}" name="id">
 
                                 <div class="form-group">
-                                    <h5>Category Select <span class="text-danger">*</span></h5>
+                                    <h5>Category Select </h5>
                                     <div class="controls">
                                         <select name="category_id" class="form-control" aria-invalid="false">
                                             <option value="" selected="" disabled>Select  Category</option>
@@ -41,7 +41,7 @@ Shopping Room Admin - Edit SubCategory
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>SubCategory English <span class="text-danger">*</span></h5>
+                                    <h5>SubCategory English </h5>
                                     <div class="controls">
                                         <input type="text" value="{{$subcategory->subcategory_name_en}}" name="subcategory_name_en" class="form-control">
                                         @error('subcategory_name_en')
@@ -51,7 +51,7 @@ Shopping Room Admin - Edit SubCategory
                                 </div>
 
                                 <div class="form-group">
-                                    <h5>SubCategory Arab <span class="text-danger">*</span></h5>
+                                    <h5>SubCategory Arab </h5>
                                     <div class="controls">
                                         <input type="text" value="{{$subcategory->subcategory_name_ar}}" name="subcategory_name_ar" class="form-control">
                                         @error('subcategory_name_ar')

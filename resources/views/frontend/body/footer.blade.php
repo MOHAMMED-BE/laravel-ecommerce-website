@@ -76,7 +76,6 @@ $setting = App\Models\SiteSetting::find(1);
 
                     <div class="module-body">
                         <ul class='list-unstyled'>
-                            <li><a href="{{route('home.blog')}}" title="Blog">Blog</a></li>
                             <li class=" last"><a href="#" title="Suppliers">Contact Us</a></li>
                         </ul>
                     </div>
@@ -105,7 +104,6 @@ $setting = App\Models\SiteSetting::find(1);
                         <li><img src="{{asset('frontend/assets/images/payments/2.png')}}" alt=""></li>
                         <li><img src="{{asset('frontend/assets/images/payments/3.png')}}" alt=""></li>
                         <li><img src="{{asset('frontend/assets/images/payments/4.png')}}" alt=""></li>
-                        <li><img src="{{asset('frontend/assets/images/payments/5.png')}}" alt=""></li>
                     </ul>
                 </div>
                 <!-- /.payment-methods -->

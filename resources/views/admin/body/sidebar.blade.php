@@ -40,7 +40,6 @@ $setting = App\Models\SiteSetting::find(1);
       $slider = (auth()->guard('admin')->user()->slider == 1);
       $coupon = (auth()->guard('admin')->user()->coupon == 1);
       $shipping = (auth()->guard('admin')->user()->shipping == 1);
-      $blog = (auth()->guard('admin')->user()->blog == 1);
       $setting = (auth()->guard('admin')->user()->setting == 1);
       $returnorder = (auth()->guard('admin')->user()->returnorder == 1);
       $review = (auth()->guard('admin')->user()->review == 1);
@@ -152,23 +151,7 @@ $setting = App\Models\SiteSetting::find(1);
       @else
       @endif
 
-      @if($blog == true)
-      <li class="treeview {{ ($prefix == '/blog')? 'active':''}}" style="display: none;">
-        <a href="#">
-          <i data-feather="file"></i>
-          <span>Menage Blog</span>
-          <span style="float: right;">
-            <i class="fa-solid fa-angle-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li class="{{ ($route == 'blog.category')? 'active':''}}"><a href="{{route('blog.category')}}"><i class="ti-more"></i>Blog Category</a></li>
-          <li class="{{ ($route == 'view.post')? 'active':''}}"><a href="{{route('view.post')}}"><i class="ti-more"></i>Blog Post List</a></li>
-          <li class="{{ ($route == 'add.post')? 'active':''}}"><a href="{{route('add.post')}}"><i class="ti-more"></i>Add Blog Post</a></li>
-        </ul>
-      </li>
-      @else
-      @endif
+
 
       @if($setting == true)
       <li class="treeview {{ ($prefix == '/setting')? 'active':''}}">
@@ -182,23 +165,6 @@ $setting = App\Models\SiteSetting::find(1);
         <ul class="treeview-menu">
           <li class="{{ ($route == 'site.setting')? 'active':''}}"><a href="{{route('site.setting')}}"><i class="ti-more"></i>Site Settings</a></li>
           <li class="{{ ($route == 'seo.setting')? 'active':''}}"><a href="{{route('seo.setting')}}"><i class="ti-more"></i>Seo Settings</a></li>
-        </ul>
-      </li>
-      @else
-      @endif
-
-      @if($returnorder == true)
-      <li class="treeview {{ ($prefix == '/return')? 'active':''}}">
-        <a href="#">
-          <i data-feather="file"></i>
-          <span>Rerurn Order</span>
-          <span style="float: right;">
-            <i class="fa-solid fa-angle-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li class="{{ ($route == 'return.request')? 'active':''}}"><a href="{{route('return.request')}}"><i class="ti-more"></i>Return Request</a></li>
-          <li class="{{ ($route == 'all.request')? 'active':''}}"><a href="{{route('all.request')}}"><i class="ti-more"></i>All Request</a></li>
         </ul>
       </li>
       @else
@@ -221,8 +187,6 @@ $setting = App\Models\SiteSetting::find(1);
       @else
       @endif
 
-      <!-- <li class="header nav-small-cap">Menage Orders</li> -->
-
       @if($orders == true)
       <li class="treeview {{ ($prefix == '/orders')? 'active':''}}">
         <a href="#">
@@ -236,10 +200,26 @@ $setting = App\Models\SiteSetting::find(1);
           <li class="{{ ($route == 'pending-orders')? 'active':''}}"><a href="{{route('pending-orders')}}"><i class="ti-more"></i>Pending Orders</a></li>
           <li class="{{ ($route == 'confirmed-orders')? 'active':''}}"><a href="{{route('confirmed-orders')}}"><i class="ti-more"></i>Confirmed Orders</a></li>
           <li class="{{ ($route == 'proccessing-orders')? 'active':''}}"><a href="{{route('proccessing-orders')}}"><i class="ti-more"></i>Proccessing Orders</a></li>
-          <li class="{{ ($route == 'picked-orders')? 'active':''}}"><a href="{{route('picked-orders')}}"><i class="ti-more"></i>Picked Orders</a></li>
           <li class="{{ ($route == 'shipped-orders')? 'active':''}}"><a href="{{route('shipped-orders')}}"><i class="ti-more"></i>Shipped Orders</a></li>
           <li class="{{ ($route == 'delivered-orders')? 'active':''}}"><a href="{{route('delivered-orders')}}"><i class="ti-more"></i>Delivered Orders</a></li>
           <li class="{{ ($route == 'cancel-orders')? 'active':''}}"><a href="{{route('cancel-orders')}}"><i class="ti-more"></i>Cancel Orders</a></li>
+        </ul>
+      </li>
+      @else
+      @endif
+
+      @if($returnorder == true)
+      <li class="treeview {{ ($prefix == '/return')? 'active':''}}">
+        <a href="#">
+          <i data-feather="file"></i>
+          <span>Rerurn Order</span>
+          <span style="float: right;">
+            <i class="fa-solid fa-angle-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li class="{{ ($route == 'return.request')? 'active':''}}"><a href="{{route('return.request')}}"><i class="ti-more"></i>Return Request</a></li>
+          <li class="{{ ($route == 'all.request')? 'active':''}}"><a href="{{route('all.request')}}"><i class="ti-more"></i>All Request</a></li>
         </ul>
       </li>
       @else
@@ -313,11 +293,6 @@ $setting = App\Models\SiteSetting::find(1);
   </section>
 
   <div class="sidebar-footer">
-    <!-- item-->
-    <!-- <a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Settings" aria-describedby="tooltip92529"><i class="ti-settings"></i></a> -->
-    <!-- item-->
-    <!-- <a href="mailbox_inbox.html" class="link" data-toggle="tooltip" title="" data-original-title="Email"><i class="ti-email"></i></a> -->
-    <!-- item-->
     <a href="{{ route('admin.logout') }}" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ti-lock"></i></a>
   </div>
 </aside>

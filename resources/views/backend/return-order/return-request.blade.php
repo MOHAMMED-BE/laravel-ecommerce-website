@@ -49,6 +49,7 @@ Shopping Room Admin - Return Request
                                         </td>
                                         <td class="text-center">
                                             <a href="{{ route('return.approve',$order->id)}}" title="View Order Details" class="btn btn-success">Approve</a>
+                                            <a href="{{ route('return.approve',$order->id)}}" title="View Order Details" class="btn btn-danger">Refuse</a>
                                         </td>
                                     </tr>
                                     @endforeach

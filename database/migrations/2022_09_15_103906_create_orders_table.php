@@ -24,7 +24,6 @@ return new class extends Migration
             $table->string('phone');
             $table->integer('post_code')->nullable();
             $table->text('notes')->nullable();
-            $table->string('payment_type');
             $table->string('payment_method')->nullable();
             $table->string('transaction_id')->nullable();
             $table->string('currency');

@@ -43,8 +43,6 @@ Shopping Room Admin - Reports Result
                                             <span class="badge badge-pill badge-warning" style="background:#668cff;">Confirmed</span>
                                             @elseif($order->status == 'proccessing')
                                             <span class="badge badge-pill badge-warning" style="background:#66d9ff;">Proccessing</span>
-                                            @elseif($order->status == 'picked')
-                                            <span class="badge badge-pill badge-warning" style="background:#ff751a;">Picked</span>
                                             @elseif($order->status == 'shipped')
                                             <span class="badge badge-pill badge-warning" style="background:#729b1f;">Shipped</span>
                                             @elseif($order->status == 'delivered')
