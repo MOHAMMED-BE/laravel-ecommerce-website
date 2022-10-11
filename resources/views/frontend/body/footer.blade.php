@@ -29,7 +29,7 @@ $setting = App\Models\SiteSetting::find(1);
                             </li>
                             <li class="media">
                                 <div class="pull-left"> <span class="icon fa-stack fa-lg"> <i class="fa fa-envelope fa-stack-1x fa-inverse"></i> </span> </div>
-                                <div class="media-body"> <span><a href="#">{{$setting->email}}</a></span> </div>
+                                <div class="media-body"> <span>{{$setting->email}}</span> </div>
                             </li>
                         </ul>
                     </div>
@@ -60,8 +60,8 @@ $setting = App\Models\SiteSetting::find(1);
 
                     <div class="module-body">
                         <ul class='list-unstyled'>
-                            <li class="first"><a  href="#">About us</a></li>
-                            <li class="last"><a  href="{{route('shop.page')}}">Advanced Search</a></li>
+                            <li class="first"><a href="#">About us</a></li>
+                            <li class="last"><a href="{{route('shop.page')}}">Advanced Search</a></li>
                         </ul>
                     </div>
                     <!-- /.module-body -->

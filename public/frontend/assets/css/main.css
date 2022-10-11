@@ -1,11 +1,9 @@
-/*
-Theme Name: Flipmart
-Author: ThemesGround
-Description:  Flipmart HTML Template
-Version: 1.4
-License: GNU General Public License v2 or later
-Tags: two-columns, left-sidebar, fixed-layout, responsive-layout, custom-background, custom-colors, custom-header, custom-menu
-Text Domain:  Flipmart
+:root {
+  --shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
+  --radius: 5px;
+  --font-family: "Varela Round", sans-serif !important;
+  ;
+}
 
 /* TABLE OF CONTENTS
 
@@ -15,17 +13,15 @@ Text Domain:  Flipmart
 4.   Side menu
 5.   Slider
 6.   Top Banner Section	
-8.   Home Tabs
-9.   Products Grid 
-10.  Products List
-11.  Latest-Blog
-12.  Sidebar
-13.  Product View
-14.  Footer
-15.  Responsive
-16.  Testimonials
+7.   Home Tabs
+8.   Products Grid 
+9.  Products List
+10.  Sidebar
+11.  Product View
+12.  Footer
+13.  Responsive
 
-/* */
+/* 
 /*===================================================================================*/
 /*  Body
 /*===================================================================================*/
@@ -102,7 +98,7 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   background-color: #f9f9f9;
 }
 
@@ -159,7 +155,6 @@ img[src="assets/images/blank.gif"] {
   background: #cbc9c9;
   color: #fff;
   font-weight: 700;
-  /*line-height:30px;*/
   -webkit-transition: all 0.2s linear 0s;
   -moz-transition: all 0.2s linear 0s;
   -ms-transition: all 0.2s linear 0s;
@@ -180,7 +175,7 @@ img[src="assets/images/blank.gif"] {
   line-height: 22px;
   border-radius: 0;
   padding: 6px 14px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   border-radius: 2px
 }
 
@@ -460,7 +455,7 @@ img[src="assets/images/blank.gif"] {
 
 .section-title {
   font-size: 14px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   border-bottom: 1px solid #e3e3e3;
   padding-bottom: 10px;
   text-transform: uppercase;
@@ -472,7 +467,7 @@ img[src="assets/images/blank.gif"] {
   margin-bottom: 0px;
   margin-top: 5px;
   font-size: 16px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   text-transform: uppercase;
   font-weight: bold;
   border-bottom: 1px solid #e3e3e3;
@@ -482,17 +477,15 @@ img[src="assets/images/blank.gif"] {
 
 .best-deal {
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
-
-
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 }
 
 .best-deal .section-title {
   margin-bottom: 0px;
   margin-top: 5px;
   font-size: 16px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   text-transform: uppercase;
   font-weight: bold;
   border-bottom: 1px solid #e3e3e3;
@@ -510,7 +503,6 @@ img[src="assets/images/blank.gif"] {
 }
 
 .home-owl-carousel .owl-controls,
-.blog-slider .owl-controls,
 .brand-slider .owl-controls {
   margin-top: 0px;
 }
@@ -591,10 +583,8 @@ img[src="assets/images/blank.gif"] {
 .featured-product {
   margin-bottom: 30px;
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
-
-
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 }
 
 .featured-product .cart-btn {
@@ -614,10 +604,8 @@ img[src="assets/images/blank.gif"] {
 .new-arriavls {
   margin-bottom: 19px;
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
-
-
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 }
 
 .new-arriavls .products {
@@ -634,7 +622,7 @@ img[src="assets/images/blank.gif"] {
   margin-bottom: 0px;
   margin-top: 5px;
   font-size: 16px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   text-transform: uppercase;
   font-weight: bold;
   border-bottom: 1px solid #e3e3e3;
@@ -644,44 +632,6 @@ img[src="assets/images/blank.gif"] {
 
 .new-arriavls .cart-btn {
   display: none
-}
-
-.latest-blog {
-  margin-bottom: 30px;
-  background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
-
-
-}
-
-.latest-blog .btn-primary {
-  margin: 3px
-}
-
-.latest-blog .section-title {
-  margin-bottom: 0px;
-  margin-top: 5px;
-  font-size: 16px;
-  font-family: 'Varela Round', sans-serif !important;
-  text-transform: uppercase;
-  font-weight: bold;
-  border-bottom: 1px solid #e3e3e3;
-  padding-bottom: 10px;
-  padding: 18px 20px;
-}
-
-.latest-blog .blog-slider {
-  padding-left: 20px;
-  padding-bottom: 25px;
-}
-
-.latest-blog .blog-post {
-  margin-right: 25px
-}
-
-.latest-blog .blog-post img {
-  width: 100%
 }
 
 .logo-slider-inner {
@@ -959,11 +909,6 @@ a {
   color: #12cca7;
 }
 
-.blog-slider-container .blog-slider .blog-post-info .name a:hover,
-.blog-slider-container .blog-slider .blog-post-info .name a:focus {
-  color: #12cca7;
-}
-
 .footer .links-social .social-icons a:hover,
 .footer .links-social .social-icons a:focus,
 .footer .links-social .social-icons a.active {
@@ -1177,9 +1122,8 @@ a {
 
 .category-list {
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
-
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
   padding: 20px;
 }
 
@@ -1213,46 +1157,6 @@ a {
 
 .cnt-homepage .sidebar .sidebar-module-container .sidebar-widget .sidebar-widget-body .price-range-holder .slider .slider-track .slider-handle.max-slider-handle {
   background: #12cca7;
-}
-
-.blog-page .blog-post h1 a:hover,
-.blog-page .blog-post h1 a:focus {
-  color: #12cca7;
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .nav-tabs>li.active>a,
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .nav-tabs>li.active>a:hover,
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .nav-tabs>li.active>a:focus {
-  color: #0b816a;
-}
-
-.blog-page .blog-post .social-media a:hover,
-.blog-page .blog-post .social-media a:focus {
-  background-color: #12cca7;
-}
-
-.blog-page .sidebar .sidebar-module-container .search-area .search-button:after {
-  color: #0b816a;
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .blog-post h4 a:hover,
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .blog-post h4 a:focus {
-  color: #12cca7;
-}
-
-.blog-page .blog-post-author-details .author-social-network button .twitter-icon {
-  background-color: #12cca7;
-}
-
-.blog-page .blog-review .review-action a,
-.blog-page .blog-review .review-action a:hover,
-.blog-page .blog-review .review-action a:focus {
-  color: #12cca7;
-}
-
-.blog-page .blog-post-author-details .author-social-network .dropdown-menu>li>a:hover,
-.blog-page .blog-post-author-details .author-social-network .dropdown-menu>li>a:focus {
-  color: #12cca7;
 }
 
 .checkout-box .checkout-steps .panel .panel-heading .unicase-checkout-title>a:not(.collapsed) span {
@@ -1400,7 +1304,6 @@ a {
   line-height: 12px;
   padding: 3px 12px 3px 7px;
   border-right: 1px solid hsla(0, 0%, 100%, .2);
-
 }
 
 .top-bar .cnt-account ul>li:last-child {
@@ -1584,12 +1487,11 @@ header {
 }
 
 .main-header .top-search-holder .search-area .categories-filter .dropdown-menu li.menu-header {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   line-height: 30px;
 }
 
 .main-header .top-search-holder .search-area .search-button {
-  /* display: inline-block; */
   float: right;
   margin: 0px;
   padding: 12px 12px 12px;
@@ -1616,10 +1518,6 @@ header {
   padding-left: 0px
 }
 
-/* .top-cart-row .dropdown-cart {
-  float: right;
-} */
-
 .top-cart-row .dropdown-cart img {
   width: 100%
 }
@@ -1639,7 +1537,7 @@ header {
 
 .top-cart-row .dropdown-cart .lnk-cart .items-cart-inner .total-price-basket {
   padding: 12px 12px 13px 15px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   text-transform: uppercase;
   float: left;
   letter-spacing: 0.5px;
@@ -1666,13 +1564,12 @@ header {
   font-size: 11px;
   text-align: center;
   line-height: 19px;
-
 }
 
 .top-cart-row .dropdown-cart .dropdown-menu {
   border: 1px solid #e1e1e1;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
   border-radius: 0;
   float: right;
   left: auto;
@@ -1680,13 +1577,13 @@ header {
   padding: 24px 22px;
   right: 0;
   width: 230px;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 }
 
 .top-cart-row .dropdown-cart .dropdown-menu .cart-item.product-summary .name {
   font-size: 13px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   margin-top: 0px;
 }
 
@@ -1712,7 +1609,7 @@ header {
 
 .top-cart-row .dropdown-cart .dropdown-menu .cart-total .text {
   font-size: 13px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   color: #666666;
   margin-right: 10px;
 }
@@ -1761,7 +1658,7 @@ header {
 .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav>li>a {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
   color: #FFFFFF;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 13px;
   line-height: 20px;
   padding: 11px 15px;
@@ -1783,7 +1680,7 @@ header {
   padding: 1px 7px;
   color: #fff;
   font-size: 9px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   right: 23px;
   line-height: normal;
   letter-spacing: 1px;
@@ -1804,7 +1701,6 @@ header {
   transition: all 0.3s ease 0s;
   width: 0;
   z-index: 100;
-
 }
 
 .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav>li .menu-label:before {
@@ -1835,10 +1731,6 @@ header {
 .header-style-1 .header-nav .navbar-default .navbar-collapse .navbar-nav>li .menu-label.hot-menu:before {
   border-color: #ff7878 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
 }
-
-/* .header-style-2 {
-  margin-bottom:10px;
-} */
 
 .header-style-2 .header-nav {
   background: rgba(0, 0, 0, 0) !important;
@@ -1920,7 +1812,6 @@ header {
 
 .yamm .dropdown-menu .yamm-content {
   padding: 20px 20px;
-
 }
 
 .yamm .dropdown-menu .yamm-content .col-menu {
@@ -1929,18 +1820,16 @@ header {
 
 .yamm .dropdown-menu .yamm-content .links li a {
   padding: 4px 0px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   letter-spacing: 0.2px;
   font-size: 13px;
   color: #565656;
-
 }
-
 
 .yamm .dropdown-menu h2 {
   font-size: 14px;
   color: #555;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   margin-top: 0px;
   font-weight: bold
 }
@@ -2038,10 +1927,8 @@ header {
 
 .sidebar .side-menu {
   background-color: #fff;
-  border-radius: 2px;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
-
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 }
 
 .sidebar .custom-carousel .owl-controls .owl-prev {
@@ -2058,7 +1945,7 @@ header {
   border-radius: 0px;
   color: #333;
   font-size: 14px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   padding: 12px 17px;
   text-transform: uppercase;
   background-color: #fdd922;
@@ -2084,7 +1971,6 @@ header {
   position: relative;
   width: 100%;
   border-bottom: 1px solid #eaeaea;
-
 }
 
 .sidebar .side-menu nav .nav>li:last-child {
@@ -2094,7 +1980,7 @@ header {
 .sidebar .side-menu nav .nav>li>a {
   padding: 13px 15px;
   color: #666666;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   letter-spacing: 0.2px
 }
 
@@ -2121,7 +2007,6 @@ header {
 .sidebar .side-menu nav .nav>li>a:hover,
 .sidebar .side-menu nav .nav>li>a:focus {
   background: #fff;
-
 }
 
 .sidebar .side-menu nav .nav>li>a:hover .icon,
@@ -2135,13 +2020,12 @@ header {
   left: 100%;
   margin: 0;
   min-width: 330%;
-  /*338%;*/
   position: absolute;
   top: 0px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   overflow: hidden;
-  border-radius: 5px;
+  border-radius: var(--radius);
 }
 
 .sidebar .side-menu nav .nav>li>.mega-menu .yamm-content {
@@ -2165,7 +2049,7 @@ header {
   line-height: 26px;
   padding: 0px;
   font-size: 13px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .sidebar .side-menu nav .nav>li>.mega-menu .yamm-content .dropdown-banner-holder {
@@ -2184,7 +2068,7 @@ header {
 
 .sidebar .sidebar-module-container .sidebar-widget .widget-header .widget-title {
   font-size: 13px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   margin: 0px;
   font-weight: bold
 }
@@ -2192,7 +2076,7 @@ header {
 .sidebar .sidebar-module-container .sidebar-widget .sidebar-widget-body .accordion .accordion-group .accordion-heading .accordion-toggle {
   clear: both;
   display: block;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 13px;
   line-height: 28px;
 }
@@ -2315,7 +2199,7 @@ header {
 .sidebar .sidebar-module-container .sidebar-widget .sidebar-widget-body .list li {
   clear: both;
   display: block;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 13px;
   font-weight: normal;
   line-height: 28px;
@@ -2351,7 +2235,7 @@ header {
   font-size: 60px;
   line-height: 125px;
   text-transform: uppercase;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   color: #fff;
   text-shadow: 1px 1px 3px #cfcfcf;
 }
@@ -2403,8 +2287,8 @@ header {
 
 .sidebar-widget {
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 
   padding: 20px;
 }
@@ -2436,12 +2320,6 @@ header {
   margin-top: 40px;
 }
 
-/*.panel-group .panel .owl-controls {
-  margin-top: 25px;
-}
-.panel-group.blank .panel .owl-controls {
-  margin-top: 40px;
-}*/
 #owl-main .owl-pagination {
   position: relative;
   line-height: 30px;
@@ -2475,7 +2353,6 @@ header {
 
 #owl-main .owl-prev {
   left: 20px;
-  /* -35px;*/
 }
 
 #owl-main .owl-next {
@@ -2792,7 +2669,6 @@ header {
   display: block;
   position: static;
   margin-top: -47px;
-
 }
 
 #owl-main .owl-pagination {
@@ -2874,7 +2750,7 @@ header {
 }
 
 #owl-main .item .caption .slider-header {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 14px;
   font-weight: bold;
   text-transform: uppercase
@@ -2884,7 +2760,7 @@ header {
   font-size: 42px;
   line-height: 50px;
   text-transform: uppercase;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   padding: 0px 25px;
   background: #bbbbbb;
   color: #fff;
@@ -2899,9 +2775,8 @@ header {
 #owl-main .item .caption .excerpt,
 #owl-main .item .caption .small {
   font-size: 14px;
-  /*line-height: 50px;*/
   margin-top: 10px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-weight: 500;
   padding-left: 23px;
   background: rgba(0, 0, 0, 0);
@@ -2931,7 +2806,6 @@ header {
   background: rgba(0, 0, 0, 0);
   padding: 0px;
   color: #000;
-  /*Error*/
 }
 
 #owl-main .item .caption.bg-color .excerpt,
@@ -2939,7 +2813,6 @@ header {
   background: rgba(0, 0, 0, 0);
   padding: 0px;
   color: #000;
-  /*Error*/
   margin-top: 0px;
 }
 
@@ -3047,7 +2920,7 @@ header {
   font-size: 15px;
   line-height: 50px;
   text-transform: uppercase;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   text-shadow: 2px 2px #c3c3c3;
   color: #fff;
   padding-left: 0px;
@@ -3057,10 +2930,9 @@ header {
   font-size: 45px;
   line-height: 50px;
   text-transform: uppercase;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   text-shadow: 2px 2px #c3c3c3;
   color: #000;
-  /*Error*/
 }
 
 .homepage-slider3 #owl-main .item .caption .excerpt {
@@ -3160,7 +3032,7 @@ header {
 .home-page-slider4 #owl-main .owl-pagination {
   background: rgba(0, 0, 0, 0);
   -webkit-border-radius: 3px;
-  -moz-border-radiu: 3px;
+  -moz-border-radius: 3px;
   border-radius: 3px;
   display: inline-block;
   line-height: inherit;
@@ -3179,7 +3051,7 @@ header {
 .cnt-homepage .homepage-container .btn-primary {
   padding: 2px 17px;
   -webkit-border-radius: 0px;
-  -moz-border-radiu: 0px;
+  -moz-border-radius: 0px;
   border-radius: 0px;
 }
 
@@ -3190,12 +3062,9 @@ header {
 
 .info-boxes-inner {
   background-color: #0f6cb2;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
-
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 }
-
-/* .info-boxes {} */
 
 .info-boxes .info-box {
   padding: 24px 25px;
@@ -3210,7 +3079,7 @@ header {
   font-size: 14px;
   line-height: 21px;
   text-transform: uppercase;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   margin-top: 0px;
   font-weight: bold;
   margin-bottom: 0px;
@@ -3240,10 +3109,8 @@ header {
 .scroll-tabs {
   margin-bottom: 30px;
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
-
-
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 }
 
 .scroll-tabs .more-info-tab {
@@ -3256,7 +3123,7 @@ header {
   margin-bottom: 0px;
   margin-top: 5px;
   font-size: 16px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   text-transform: uppercase;
   font-weight: bold
 }
@@ -3281,7 +3148,7 @@ header {
   box-shadow: none;
   padding: 0 10px !important;
   position: relative;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .scroll-tabs .nav-tab-line li a:hover,
@@ -3300,7 +3167,7 @@ header {
 .product .product-image img {
   width: 100%;
   border-radius: 6px;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
+  box-shadow: var(--shadow);
   margin: 6px 6px;
 }
 
@@ -3310,7 +3177,7 @@ header {
 
 .product .product-info .name {
   font-size: 14px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .product .product-info .name a {
@@ -3348,7 +3215,7 @@ header {
   left: 50%;
   position: absolute;
   top: 0;
-  margin-left: -55px
+  margin-left: -36px
 }
 
 .product .cart .action ul li {
@@ -3356,8 +3223,7 @@ header {
 }
 
 .product .cart .action ul li.add-cart-button .btn.btn-primary.icon {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
+  border-radius: 3px;
   background: #fdd922;
 }
 
@@ -3382,6 +3248,11 @@ header {
   border-radius: 0px
 }
 
+.add-to-wishlist {
+  border-radius: 3px;
+  margin: 0 0 0 2px;
+}
+
 .tag {
   font-size: 10px;
   font-weight: 700;
@@ -3396,7 +3267,6 @@ header {
   border-radius: 50px;
   color: #fff;
   right: 10px;
-  /*11px;*/
   text-align: center;
 }
 
@@ -3433,8 +3303,6 @@ header {
   width: 100%;
   z-index: 666;
   left: 0px;
-
-
 }
 
 .cart .action {
@@ -3442,12 +3310,10 @@ header {
 }
 
 .cart .action .add-cart-button .btn.btn-primary.icon {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
+  border-radius: 3px;
   background: #fdd922;
   color: #333
 }
-
 
 .cart .action.lnk {
   margin: 10px 0px;
@@ -3505,7 +3371,7 @@ header {
 
 .cnt-home .product-micro .product-info .product-price .price {
   font-size: 12px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .cnt-home .product-micro .product-info .action .lnk.btn.btn-primary {
@@ -3552,8 +3418,6 @@ header {
   transition: all 0.3s ease;
 }
 
-/* .wide-banner:hover img {} */
-
 .cnt-strip {
   position: relative;
 }
@@ -3571,7 +3435,7 @@ header {
   color: #ff4c4c;
   margin: 0;
   text-transform: uppercase;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-weight: bold
 }
 
@@ -3580,12 +3444,12 @@ header {
   color: #fdd922;
   margin: 0;
   text-transform: uppercase;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-weight: bold
 }
 
 .cnt-strip .strip h2 .shopping-needs {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   color: #fff;
   font-weight: normal;
   font-size: 22px
@@ -3596,14 +3460,14 @@ header {
   color: #434343;
   margin: 0;
   text-transform: uppercase;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .cnt-strip .strip h4 {
   font-size: 20px;
   margin: 0;
   text-transform: uppercase;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .cnt-strip .strip.strip-text {
@@ -3628,7 +3492,7 @@ header {
 
 .cnt-strip .strip .normal-shopping-needs {
   font-size: 35px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .cnt-strip .new-label {
@@ -3643,7 +3507,7 @@ header {
 
 .cnt-strip .new-label .text {
   color: #fff;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 14px;
   font-weight: bold;
   line-height: 22px;
@@ -3670,12 +3534,12 @@ header {
 
 .wide-banners.homepage-banner h4 {
   font-size: 30px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .wide-banners.homepage-banner h3 {
   font-size: 35px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .new-banner {
@@ -3693,7 +3557,7 @@ header {
   padding: 13px 23px 13px 16px;
   line-height: 24px;
   font-size: 30px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .new-banner .cnt-strip .strip h5 {
@@ -3732,51 +3596,28 @@ header {
 
 .wide-banner-4 .cnt-strip .strip h1 {
   font-size: 50px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .wide-banner-4 .cnt-strip .strip h2 {
   font-size: 40px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .wide-banner-4 .cnt-strip .strip h3 {
   font-size: 30px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .wide-banner-4 .cnt-strip .strip h4 {
   font-size: 20px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .wide-banner-4 .cnt-strip .strip p {
   font-size: 23px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   margin-bottom: 0px;
-}
-
-.blog-slider-container .blog-slider .blog-post-info .name {
-  font-size: 14px;
-  font-family: 'Varela Round', sans-serif !important;
-  font-weight: bold
-}
-
-.blog-slider-container .blog-slider .blog-post-info .name a {
-  color: #555;
-}
-
-.blog-slider-container .blog-slider .blog-post-info .info {
-  color: #9c9c9c;
-  font-size: 13px;
-  margin-bottom: 8px;
-  overflow: hidden;
-  display: block
-}
-
-.blog-slider-container .blog-slider .blog-post-info .text {
-  color: #434343;
-  font-size: 13px;
 }
 
 .footer .links-social {
@@ -3964,7 +3805,7 @@ header {
 .footer .module-heading {
   font-size: 16px;
   text-transform: uppercase;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   color: #555555;
 }
 
@@ -3980,7 +3821,7 @@ header {
 }
 
 .footer .contact-timing .contact-number {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .footer .contact-information .media .media-body a {
@@ -4003,11 +3844,9 @@ header {
 .footer .footer-bottom .module-heading {
   font-size: 16px;
   text-transform: uppercase;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   color: #898989;
 }
-
-/* .footer .footer-bottom .module-body ul li {} */
 
 .toggle-footer {
   color: #666
@@ -4159,7 +3998,6 @@ header {
   vertical-align: middle;
   width: 45px;
   line-height: 15px;
-
 }
 
 .hot-deals .hot-deal-wrapper .timing-wrapper .box-wrapper .box .key {
@@ -4182,7 +4020,7 @@ header {
 
 .hot-deals .product-info .name {
   font-size: 14px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .hot-deals .product-info .name a {
@@ -4269,7 +4107,7 @@ header {
 .breadcrumb ul li:after {
   color: #666666;
   content: "/";
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 12px;
   line-height: 24px;
   margin-left: 9px;
@@ -4283,7 +4121,7 @@ header {
 
 .breadcrumb ul li a {
   color: #666666;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 12px;
   line-height: 24px;
   font-weight: 500;
@@ -4313,7 +4151,7 @@ header {
   font-size: 100px;
   line-height: 145px;
   text-transform: uppercase;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   color: #fdd922;
 }
 
@@ -4329,7 +4167,6 @@ header {
   color: #fff;
   letter-spacing: 0.5px
 }
-
 
 .category-carousel .item .owl-controls {
   display: inline-block;
@@ -4386,8 +4223,8 @@ header {
 .filters-container {
   padding: 15px 20px;
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
   margin: 5px 0 5px 0 !important;
   padding-bottom: 0px
 }
@@ -4413,7 +4250,7 @@ header {
   -moz-border-radius: 0;
   border-radius: 0;
   color: #666666;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   line-height: 18px;
   border: none !important;
   padding: 0px;
@@ -4426,7 +4263,7 @@ header {
 
 .filters-container .lbl-cnt {
   color: #666666;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 12px;
   line-height: 24px;
 }
@@ -4434,7 +4271,7 @@ header {
 .filters-container .lbl-cnt .lbl {
   color: #666666;
   display: inline-block;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 12px;
   line-height: 28px;
   margin-right: 10px;
@@ -4499,15 +4336,13 @@ header {
 .filters-container .pagination-container ul li a {
   color: #666666;
   display: inline-block;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 13px;
   line-height: 20px;
   padding: 0 3px;
 }
 
 /* .filters-container .pagination-container ul li.active a {}
-
-.search-result-container .category-product {} */
 
 .search-result-container .category-product .product {
   margin-bottom: 30px;
@@ -4521,7 +4356,6 @@ header {
   right: 14px;
   letter-spacing: 0.5px;
 }
-
 
 .search-result-container .category-product-inner .product-list.product {
   position: relative;
@@ -4573,8 +4407,8 @@ header {
 
 .detail-block {
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 
   padding: 20px;
   overflow: hidden
@@ -4615,7 +4449,7 @@ header {
 
 .single-product .product-info .stock-container .stock-box .label {
   font-size: 13px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   line-height: 18px;
   color: #666666;
   padding: 0px;
@@ -4660,7 +4494,7 @@ header {
 
 .single-product .product-info .quantity-container .label {
   font-size: 14px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   line-height: 35px;
   text-transform: uppercase;
   color: #666666;
@@ -4719,7 +4553,7 @@ header {
 
 .single-product .product-info .product-social-link .social-label {
   font-size: 15px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   line-height: 20px;
   text-transform: uppercase;
 }
@@ -4749,8 +4583,8 @@ header {
 .single-product .product-tabs {
   margin-top: 30px;
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 
   padding: 0px;
   overflow: hidden;
@@ -4759,7 +4593,6 @@ header {
 
 .single-product .product-tabs .nav.nav-tabs.nav-tab-cell>li {
   float: none !important;
-
 }
 
 .single-product .nav-tabs {
@@ -4772,7 +4605,7 @@ header {
   display: block;
   padding: 12px 28px;
   font-size: 13px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   line-height: 28px;
   text-transform: uppercase;
   position: relative;
@@ -5021,7 +4854,7 @@ header {
 
 .cnt-homepage .single-product .product-info-block .stock-container .stock-box .label {
   color: #434343;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 13px;
   font-weight: normal;
   line-height: 20px;
@@ -5044,7 +4877,7 @@ header {
   -moz-border-radius: 0px;
   border-radius: 0px;
   color: #666666;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 20px;
   line-height: 30px;
   padding-bottom: 4px;
@@ -5088,13 +4921,12 @@ header {
   font-weight: bold;
   line-height: 20px;
   margin: 0 0 10px;
-  font-family: 'Varela Round', sans-serif !important;
-
+  font-family: var(--font-family);
 }
 
 .product-tabs .tab-content .tab-pane .product-reviews .reviews .review {
   margin-bottom: 20px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   text-transform: none;
   background: #f8f8f8;
   padding: 20px
@@ -5134,7 +4966,7 @@ header {
   font-weight: 500;
   line-height: 20px;
   margin: 0 0 10px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .product-tabs .tab-content .tab-pane .product-add-review .review-table .table thead th {
@@ -5181,7 +5013,7 @@ header {
   font-weight: bold;
   line-height: 20px;
   margin: 0 0 20px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .product-tabs .tab-content .tab-pane .product-tag .form-group label {
@@ -5211,7 +5043,7 @@ header {
 .furniture-container .product .btn-primary {
   font-size: 15px;
   line-height: 30px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   background: #cbc9c9;
   text-transform: uppercase;
   border: none;
@@ -5281,7 +5113,6 @@ header {
   border-radius: 50px;
   color: #fff;
   right: 25px;
-  /*11px;*/
   text-align: center;
   position: absolute;
 }
@@ -5302,7 +5133,7 @@ header {
 
 .homepage-container .product .product-info .name {
   font-size: 18px !important;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .homepage-container .product .product-info .name a {
@@ -5367,14 +5198,11 @@ header {
   margin-bottom: 30px;
 }
 
-.homepage-container .blog-slider-container .blog-slider .blog-post-info .name {
-  font-size: 18px;
-}
 
 .homepage-container .btn-primary {
   font-size: 15px;
   line-height: 30px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   background: rgba(0, 0, 0, 0);
   text-transform: uppercase;
   border: 2px solid #f2f2f2;
@@ -5437,7 +5265,6 @@ header {
   border-radius: 50px;
   color: #fff;
   right: 25px;
-  /*11px;*/
   text-align: center;
 }
 
@@ -5712,7 +5539,6 @@ header {
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) and (max-width: 991px) {
-  /* .top-bar .cnt-account ul>li {} */
 
   .sidebar .side-menu nav .nav>li>.mega-menu {
     min-width: 100%;
@@ -5751,12 +5577,6 @@ header {
   }
 
   .product .product-image .image img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  .blog-slider .image img {
     width: 100%;
     height: auto;
     display: block;
@@ -5859,395 +5679,19 @@ header {
 
 /* Large devices (large desktops, 1200px and up) */
 
-.blog-page .blog-post {
-  background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
-
-  padding: 20px;
-}
-
-.blog-page .blog-post h1 {
-  font-family: 'Varela Round', sans-serif !important;
-  font-size: 22px;
-  font-weight: bold;
-
-}
-
-.blog-page .blog-post h1 a {
-  color: #555;
-}
-
-.blog-page .tab-content .blog-post {
-  padding: 0px 0px 25px 0px !important;
-  box-shadow: none !important
-}
-
-.blog-page .blog-post span {
-  padding-right: 20px;
-  color: #aaa;
-  font-size: 13px;
-}
-
-.blog-page .blog-post p {
-  padding-top: 16px;
-  font-size: 13px;
-  color: #666666;
-  margin-bottom: 0px;
-}
-
-.blog-page .blog-post a {
-  margin-top: 20px;
-}
-
-.blog-page .blog-post .blog-pagination .pagination {
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-}
-
-.blog-page .blog-post .social-media {
-  margin-top: 20px;
-  margin-bottom: 30px;
-}
-
-.blog-page .blog-post .social-media span {
-  font-size: 13px;
-  color: #434343;
-}
-
-.blog-page .blog-post .social-media a {
-  font-size: 18px;
-  margin: 0px 10px 0px 0px;
-  height: 30px;
-  width: 30px;
-  display: inline-block;
-  text-align: center;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  color: #888888;
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .blog-post h4 {
-  font-family: 'Varela Round', sans-serif !important;
-  font-size: 15px;
-
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .blog-post h4 a {
-  color: #555;
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .blog-post span {
-  padding-right: 10px;
-  color: #aaa;
-  font-size: 12px;
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .blog-post p {
-  padding-top: 10px;
-  font-size: 13px;
-  color: #666666;
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .nav-tabs {
-  border-bottom: none;
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .nav-tabs>li {
-  text-transform: uppercase;
-  color: #666666;
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .nav-tabs>li>a {
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-  font-size: 13px;
-  border: none;
-  letter-spacing: 1px
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .nav-tabs>li:first-child>a {
-  padding-right: 10px;
-  border-right: 1px solid #d4d4d4;
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .nav-tabs>li:last-child>a {
-  padding-left: 10px;
-  letter-spacing: 0.5px
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .nav>li>a {
-  padding: 0px;
-  color: #666666;
-}
-
-.blog-page .sidebar .sidebar-module-container .search-area .search-button:after {
-  content: "\f002";
-  font-family: fontawesome;
-  font-size: 13px;
-  position: absolute;
-  top: 14px;
-  right: 30px;
-  background-color: #fff;
-  padding-left: 10px;
-}
-
-.blog-page .sidebar .sidebar-module-container .search-area input {
-  font-size: 12px;
-  color: #9e9e9e;
-  padding: 14px;
-  border: 1px solid #e1e1e1;
-  width: 100%;
-  position: relative;
-}
-
-.blog-page .blog-pagination {
-  border-top: 1px solid #ececec;
-}
-
-.blog-page .blog-pagination .pagination>li:first-child>a {
-  margin-right: 10px;
-}
-
-.blog-page .blog-pagination .pagination>li:last-child>a {
-  margin-left: 2px;
-}
-
-.blog-page .side-bar-blog .widget .categories .side-bar-title h3 {
-  font-family: 'Varela Round', sans-serif !important;
-  font-size: 18px;
-  text-transform: uppercase;
-  color: #555;
-  padding-bottom: 8px;
-  border-bottom: 1px solid #e3e3e3;
-  margin: 0px;
-}
-
-.blog-page .blog-post-author-details {
-  padding: 40px 0px;
-  background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
-
-  padding: 20px;
-}
-
-.blog-review {
-  background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
-
-  padding: 20px;
-}
-
-.blog-write-comment {
-  background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
-
-  padding: 20px;
-}
-
-.blog-page .blog-post-author-details .author-social-network {
-  display: inline-block;
-}
-
-.blog-page .blog-post-author-details .author-social-network button {
-  background-color: #fff;
-  border: 1px solid #e3e3e3;
-}
-
-.blog-page .blog-post-author-details .author-social-network button .twitter-icon {
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  color: #fff;
-  font-size: 16px;
-  height: 26px;
-  width: 26px;
-  text-align: center;
-  display: inline-block;
-  margin: 6px;
-  line-height: 26px;
-}
-
-.blog-page .blog-post-author-details .author-social-network>span {
-  font-size: 13px;
-  color: #434343;
-  text-transform: uppercase;
-  margin-right: 16px;
-}
-
-.blog-page .blog-post-author-details .author-social-network .caret {
-  color: #e3e3e3;
-}
-
-.blog-page .blog-post-author-details .btn-group.open .dropdown-toggle {
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
-.blog-page .blog-post-author-details img {
-  float: left;
-}
-
-.blog-page .blog-post-author-details .author-job {
-  display: block;
-  padding: 0px;
-  color: #aaa;
-  font-size: 12px;
-}
-
-.blog-page .blog-post-author-details h4 {
-  display: inline-block;
-  font-size: 15px;
-  font-family: 'Varela Round', sans-serif !important;
-  color: #555;
-  margin: 0px;
-}
-
-.blog-page .blog-post-author-details p {
-  font-size: 13px;
-  color: #666666;
-  padding: 16px 0px 0px 0px;
-  text-align: justify;
-}
-
-.blog-page .blog-review .title-review-comments {
-  font-size: 16px;
-  color: #555;
-  font-family: 'Varela Round', sans-serif !important;
-  margin-bottom: 40px;
-
-}
-
-.blog-page .blog-review p {
-  font-size: 13px;
-  color: #666666;
-
-}
-
-.blog-page .blog-review .review-action {
-  font-size: 12px;
-  color: #666666;
-}
-
-.blog-page .blog-review .post-load-more {
-  text-align: center;
-  padding-bottom: 10px;
-}
-
-.blog-page .blog-post .author:before,
-.blog-page .blog-post .review:before,
-.blog-page .blog-post .date-time:before {
-  color: #666666;
-  font-size: 13px;
-  padding-right: 4px;
-  font-family: FontAwesome;
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .blog-post .author:before,
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .blog-post .review:before,
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .blog-post .date-time:before {
-  color: #666666;
-  font-size: 13px;
-  padding-right: 4px;
-  font-family: FontAwesome;
-}
-
-.blog-page .blog-post .author:before,
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .blog-post .author:before {
-  content: "\f007";
-}
-
-.blog-page .blog-post .review:before,
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .blog-post .review:before {
-  content: "\f086";
-}
-
-.blog-page .blog-post .date-time:before,
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .blog-post .date-time:before {
-  content: "\f073";
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .nav-tabs>li.active>a,
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .nav-tabs>li.active>a:hover,
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .nav-tabs>li.active>a:focus {
-  background-color: #fff;
-}
-
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .nav>li>a:hover,
-.blog-page .sidebar .sidebar-module-container .sidebar-widget .nav>li>a:focus {
-  background-color: #fff;
-}
-
-.blog-page .blog-post .social-media a:hover,
-.blog-page .blog-post .social-media a:focus {
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  color: #fff;
-}
-
-.blog-page .blog-post .social-media i,
-.blog-page .blog-post-author-details .author-social-network button a i {
-  padding-top: 6px;
-}
-
-.blog-page .blog-review h4,
-.blog-page .blog-write-comment h4,
-.contact-page .contact-title h4 {
-  font-size: 14px;
-  color: #555;
-  font-family: 'Varela Round', sans-serif !important;
-  display: inline-block;
-}
-
-.blog-page .blog-review .review-action a:hover,
-.blog-page .blog-review .review-action a:focus {
-  text-decoration: underline;
-}
-
-.blog-page .blog-review .blog-comments,
-.blog-page .blog-review .blog-sub-comments {
-  border-bottom: 1px solid #e3e3e3;
-}
-
-.blog-page .blog-post-author-details .author-social-network .dropdown-menu {
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  -webkit-border-radius: 0px;
-  -moz-border-radius: 0px;
-  border-radius: 0px;
-}
-
-.blog-page .blog-post-author-details .author-social-network .dropdown-menu>li>a .icon {
-  margin-right: 5px;
-}
-
-.blog-page .blog-post-author-details .author-social-network .dropdown-menu>li>a:hover,
-.blog-page .blog-post-author-details .author-social-network .dropdown-menu>li>a:focus {
-  background: rgba(0, 0, 0, 0);
-}
-
 /*===================================================================================*/
 /* Checkout
 /*===================================================================================*/
 .checkout-box .checkout-steps .panel-default {
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 
   padding: 20px;
 }
 
 .checkout-box .checkout-steps .checkout-step-01 .already-registered-login form .form-group .info-title {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-weight: normal;
   margin-bottom: 5px;
   font-size: 13px;
@@ -6289,7 +5733,7 @@ header {
 }
 
 .checkout-box .checkout-steps .checkout-subtitle {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 14px;
   color: #434343;
   margin-right: 12px;
@@ -6314,8 +5758,8 @@ header {
 
 .checkout-box .panel-group .panel {
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 
   padding: 20px;
   border: none
@@ -6349,7 +5793,7 @@ header {
 
 .checkout-box .checkout-steps .panel .panel-heading,
 .checkout-box .checkout-progress-sidebar .panel .panel-heading {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 20px;
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -6392,8 +5836,8 @@ header {
 
 .contact-page {
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 
   padding: 20px;
   overflow: hidden
@@ -6447,8 +5891,8 @@ header {
 
 .shopping-cart {
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 
   padding: 20px;
   overflow: hidden
@@ -6482,7 +5926,6 @@ header {
 .shopping-cart .shopping-cart-table table tbody tr .romove-item a:hover,
 .shopping-cart .shopping-cart-table table tbody tr .romove-item a:focus {
   color: #ff0000 !important;
-  /*Error*/
 }
 
 .shopping-cart .shopping-cart-table table tbody tr .cart-image .entry-thumbnail {
@@ -6496,9 +5939,8 @@ header {
 
 .shopping-cart .shopping-cart-table table tbody tr .cart-product-name-info h4 {
   margin-top: 0px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 16px;
-
 }
 
 .shopping-cart .shopping-cart-table table tbody tr .cart-product-name-info h4 a {
@@ -6515,14 +5957,14 @@ header {
 }
 
 .shopping-cart .shopping-cart-table table tbody tr .cart-product-name-info .cart-product-info span {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 12px;
   color: #666666;
   text-transform: uppercase;
 }
 
 .shopping-cart .shopping-cart-table table tbody tr .cart-product-name-info .cart-product-info span span {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 12px;
   text-transform: lowercase;
   margin-left: 14px;
@@ -6536,7 +5978,7 @@ header {
 .shopping-cart .shopping-cart-table .table>thead>tr>th {
   text-align: center;
   padding: 16px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 15px;
 }
 
@@ -6546,7 +5988,7 @@ header {
 }
 
 .shopping-cart .estimate-ship-tax table thead tr th .estimate-title {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 14px;
   color: #555;
   margin-bottom: 2px;
@@ -6555,7 +5997,7 @@ header {
 }
 
 .shopping-cart .estimate-ship-tax table thead tr th p {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 13px;
   color: #666666;
   font-weight: normal;
@@ -6588,7 +6030,6 @@ header {
   background-color: #fafafa;
   text-align: right;
   padding: 24px 50px;
-
 }
 
 .shopping-cart .cart-shopping-total table thead tr th .cart-sub-total {
@@ -6622,7 +6063,7 @@ header {
 .shopping-cart .shopping-cart-table table tbody tr .cart-product-sub-total span,
 .shopping-cart .shopping-cart-table table tbody tr .cart-product-grand-total span {
   display: block;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 16px;
   color: #555;
   text-transform: uppercase;
@@ -6630,8 +6071,6 @@ header {
 
 .shopping-cart .estimate-ship-tax table tbody tr td .form-group label,
 .shopping-cart .estimate-ship-tax table tbody tr td .form-group input,
-.blog-page .blog-write-comment .form-group label,
-.blog-page .blog-write-comment .form-group input,
 .contact-page .contact-form form label,
 .contact-page .contact-form form input {
   font-size: 13px;
@@ -6640,7 +6079,6 @@ header {
 }
 
 .shopping-cart .estimate-ship-tax table tbody tr td .form-group label span,
-.blog-page .blog-write-comment label span,
 .contact-page .contact-form form label span,
 .checkout-box .checkout-steps .checkout-step-01 .already-registered-login form .form-group label span {
   color: red;
@@ -6648,7 +6086,7 @@ header {
 
 .shopping-cart .cart-shopping-total table thead tr th .cart-sub-total,
 .shopping-cart .cart-shopping-total table thead tr th .cart-grand-total {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 14px;
 }
 
@@ -6707,9 +6145,8 @@ header {
   padding: 10px 18px;
 }
 
-
 .product-comparison .page-title {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 30px;
   text-transform: uppercase;
   color: #666666;
@@ -6780,7 +6217,7 @@ header {
 }
 
 .body-content .x-page .x-text h1 {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   font-size: 200px;
   font-weight: bold
 }
@@ -6826,8 +6263,8 @@ header {
 
 .terms-conditions-page {
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 
   padding: 20px;
   overflow: hidden;
@@ -6840,14 +6277,14 @@ header {
   text-transform: uppercase;
   color: #555;
   text-align: center;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
 }
 
 .body-content .terms-conditions-page .terms-conditions h3 {
   font-size: 14px;
   text-transform: uppercase;
   color: #555;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   margin-bottom: 30px;
   font-weight: bold;
 }
@@ -6875,8 +6312,8 @@ header {
 
 .track-order-page {
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 
   padding: 20px;
   overflow: hidden;
@@ -6884,8 +6321,8 @@ header {
 
 .product-comparison {
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 
   padding: 20px;
   overflow: hidden;
@@ -6893,8 +6330,8 @@ header {
 
 .faq-page {
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 
   padding: 20px;
   overflow: hidden;
@@ -6904,7 +6341,6 @@ header {
   padding: 0px;
   box-shadow: none
 }
-
 
 .body-content .terms-conditions-page .terms-conditions span,
 .body-content .faq-page .title-tag,
@@ -6936,8 +6372,8 @@ header {
 
 .my-wishlist-page {
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 
   padding: 20px;
   overflow: hidden;
@@ -6955,17 +6391,16 @@ header {
 .body-content .my-wishlist-page .my-wishlist table>thead>tr>th {
   text-align: center;
   font-size: 30px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   text-transform: uppercase;
   border: none;
   font-weight: 400;
 }
 
 .body-content .my-wishlist-page img {
-  /* width: 100%; */
   width: 60px;
-  border-radius: 5px;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
 .body-content .my-wishlist-page .my-wishlist table tbody tr:nth-child(even) {
@@ -6974,7 +6409,7 @@ header {
 
 .body-content .my-wishlist-page .my-wishlist table tbody .product-name {
   font-size: 16px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   padding-bottom: 6px;
 }
 
@@ -7032,8 +6467,8 @@ header {
 
 .sign-in-page {
   background-color: #fff;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 
   padding: 20px;
   overflow: hidden;
@@ -7042,10 +6477,9 @@ header {
 .body-content .sign-in-page .sign-in h4,
 .body-content .sign-in-page .create-new-account h4 {
   font-size: 18px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   padding-bottom: 14px;
   border-bottom: 1px solid #ddd;
-
 }
 
 .body-content .sign-in-page .sign-in p,
@@ -7090,7 +6524,7 @@ header {
 
 .body-content .sign-in-page .create-new-account>span {
   font-size: 20px;
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   padding-bottom: 14px;
   text-transform: uppercase;
   display: inline-block;
@@ -7117,75 +6551,13 @@ header {
 .tooltip.top {
   padding: 5px 0;
   margin-top: -5px;
-
 }
 
 .tooltip-inner {
-  font-family: 'Varela Round', sans-serif !important;
+  font-family: var(--font-family);
   border-radius: 2px;
   min-width: 70px;
   z-index: 100
-}
-
-/*===================================================================================*/
-/*  Testimonials
-/*===================================================================================*/
-
-.avatar {
-  margin-top: 10px;
-  text-align: center;
-  overflow: hidden;
-  margin-bottom: 10px
-}
-
-.avatar img {
-  border-radius: 0px;
-  margin-bottom: 10px;
-  width: auto;
-  display: inline-block;
-  width: 110px
-}
-
-.testimonials {
-  color: #333;
-  font-size: 13px;
-  margin-bottom: 15px;
-  letter-spacing: 0.5px;
-  text-align: center
-}
-
-.clients_author {
-  font-size: 14px;
-  font-weight: bold;
-  color: #333;
-  letter-spacing: 0.5px;
-  display: block;
-  text-align: center
-}
-
-.clients_author span {
-  font-size: 13px;
-  font-weight: normal;
-  color: #999;
-  display: block;
-}
-
-.testimonials-section .bx-wrapper .bx-pager {
-  padding-top: 30px;
-}
-
-.testimonials-section .bx-wrapper {
-  margin: 0 0 50px;
-}
-
-.testimonials-section em {
-  font-size: 30px;
-  font-style: normal;
-  vertical-align: top;
-  display: inline-block;
-  line-height: 5px;
-  margin-top: 15px;
-  font-family: 'Varela Round', sans-serif !important;
 }
 
 /*===================================================================================*/
@@ -7194,9 +6566,8 @@ header {
 
 .home-banner {
   margin-top: 30px;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
-  border-radius: 5px;
-
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 }
 
 .btn-remove {
@@ -7213,25 +6584,25 @@ header {
 
 .any-img {
   border-radius: 6px;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
+  box-shadow: var(--shadow);
   margin: 10px 0 5px 0;
 }
 
 .user-dash {
   border-radius: 6px;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
+  box-shadow: var(--shadow);
   margin: 15px 0 15px 0;
 }
 
 .user-dash-table {
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
+  box-shadow: var(--shadow);
   border-radius: 3px;
   text-align: center;
 }
 
 .user-sidebar-img {
   height: 100px;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
+  box-shadow: var(--shadow);
   border-radius: 50%;
   margin: 5px 0 10px 0;
 }
@@ -7243,7 +6614,6 @@ header {
   flex-wrap: wrap;
 }
 
-
 .post-img {
   height: 40rem;
   width: 100%;
@@ -7251,7 +6621,6 @@ header {
   border-radius: 7px;
   margin: 0 0 3rem 0;
 }
-
 
 .index-post-img {
   height: 25rem;
@@ -7262,7 +6631,7 @@ header {
 
 .review-user-img {
   height: 50px;
-  box-shadow: 0 0.1rem 1.5rem 0 rgb(22 39 86 / 10%);
+  box-shadow: var(--shadow);
   border-radius: 50%;
   margin: 5px 0px 11px 5px;
 }
@@ -7308,11 +6677,13 @@ header {
   color: orange;
 }
 
-
 .category-icon {
   color: #085b9a;
 }
 
+.media-body {
+  margin: 8px 0 0 0 !important;
+}
 
 /* --------------------------------------------------------------------------------- */
 /* ------------------------------------  404 Page -----------------------------------*/
@@ -7408,15 +6779,107 @@ header {
 
 @media only screen and (max-width: 480px) {
   .notfound .notfound-404 {
-      position: relative;
-      height: 168px
+    position: relative;
+    height: 168px
   }
 
   .notfound .notfound-404 h1 {
-      font-size: 142px
+    font-size: 142px
   }
 
   .notfound h2 {
-      font-size: 22px
+    font-size: 22px
   }
+}
+
+
+
+/* ------------------------------  timer */
+
+.timer {
+  width: 23rem;
+  margin: 0 0 0 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.timer ul {
+  display: flex;
+}
+
+.timer ul li {
+  box-shadow: 0 0.1rem 1.3rem 0 rgb(22 39 86 / 28%);
+  background-color: #fff;
+  margin: 0 3px 0px 3px;
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+}
+
+.timer ul li p {
+  text-align: center;
+  font-size: 15px;
+  border-radius: var(--radius);
+  padding: 1px;
+  margin: 0 3px -2px 3px;
+  font-weight: bold;
+}
+
+.timer ul li p span {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 3px 1px 4px 0;
+}
+
+#sec {
+  margin: 0 5rem 0 0 !important;
+}
+
+@media all and (max-width: 1200px) {
+
+  .timer {
+    margin: 0 0 0 -7px;
+    transform: scale(0.9);
+  }
+
+  #sec {
+    margin: 0 9rem 0 0 !important;
+  }
+
+}
+
+@media all and (max-width: 992px) {
+
+  .timer {
+    margin: 0 0 0 75px;
+    transform: scale(1.0);
+  }
+
+}
+
+@media all and (max-width: 745) {
+
+  .timer {
+    margin: 0 0 0 69px;
+    transform: scale(1.0);
+  }
+}
+
+@media all and (max-width: 700) {
+
+  .timer {
+    margin: 0 0 0 59px;
+    transform: scale(1.0);
+  }
+}
+
+@media all and (max-width: 515) {
+
+  .timer {
+    margin: 0 0 0 13px;
+    transform: scale(1.0);
+  }
+
 }

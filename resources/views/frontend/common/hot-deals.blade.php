@@ -1,5 +1,5 @@
 @php
-$hot_deals = App\Models\Product::where('hot_deals',1)->where('discount_price','!=',NULL)->orderBy('id','desc')->limit(5)->get();
+$hot_deals = App\Models\Product::where('hot_deals',1)->where('discount_price','!=',NULL)->orderBy('id','desc')->limit(6)->get();
 @endphp
 <div class="sidebar-widget hot-deals wow fadeInUp outer-bottom-xs">
     <h3 class="section-title">hot deals</h3>
@@ -13,10 +13,32 @@ $hot_deals = App\Models\Product::where('hot_deals',1)->where('discount_price','!
                     @php
                     $amount = $product->selling_price - $product->discount_price;
                     $discount = ($amount/$product->selling_price) * 100;
+                    $date = Carbon\Carbon::parse($product->created_at);
+
+                    $expert_date = Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $date->addDays(50))->format('Y-m-d H:i:s');
+
                     @endphp
+                    <input type="hidden" id="expert_date" value="{{$expert_date}}">
                     <div class="sale-offer-tag hot"><span>{{round($discount)}} % <br>off</span></div>
                     <div class="timing-wrapper">
-                        @include('frontend.common.timer')
+
+                        <div class="timer">
+                            <ul>
+                                <li>
+                                    <p class="day"></p><span>DAYS</span>
+                                </li>
+                                <li>
+                                    <p class="hour"></p><span>HRS</span>
+                                </li>
+                                <li>
+                                    <p class="minute"></p><span>MINS</span>
+                                </li>
+                                <li id="sec">
+                                    <p class="secound"></p><span>SEC</span>
+                                </li>
+                            </ul>
+                        </div>
+
                     </div>
                 </div>
                 <!-- /.hot-deal-wrapper -->
@@ -24,9 +46,9 @@ $hot_deals = App\Models\Product::where('hot_deals',1)->where('discount_price','!
                 <div class="product-info text-left m-t-20">
                     <h3 class="name"><a href="{{url('product/details/'.$product->id.'/'.$product->product_slug_en)}}">@if(session()->get('language') == 'english') {{$product->product_name_en}} @else {{$product->product_name_ar}} @endif </a></h3>
                     @php
-                                                        $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
-                                                        @endphp
-                                                        @include('frontend.common.rating')
+                    $avarage = App\Models\Review::where('product_id',$product->id)->where('status',1)->avg('rating');
+                    @endphp
+                    @include('frontend.common.rating')
                     <div class="product-price"> <span class="price"> {{$product->discount_price}} $ </span> <span class="price-before-discount">{{$product->selling_price}} $</span> </div>
                     <!-- /.product-price -->
 
@@ -45,7 +67,35 @@ $hot_deals = App\Models\Product::where('hot_deals',1)->where('discount_price','!
                 <!-- /.cart -->
             </div>
         </div>
+
         @endforeach
     </div>
     <!-- /.sidebar-widget -->
 </div>
+<script>
+    var expert_date = $('#expert_date').val();
+    console.log(expert_date);
+    var countDownDate = new Date(expert_date).getTime();
+
+    var x = setInterval(function() {
+
+        var now = new Date().getTime();
+
+        var distance = countDownDate - now;
+
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        $(".day").html(days);
+        $(".hour").html(hours);
+        $(".minute").html(minutes);
+        $(".secound").html(seconds);
+
+        if (distance < 0) {
+            clearInterval(x);
+            $(".day").html("EXPIRED");
+        }
+    }, 1000);
+</script>

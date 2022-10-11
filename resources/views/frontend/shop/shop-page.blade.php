@@ -170,7 +170,7 @@ Shopping Room - Shop
                                                                     <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                                                                 </li>
                                                                 <li class="">
-                                                                    <button class="btn btn-primary icon add-to-cart" type="button" title="Wishlist" id="{{$product->id}}" onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i> </button>
+                                                                    <button class="btn btn-primary icon add-to-wishlist" type="button" title="Wishlist" id="{{$product->id}}" onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i> </button>
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -228,7 +228,7 @@ Shopping Room - Shop
                                                                             <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
                                                                         </li>
                                                                         <li class="">
-                                                                            <button class="btn btn-primary icon" type="button" title="Wishlist" id="{{$product->id}}" onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i> </button>
+                                                                            <button class="btn btn-primary icon add-to-wishlist" type="button" title="Wishlist" id="{{$product->id}}" onclick="addToWishList(this.id)"> <i class="fa fa-heart"></i> </button>
                                                                         </li>
                                                                     </ul>
                                                                 </div>

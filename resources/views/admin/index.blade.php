@@ -38,6 +38,19 @@ $today_orders = App\Models\Order::where('order_date',$this_day)->where('status',
 
 $order_item = App\Models\OrderItem::with('product','order')->orderby('id','desc')->get();
 
+
+$orders = App\Models\Order::pluck('amount','order_date');
+$chart = new App\Charts\orderChart();
+
+$chart->labels($orders->keys());
+$chart->dataset('Daily Earnings', 'line', $orders->values())->options([
+'color' => '#000',
+'backgroundColor'=> '#fdddc485',
+'borderColor' => '#fd7105' ,
+'pointBorderColor' => '#3192ea',
+'pointBackgroundColor' => '#fff',
+]);
+
 @endphp
 
 <div class="container-full">
@@ -120,6 +133,15 @@ $order_item = App\Models\OrderItem::with('product','order')->orderby('id','desc'
                             </h3>
                             @endif
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
+            </div>
+            <div class="col-12">
+                <div class="box">
+                    <div class="box-body" style="background: #fff;">
+                        {!! $chart->container() !!}
                     </div>
                 </div>
             </div>
@@ -222,5 +244,9 @@ $order_item = App\Models\OrderItem::with('product','order')->orderby('id','desc'
     </section>
     <!-- /.content -->
 </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
+{!! $chart->script() !!}
 
 @endsection

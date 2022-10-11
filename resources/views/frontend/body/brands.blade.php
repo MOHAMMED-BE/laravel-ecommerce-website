@@ -7,7 +7,7 @@ $brands = App\Models\Brand::orderBy('id','desc')->get();
             @foreach($brands as $brand)
             <div class="item m-t-15">
                 <a href="#" class="image">
-                    <img data-echo="{{$brand->brand_image}}" src="{{$brand->brand_image}}" alt="" style="width: 40%;">
+                    <img data-echo="{{$brand->brand_image}}" src="{{$brand->brand_image}}" alt="" style="width: 30%;">
                 </a>
             </div>
             <!--/.item-->
