@@ -33,36 +33,42 @@ function productView(id) {
 
             var stock = data.product.product_quantity;
 
-            if (stock > 0)
+            if (stock > 0) {
                 $('#product-stock').text('in stock').attr('class', 'badge badge-pill badge-success').css('background-color', 'green', 'color', '#fff');
+                $('button[type="submit"]').removeAttr('disabled');
+            }
+
             else if (stock < 1) {
                 $('#product-stock').text('out of stock').attr('class', 'badge badge-pill badge-danger').css('background-color', 'red', 'color', '#fff');
                 $('button[type="submit"]').attr('disabled', 'disabled');
             }
 
-            if (data.product_size_en != "")
-                $.each(data.product_size_en, function (key, value) {
-                    $('select[name="product-size"]').append('<option value="' + value + '">' + value + '</option>');
-                });
 
-            else
-                $('#size-group').hide();
+            $('#color-group').hide();
+            if (data.product_color_en != "") {
+                $('#color-group').show();
+                $('select[name="product-color"]').find('option').remove().end();
 
-            if (data.product_color_en != "")
                 $.each(data.product_color_en, function (key, value) {
                     $('select[name="product-color"]').append('<option value="' + value + '">' + value + '</option>');
                 });
+            }
 
-            else
-                $('#color-group').hide();
 
-        }
-        // ========================= end success
-    })
-    // ========================= end ajax
-}
-// ========================= end ProductView
+            $('#size-group').hide();
+            if (data.product_size_en != "") {
+                $('select[name="product-size"]').find('option').remove().end();
+                $('#size-group').show();
 
+                $.each(data.product_size_en, function (key, value) {
+                    $('select[name="product-size"]').append('<option value="' + value + '">' + value + '</option>');
+                });
+            }
+
+        } // ========================= end success
+    }) // ========================= end ajax
+
+} // ========================= end ProductView
 
 
 // ========================= Start Add To Cart

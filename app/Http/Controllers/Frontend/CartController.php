@@ -17,34 +17,39 @@ class CartController extends Controller
 {
     public function AddToCart(Request $request, $id)
     {
-        if(Session::has('coupon')){
-            session()->forget('coupon');
-        }
 
         $product = Product::findOrFail($id);
-        $price = NULL;
 
-        if($product->discount_price == NULL)
-            $price = $product->selling_price;
-        else
-            $price = $product->discount_price;
+        if($product->product_quantity > 0){
+            if(Session::has('coupon')){
+                session()->forget('coupon');
+            }
+    
+            $price = NULL;
+    
+            if($product->discount_price == NULL)
+                $price = $product->selling_price;
+            else
+                $price = $product->discount_price;
+    
+    
+            Cart::add([
+            'id' => $id,
+            'name' => $request->product_name ,
+            'qty' => $request->quantity ,
+            'price' => $price ,
+            'weight' => 1 ,
+            'options' => [
+               'image' => $product->product_thumbnail,
+               'color' => $request->color ,
+               'size' => $request->size ,
+    
+            ],
+           ]);
+    
+           return response()->json(['success'=>'Product Added Successfully TO Your Cart']);
+        }
 
-
-        Cart::add([
-        'id' => $id,
-        'name' => $request->product_name ,
-        'qty' => $request->quantity ,
-        'price' => $price ,
-        'weight' => 1 ,
-        'options' => [
-           'image' => $product->product_thumbnail,
-           'color' => $request->color ,
-           'size' => $request->size ,
-
-        ],
-       ]);
-
-       return response()->json(['success'=>'Product Added Successfully TO Your Cart']);
         
     }// end AddToCart
 
