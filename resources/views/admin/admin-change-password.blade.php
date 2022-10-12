@@ -47,7 +47,7 @@ Shopping Room Admin - Change Password
                                 </div>
                             </div>
                             <div class="text-xs-right">
-                                <input type="submit" class="btn btn-info" value="Update" />
+                                <input type="submit" class="btn btn-warning backend-btn" value="Update" />
                             </div>
                         </form>
                     </div>

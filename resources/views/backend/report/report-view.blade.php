@@ -32,7 +32,7 @@ Shopping Room Admin - Reports
                                 </div>
 
                                 <div class="text-xs-right">
-                                    <input type="submit" class="btn btn-info" value="Searsh" />
+                                    <input type="submit" class="btn btn-warning backend-btn" value="Searsh" />
                                 </div>
                             </form>
                         </div>
@@ -94,7 +94,7 @@ Shopping Room Admin - Reports
                                 </div>
 
                                 <div class="text-xs-right">
-                                    <input type="submit" class="btn btn-info" value="Searsh" />
+                                    <input type="submit" class="btn btn-warning backend-btn" value="Searsh" />
                                 </div>
                             </form>
                         </div>
@@ -134,7 +134,7 @@ Shopping Room Admin - Reports
                                 </div>
 
                                 <div class="text-xs-right">
-                                    <input type="submit" class="btn btn-info" value="Searsh" />
+                                    <input type="submit" class="btn btn-warning backend-btn" value="Searsh" />
                                 </div>
                             </form>
                         </div>

@@ -136,7 +136,7 @@ Shopping Room Admin - Site Setting
                                 <!-- en col-12 -->
                             </div>
                             <div class="text-xs-right">
-                                <input type="submit" class="btn btn-info" value="Update" />
+                                <input type="submit" class="btn btn-warning backend-btn" value="Update" />
                             </div>
                         </form>
                     </div>

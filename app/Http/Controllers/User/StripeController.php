@@ -47,10 +47,7 @@ class StripeController extends Controller
             'notes' => $request->notes,
 
             'payment_method' => 'Strip',
-            'transaction_id' => $charge->balance_transaction,
-            'currency' => $charge->currency,
             'amount' => $total_amount,
-            'order_number' => $charge->metadata->order_id,
             'invoice_no' => 'SR'.mt_rand(10000000,99999999),
             'order_date' => Carbon::now()->format('d F Y'),
             'order_month' => Carbon::now()->format('F'),

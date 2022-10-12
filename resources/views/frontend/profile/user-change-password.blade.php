@@ -45,7 +45,7 @@ Shopping Room User - Change Password
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-info" value="Update" />
+                                <input type="submit" class="btn btn-warning backend-btn" value="Update" />
                             </div>
                         </form>
                     </div>

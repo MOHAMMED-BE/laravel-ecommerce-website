@@ -35,7 +35,7 @@ Shopping Room Admin - Edit Country
                                 </div>
 
                                 <div class="text-xs-right">
-                                    <input type="submit" class="btn btn-info" value="Save" />
+                                    <input type="submit" class="btn btn-warning backend-btn" value="Save" />
                                 </div>
                             </form>
                         </div>

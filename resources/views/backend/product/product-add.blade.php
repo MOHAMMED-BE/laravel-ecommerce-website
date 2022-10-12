@@ -23,9 +23,7 @@ Shopping Room Admin - Add Product
                             @csrf
                             <div class="row">
                                 <div class="col-12">
-
-
-                                    <!-- start secound row -->
+                                    <!-- start first row -->
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -156,16 +154,16 @@ Shopping Room Admin - Add Product
                                                 @enderror
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <!-- end third row -->
 
                                     <!-- start fourth row -->
                                     <div class="row">
-                                    <div class="col-md-4">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Tags En </h5>
-                                                <input type="text"  name="product_tags_en"  data-role="tagsinput" placeholder="add tags" />
+                                                <input type="text" name="product_tags_en" data-role="tagsinput" placeholder="add tags" />
                                                 @error('product_tags_en')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -175,7 +173,7 @@ Shopping Room Admin - Add Product
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Tags Ar </h5>
-                                                <input type="text"  name="product_tags_ar"  data-role="tagsinput" placeholder="add tags" />
+                                                <input type="text" name="product_tags_ar" data-role="tagsinput" placeholder="add tags" />
                                                 @error('product_tags_ar')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -184,22 +182,22 @@ Shopping Room Admin - Add Product
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Size En </h5>
-                                                <input type="text"  name="product_size_en"  data-role="tagsinput" placeholder="add size" />
+                                                <input type="text" name="product_size_en" data-role="tagsinput" placeholder="add size" />
                                                 @error('product_size_en')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
                                             </div>
                                         </div>
-                                        
+
                                     </div>
                                     <!-- end fourth row -->
 
                                     <!-- start fifth row -->
                                     <div class="row">
-                                    <div class="col-md-4">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Size Ar </h5>
-                                                <input type="text"  name="product_size_ar"  data-role="tagsinput" placeholder="add size" />
+                                                <input type="text" name="product_size_ar" data-role="tagsinput" placeholder="add size" />
                                                 @error('product_size_ar')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -209,7 +207,7 @@ Shopping Room Admin - Add Product
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Color En </h5>
-                                                <input type="text"  name="product_color_en"  data-role="tagsinput" placeholder="add color" />
+                                                <input type="text" name="product_color_en" data-role="tagsinput" placeholder="add color" />
                                                 @error('product_color_en')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
@@ -218,20 +216,20 @@ Shopping Room Admin - Add Product
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <h5>Product Color Ar </h5>
-                                                <input type="text"  name="product_color_ar"  data-role="tagsinput" placeholder="add color" />
+                                                <input type="text" name="product_color_ar" data-role="tagsinput" placeholder="add color" />
                                                 @error('product_color_ar')
                                                 <span class="text-danger">{{$message}}</span>
                                                 @enderror
                                             </div>
                                         </div>
 
-                                        
+
                                     </div>
                                     <!-- end fifth row -->
 
                                     <!-- start sexth row -->
                                     <div class="row">
-                                    
+
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <h5>Product Thumbnail <span class="text-danger">*</span></h5>
@@ -265,51 +263,24 @@ Shopping Room Admin - Add Product
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <h5>English Short Description </h5>
+                                                <h5>English Description</h5>
                                                 <div class="controls">
-                                                    <textarea name="short_desc_en" id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
+                                                    <textarea id="editor1" name="description_en" rows="10" cols="80">
+						                            </textarea>
                                                 </div>
-                                                @error('short_desc_en')
-                                                <span class="text-danger">{{$message}}</span>
-                                                @enderror
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <h5>Arabic Short Description </h5>
+                                                <h5>Arabic Description</h5>
                                                 <div class="controls">
-                                                    <textarea name="short_desc_ar" id="textarea" class="form-control"  placeholder="Textarea text"></textarea>
+                                                    <textarea id="editor2" name="description_ar" rows="10" cols="80">
+						                            </textarea>
                                                 </div>
-                                                @error('short_desc_ar')
-                                                <span class="text-danger">{{$message}}</span>
-                                                @enderror
                                             </div>
                                         </div>
                                     </div>
                                     <!-- end seventh row -->
-
-                                    <!-- start Eighth row -->
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <h5>English Long Description</h5>
-                                                <div class="controls">
-                                                    <textarea id="editor1" name="long_desc_en" rows="10" cols="80">
-						                            </textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <h5>Arabic Long Description</h5>
-                                                <div class="controls">
-                                                    <textarea id="editor2" name="long_desc_ar" rows="10" cols="80">
-						                            </textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- end Eighth row -->
 
 
                                 </div>
@@ -351,19 +322,19 @@ Shopping Room Admin - Add Product
 
 
                             <div class="col-md-6">
-                                            <div class="form-group">
-                                                <h5>Digital Product <span class="text-info">PDF, XLSX, DOC, CSV ...</span></h5>
-                                                <div class="controls">
-                                                    <input type="file" name="file" class="form-control">
-                                                </div>
-                                                @error('file')
-                                                <span class="text-danger">{{$message}}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
+                                <div class="form-group">
+                                    <h5>Digital Product <span class="text-info">PDF, XLSX, DOC, CSV ...</span></h5>
+                                    <div class="controls">
+                                        <input type="file" name="file" class="form-control">
+                                    </div>
+                                    @error('file')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
+                            </div>
 
                             <div class="text-xs-right">
-                                <input type="submit" class="btn btn-info" value="Save Product" />
+                                <input type="submit" class="btn btn-warning backend-btn" value="Save Product" />
                             </div>
                         </form>
 

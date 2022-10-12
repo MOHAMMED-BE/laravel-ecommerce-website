@@ -30,7 +30,7 @@ $seo = App\Models\SeoSetting::find(1);
   <link rel="stylesheet" href="{{asset('frontend/assets/css/animate.min.css')}}">
   <link rel="stylesheet" href="{{asset('frontend/assets/css/rateit.css')}}">
   <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap-select.min.css')}}">
-  <link rel="icon" href="{{ asset('assets/icons/icon-5.ico')}}">
+  <link rel="icon" href="{{ asset('assets/icons/icon-0.ico')}}">
   <!-- Icons -->
   <link rel="stylesheet" href="{{asset('frontend/assets/css/font-awesome.css')}}">
 

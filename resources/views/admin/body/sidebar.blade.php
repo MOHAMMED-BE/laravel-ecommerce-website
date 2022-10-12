@@ -44,7 +44,6 @@ $setting = App\Models\SiteSetting::find(1);
       $returnorder = (auth()->guard('admin')->user()->returnorder == 1);
       $review = (auth()->guard('admin')->user()->review == 1);
       $orders = (auth()->guard('admin')->user()->orders == 1);
-      $stock = (auth()->guard('admin')->user()->stock == 1);
       $reports = (auth()->guard('admin')->user()->reports == 1);
       $allusers = (auth()->guard('admin')->user()->allusers == 1);
       $adminuserrole = (auth()->guard('admin')->user()->adminuserrole == 1);
@@ -70,7 +69,7 @@ $setting = App\Models\SiteSetting::find(1);
       @if($category == true)
       <li class="treeview {{ ($prefix == '/category')? 'active':''}}">
         <a href="#">
-          <i data-feather="mail"></i> <span>Category</span>
+          <i data-feather="mail"></i> <span>Categories</span>
           <span style="float: right;">
             <i class="fa-solid fa-angle-right"></i>
           </span>
@@ -105,7 +104,7 @@ $setting = App\Models\SiteSetting::find(1);
       <li class="treeview {{ ($prefix == '/slider')? 'active':''}}">
         <a href="#">
           <i data-feather="file"></i>
-          <span>Slider</span>
+          <span>Sliders</span>
           <span style="float: right;">
             <i class="fa-solid fa-angle-right"></i>
           </span>
@@ -174,7 +173,7 @@ $setting = App\Models\SiteSetting::find(1);
       <li class="treeview {{ ($prefix == '/review')? 'active':''}}">
         <a href="#">
           <i data-feather="file"></i>
-          <span>Menage Review</span>
+          <span>Menage Reviews</span>
           <span style="float: right;">
             <i class="fa-solid fa-angle-right"></i>
           </span>
@@ -212,7 +211,7 @@ $setting = App\Models\SiteSetting::find(1);
       <li class="treeview {{ ($prefix == '/return')? 'active':''}}">
         <a href="#">
           <i data-feather="file"></i>
-          <span>Rerurn Order</span>
+          <span>Return Orders</span>
           <span style="float: right;">
             <i class="fa-solid fa-angle-right"></i>
           </span>
@@ -220,22 +219,6 @@ $setting = App\Models\SiteSetting::find(1);
         <ul class="treeview-menu">
           <li class="{{ ($route == 'return.request')? 'active':''}}"><a href="{{route('return.request')}}"><i class="ti-more"></i>Return Request</a></li>
           <li class="{{ ($route == 'all.request')? 'active':''}}"><a href="{{route('all.request')}}"><i class="ti-more"></i>All Request</a></li>
-        </ul>
-      </li>
-      @else
-      @endif
-
-      @if($stock == true)
-      <li class="treeview {{ ($prefix == '/stock')? 'active':''}}">
-        <a href="#">
-          <i data-feather="file"></i>
-          <span>Menage Stock</span>
-          <span style="float: right;">
-            <i class="fa-solid fa-angle-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li class="{{ ($route == 'product.stock')? 'active':''}}"><a href="{{route('product.stock')}}"><i class="ti-more"></i>Product Stock</a></li>
         </ul>
       </li>
       @else
@@ -261,13 +244,13 @@ $setting = App\Models\SiteSetting::find(1);
       <li class="treeview {{ ($prefix == '/allusers')? 'active':''}}">
         <a href="#">
           <i data-feather="file"></i>
-          <span>All Users</span>
+          <span>Menage Clients</span>
           <span style="float: right;">
             <i class="fa-solid fa-angle-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li class="{{ ($route == 'all.users')? 'active':''}}"><a href="{{route('all.users')}}"><i class="ti-more"></i>All Users</a></li>
+          <li class="{{ ($route == 'all.users')? 'active':''}}"><a href="{{route('all.users')}}"><i class="ti-more"></i>Menage Clients</a></li>
         </ul>
       </li>
       @else

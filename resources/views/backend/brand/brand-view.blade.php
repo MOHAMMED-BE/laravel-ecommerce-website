@@ -32,7 +32,7 @@ Shopping Room Admin - Brand List
                                     <tr>
                                         <td>{{$item->brand_name_en}}</td>
                                         <td>{{$item->brand_name_ar}}</td>
-                                        <td class="d-flex justify-content-center"><img class="img rounded-4 center" src="{{asset($item->brand_image)}}" alt="" style="width: 4rem !important;height: 3.5rem !important;"></td>
+                                        <td class="d-flex justify-content-center"><img class="img rounded-1 center" src="{{asset($item->brand_image)}}" alt="" style="width: 4rem !important;height: 3.5rem !important;"></td>
                                         <td class="text-center">
                                             <a href="{{ route('brand.edit',$item->id)}}"   title="Edit Data" class="btn btn-info"><i class="fa fa-pencil"></i></a>
                                             <a href="{{ route('brand.delete',$item->id)}}" title="Delete Data" class="btn btn-danger" id="delete" ><i class="fa fa-trash"></i></a>
@@ -92,7 +92,7 @@ Shopping Room Admin - Brand List
                                 </div>
 
                                 <div class="text-xs-right">
-                                    <input type="submit" class="btn btn-info" value="Save" />
+                                    <input type="submit" class="btn btn-warning backend-btn" value="Save" />
                                 </div>
                             </form>
                         </div>

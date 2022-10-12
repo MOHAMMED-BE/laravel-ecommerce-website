@@ -33,7 +33,7 @@ Shopping Room Admin - Product List
                                 <tbody>
                                     @foreach($product as $item)
                                     <tr>
-                                        <td class="d-flex justify-content-center"><img class="img rounded-4 center" src="{{asset($item->product_thumbnail)}}" alt="" style="width: 4rem !important;height: 3.5rem !important;"></td>
+                                        <td class="d-flex justify-content-center"><img class="img rounded- center" src="{{asset($item->product_thumbnail)}}" alt="" style="width: 4rem !important;height: 3.5rem !important;"></td>
                                         <td style="width: 33%;">{{$item->product_name_en}}</td>
                                         <td>${{$item->selling_price}}</td>
                                         <td>

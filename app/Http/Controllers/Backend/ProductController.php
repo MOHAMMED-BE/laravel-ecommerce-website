@@ -79,10 +79,8 @@ class ProductController extends Controller
 
             'selling_price' => $request->selling_price,
             'discount_price' => $request->discount_price,
-            'short_desc_en' => $request->short_desc_en,
-            'short_desc_ar' => $request->short_desc_ar,
-            'long_desc_en' => $request->long_desc_en,
-            'long_desc_ar' => $request->long_desc_ar,
+            'description_en' => $request->description_en,
+            'description_ar' => $request->description_ar,
 
             'hot_deals' => $request->hot_deals,
             'featured' => $request->featured,
@@ -114,8 +112,6 @@ class ProductController extends Controller
                 ]);
             }
         }
-
-        
 
         // Multiple Image Upload end
 
@@ -171,10 +167,8 @@ class ProductController extends Controller
 
             'selling_price' => $request->selling_price,
             'discount_price' => $request->discount_price,
-            'short_desc_en' => $request->short_desc_en,
-            'short_desc_ar' => $request->short_desc_ar,
-            'long_desc_en' => $request->long_desc_en,
-            'long_desc_ar' => $request->long_desc_ar,
+            'description_en' => $request->description_en,
+            'description_ar' => $request->description_ar,
 
             'hot_deals' => $request->hot_deals,
             'featured' => $request->featured,
@@ -209,7 +203,6 @@ class ProductController extends Controller
             MultiImg::where('id', $id)->update([
                 'photo_name' => $upload_path,
                 'updated_at' => Carbon::now(),
-
             ]);
         }
         $notification = array(
@@ -235,7 +228,6 @@ class ProductController extends Controller
         Product::findOrFail($product_id)->update([
             'product_thumbnail' => $save_url,
             'updated_at' => Carbon::now(),
-
         ]);
 
         $notification = array(
@@ -310,10 +302,4 @@ class ProductController extends Controller
         return redirect()->back()->with($notification);
     } // end ProductDelete
 
-    public function ProductStock()
-    {
-        $products = Product::latest()->get();
-
-        return view('backend/product/product-stock', compact('products'));
-    } // end ProductStock
 }

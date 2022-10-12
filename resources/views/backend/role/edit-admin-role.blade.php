@@ -79,10 +79,6 @@ Shopping Room Admin - Edit Admin User
                                     <div class="form-group">
                                         <div class="controls">
                                             <fieldset>
-                                                <input type="checkbox"  name="stock" id="checkbox_12" value="1" {{$adminuser->stock == 1 ? 'checked' : ''}}>
-                                                <label for="checkbox_12">Stock</label>
-                                            </fieldset>
-                                            <fieldset>
                                                 <input type="checkbox"  name="reports" id="checkbox_13" value="1" {{$adminuser->reports == 1 ? 'checked' : ''}}>
                                                 <label for="checkbox_13">Reports</label>
                                             </fieldset>
@@ -100,7 +96,7 @@ Shopping Room Admin - Edit Admin User
                                 </div>
                             </div>
                             <div class="text-xs-right">
-                                <input type="submit" class="btn btn-info" value="Save" />
+                                <input type="submit" class="btn btn-warning backend-btn" value="Save" />
                             </div>
                         </form>
                     </div>

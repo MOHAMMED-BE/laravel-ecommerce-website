@@ -44,10 +44,10 @@ function productView(id) {
             }
 
 
+            $('select[name="product-color"]').find('option').remove().end();
             $('#color-group').hide();
             if (data.product_color_en != "") {
                 $('#color-group').show();
-                $('select[name="product-color"]').find('option').remove().end();
 
                 $.each(data.product_color_en, function (key, value) {
                     $('select[name="product-color"]').append('<option value="' + value + '">' + value + '</option>');
@@ -55,9 +55,9 @@ function productView(id) {
             }
 
 
+            $('select[name="product-size"]').find('option').remove().end();
             $('#size-group').hide();
             if (data.product_size_en != "") {
-                $('select[name="product-size"]').find('option').remove().end();
                 $('#size-group').show();
 
                 $.each(data.product_size_en, function (key, value) {

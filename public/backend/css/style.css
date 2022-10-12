@@ -24046,9 +24046,14 @@ img.away, img.busy, img.offline, img.online {
   margin: 10px 0 5px 0;
 }
 
-
 .admin-bg{
   background-attachment: fixed;
   background-image: url(../../assets/admin-bg-1.png);
   background-size: cover;
+}
+
+.backend-btn{
+  font-size: 15px !important;
+  padding: 5px 14px !important;
+  font-weight: 600 !important;
 }

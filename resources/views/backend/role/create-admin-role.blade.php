@@ -138,10 +138,6 @@ Shopping Room Admin - Create Admin User
                                     <div class="form-group">
                                         <div class="controls">
                                             <fieldset>
-                                                <input type="checkbox" name="stock" id="checkbox_12" value="1">
-                                                <label for="checkbox_12">Stock</label>
-                                            </fieldset>
-                                            <fieldset>
                                                 <input type="checkbox" name="reports" id="checkbox_13" value="1">
                                                 <label for="checkbox_13">Reports</label>
                                             </fieldset>
@@ -159,7 +155,7 @@ Shopping Room Admin - Create Admin User
                                 </div>
                             </div>
                             <div class="text-xs-right">
-                                <input type="submit" class="btn btn-info" value="Save" />
+                                <input type="submit" class="btn btn-warning backend-btn" value="Save" />
                             </div>
                         </form>
                     </div>

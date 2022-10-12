@@ -36,7 +36,6 @@ class CashController extends Controller
             'notes' => $request->notes,
 
             'payment_method' => 'Cash On Delivery',
-            'currency' => 'usd',
             'amount' => $total_amount,
             'invoice_no' => 'SR'.mt_rand(10000000,99999999),
             'order_date' => Carbon::now()->format('d F Y'),
@@ -44,7 +43,6 @@ class CashController extends Controller
             'order_year' => Carbon::now()->format('Y'),
             'status' => 'pending',
             'created_at' => Carbon::now(),
-
 
         ]);
 

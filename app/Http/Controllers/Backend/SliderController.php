@@ -32,40 +32,30 @@ class SliderController extends Controller
         $save_url = 'upload/slider-images/' . $name_gen;
 
         Slider::insert([
-            'title' => $request->title,
-            'description' => $request->description,
             'slider_img' => $save_url,
         ]);
 
         $notification = array(
-            'message' => 'slider Inserted Successfully',
+            'message' => 'Slider Inserted Successfully',
             'alert-type' => 'success'
         );
 
         return redirect()->back()->with($notification);
     } // end SliderStore
 
-    public function SliderEdit($id)
-    {
-        $slider = Slider::findOrFail($id);
-        return view('backend.slider.slider-edit', compact('slider'));
-    } // end SliderEdite
-
     function SliderUpdate(Request $request)
     {
         $slider_id = $request->id;
         $slider_old_image = $request->old_image;
 
-        if ($request->file('slider_img')) {
+        if ($request->file('edit_slider_img')) {
             unlink($slider_old_image);
-            $image = $request->file('slider_img');
+            $image = $request->file('edit_slider_img');
             $name_gen = hexdec(uniqid() . '.' . $image->getClientOriginalExtension());
             Image::make($image)->resize(870, 370)->save('upload/slider-images/' . $name_gen);
             $save_url = 'upload/slider-images/' . $name_gen;
 
             Slider::findOrFail($slider_id)->update([
-                'title' => $request->title,
-                'description' => $request->description,
                 'slider_img' => $save_url,
             ]);
 
@@ -76,19 +66,7 @@ class SliderController extends Controller
 
             return redirect()->route('menage-slider')->with($notification);
         } // edn if
-        else {
-            Slider::findOrFail($slider_id)->update([
-                'title' => $request->title,
-                'description' => $request->description,
-            ]);
-
-            $notification = array(
-                'message' => 'Slider Updated Successfully',
-                'alert-type' => 'success'
-            );
-
-            return redirect()->route('menage-slider')->with($notification);
-        } // end else
+      
     } // end SliderUpdate
 
     public function SliderDelete($id){
@@ -113,7 +91,7 @@ class SliderController extends Controller
         ]);
 
         $notification = array(
-            'message' => 'slider Inactivated Successfully',
+            'message' => 'Slider Inactivated Successfully',
             'alert-type' => 'success'
         );
 
@@ -128,7 +106,7 @@ class SliderController extends Controller
         ]);
 
         $notification = array(
-            'message' => 'slider Activated Successfully',
+            'message' => 'Slider Activated Successfully',
             'alert-type' => 'success'
         );
 

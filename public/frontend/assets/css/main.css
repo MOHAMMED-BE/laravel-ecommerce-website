@@ -3420,6 +3420,8 @@ header {
 
 .cnt-strip {
   position: relative;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
 }
 
 .cnt-strip .strip {

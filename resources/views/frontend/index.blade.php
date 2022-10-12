@@ -146,21 +146,12 @@ Shopping Room - Start Your Orders Today
             <div class="col-xs-12 col-sm-12 col-md-9 homebanner-holder">
                 <!-- ========================================== SECTION – HERO ========================================= -->
 
-                <div id="hero">
+                <div id="hero" style="margin: 0 0 5px 0; ">
                     <div id="owl-main" class="owl-carousel owl-inner-nav owl-ui-sm">
                         @foreach($sliders as $slider)
 
                         <div class="item">
                             <img src="{{asset($slider->slider_img)}}" alt="">
-                            <div class="container-fluid">
-                                <div class="caption bg-color vertical-center text-left">
-                                    <!-- <div class="slider-header fadeInDown-1">Top Brands</div> -->
-                                    <div class="big-text fadeInDown-1"> {{$slider->title}} </div>
-                                    <div class="excerpt fadeInDown-2 hidden-xs"> <span>{{$slider->description}}</span> </div>
-                                </div>
-                                <!-- /.caption -->
-                            </div>
-                            <!-- /.container-fluid -->
                         </div>
                         <!-- /.item -->
                         @endforeach

@@ -130,10 +130,6 @@ Shopping Room - {{$product->product_name_en}}
                                     </div><!-- /.row -->
                                 </div><!-- /.stock-container -->
 
-                                <div class="description-container m-t-20">
-                                    {!! $product->short_desc_en !!}
-                                </div><!-- /.description-container -->
-
                                 <div class="price-container info-container m-t-20">
                                     <div class="row">
                                         <div class="col-sm-6">
@@ -197,7 +193,6 @@ Shopping Room - {{$product->product_name_en}}
 
                                 <!-- ============================================== Color and Size: END ============================================== -->
 
-
                                 <div class="quantity-container info-container">
                                     <div class="row">
 
@@ -245,7 +240,7 @@ Shopping Room - {{$product->product_name_en}}
 
                                 <div id="description" class="tab-pane in active">
                                     <div class="product-tab">
-                                        <p class="text">{!! $product->long_desc_en !!}</p>
+                                        <p class="text">{!! $product->description_en !!}</p>
                                     </div>
                                 </div><!-- /.tab-pane -->
 
@@ -382,34 +377,6 @@ Shopping Room - {{$product->product_name_en}}
 
                                     </div><!-- /.product-tab -->
                                 </div><!-- /.tab-pane -->
-
-                                <div id="tags" class="tab-pane">
-                                    <div class="product-tag">
-
-                                        <h4 class="title">Product Tags</h4>
-                                        <form role="form" class="form-inline form-cnt">
-                                            <div class="form-container">
-
-                                                <div class="form-group">
-                                                    <label for="exampleInputTag">Add Your Tags: </label>
-                                                    <input type="email" id="exampleInputTag" class="form-control txt">
-
-                                                </div>
-
-                                                <button class="btn btn-upper btn-primary" type="submit">ADD TAGS</button>
-                                            </div><!-- /.form-container -->
-                                        </form><!-- /.form-cnt -->
-
-                                        <form role="form" class="form-inline form-cnt">
-                                            <div class="form-group">
-                                                <label>&nbsp;</label>
-                                                <span class="text col-md-offset-3">Use spaces to separate tags. Use single quotes (') for phrases.</span>
-                                            </div>
-                                        </form><!-- /.form-cnt -->
-
-                                    </div><!-- /.product-tab -->
-                                </div><!-- /.tab-pane -->
-
                             </div><!-- /.tab-content -->
                         </div><!-- /.col -->
                     </div><!-- /.row -->

@@ -165,7 +165,6 @@ Route::prefix('product')->group(function () {
 Route::prefix('slider')->group(function () {
     Route::get('/view', [SliderController::class, 'SliderView'])->name('menage-slider');
     Route::post('/store', [SliderController::class, 'SliderStore'])->name('slider-store');
-    Route::get('/edit/{id}', [SliderController::class, 'SliderEdit'])->name('slider-edit');
     Route::get('/delete/{id}', [SliderController::class, 'SliderDelete'])->name('slider-delete');
     Route::post('/update', [SliderController::class, 'SliderUpdate'])->name('slider-update');
     Route::get('/inactive/{id}', [SliderController::class, 'InactiveSlider'])->name('slider-inactive');
@@ -370,14 +369,7 @@ Route::prefix('review')->group(function () {
 });
 
 
-// Backend  Menage Stock route
-
-Route::prefix('stock')->group(function () {
-    Route::get('/product', [ProductController::class, 'ProductStock'])->name('product.stock');
-});
-
-
-// Backend  Menage Stock route
+// Backend Admin User Role route
 
 Route::prefix('adminuserrole')->group(function () {
     Route::get('/all', [AdminUserController::class, 'AllAdminRole'])->name('all.admin.user');

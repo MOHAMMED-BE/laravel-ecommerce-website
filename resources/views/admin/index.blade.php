@@ -39,7 +39,7 @@ $today_orders = App\Models\Order::where('order_date',$this_day)->where('status',
 $order_item = App\Models\OrderItem::with('product','order')->orderby('id','desc')->get();
 
 
-$orders = App\Models\Order::pluck('amount','order_date');
+$orders = DB::table('orders')->select('order_date', DB::raw('sum(amount) as total'))->groupBy('order_date')->orderBy('id','asc')->get()->pluck('total','order_date');
 $chart = new App\Charts\orderChart();
 
 $chart->labels($orders->keys());
@@ -65,7 +65,7 @@ $chart->dataset('Daily Earnings', 'line', $orders->values())->options([
                             <i class="text-primary mr-0 font-size-24 fa-solid fa-magnifying-glass-chart" style=" transform: scale(1.4); "></i>
                         </div>
                         <div>
-                            <p class="text-mute mt-20 mb-0 font-size-16">Today's Sale</p>
+                            <p class="text-mute mt-20 mb-0 font-size-16">Today's Sales</p>
                             <h3 class="text-white mb-0 font-weight-500">${{$today}}
                                 @if($day_before < $today) <small class="text-success"><i class="fa fa-caret-up"></i> </small>
                                     <small class="text-success">USD</small>
@@ -85,7 +85,7 @@ $chart->dataset('Daily Earnings', 'line', $orders->values())->options([
                             <i class="text-warning mr-0 font-size-24 fa-solid fa-magnifying-glass-chart" style=" transform: scale(1.4); "></i>
                         </div>
                         <div>
-                            <p class="text-mute mt-20 mb-0 font-size-16">Monthly Sale</p>
+                            <p class="text-mute mt-20 mb-0 font-size-16">Monthly Sales</p>
                             <h3 class="text-white mb-0 font-weight-500">${{$month}}
                                 @if($last_month < $month) <small class="text-success"><i class="fa fa-caret-up"></i> </small>
                                     <small class="text-success">USD</small>
@@ -105,7 +105,7 @@ $chart->dataset('Daily Earnings', 'line', $orders->values())->options([
                             <i class="text-info mr-0 font-size-24 fa-solid fa-magnifying-glass-chart" style=" transform: scale(1.4); "></i>
                         </div>
                         <div>
-                            <p class="text-mute mt-20 mb-0 font-size-16">Yearly Sale</p>
+                            <p class="text-mute mt-20 mb-0 font-size-16">Yearly Sales</p>
                             <h3 class="text-white mb-0 font-weight-500">${{$year}}
                                 @if($last_year < $year) <small class="text-success"><i class="fa fa-caret-up"></i> </small>
                                     <small class="text-success">USD</small>
