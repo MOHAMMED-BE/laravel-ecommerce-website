@@ -48,7 +48,7 @@ class AdminProfileController extends Controller
             'alert-type' => 'success'
         );
 
-        return redirect()->route('admin.profile')->with($notification);
+        return redirect('/admin/dashboard')->with($notification);
     } // end AdminProfileStore
 
     public function AdminChangePassword()

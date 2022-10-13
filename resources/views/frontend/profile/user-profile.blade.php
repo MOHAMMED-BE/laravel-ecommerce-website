@@ -40,9 +40,9 @@ Shopping Room User - Edit Profil
                             </div>
 
                             <div class="form-group">
-                                <h5>Profile Image <span class="text-danger">*</span></h5>
+                                <h5>Profile Image </h5>
                                 <div class="controls">
-                                    <input type="file" id="profile-image" name="profile_photo_path" class="form-control" required="">
+                                    <input type="file" id="profile-image" name="profile_photo_path" class="form-control" >
                                 </div>
                             </div>
                             <div class="form-group">

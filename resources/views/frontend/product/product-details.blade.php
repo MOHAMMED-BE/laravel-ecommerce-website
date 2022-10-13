@@ -253,7 +253,7 @@ Shopping Room - {{$product->product_name_en}}
                                                 @foreach($reviews as $review)
                                                 <div class="user-review">
                                                     <div class="row">
-                                                        <div class="col-md-6" style=" margin: -15px 0px 0px 0px; ">
+                                                        <div class="col-md-6" style=" margin: -15px 0px 0px 0px; width: 37rem;">
                                                             <img src="{{ (!empty($review->user->profile_photo_path)) ? url('upload/user-images/'.$review->user->profile_photo_path) : url('upload/no_image.jpg')}}" class="review-user-img">
                                                             <b>{{$review->user->name}}</b>
 

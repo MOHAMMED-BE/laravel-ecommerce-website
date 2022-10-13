@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{{ asset('assets/icons/icon-5.ico')}}">
+    <link rel="icon" href="{{ asset('assets/icons/icon-0.ico')}}">
 
     <title>Shopping Room Admin - Log in </title>
 
@@ -52,17 +52,6 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-6">
-                                        <div class="checkbox text-white">
-                                            <input type="checkbox" id="basic_checkbox_1">
-                                            <label for="basic_checkbox_1">Remember Me</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="fog-pwd text-right">
-                                            <a href="{{ route('password.request') }}" class="text-white hover-info"><i class="ion ion-locked"></i> Forgot pwd?</a><br>
-                                        </div>
-                                    </div>
                                     <div class="col-12 text-center">
                                         <button type="submit" class="btn btn-info btn-rounded mt-10">SIGN IN</button>
                                     </div>

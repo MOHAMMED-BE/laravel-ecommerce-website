@@ -28,7 +28,7 @@ class ShopController extends Controller
         }
 
         else{
-            $products  = Product::where('status',1)->orderBy('id','desc')->paginate(6);
+            $products  = Product::where('status',1)->orderBy('id','asc')->paginate(6);
         }
         
         return view('frontend.shop.shop-page',compact('categories','products'));

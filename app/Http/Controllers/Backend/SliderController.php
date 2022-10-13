@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use Image;
+use Illuminate\Support\Facades\Session;
+
 
 class SliderController extends Controller
 {
@@ -43,10 +45,28 @@ class SliderController extends Controller
         return redirect()->back()->with($notification);
     } // end SliderStore
 
+    public function SliderEdit($id)
+    {
+        $slider = Slider::where('id',$id)->get();
+
+        foreach($slider as $item){
+            $img = $item->slider_img;
+        }
+
+        Session::put('slider',[
+            'id' => $id,
+            'img' => $img,
+        ]);
+
+        $sliders = Slider::latest()->get();
+        return view('backend.slider.slider-view',compact('sliders'));
+
+    } // end SliderEdite
+
     function SliderUpdate(Request $request)
     {
-        $slider_id = $request->id;
-        $slider_old_image = $request->old_image;
+        $slider_id = session('slider')['id'];
+        $slider_old_image = session('slider')['img'];
 
         if ($request->file('edit_slider_img')) {
             unlink($slider_old_image);

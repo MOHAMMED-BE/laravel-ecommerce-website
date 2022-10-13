@@ -256,7 +256,7 @@ $setting = App\Models\SiteSetting::find(1);
       @else
       @endif
 
-      @if($brand == true)
+      @if($adminuserrole == true)
       <li class="treeview {{ ($prefix == '/adminuserrole')? 'active':''}}">
         <a href="#">
           <i data-feather="file"></i>

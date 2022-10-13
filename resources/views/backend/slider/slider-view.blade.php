@@ -40,7 +40,7 @@ Shopping Room Admin - Slider List
                                         </td>
 
                                         <td class="text-center p-0" style="width: 20%;">
-                                            <a href="{{ route('menage-slider',$item->id)}}" title="Edit Data" class="btn btn-info"><i class="fa fa-pencil"></i></a>
+                                            <a href="{{ route('slider-edit',$item->id)}}" title="Edit Data" class="btn btn-info"><i class="fa fa-pencil"></i></a>
                                             <a href="{{ route('slider-delete',$item->id)}}" title="Delete Data" class="btn btn-danger" id="delete"><i class="fa fa-trash"></i></a>
                                             @if($item->status == 1)
                                             <a href="{{ route('slider-inactive',$item->id)}}" title="Inactive Now" class="btn btn-warning"><i class="fa fa-arrow-down"></i></a>
@@ -103,16 +103,13 @@ Shopping Room Admin - Slider List
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="table-responsive">
-                            <form method="post" action="{{ route('slider-update',$item->id) }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('slider-update') }}" enctype="multipart/form-data">
                                 @csrf
-                                <input type="hidden" value="{{$item->id}}" name="id">
-                                <input type="hidden" value="{{$item->slider_img}}" name="old_image">
-
                                 <div class="form-group">
-                                    <h5>Slider Image <span class="text-danger">*</span></h5>
+                                    <h5>Slider Image</h5>
                                     <div class="controls">
-                                        <input type="file" value="" name="edit_slider_img" class="form-control" required>
-                                        @error('slider_img')
+                                        <input type="file" value="" name="edit_slider_img" class="form-control">
+                                        @error('edit_slider_img')
                                         <span class="text-danger">{{$message}}</span>
                                         @enderror
                                     </div>
