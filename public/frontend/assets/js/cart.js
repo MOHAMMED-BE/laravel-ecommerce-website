@@ -35,12 +35,12 @@ function productView(id) {
 
             if (stock > 0) {
                 $('#product-stock').text('in stock').attr('class', 'badge badge-pill badge-success').css('background-color', 'green', 'color', '#fff');
-                $('button[type="submit"]').removeAttr('disabled');
+                $('.save-cart').removeAttr('disabled');
             }
 
             else if (stock < 1) {
                 $('#product-stock').text('out of stock').attr('class', 'badge badge-pill badge-danger').css('background-color', 'red', 'color', '#fff');
-                $('button[type="submit"]').attr('disabled', 'disabled');
+                $('.save-cart').attr('disabled', 'disabled');
             }
 
 

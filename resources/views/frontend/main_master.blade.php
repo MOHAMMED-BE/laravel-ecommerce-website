@@ -157,7 +157,7 @@ $seo = App\Models\SeoSetting::find(1);
         </div>
         <div class="modal-footer">
           <input type="hidden" id="product-id">
-          <button type="submit" class="btn btn-primary mb-2" onclick="AddToCart()">Add To Cart</button>
+          <button type="submit" class="btn btn-primary mb-2 save-cart" onclick="AddToCart()">Add To Cart</button>
           <button type="button" class="btn btn-secondary close-modal" data-dismiss="modal">Close</button>
         </div>
       </div>
